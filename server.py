@@ -1,4 +1,5 @@
 #from os import O_NONBLOCK
+from pydoc import describe
 import socket
 from this import d
 from scipy import signal
@@ -103,18 +104,18 @@ import cv2
 vid = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 vid.set(cv2.CAP_PROP_AUTOFOCUS, 0) 
 
-objpoints = np.load('objpoints.csv.npy')
-imgpoints = np.load('imgpoints.csv.npy')
+# objpoints = np.load('objpoints.csv.npy')
+# imgpoints = np.load('imgpoints.csv.npy')
 
 
-print(objpoints)
-print(imgpoints)
+# print(objpoints)
+# print(imgpoints)
 
-ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, (640, 480), None, None)
+# ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, (640, 480), None, None)
 
-ret, img = vid.read()
-h,  w = img.shape[:2]
-newcameramtx, roi = cv2.getOptimalNewCameraMatrix(mtx, dist, (w,h), 1, (w,h))
+# ret, img = vid.read()
+# h,  w = img.shape[:2]
+# newcameramtx, roi = cv2.getOptimalNewCameraMatrix(mtx, dist, (w,h), 1, (w,h))
 
 lastPos = 1
 pos = 78
@@ -147,7 +148,7 @@ vL = 0
 vR = 0
 dR = 20 # Initial distance from right speaker to phone in cm
 init = time.time()
-timestamp = time.strftime("%Y%m%d-%H%M%S")
+timestamp = time.strftime("%d-%m-%Y-%H:%M:%S")
 
 while True:
     start = time.time()
@@ -159,7 +160,7 @@ while True:
         _, _, Sxx = signal.spectrogram(np.array(int_values), fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         dopplerLS = getLSDoppler(Sxx)
         #dopplerRS = getRSDoppler(Sxx)
-        if time.time() - 2 > init:
+        if time.time() - 0.5 > init:
             dL = dL + dopplerLS*dt
         print(dL)
         
@@ -169,12 +170,12 @@ while True:
         start2 = time.time()
         ret, frame = vid.read()
         
-        dst = cv2.undistort(frame, mtx, dist, None, newcameramtx)
-        # crop the image
-        x, y, w, h = roi
-        dst = dst[y:y+h, x:x+w]
+        # dst = cv2.undistort(frame, mtx, dist, None, newcameramtx)
+        # # crop the image
+        # x, y, w, h = roi
+        # dst = dst[y:y+h, x:x+w]
 
-        gray = cv2.cvtColor(dst, cv2.COLOR_BGR2GRAY)    
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)    
         
         ret, binary = cv2.threshold(gray, 55, 255, cv2.THRESH_BINARY)
         eroded = binary.copy()
@@ -182,19 +183,20 @@ while True:
         
         contours, hierarchy = cv2.findContours(eroded, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         blackSquareContour = getBlackSquareContour(contours, gray)
-        cv2.drawContours(dst, contours, -1, (0, 0, 255), 3)    
+        cv2.drawContours(frame, contours, -1, (0, 0, 255), 3)    
         x, y, w, h = cv2.boundingRect(blackSquareContour)
         x = int(x + w/2)
         if cmPerPx == -1:
             cmPerPx = 17.3/w
+            camPos = x
             
-        realPos = (x-528)*cmPerPx + pos
+        realPos = (x-camPos)*cmPerPx + pos
         print(dL, realPos, x)
         
 
         #print(x, y, -(x-582)*cmPerPx + pos)
-        cv2.rectangle(dst,(x,y),(x+w,y+h),(0,255,0),2)
-        cv2.imshow("img", dst)
+        cv2.rectangle(frame, (x,y),(x+w,y+h),(0,255,0),2)
+        cv2.imshow("img", frame)
         cv2.waitKey(1)
         dt = time.time() - start2
         posData.append(dL)
@@ -217,21 +219,36 @@ cv2.destroyAllWindows()
 # timeData = np.loadtxt('timeData.csv', delimiter=',')
 
 
-np.savetxt('data/realPosData' + timestamp + '.csv', realPosData, delimiter=',')
-np.savetxt('data/posData' + timestamp + '.csv', posData, delimiter=',')
-np.savetxt('data/timeData' + timestamp + '.csv', timeData, delimiter=',')
+# np.savetxt('data/realPosData' + timestamp + '.csv', realPosData, delimiter=',')
+# np.savetxt('data/posData' + timestamp + '.csv', posData, delimiter=',')
+# np.savetxt('data/timeData' + timestamp + '.csv', timeData, delimiter=',')
 
+posData = -(np.array(posData) - pos)
+realPosData = -(np.array(realPosData) - pos)
 
 import matplotlib.pyplot as plt
 plt.plot(timeData, posData, 'b')
-plt.plot(timeData, realPosData, 'r')
+#error plt.plot(timeData, np.abs(np.array(posData) - np.array(realPosData)), 'r')
+#plt.plot(timeData, realPosData, 'r')
+plt.fill_between(timeData, realPosData - 0.5, realPosData + 0.5, facecolor='black')
 plt.xlabel("Time (s)")
 plt.ylabel("Position (cm)")
 plt.title("Position over time")
+plt.yticks(np.arange(0, 64, 2))
+plt.grid()
+fig = plt.gcf()
 plt.show()
 
+timestamp = time.strftime("%d-%m-%Y_%H-%M-%S")
+description = input("Enter figure description:\n")
+foldername = 'data/' + timestamp + "_" + description + "/"
+import os
+os.mkdir(foldername)
+fig.savefig(foldername + "figure.png")
+np.savetxt(foldername + "realPosData.csv", realPosData, delimiter=',')
+np.savetxt(foldername + 'posData.csv', posData, delimiter=',')
+np.savetxt(foldername + "timeData.csv", timeData, delimiter=',')
 
-plt.savefig('data/' + qtimestamp)
 # dt = 0
 # dL = 20 # Initial distance from left speaker to phone in cm
 # vL = 0
