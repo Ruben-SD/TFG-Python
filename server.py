@@ -8,6 +8,9 @@ import pygame as pg
 from scipy.io.wavfile import write
 import time
 
+mergedDopplers = []
+usedDopplers = []
+
 pg.mixer.init(frequency=44100, size=-16,channels=2, buffer=4096)
 
 def playSound2(f, speaker='L'):
@@ -45,10 +48,20 @@ def playSound(fStart, fEnd, fHop, speaker='L'):
 
 def getLSDoppler(Sxx):
     dopplerLS = np.array([np.argmax(Sxx[x-100:x+100]) - 100 for x in range(18000, 20000, 200)]) # Get doppler desviation at each frequency
+    dopplerLS = dopplerLS + .23424 #to avoid zeroing
+    an_array=dopplerLS
+    mean = np.mean(an_array)
+    standard_deviation = np.std(an_array)
+    distance_from_mean = abs(an_array - mean)
+    max_deviations = 1.35
+    not_outlier = distance_from_mean < max_deviations * standard_deviation
+    dopplerLS = an_array[not_outlier]
+    dopplerLS = dopplerLS - .23424
     indicesOfBest = np.abs(dopplerLS).argsort()[:5][::-1] # Get indices of 5 greatest desviations (all)
     bestDopplers = dopplerLS[indicesOfBest] # Get 5 greatest desviations
     bestFreqs = indicesOfBest * 200 + 18000 # Compute doppler frequency for each best desviation
     vLS = [((bestDopplers[i]/x)*344.74 * 100) for i, x in enumerate(bestFreqs)] # Compute speed in cm/s for each doppler
+    mergedDopplers.append(vLS)
     #print(np.mean(vLS))
     return np.mean(vLS) # Return mean of computed speeds
 
@@ -92,7 +105,8 @@ def getBlackSquareContour(contours, gray):
         x, y, w, h = cv2.boundingRect(contour)
         mean = cv2.mean(gray[y:y+h, x:x+w])[0]
         area = cv2.contourArea(contour)
-        if area > maxArea and mean < 80:
+
+        if area > maxArea and mean < 80 and 150 <= y <= 300:
             index = i
             maxArea = area
     if index == -1:
@@ -118,7 +132,7 @@ vid.set(cv2.CAP_PROP_AUTOFOCUS, 0)
 # newcameramtx, roi = cv2.getOptimalNewCameraMatrix(mtx, dist, (w,h), 1, (w,h))
 
 lastPos = 1
-pos = 78
+pos = 80
 
 realPosData = []
 posData = []
@@ -156,12 +170,15 @@ while True:
     length = int.from_bytes(data[0:4], "big")
     
     if length == 1796:        
+        if time.time() - 0.5 < init:
+            continue
         int_values = [x for x in data[4:length]]         
         _, _, Sxx = signal.spectrogram(np.array(int_values), fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
-        dopplerLS = getLSDoppler(Sxx)
         #dopplerRS = getRSDoppler(Sxx)
-        if time.time() - 0.5 > init:
-            dL = dL + dopplerLS*dt
+        
+        dopplerLS = getLSDoppler(Sxx)
+        usedDopplers.append(dopplerLS)
+        dL = dL + dopplerLS*dt
         print(dL)
         
         #dR = dR - dopplerRS*dt
@@ -223,18 +240,27 @@ cv2.destroyAllWindows()
 # np.savetxt('data/posData' + timestamp + '.csv', posData, delimiter=',')
 # np.savetxt('data/timeData' + timestamp + '.csv', timeData, delimiter=',')
 
-posData = -(np.array(posData) - pos)
-realPosData = -(np.array(realPosData) - pos)
+posData = -(np.array(posData) - pos - 10)
+realPosData = -(np.array(realPosData) - pos - 10)
+mergedDopplers = [[-doppler for doppler in dopplers] for dopplers in mergedDopplers]
+usedDopplers = [-doppler for doppler in usedDopplers]
 
 import matplotlib.pyplot as plt
 plt.plot(timeData, posData, 'b')
 #error plt.plot(timeData, np.abs(np.array(posData) - np.array(realPosData)), 'r')
 #plt.plot(timeData, realPosData, 'r')
 plt.fill_between(timeData, realPosData - 0.5, realPosData + 0.5, facecolor='black')
+splittedDopplers = [list(dopplers) for dopplers in zip(*mergedDopplers)]
+colors = ('g', 'r', 'c', 'm', 'y')
+for i, dopplers in enumerate(splittedDopplers):
+    print(len(dopplers), len(timeData))
+    plt.plot(timeData, dopplers, colors[i])
+plt.plot(timeData, usedDopplers, 'orange')
+#mostrar una curva por doppler (desviación)
 plt.xlabel("Time (s)")
 plt.ylabel("Position (cm)")
 plt.title("Position over time")
-plt.yticks(np.arange(0, 64, 2))
+#plt.yticks(np.arange(, 64, 2))
 plt.grid()
 fig = plt.gcf()
 plt.show()
@@ -248,6 +274,8 @@ fig.savefig(foldername + "figure.png")
 np.savetxt(foldername + "realPosData.csv", realPosData, delimiter=',')
 np.savetxt(foldername + 'posData.csv', posData, delimiter=',')
 np.savetxt(foldername + "timeData.csv", timeData, delimiter=',')
+np.savetxt(foldername + "mergedDopplers.csv", mergedDopplers, delimiter=',')
+np.savetxt(foldername + "usedDopplers.csv", usedDopplers, delimiter=',')
 
 # dt = 0
 # dL = 20 # Initial distance from left speaker to phone in cm
