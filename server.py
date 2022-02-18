@@ -160,7 +160,7 @@ dt = 0
 dL = pos # Initial distance from left speaker to phone in cm
 vL = 0
 vR = 0
-dR = 20 # Initial distance from right speaker to phone in cm
+dR = 80 # Initial distance from right speaker to phone in cm
 init = time.time()
 timestamp = time.strftime("%d-%m-%Y-%H:%M:%S")
 
@@ -174,12 +174,11 @@ while True:
             continue
         int_values = [x for x in data[4:length]]         
         _, _, Sxx = signal.spectrogram(np.array(int_values), fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
-        #dopplerRS = getRSDoppler(Sxx)
-        
+        dopplerRS = getRSDoppler(Sxx)
+        dR = dR - dopplerRS * dt
         dopplerLS = getLSDoppler(Sxx)
         usedDopplers.append(dopplerLS)
         dL = dL + dopplerLS*dt
-        print(dL)
         
         #dR = dR - dopplerRS*dt
         #TODO NOW debugguear si 1hz doppler = 2cm/s en f correspondiente
@@ -208,7 +207,7 @@ while True:
             camPos = x
             
         realPos = (x-camPos)*cmPerPx + pos
-        print(dL, realPos, x)
+        print(dL, dR, realPos, x)
         
 
         #print(x, y, -(x-582)*cmPerPx + pos)
