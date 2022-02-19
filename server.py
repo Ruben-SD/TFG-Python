@@ -1,5 +1,6 @@
 #from os import O_NONBLOCK
 from pydoc import describe
+from random import sample
 import socket
 from this import d
 from scipy import signal
@@ -37,6 +38,14 @@ def playSound(fStart, fEnd, fHop, speaker='L'):
             finalSamples -= np.array([4096 * np.sin(2.0 * np.pi * f * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
         sumar = False
         f += fHop
+    samples = []
+    for i in range(0, 44100, 100):
+        samples = samples + [4096 * np.sin(2.0 * np.pi * 17800 * x / sampleRate) for x in range(i, i + 50)]
+        samples = samples + [0 for x in range(i, i + 50)]
+        if i > 44100: 
+            break
+        #finalSamples -= np.array([0 for x in range(i + 100, i + 200)]).astype(np.int16)
+    finalSamples -= np.array(samples).astype(np.int16)
     arr2 = np.c_[finalSamples, finalSamples] # Make stereo samples
     sound = pg.mixer.Sound(arr2)
     channel = 0 if speaker == 'L' else 1
