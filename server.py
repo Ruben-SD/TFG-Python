@@ -24,19 +24,20 @@ def playSound2(f, speaker='L'):
         pgChannel.set_volume(0.0, 0.5)
 
 def playSound(fStart, fEnd, fHop, speaker='L'):
+    # [fStart, fEnd)
     sampleRate = 44100
     f = fStart
     finalSamples = np.array([4096 * np.sin(2.0 * np.pi * f * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
     sumar = True
     f += fHop
     while f != fEnd:
-        if sumar: 
+        if sumar: # Don't add always so as to not overflow int16 range
             finalSamples += np.array([4096 * np.sin(2.0 * np.pi * f * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
         else: 
             finalSamples -= np.array([4096 * np.sin(2.0 * np.pi * f * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
         sumar = False
         f += fHop
-    arr2 = np.c_[finalSamples, finalSamples]
+    arr2 = np.c_[finalSamples, finalSamples] # Make stereo samples
     sound = pg.mixer.Sound(arr2)
     channel = 0 if speaker == 'L' else 1
     pgChannel = pg.mixer.Channel(channel)
@@ -160,7 +161,7 @@ dt = 0
 dL = pos # Initial distance from left speaker to phone in cm
 vL = 0
 vR = 0
-dR = 20 # Initial distance from right speaker to phone in cm
+dR = 80 # Initial distance from right speaker to phone in cm
 init = time.time()
 timestamp = time.strftime("%d-%m-%Y-%H:%M:%S")
 
@@ -174,12 +175,11 @@ while True:
             continue
         int_values = [x for x in data[4:length]]         
         _, _, Sxx = signal.spectrogram(np.array(int_values), fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
-        #dopplerRS = getRSDoppler(Sxx)
-        
+        dopplerRS = getRSDoppler(Sxx)
+        dR = dR - dopplerRS * dt
         dopplerLS = getLSDoppler(Sxx)
         usedDopplers.append(dopplerLS)
         dL = dL + dopplerLS*dt
-        print(dL)
         
         #dR = dR - dopplerRS*dt
         #TODO NOW debugguear si 1hz doppler = 2cm/s en f correspondiente
@@ -208,7 +208,7 @@ while True:
             camPos = x
             
         realPos = (x-camPos)*cmPerPx + pos
-        print(dL, realPos, x)
+        print(dL, dR, realPos, x)
         
 
         #print(x, y, -(x-582)*cmPerPx + pos)
