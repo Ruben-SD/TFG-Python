@@ -153,7 +153,7 @@ cmPerPx = -1
 
 
 #Left speaker tones
-playSound(18000, 20000, 200, 'L')
+#playSound(18000, 20000, 200, 'L')
 #playSound(20000, 22000, 200, 'R')
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -166,6 +166,7 @@ sock = socket.socket(socket.AF_INET, # Internet
 sock.bind((UDP_IP, UDP_PORT))
 print("Listening on: ", UDP_IP, ":", UDP_PORT)
 
+
 dt = 0
 dL = pos # Initial distance from left speaker to phone in cm
 vL = 0
@@ -174,14 +175,30 @@ dR = 80 # Initial distance from right speaker to phone in cm
 init = time.time()
 timestamp = time.strftime("%d-%m-%Y-%H:%M:%S")
 i = 0
-a = -1
+arr2 = np.c_[np.ones(44100) * 40960, np.ones(44100) * 40960] # Make stereo samples
+sound = pg.mixer.Sound(arr2)
+
+pgChannel = pg.mixer.Channel(0)
+
+a  = time.time()
 while True:
+    if time.time() - a > 3:
+        pgChannel.set_volume(0, 0.5)
+        pgChannel.play(sound, -1)
+        
     start = time.perf_counter_ns()
     data = sock.recv(2048)     
     x = [0, 0, 0, data[0]]
+    s = [0, 0, 0, data[1]]
     
     length = int.from_bytes(x, "big")
-    print(length, i)
+    sound2 = int.from_bytes(s, "big")
+    
+    if abs(128 - sound2) > 3:        
+        dt = time.perf_counter_ns() - start
+        print((dt*344.44*100)/10e9)
+        break
+    
     if (length != i and i != 0 ):
         break
     if length == i:
