@@ -38,14 +38,14 @@ def playSound(fStart, fEnd, fHop, speaker='L'):
             finalSamples -= np.array([4096 * np.sin(2.0 * np.pi * f * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
         sumar = False
         f += fHop
-    samples = []
-    for i in range(0, 44100, 100):
-        samples = samples + [4096 * np.sin(2.0 * np.pi * 17800 * x / sampleRate) for x in range(i, i + 50)]
-        samples = samples + [0 for x in range(i, i + 50)]
-        if i > 44100: 
-            break
-        #finalSamples -= np.array([0 for x in range(i + 100, i + 200)]).astype(np.int16)
-    finalSamples -= np.array(samples).astype(np.int16)
+    # samples = []
+    # for i in range(0, 44100, 100):
+    #     samples = samples + [4096 * np.sin(2.0 * np.pi * 17800 * x / sampleRate) for x in range(i, i + 50)]
+    #     samples = samples + [0 for x in range(i, i + 50)]
+    #     if i > 44100: 
+    #         break
+    #     #finalSamples -= np.array([0 for x in range(i + 100, i + 200)]).astype(np.int16)
+    # finalSamples -= np.array(samples).astype(np.int16)
     arr2 = np.c_[finalSamples, finalSamples] # Make stereo samples
     sound = pg.mixer.Sound(arr2)
     channel = 0 if speaker == 'L' else 1
@@ -173,71 +173,82 @@ vR = 0
 dR = 80 # Initial distance from right speaker to phone in cm
 init = time.time()
 timestamp = time.strftime("%d-%m-%Y-%H:%M:%S")
-
+i = 0
+a = -1
 while True:
-    start = time.time()
+    start = time.perf_counter_ns()
     data = sock.recv(2048)     
-    length = int.from_bytes(data[0:4], "big")
+    x = [0, 0, 0, data[0]]
     
-    if length == 1796:        
-        if time.time() - 0.5 < init:
-            continue
-        int_values = [x for x in data[4:length]]         
-        _, _, Sxx = signal.spectrogram(np.array(int_values), fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
-        dopplerRS = getRSDoppler(Sxx)
-        dR = dR - dopplerRS * dt
-        dopplerLS = getLSDoppler(Sxx)
-        usedDopplers.append(dopplerLS)
-        dL = dL + dopplerLS*dt
-        
-        #dR = dR - dopplerRS*dt
-        #TODO NOW debugguear si 1hz doppler = 2cm/s en f correspondiente
+    length = int.from_bytes(x, "big")
+    print(length, i)
+    if (length != i and i != 0 ):
+        break
+    if length == i:
+        if i == 255:
+            i = -1
 
-        start2 = time.time()
-        ret, frame = vid.read()
         
-        # dst = cv2.undistort(frame, mtx, dist, None, newcameramtx)
-        # # crop the image
-        # x, y, w, h = roi
-        # dst = dst[y:y+h, x:x+w]
+        # if time.time() - 0.5 < init:
+        #     continue
+        # int_values = [x for x in data[4:length]]         
+        # _, _, Sxx = signal.spectrogram(np.array(int_values), fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
+        
+        # dopplerRS = getRSDoppler(Sxx)
+        # dR = dR - dopplerRS * dt
+        # dopplerLS = getLSDoppler(Sxx)
+        # usedDopplers.append(dopplerLS)
+        # dL = dL + dopplerLS*dt
+        
+        # #dR = dR - dopplerRS*dt
+        # #TODO NOW debugguear si 1hz doppler = 2cm/s en f correspondiente
 
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)    
+        # start2 = time.time()
+        # ret, frame = vid.read()
         
-        ret, binary = cv2.threshold(gray, 55, 255, cv2.THRESH_BINARY)
-        eroded = binary.copy()
-        cv2.erode(binary, np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1]), eroded)
+        # # dst = cv2.undistort(frame, mtx, dist, None, newcameramtx)
+        # # # crop the image
+        # # x, y, w, h = roi
+        # # dst = dst[y:y+h, x:x+w]
+
+        # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)    
         
-        contours, hierarchy = cv2.findContours(eroded, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        blackSquareContour = getBlackSquareContour(contours, gray)
-        cv2.drawContours(frame, contours, -1, (0, 0, 255), 3)    
-        x, y, w, h = cv2.boundingRect(blackSquareContour)
-        x = int(x + w/2)
-        if cmPerPx == -1:
-            cmPerPx = 17.3/w
-            camPos = x
+        # ret, binary = cv2.threshold(gray, 55, 255, cv2.THRESH_BINARY)
+        # eroded = binary.copy()
+        # cv2.erode(binary, np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1]), eroded)
+        
+        # contours, hierarchy = cv2.findContours(eroded, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        # blackSquareContour = getBlackSquareContour(contours, gray)
+        # cv2.drawContours(frame, contours, -1, (0, 0, 255), 3)    
+        # x, y, w, h = cv2.boundingRect(blackSquareContour)
+        # x = int(x + w/2)
+        # if cmPerPx == -1:
+        #     cmPerPx = 17.3/w
+        #     camPos = x
             
-        realPos = (x-camPos)*cmPerPx + pos
-        print(dL, dR, realPos, x)
+        # realPos = (x-camPos)*cmPerPx + pos
+        # #print(dL, dR, realPos, x)
         
 
-        #print(x, y, -(x-582)*cmPerPx + pos)
-        cv2.rectangle(frame, (x,y),(x+w,y+h),(0,255,0),2)
-        cv2.imshow("img", frame)
-        cv2.waitKey(1)
-        dt = time.time() - start2
-        posData.append(dL)
-        realPosData.append(realPos)
-        timeData.append(time.time() - startTime)
+        # #print(x, y, -(x-582)*cmPerPx + pos)
+        # cv2.rectangle(frame, (x,y),(x+w,y+h),(0,255,0),2)
+        # cv2.imshow("img", frame)
+        # cv2.waitKey(1)
+        # dt = time.time() - start2
+        # posData.append(dL)
+        # realPosData.append(realPos)
+        # timeData.append(time.time() - startTime)
         
     
-        speed = ((x - lastPos)*cmPerPx)/dt
-        #print("Speed = ", speed, " cm/s")
-        lastPos = x
-        import keyboard
-        if keyboard.is_pressed('q'):
-            break
-    #print("FPS: ", 1/(time.time() - start))
-    dt = time.time() - start
+        # speed = ((x - lastPos)*cmPerPx)/dt
+        # #print("Speed = ", speed, " cm/s")
+        # lastPos = x
+        # import keyboard
+        # if keyboard.is_pressed('q'):
+        #     break
+        i += 1
+        # print("FPS: ", (time.perf_counter_ns() - start)/1000)
+        # dt = time.perf_counter_ns() - start
 vid.release()
 cv2.destroyAllWindows()
 
