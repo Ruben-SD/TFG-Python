@@ -57,7 +57,7 @@ def getDoppler(Sxx, freqs, bremove_outliers=True):
     hJ = int(jump/2.5)
     # Get displacement in Hz from original frequencies for each wave
     dopplerXS = np.array([np.argmax(Sxx[x-hJ:x+hJ]) - hJ for x in range(*freqs)])
-    print(dopplerXS)
+    #print(dopplerXS)
     not_outliers = np.ones(len(dopplerXS), dtype=bool)
     if bremove_outliers and not np.all(np.isclose(dopplerXS, dopplerXS[0])): # Do this check so it doesn't return an empty list
         not_outliers = remove_outliers(dopplerXS)
@@ -65,6 +65,7 @@ def getDoppler(Sxx, freqs, bremove_outliers=True):
     # indicesOfBest = np.abs(dopplerXS).argsort()[:5][::-1] # Get the 
     # bestDopplers = dopplerXS[indicesOfBest]
     #ojo q se están borrando algunos...
+    #filter 1Hz?
     
     bestFreqs = np.arange((freqs[1] - freqs[0])/freqs[2]) * freqs[2] + freqs[0]
     
@@ -96,7 +97,7 @@ vid = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 vid.set(cv2.CAP_PROP_AUTOFOCUS, 0) 
 
 lastPos = 1
-pos = 80
+pos = 33
 
 realPosData = []
 posDataL = []
@@ -129,17 +130,17 @@ dt = 0
 dL = pos # Initial distance from left speaker to phone in cm
 vL = 0
 vR = 0
-dR = 80 # Initial distance from right speaker to phone in cm
+dR = dL # Initial distance from right speaker to phone in cm
 init = time.time()
 timestamp = time.strftime("%d-%m-%Y-%H:%M:%S")
-
+D = 46
 while True:
     start = time.time()
     data = sock.recv(2048)     
     length = int.from_bytes(data[0:4], "big")
     
     if length == 1796:        
-        if time.time() - 1 < init:
+        if time.time() - 1.5 < init:
             continue
         int_values = [x for x in data[4:length]]         
         _, _, Sxx = signal.spectrogram(np.array(int_values), fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
@@ -148,9 +149,14 @@ while True:
         dopplerRS = getDoppler(Sxx, rFreqs)
         dL += dopplerLS * dt
         dR += dopplerRS * dt
+
+        theta = np.arccos((dL*dL+D*D-dR*dR)/(2*D*dL))
+        (x1, y1) = (dL * np.cos(theta), dL * np.sin(theta))
+        #(x2, y2) = (dL * np.cos(-theta), dL * np.sin(-theta))
         
+        print(f"dL:{dL}, dR:{dR} P:{x1}, {y1}")
+
         usedDopplers.append(dopplerLS)
-        #dR = dR - dopplerRS*dt
         #TODO NOW debugguear si 1hz doppler = 2cm/s en f correspondiente
 
         start2 = time.time()
@@ -161,37 +167,38 @@ while True:
         # x, y, w, h = roi
         # dst = dst[y:y+h, x:x+w]
 
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)    
+        # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)    
         
-        ret, binary = cv2.threshold(gray, 55, 255, cv2.THRESH_BINARY)
-        eroded = binary.copy()
-        cv2.erode(binary, np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1]), eroded)
+        # ret, binary = cv2.threshold(gray, 55, 255, cv2.THRESH_BINARY)
+        # eroded = binary.copy()
+        # cv2.erode(binary, np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1]), eroded)
         
-        contours, hierarchy = cv2.findContours(eroded, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        blackSquareContour = getBlackSquareContour(contours, gray)
-        cv2.drawContours(frame, contours, -1, (0, 0, 255), 3)    
-        x, y, w, h = cv2.boundingRect(blackSquareContour)
-        x = int(x + w/2)
-        if cmPerPx == -1:
-            cmPerPx = 17.3/w
-            camPos = x
+        # contours, hierarchy = cv2.findContours(eroded, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        # blackSquareContour = getBlackSquareContour(contours, gray)
+        # cv2.drawContours(frame, contours, -1, (0, 0, 255), 3)    
+        # x, y, w, h = cv2.boundingRect(blackSquareContour)
+        # x = int(x + w/2)
+        # y = int(y + h/2)
+        # if cmPerPx == -1:
+        #     cmPerPx = 17.3/w
+        #     camPos = x
             
-        realPos = (x-camPos)*cmPerPx + pos
-        print(dL, dR, realPos, x)
+        # realPos = (x-camPos)*cmPerPx + pos
+        # print(dL, dR, realPos, x)
         
 
         #print(x, y, -(x-582)*cmPerPx + pos)
-        cv2.rectangle(frame, (x,y),(x+w,y+h),(0,255,0),2)
-        cv2.imshow("img", frame)
-        cv2.waitKey(1)
+        # cv2.rectangle(frame, (x,y),(x+w,y+h),(0,255,0),2)
+        # cv2.imshow("img", frame)
+        # cv2.waitKey(1)
         dt = time.time() - start2
         posDataL.append(dL)
         posDataR.append(dR)
-        realPosData.append(realPos)
+        #realPosData.append(realPos)
         timeData.append(time.time() - startTime)
         
     
-        speed = ((x - lastPos)*cmPerPx)/dt
+       # speed = ((x - lastPos)*cmPerPx)/dt
         #print("Speed = ", speed, " cm/s")
         lastPos = x
         import keyboard
