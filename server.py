@@ -83,7 +83,7 @@ def getBlackSquareContour(contours, gray):
         mean = cv2.mean(gray[y:y+h, x:x+w])[0]
         area = cv2.contourArea(contour)
 
-        if area > maxArea and mean < 80 and 150 <= y <= 300:
+        if area > maxArea and mean < 80:
             index = i
             maxArea = area
     if index == -1:
@@ -96,7 +96,8 @@ vid = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 vid.set(cv2.CAP_PROP_AUTOFOCUS, 0) 
 
 lastPos = 1
-pos = 80
+posX = 77
+posY = 10
 
 realPosData = []
 posDataL = []
@@ -104,7 +105,21 @@ posDataR = []
 timeData = []
 
 startTime = time.time()
-cmPerPx = -1
+cmPerPxX = -1
+cmPerPxY = -1
+
+objpoints = np.load('objpoints.csv.npy')
+imgpoints = np.load('imgpoints.csv.npy')
+
+
+print(objpoints)
+print(imgpoints)
+
+ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, (640, 480), None, None)
+
+ret, img = vid.read()
+h,  w = img.shape[:2]
+newcameramtx, roi = cv2.getOptimalNewCameraMatrix(mtx, dist, (w,h), 1, (w,h))
 
 
 #Left speaker tones
@@ -126,10 +141,10 @@ sock.bind((UDP_IP, UDP_PORT))
 print("Listening on: ", UDP_IP, ":", UDP_PORT)
 
 dt = 0
-dL = pos # Initial distance from left speaker to phone in cm
+dL = posX # Initial distance from left speaker to phone in cm
 vL = 0
 vR = 0
-dR = 80 # Initial distance from right speaker to phone in cm
+dR = 77 # Initial distance from right speaker to phone in cm
 init = time.time()
 timestamp = time.strftime("%d-%m-%Y-%H:%M:%S")
 
@@ -172,12 +187,16 @@ while True:
         cv2.drawContours(frame, contours, -1, (0, 0, 255), 3)    
         x, y, w, h = cv2.boundingRect(blackSquareContour)
         x = int(x + w/2)
-        if cmPerPx == -1:
-            cmPerPx = 17.3/w
-            camPos = x
-            
-        realPos = (x-camPos)*cmPerPx + pos
-        print(dL, dR, realPos, x)
+        if cmPerPxX == -1:
+            cmPerPxX = 17.3/w
+            camPosX = x
+            camPosY = y
+        
+        cmPerPxY = 0.125
+        print(cmPerPxY)         
+        realPosX = (x-camPosX)*cmPerPxX + posX
+        realPosY = -(y-camPosY)*cmPerPxY + posY
+        print(dL, dR, realPosX, realPosY)
         
 
         #print(x, y, -(x-582)*cmPerPx + pos)
@@ -187,11 +206,11 @@ while True:
         dt = time.time() - start2
         posDataL.append(dL)
         posDataR.append(dR)
-        realPosData.append(realPos)
+        realPosData.append(realPosX)
         timeData.append(time.time() - startTime)
         
     
-        speed = ((x - lastPos)*cmPerPx)/dt
+        #speed = ((x - lastPos)*cmPerPx)/dt
         #print("Speed = ", speed, " cm/s")
         lastPos = x
         import keyboard
