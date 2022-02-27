@@ -24,7 +24,8 @@ class Predictor(Positioner):
         #TODO self.position.add_speed(vx * dt, vy * dt)   
         
         self.move_by((speeds[0] * dt, speeds[1] * dt))
-        plotter.add_sample('predicted_x_position', self.position[0])
+    
+        plotter.add_sample('predicted_x_position', self.get_distance())
         return self.get_distance()
 
     def __del__(self):

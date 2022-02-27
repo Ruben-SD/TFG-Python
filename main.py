@@ -17,7 +17,7 @@ while not keyboard.is_pressed('q'):
     predicted_position = predictor.update_position(delta_time)
     real_position = ground_truth.update_position(delta_time)
     
-    print(f"Predicted position: {predicted_position} Real position: {real_position}")
+    print(f"Predicted distance: {predicted_position} Real distance: {real_position}")
     
 del predictor
 del ground_truth

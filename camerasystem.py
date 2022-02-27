@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from positioner import Positioner
+from plotter import *
 
 class CameraSystem(Positioner):
     def __init__(self, config):
@@ -11,10 +12,12 @@ class CameraSystem(Positioner):
         _, first_frame = self.cam.read()
         self.cm_per_width_px = self.get_cm_per_smartphone_px_width(first_frame)
         self.initial_smartphone_cam_pos, _ = self.get_smartphone_img_coords(first_frame)
+        plotter.add_data('real_x_position', [], plot=True)
 
     def update_position(self, dt):
         x = self.get_smartphone_world_position()
         self.set_position((x, 0))
+        plotter.add_sample('real_x_position', self.get_distance())
         return self.get_distance()
 
     def get_smartphone_world_position(self):
