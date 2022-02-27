@@ -1,0 +1,30 @@
+{
+  "smartphone": {
+    "position": [
+      {
+        "x": 75
+      }
+    ],
+    "distance": [
+      {
+        "x": 15
+      }
+    ],
+    "dims": {
+      "length": 17.3,
+      "width": 7.8
+    }
+  },
+  "speakers": [
+    {
+      "name": "left",
+      "frequencies": [
+        18000,
+        18200,
+        18400,
+        18600,
+        18800
+      ]
+    }
+  ]
+}

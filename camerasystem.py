@@ -16,7 +16,7 @@ class CameraSystem(Positioner):
 
     def update_position(self, dt):
         x = self.get_smartphone_world_position()
-        self.set_position((x, 0))
+        self.set_position([x, 0, 0])
         plotter.add_sample('real_x_position', self.get_distance())
         return self.get_distance()
 

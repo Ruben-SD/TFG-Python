@@ -19,11 +19,11 @@ class Predictor(Positioner):
     #TODO abstract to update_measurement
     def update_position(self, dt):
         sound_samples = self.receiver.read_packet()
-        speeds = DopplerAnalyzer.get_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
+        speeds = DopplerAnalyzer.get_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers]) + [0]
         # asbtract to measurement
         #TODO self.position.add_speed(vx * dt, vy * dt)   
         
-        self.move_by((speeds[0] * dt, speeds[1] * dt))
+        self.move_by(np.array(speeds) * dt)
     
         plotter.add_sample('predicted_x_position', self.get_distance())
         return self.get_distance()
