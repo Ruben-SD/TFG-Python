@@ -21,7 +21,7 @@ class DopplerAnalyzer:
         
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[x-flw:x+flw]) - flw for x in frequencies])
-        
+        frequency_displacements[np.abs(frequency_displacements) <= 1] = 0
         not_outliers = np.ones(len(frequency_displacements), dtype=bool)
         if bremove_outliers and not np.all(np.isclose(frequency_displacements, frequency_displacements[0])): # Do this check so it doesn't return an empty list
             not_outliers = DopplerAnalyzer.remove_outliers(frequency_displacements)
