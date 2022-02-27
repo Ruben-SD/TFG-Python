@@ -74,11 +74,17 @@ class Receiver:
         temp_socket.close()
         return pc_ip_address
 
-
 class Positioner:
     def __init__(self):
         position_config = config['smartphone']['position'] 
-        self.position = position_config['x'], position_config['y']
+        self.initial_position = position_config['x'], position_config['y']
+        self.position = self.initial_position
+
+    def set_position(self, position):
+        self.position = tuple([sum(x) for x in zip(self.initial_position, position)])
+
+    def move_by(self, amount):
+        self.position = self.position[0] + amount[0], self.position[1] + amount[1]
 
     def update_position(self, dt):
         pass
@@ -99,6 +105,7 @@ class Predictor(Positioner):
         speeds = DopplerAnalyzer.get_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])#, 
         # asbtract to measurement
         #self.position.add_speed(vx * dt, vy * dt)
+        print(speeds)
 #todo   
         self.position = (self.position[0] + speeds[0] * dt, 0)
         return self.position
@@ -167,13 +174,13 @@ class CameraSystem(Positioner):
 
     def update_position(self, dt):
         x = self.get_smartphone_world_position()
-        #self.position.set(x, y)
+        self.set_position((x, 0))
         return self.position
 
     def get_smartphone_world_position(self):
         _, frame = self.cam.read()
-        (x, y) = self.get_smartphone_img_coords(frame)        
-        current_position = (x - self.initial_smartphone_cam_pos) * self.cm_per_width_px + self.initial_world_position
+        (x, y) = self.get_smartphone_img_coords(frame)  
+        current_position = (x - self.initial_smartphone_cam_pos) * self.cm_per_width_px
         return current_position #x, ycalc))
 
     def get_smartphone_img_coords(self, frame):
@@ -253,16 +260,15 @@ with open('config.json', 'r') as f:
 frame_timer = FrameTimer()
 
 predictor = Predictor(config)
-#ground_truth = CameraSystem(config)
-
+ground_truth = CameraSystem(config)
 
 while True:
     delta_time = frame_timer.mark()
 
     predicted_position = predictor.update_position(delta_time)
- #   real_position = ground_truth.update_position(delta_time)
+    real_position = ground_truth.update_position(delta_time)
     
-    print(f" Predicted position: {predicted_position}")
+    print(f" Predicted position: {predicted_position} Real position: {real_position}")
     
     # command = gui.update(tracker.get_visualization())
     
