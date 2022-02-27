@@ -22,18 +22,19 @@ class Speaker:
     def __init__(self, config):
         self.config = SpeakerConfig(config)
 
-    def playSound(self):        
+    def play_sound(self):        
         audio_samples = self.get_audio_samples_of_frequencies(self.config.get_frequencies())
         sound = pygame.mixer.Sound(audio_samples)
-        pgChannel = pygame.mixer.Channel(self.config.get_channel())
-        pgChannel.play(sound, -1)
+        channel = pygame.mixer.Channel(self.config.get_channel())
+        channel.play(sound, -1)
+        channel.set_volume(0.45, 0)
 
     def get_audio_samples_of_frequencies(self, frequencies):
         # [fStart, fEnd]
         sampleRate = 44100
         current_frequency = frequencies[0]
         samples = np.array([4096 * np.sin(2.0 * np.pi * current_frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
-        for frequency in frequencies[:-1]:
+        for frequency in frequencies[1:-1]:
             samples -= np.array([4096 * np.sin(2.0 * np.pi * frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
         # Add last (instead of substract) samples in order to not overflow int16 range
         current_frequency = frequencies[-1]
@@ -76,7 +77,8 @@ class Receiver:
 
 class Positioner:
     def __init__(self):
-        self.position = (0, 0) #system_settings
+        position_config = config['smartphone']['position'] 
+        self.position = position_config['x'], position_config['y']
 
     def update_position(self, dt):
         pass
@@ -84,17 +86,21 @@ class Positioner:
 
 class Predictor(Positioner):
     def __init__(self, config):
+        super().__init__()
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
         self.speakers = [Speaker(speaker_config) for speaker_config in config['speakers']]
+        for speaker in self.speakers:
+            speaker.play_sound()
         self.receiver = Receiver()
 
     #TODO abstract to update_measurement
     def update_position(self, dt):
-        sound_samples = self.receiver.get_data()
+        sound_samples = self.receiver.read_packet()
         speeds = DopplerAnalyzer.get_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])#, 
         # asbtract to measurement
         #self.position.add_speed(vx * dt, vy * dt)
-#todo
+#todo   
+        self.position = (self.position[0] + speeds[0] * dt, 0)
         return self.position
 
     def __del__(self):
@@ -106,7 +112,7 @@ class DopplerAnalyzer:
         pass
 
     @staticmethod
-    def get_speed_from(audio_samples, all_frequencies):
+    def get_speeds_from(audio_samples, all_frequencies):
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         speeds = []
         for frequencies in all_frequencies:
@@ -136,6 +142,7 @@ class DopplerAnalyzer:
         
         # Doppler effect formula to compute speed in cm/s
         speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)]) # select best frequencies
+        
         #get_bests() clases para cada tipo de selección
         return np.mean(speeds[not_outliers])
 
@@ -150,17 +157,17 @@ class DopplerAnalyzer:
 
 class CameraSystem(Positioner):
     def __init__(self, config):
+        super().__init__()
         self.SMARTPHONE_WIDTH_CM = config['smartphone']['dims']['length']
         self.cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         self.cam.set(cv2.CAP_PROP_AUTOFOCUS, 0) 
         _, first_frame = self.cam.read()
         self.cm_per_width_px = self.get_cm_per_smartphone_px_width(first_frame)
-        self.initial_smartphone_cam_pos = self.get_initial_smartphone_cam_pos(first_frame)
-        self.initial_world_position = config['smartphone']['position']['x']
+        self.initial_smartphone_cam_pos, _ = self.get_smartphone_img_coords(first_frame)
 
     def update_position(self, dt):
-        x, y = self.get_smartphone_world_position()
-        self.position.set(x, y)
+        x = self.get_smartphone_world_position()
+        #self.position.set(x, y)
         return self.position
 
     def get_smartphone_world_position(self):
@@ -169,7 +176,7 @@ class CameraSystem(Positioner):
         current_position = (x - self.initial_smartphone_cam_pos) * self.cm_per_width_px + self.initial_world_position
         return current_position #x, ycalc))
 
-    def get_smartphone_coords(self, frame):
+    def get_smartphone_img_coords(self, frame):
         x, y, w, h = self.get_smartphone_bounding_rect(frame)
         x = int(x + w/2)
         y = int(y + h/2)
@@ -217,10 +224,6 @@ class CameraSystem(Positioner):
         width, _ = self.get_smartphone_dims(img)
         return self.SMARTPHONE_WIDTH_CM/width
 
-    def get_initial_smartphone_cam_pos(self, img):
-        x, _ = self.get_smartphone_coords(img)
-        return x
-
     def __del__(self):
         self.cam.release()
     
@@ -239,7 +242,7 @@ class FrameTimer:
 
     def mark(self):
         delta_time = time.time() - self.last_frame_time
-        print("FPS: ", 1/delta_time)
+        #print("FPS: ", 1/delta_time)
         self.last_frame_time = time.time()
         return delta_time
 
@@ -250,16 +253,16 @@ with open('config.json', 'r') as f:
 frame_timer = FrameTimer()
 
 predictor = Predictor(config)
-ground_truth = CameraSystem(config)
+#ground_truth = CameraSystem(config)
 
 
 while True:
     delta_time = frame_timer.mark()
 
-    predicted_pos = predictor.update(delta_time)
-    real_pos = ground_truth.update(delta_time)
+    predicted_position = predictor.update_position(delta_time)
+ #   real_position = ground_truth.update_position(delta_time)
     
-    
+    print(f" Predicted position: {predicted_position}")
     
     # command = gui.update(tracker.get_visualization())
     
