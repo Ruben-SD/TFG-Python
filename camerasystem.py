@@ -15,7 +15,7 @@ class CameraSystem(Positioner):
     def update_position(self, dt):
         x = self.get_smartphone_world_position()
         self.set_position((x, 0))
-        return self.position
+        return self.get_distance()
 
     def get_smartphone_world_position(self):
         _, frame = self.cam.read()
