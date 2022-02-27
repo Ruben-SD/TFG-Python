@@ -1,0 +1,1 @@
+{"pos": [[1, 2, 3], [4, 5, 6]], "config": {"smartphone": {"position": {"x": 75, "y": 10}, "dims": {"length": 17.3, "width": 7.8}}, "speakers": [{"name": "left", "frequencies": [18000, 18200, 18400, 18600, 18800]}, {"name": "right", "frequencies": [19000, 19200, 19400, 19600, 19800]}]}, "description": "w"}

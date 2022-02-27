@@ -1,0 +1,75 @@
+import cv2
+import numpy as np
+from positioner import Positioner
+
+class CameraSystem(Positioner):
+    def __init__(self, config):
+        super().__init__(config)
+        self.SMARTPHONE_WIDTH_CM = config['smartphone']['dims']['length']
+        self.cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        self.cam.set(cv2.CAP_PROP_AUTOFOCUS, 0) 
+        _, first_frame = self.cam.read()
+        self.cm_per_width_px = self.get_cm_per_smartphone_px_width(first_frame)
+        self.initial_smartphone_cam_pos, _ = self.get_smartphone_img_coords(first_frame)
+
+    def update_position(self, dt):
+        x = self.get_smartphone_world_position()
+        self.set_position((x, 0))
+        return self.position
+
+    def get_smartphone_world_position(self):
+        _, frame = self.cam.read()
+        (x, y) = self.get_smartphone_img_coords(frame)  
+        current_position = (x - self.initial_smartphone_cam_pos) * self.cm_per_width_px
+        return current_position #x, ycalc))
+
+    def get_smartphone_img_coords(self, frame):
+        x, y, w, h = self.get_smartphone_bounding_rect(frame)
+        x = int(x + w/2)
+        y = int(y + h/2)
+        return (x, y)
+
+    def get_smartphone_dims(self, frame):
+        _, _, w, h = self.get_smartphone_bounding_rect(frame)
+        return (w, h)
+
+    def get_smartphone_bounding_rect(self, frame):
+        binary = self.binarize_image(frame)
+        improved = self.improve_binary_img(binary)
+        contours, _ = cv2.findContours(improved, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        smartphone_contour = self.get_smartphone_contour(contours, frame)
+        x, y, w, h = cv2.boundingRect(smartphone_contour)
+        return (x, y, w, h)
+
+    def binarize_image(self, img):
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)            
+        _, binary = cv2.threshold(gray, 55, 255, cv2.THRESH_BINARY)
+        return binary
+
+    def improve_binary_img(self, binary):
+        eroded = cv2.erode(binary, np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1]))
+        return eroded
+
+    @staticmethod #TODO Could take into consideration smartphone dimensions to improve detection
+    def get_smartphone_contour(contours, img):
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)    
+        maxArea = -1
+        index = -1
+        for i, contour in enumerate(contours):
+            x, y, w, h = cv2.boundingRect(contour)
+            mean = cv2.mean(gray[y:y+h, x:x+w])[0]
+            area = cv2.contourArea(contour)
+            if area > maxArea and mean < 80 and 150 <= y <= 300:
+                index = i
+                maxArea = area
+
+        if index == -1:
+            raise ValueError("Cannot find smartphone shaped black contour in image")
+        return contours[index]
+
+    def get_cm_per_smartphone_px_width(self, img):
+        width, _ = self.get_smartphone_dims(img)
+        return self.SMARTPHONE_WIDTH_CM/width
+
+    def __del__(self):
+        self.cam.release()
