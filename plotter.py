@@ -9,7 +9,7 @@ class Plotter:
         self.start_timestamp = time.strftime("%d-%m-%Y_%H-%M-%S")
         self.data_dictionary = {}
         self.SAVED_DATA_PATH = './saved_data/'
-        self.data_names_to_plot = []
+        self.data_dictionary['data_names_to_plot'] = []
 
     def plot(self):
         plt.xlabel("Time (s)")
@@ -17,14 +17,18 @@ class Plotter:
         plt.title("Position over time")
         plt.grid()
         time_data = self.data_dictionary['time']
-        for data_name in self.data_names_to_plot:
+        for data_name in self.data_dictionary['data_names_to_plot']:
             data = self.data_dictionary[data_name]
-            plt.plot(time_data, data)
+            print(data_name)
+            print(data)
+            if data_name == 'real_x_position':
+                plt.fill_between(time_data, data - 1, data + 1, facecolor='black')
+            else: plt.plot(time_data, data)
         plt.show()
 
     def add_data(self, name, data, plot=False):
         if plot: 
-            self.data_names_to_plot.append(name)
+            self.data_dictionary['data_names_to_plot'].append(name)
         self.data_dictionary[name] = data
 
     def add_sample(self, name, sample):
@@ -38,8 +42,9 @@ class Plotter:
                 else:
                     return obj.item()
             raise TypeError('Unknown type:', type(obj))
-        input()
+
         self.data_dictionary['description'] = input("Enter data description: ")
+        
         file_path = self.SAVED_DATA_PATH  + self.start_timestamp + '.json'
         with open(file_path, 'w') as f:
             json.dump(self.data_dictionary, f, default=serialize)
@@ -55,6 +60,5 @@ class Plotter:
         for key, value in self.data_dictionary.items():
             if isinstance(value, list):
                 self.data_dictionary[key] = np.array(value)
-        print(self.data_dictionary)
 
 plotter = Plotter()

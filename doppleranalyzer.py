@@ -10,13 +10,12 @@ class DopplerAnalyzer:
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         speeds = []
         for frequencies in all_frequencies:
-            dopplers = DopplerAnalyzer.get_doppler_of(Sxx, frequencies) # returns speed
-            #speed = DopplerAnalyzer.get_speed_from(dopplers)
-            speeds.append(dopplers)
-        return speeds
+            speed = DopplerAnalyzer.get_speed_of(Sxx, frequencies)
+            speeds.append(speed)
+        return np.array(speeds)
 
     @staticmethod
-    def get_doppler_of(Sxx, frequencies, bremove_outliers=True):
+    def get_speed_of(Sxx, frequencies, bremove_outliers=True):
         flw = 100 # Frequency lookup width
         
         # Get displacement in Hz from original frequencies for each wave

@@ -1,14 +1,7 @@
 {
   "smartphone": {
-    "position": [
-      {
-        "x": 75
-      }
-    ],
     "distance": [
-      {
-        "x": 15
-      }
+      15
     ],
     "dims": {
       "length": 17.3,

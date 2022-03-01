@@ -13,11 +13,11 @@ ground_truth = CameraSystem(config)
 
 while not keyboard.is_pressed('q'):
     delta_time = frame_timer.mark()
-
-    predicted_position = predictor.update_position(delta_time)
-    real_position = ground_truth.update_position(delta_time)
     
-    print(f"Predicted distance: {predicted_position} Real distance: {real_position}")
+    predicted_position = predictor.update_position(delta_time)
+   # real_position = ground_truth.update_position(delta_time)
+    
+    #print(f"Predicted position: {predicted_position}")# Real position: {real_position}")
     
 del predictor
 del ground_truth

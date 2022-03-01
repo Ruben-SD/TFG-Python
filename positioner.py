@@ -1,39 +1,34 @@
 import numpy as np
 
-
-class Vector2D:
-    def __init__(self, x, y) -> None:
-        self.x = x
-        self.y = y
-
-class Vector3D:
-    def __init__(self, x, y, z) -> None:
-        self.x = x
-        self.y = y
-        self.z = z
-
-
-
-
 class Positioner:
     def __init__(self, config):
-        position_configs = config['smartphone']['position'] 
-        distance_configs = config['smartphone']['distance']
-        # TODO dynamically change between 1d, 2d or 3d?
-        
-        #the same but for n speakers, two dimensional
-        self.initial_distance = np.array([[distance for _, distance in distance_config.items()] for distance_config in distance_configs], dtype=float)
-        self.initial_position = np.array([[position for _, position in position_config.items()] for position_config in position_configs], dtype=float)
-        self.position = self.initial_position.copy()
+        distances_config = config['smartphone']['distance']
+        self.two_speakers = len(config['speakers']) == 2
+        self.speakers_distance = config['speakers_distance'] if 'speakers_distance' in config else None
+        self.initial_distance = np.array([distance for distance in distances_config], dtype=float)        
+        self.distances = self.initial_distance.copy()
 
-    def set_position(self, new_position):
-        self.position = self.initial_position - new_position
+    def set_distance(self, new_distance):
+        self.distances = new_distance
 
-    def move_by(self, amounts):
-        self.position -= amounts
+    def move_by(self, displacements):
+        self.distances -= displacements
 
     def get_distance(self):
-        return self.initial_distance + self.position - self.initial_position
+        return self.distances
+
+    def get_position(self):
+        if self.two_speakers:
+            D = self.speakers_distance
+            dL = self.distances[0]
+            dR = self.distances[1]
+            
+            theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
+            (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
+            print(f"DL: {dL}, DR:{dR}, x: {x}, y: {y}, D: {D}")
+            return (x, y)
+        else:
+            return self.distances[0]
 
     def update_position(self, dt):
         pass
