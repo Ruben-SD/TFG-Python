@@ -71,8 +71,8 @@ class Plotter:
                 self.data_dictionary[key] = np.array(value)
 
     def print_metrics(self):
-        real_x_position = self.data_dictionary['real_x_position']
-        predicted_x_position = self.data_dictionary['predicted_x_position']
+        real_x_position = np.array(self.data_dictionary['real_x_position'])
+        predicted_x_position = np.array(self.data_dictionary['predicted_x_position'])
         time_data = self.data_dictionary['time']
         movement_start_time = next(i for i, e in enumerate(real_x_position) if e > 17)
         print("Movement starts at: " + str(time_data[movement_start_time]))
