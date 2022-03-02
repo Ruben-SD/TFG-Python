@@ -9,14 +9,25 @@ from plotter import *
 class Predictor(Positioner):
     def __init__(self, config):
         super().__init__(config)
+        
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
         self.speakers = [Speaker(speaker_config) for speaker_config in config['speakers']]
         for speaker in self.speakers:
             speaker.play_sound()
+        
         self.receiver = Receiver()
+        
         plotter.add_data('predicted_x_position', [], plot=True)
         if self.two_speakers:
             plotter.add_data('predicted_y_position', [], plot=True)
+
+        frequencies = []
+        for speaker in self.speakers:
+            frequencies = frequencies + speaker.get_config().get_frequencies()
+        for frequency in frequencies: 
+            plotter.add_data(f'doppler_deviation_{frequency}_hz', [], plot=True)
+        
+        plotter.add_data(f'doppler_deviation_chosen', [], plot=True)
 
     #TODO abstract to update_measurement
     def update_position(self, dt):

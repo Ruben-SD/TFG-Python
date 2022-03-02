@@ -75,7 +75,7 @@ class CameraSystem(Positioner):
             x, y, w, h = cv2.boundingRect(contour)
             mean = cv2.mean(gray[y:y+h, x:x+w])[0]
             area = cv2.contourArea(contour)
-            if area > maxArea and mean < 80 and 150 <= y <= 300:
+            if area > maxArea and mean < 80:
                 index = i
                 maxArea = area
 
