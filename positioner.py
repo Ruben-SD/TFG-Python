@@ -4,6 +4,7 @@ class Positioner:
     def __init__(self, config):
         distances_config = config['smartphone']['distance']
         self.two_speakers = len(config['speakers']) == 2
+        self.two_dimensions = config['2d'] if '2d' in config else False
         self.speakers_distance = config['speakers_distance'] if 'speakers_distance' in config else None
         self.initial_distance = np.array([distance for distance in distances_config], dtype=float)        
         self.distances = self.initial_distance.copy()
@@ -18,7 +19,7 @@ class Positioner:
         return self.distances
 
     def get_position(self):
-        if self.two_speakers:
+        if self.two_dimensions:
             D = self.speakers_distance
             dL = self.distances[0]
             dR = self.distances[1]
@@ -28,7 +29,8 @@ class Positioner:
             #print(f"DL: {dL}, DR:{dR}, x: {x}, y: {y}, D: {D}")
             return (x, y)
         else:
-            return self.distances[0]
+            return self.distances
+        
 
     def update_position(self, dt):
         pass

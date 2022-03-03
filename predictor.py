@@ -18,7 +18,7 @@ class Predictor(Positioner):
         self.receiver = Receiver()
         
         plotter.add_data('predicted_x_position', [], plot=True)
-        if self.two_speakers:
+        if self.two_dimensions:
             plotter.add_data('predicted_y_position', [], plot=True)
 
         frequencies = []
@@ -34,11 +34,13 @@ class Predictor(Positioner):
         sound_samples = self.receiver.read_packet()
         speeds = DopplerAnalyzer.get_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
         # [speaker0speed, speaker1speed]
-        
-        self.move_by(np.array(speeds) * dt)
-
+        print(speeds, np.mean(speeds))
+        if self.two_dimensions and self.two_speakers:
+            self.move_by(np.mean(np.array(speeds) * dt))
+            
+        else: self.move_by(np.array(speeds) * dt)
         plotter.add_sample('predicted_x_position', self.get_distance()[0])
-        if self.two_speakers:
+        if self.two_dimensions:
             plotter.add_sample('predicted_y_position', self.get_distance()[1])
 
         return self.get_position()

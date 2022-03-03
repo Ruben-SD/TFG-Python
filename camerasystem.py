@@ -19,13 +19,13 @@ class CameraSystem(Positioner):
         
         #position_configs = config['smartphone']['position'] 
         #self.initial_measuring_tape_position = np.array([[position for _, position in position_config.items()] for position_config in position_configs], dtype=float)
-        if self.two_speakers:
+        if self.two_dimensions:
             plotter.add_data('real_y_position', [], plot=True)    
         plotter.add_data('real_x_position', [], plot=True)
 
     def update_position(self, dt):
         distance_from_initial_pos = self.get_smartphone_distance_from_initial_pos()
-        if self.two_speakers:
+        if self.two_dimensions:
             self.set_distance(self.initial_distance - distance_from_initial_pos)
             plotter.add_sample('real_y_position', self.get_distance()[1])
         else: 

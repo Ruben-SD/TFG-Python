@@ -1,9 +1,9 @@
 {
+  "2d": false,
   "smartphone": {
     "distance": [
-      {
-        "x": 15
-      }
+      15,
+      15
     ],
     "dims": {
       "length": 17.3,
@@ -24,6 +24,7 @@
     {
       "name": "right",
       "frequencies": [
+         
         19000,
         19200,
         19400,
