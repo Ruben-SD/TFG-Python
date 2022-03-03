@@ -6,7 +6,7 @@ from camerasystem import CameraSystem
 from config import Config
 from plotter import *
 
-config = Config.read_config('config_2d_2speakers.json')
+config = Config.read_config('config_1d_2speakers.json')
 
 frame_timer = FrameTimer()
 
