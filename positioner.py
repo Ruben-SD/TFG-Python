@@ -1,10 +1,11 @@
-from turtle import pos, position
 import numpy as np
 
 class Position2D:
-    def __init__(self, init) -> None:
-        self.x = init['x']
-        self.y = init['y']
+    def __init__(self, init):
+        self.distance0
+
+    def move_by(self, displacements):
+
 
 class Distance:
     def __init__(self, init) -> None:
@@ -12,17 +13,22 @@ class Distance:
 
 class Positioner:
     def __init__(self, config):
+        self.position_data = 
+
         distances_config = config['smartphone']['distance']
         self.two_speakers = len(config['speakers']) == 2
         self.two_dimensions = config['2d'] if '2d' in config else False
         self.speakers_distance = config['speakers_distance'] if 'speakers_distance' in config else None
         self.initial_distance = np.array([distance for distance in distances_config], dtype=float)        
         self.distances = self.initial_distance.copy()
-        position_data_types = { 'distance': Distance,
-                                'position2D': Position2D
+        position_data_types = { 
+                                '1D': Position1D,
+                                '2D': Position2D
                               }
         positions_data_config = config['positions_data']
-        self.position_data = [position_data_types[position_data_config['type']](position_data_config['init']) for position_data_config in positions_data_config]
+        self.position_data = [position_data_types[position_data_config['type']](position_data_config['init'])
+                             for position_data_config 
+                             in positions_data_config]
 
     def set_position_data(self, position_data):
         self.position_data = position_data
@@ -47,17 +53,9 @@ class Positioner:
         #     return self.distances
 
 
-    def set_position_data(self, speeds):
-        self.position_data.update(speeds) #y esta position yave q hace dependiendo del tipo q sea
+    # def set_position_data(self, speeds):
+    #     self.position_data.update(speeds) #y esta position yave q hace dependiendo del tipo q sea
 
-
-
-    def update_position(self, dt):
+    def update(self, dt):
         self.get_new_position_data()
         self.set_position_data()
-        return self.get_position_data()
-
-        distancia con 1 altavoz
-dos distancias con 2 altavoces
-distancia (promediando las dos) con 2 altavoces
-posición en 2d

@@ -30,25 +30,20 @@ class Predictor(Positioner):
         
         plotter.add_data(f'doppler_deviation_chosen', [], plot=True)
 
-    def get_new_position_data(self):
-        sound_samples = self.receiver.read_packet()
-        speeds = DopplerAnalyzer.get_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
-        return speeds
-
     #TODO abstract to update_measurement
-    def update_position(self, dt):
-        
-        # [speaker0speed, speaker1speed]
-        print(speeds, np.mean(speeds))
+    def update(self, dt):
+        sound_samples = self.receiver.retrieve_sound_samples()
+        speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
+
+        self.position_data.move_by(np.mean(np.array(speeds) * dt))
         if self.two_dimensions and self.two_speakers:
             self.move_by(np.mean(np.array(speeds) * dt))
         else: self.move_by(np.array(speeds) * dt)
-        for i, _ in enumerate(self.speakers):
-            plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
-        if self.two_dimensions:
-            plotter.add_sample('predicted_y_position', self.get_distance()[1])
+        # for i, _ in enumerate(self.speakers):
+        #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
+        # if self.two_dimensions:
+        #     plotter.add_sample('predicted_y_position', self.get_distance()[1])
 
-        return self.get_position_data()
 
     def __del__(self):
         if pygame.mixer.get_init() is not None:

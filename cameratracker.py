@@ -13,7 +13,7 @@ class CameraTracker(Positioner):
     def init_camera(self):
         self.cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         self.cam.set(cv2.CAP_PROP_AUTOFOCUS, 0) 
-
+    
     def init_smartphone_data(self, config, frame):
         self.smartphone_dims = config['smartphone']['dims']
         _, _, length, width = CameraTracker.extract_smartphone_bounding_rect(frame)
@@ -82,7 +82,7 @@ class CameraTracker2D(Positioner):
         distance_from_initial_pos = self.get_smartphone_distance_from_initial_pos()
         return 
 
-    def update_position(self, dt):
+    def update(self, dt):
         
         if self.two_dimensions:
             self.set_position_data(self.initial_distance - distance_from_initial_pos)
@@ -90,7 +90,7 @@ class CameraTracker2D(Positioner):
         else: 
             self.set_position_data(self.initial_distance - distance_from_initial_pos[0])
         plotter.add_sample('real_x_position', self.get_distance()[0])        
-        return self.get_position_data()
+        
 
     def get_smartphone_distance_from_initial_pos(self):
         _, frame = self.cam.read()
