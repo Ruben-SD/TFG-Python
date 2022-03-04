@@ -24,12 +24,11 @@ class CameraSystem(Positioner):
         plotter.add_data('real_x_position', [], plot=True)
 
     def get_new_position_data(self):
-        sound_samples = self.receiver.read_packet()
-        speeds = DopplerAnalyzer.get_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
-        return speeds
-        
-    def update_position(self, dt):
         distance_from_initial_pos = self.get_smartphone_distance_from_initial_pos()
+        return 
+
+    def update_position(self, dt):
+        
         if self.two_dimensions:
             self.set_position_data(self.initial_distance - distance_from_initial_pos)
             plotter.add_sample('real_y_position', self.get_distance()[1])

@@ -1,4 +1,4 @@
-from turtle import position
+from turtle import pos, position
 import numpy as np
 
 class Position2D:
@@ -24,8 +24,8 @@ class Positioner:
         positions_data_config = config['positions_data']
         self.position_data = [position_data_types[position_data_config['type']](position_data_config['init']) for position_data_config in positions_data_config]
 
-    def set_distance(self, new_distance):
-        self.distances = new_distance
+    def set_position_data(self, position_data):
+        self.position_data = position_data
 
     def move_by(self, displacements):
         self.distances -= displacements
@@ -33,19 +33,26 @@ class Positioner:
     def get_distance(self):
         return self.distances
 
-    def get_position(self):
-        if self.two_dimensions:
-            D = self.speakers_distance
-            dL = self.distances[0]
-            dR = self.distances[1]
+    def get_position_data(self):
+        return self.position_data
+        #     D = self.speakers_distance
+        #     dL = self.distances[0]
+        #     dR = self.distances[1]
             
-            theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
-            (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
-            #print(f"DL: {dL}, DR:{dR}, x: {x}, y: {y}, D: {D}")
-            return (x, y)
-        else:
-            return self.distances
-        
+        #     theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
+        #     (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
+        #     #print(f"DL: {dL}, DR:{dR}, x: {x}, y: {y}, D: {D}")
+        #     return (x, y)
+        # else:
+        #     return self.distances
+
+
+    def set_position_data(self, speeds):
+        self.position_data.update(speeds) #y esta position yave q hace dependiendo del tipo q sea
+
+
 
     def update_position(self, dt):
-        pass
+        self.get_new_position_data()
+        self.set_position_data()
+        return self.get_position_data()

@@ -35,10 +35,6 @@ class Predictor(Positioner):
         speeds = DopplerAnalyzer.get_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
         return speeds
 
-    def set_position_data(self, speeds):
-        self.position_data.update(speeds) #y esta position yave q hace dependiendo del tipo q sea
-
-
     #TODO abstract to update_measurement
     def update_position(self, dt):
         
