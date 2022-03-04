@@ -30,10 +30,18 @@ class Predictor(Positioner):
         
         plotter.add_data(f'doppler_deviation_chosen', [], plot=True)
 
-    #TODO abstract to update_measurement
-    def update_position(self, dt):
+    def get_new_position_data(self):
         sound_samples = self.receiver.read_packet()
         speeds = DopplerAnalyzer.get_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
+        return speeds
+
+    def set_position_data(self, speeds):
+        self.position_data.update(speeds) #y esta position yave q hace dependiendo del tipo q sea
+
+
+    #TODO abstract to update_measurement
+    def update_position(self, dt):
+        
         # [speaker0speed, speaker1speed]
         print(speeds, np.mean(speeds))
         if self.two_dimensions and self.two_speakers:
@@ -44,7 +52,7 @@ class Predictor(Positioner):
         if self.two_dimensions:
             plotter.add_sample('predicted_y_position', self.get_distance()[1])
 
-        return self.get_position()
+        return self.get_position_data()
 
     def __del__(self):
         if pygame.mixer.get_init() is not None:
