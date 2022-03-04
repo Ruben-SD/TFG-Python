@@ -1,61 +1,57 @@
 import numpy as np
 
-class Position2D:
-    def __init__(self, init):
-        self.distance0
+
+class Position:
+    def __init__(self, config):
+        self.distances = config['init']
+
+    def set(self, new_position):
+        self.distances = new_position
 
     def move_by(self, displacements):
+        raise NotImplemented()
+
+    def get_position(self):
+        raise NotImplemented()
 
 
-class Distance:
-    def __init__(self, init) -> None:
-        self.distance = init['distance']
+class Position1D(Position):
+
+    def move_by(self, displacements):
+        self.distances += np.mean(displacements)
+
+    def get_position(self):
+        return self.distances[0]
+
+
+class Distance2D(Position):
+    def __init__(self, config):
+        super().__init__(config)
+        self.speakers_distance = config['speakers_distance']
+
+    def move_by(self, displacements):
+        self.distances += displacements
+
+    def get_position(self):
+        D = self.speakers_distance
+        dL = self.distances[0]
+        dR = self.distances[1]
+
+        theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
+        (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
+        #print(f"DL: {dL}, DR:{dR}, x: {x}, y: {y}, D: {D}")
+        return (x, y)
+
 
 class Positioner:
     def __init__(self, config):
-        self.position_data = 
-
-        distances_config = config['smartphone']['distance']
-        self.two_speakers = len(config['speakers']) == 2
-        self.two_dimensions = config['2d'] if '2d' in config else False
-        self.speakers_distance = config['speakers_distance'] if 'speakers_distance' in config else None
-        self.initial_distance = np.array([distance for distance in distances_config], dtype=float)        
-        self.distances = self.initial_distance.copy()
-        position_data_types = { 
-                                '1D': Position1D,
-                                '2D': Position2D
-                              }
-        positions_data_config = config['positions_data']
-        self.position_data = [position_data_types[position_data_config['type']](position_data_config['init'])
-                             for position_data_config 
-                             in positions_data_config]
-
-    def set_position_data(self, position_data):
-        self.position_data = position_data
-
-    def move_by(self, displacements):
-        self.distances -= displacements
-
-    def get_distance(self):
-        return self.distances
-
-    def get_position_data(self):
-        return self.position_data
-        #     D = self.speakers_distance
-        #     dL = self.distances[0]
-        #     dR = self.distances[1]
-            
-        #     theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
-        #     (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
-        #     #print(f"DL: {dL}, DR:{dR}, x: {x}, y: {y}, D: {D}")
-        #     return (x, y)
-        # else:
-        #     return self.distances
-
-
-    # def set_position_data(self, speeds):
-    #     self.position_data.update(speeds) #y esta position yave q hace dependiendo del tipo q sea
+        position_types = {
+            '1D': Position1D,
+            '2D': Distance2D
+        }
+        position_config = config['positions_data']
+        self.position = position_types[position_config['type']](
+            position_config)
 
     def update(self, dt):
-        self.get_new_position_data()
-        self.set_position_data()
+        raise NotImplemented()
