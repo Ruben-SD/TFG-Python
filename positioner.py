@@ -56,3 +56,8 @@ class Positioner:
         self.get_new_position_data()
         self.set_position_data()
         return self.get_position_data()
+
+        distancia con 1 altavoz
+dos distancias con 2 altavoces
+distancia (promediando las dos) con 2 altavoces
+posición en 2d
