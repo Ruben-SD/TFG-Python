@@ -16,8 +16,9 @@ class Predictor(Positioner):
             speaker.play_sound()
         
         self.receiver = Receiver()
+        for i, speaker in enumerate(self.speakers):
+            plotter.add_data(f'predicted_x_position_{i}', [], plot=True)
         
-        plotter.add_data('predicted_x_position', [], plot=True)
         if self.two_dimensions:
             plotter.add_data('predicted_y_position', [], plot=True)
 
@@ -37,9 +38,9 @@ class Predictor(Positioner):
         print(speeds, np.mean(speeds))
         if self.two_dimensions and self.two_speakers:
             self.move_by(np.mean(np.array(speeds) * dt))
-            
         else: self.move_by(np.array(speeds) * dt)
-        plotter.add_sample('predicted_x_position', self.get_distance()[0])
+        for i, _ in enumerate(self.speakers):
+            plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
         if self.two_dimensions:
             plotter.add_sample('predicted_y_position', self.get_distance()[1])
 

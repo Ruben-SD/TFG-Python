@@ -24,6 +24,6 @@ while not keyboard.is_pressed('q'):
 del predictor
 del ground_truth
 
-plotter.print_metrics()
+#plotter.print_metrics()
 plotter.plot()
 plotter.save_to_file()
