@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from positioner import Positioner
 from plotter import *
+import copy
 
 class CameraTracker(Positioner):
     def __init__(self, config):
@@ -20,7 +21,7 @@ class CameraTracker(Positioner):
         self.cm_per_length_pixel = self.smartphone_dims['length']/length
         self.cm_per_width_pixel = self.smartphone_dims['width']/width
         self.initial_smartphone_cam_pos = self.get_smartphone_img_coords(frame) 
-        self.initial_position = config['smartphone']['initial_position']
+        self.initial_position = copy.deepcopy(self.position)
 
     def update(self, dt):
         new_position = self.obtain_current_position()
@@ -33,7 +34,7 @@ class CameraTracker(Positioner):
         # plotter.add_sample('real_x_position', self.get_distance()[0])        
 
     def obtain_current_position(self):
-        new_position = self.initial_position + self.look_smartphone_distance_from_initial_pos()
+        new_position = self.initial_position + [self.look_smartphone_distance_from_initial_pos()]
         return new_position
 
     def look_smartphone_distance_from_initial_pos(self):
@@ -72,8 +73,8 @@ class CameraTracker(Positioner):
         return contours[index]
 
     @staticmethod
-    def get_smartphone_img_coords(self, frame):
-        x, y, w, h = self.get_smartphone_bounding_rect(frame)
+    def get_smartphone_img_coords(frame):
+        x, y, w, h = CameraTracker.extract_smartphone_bounding_rect(frame)
         x = int(x + w/2)
         y = int(y + h/2)
         return (x, y)
@@ -88,7 +89,7 @@ class CameraTracker1D(CameraTracker):
     def look_smartphone_distance_from_initial_pos(self):
         _, frame = self.cam.read()
         img_x, _ = self.get_smartphone_img_coords(frame)  
-        current_distance = (img_x - self.initial_smartphone_cam_pos) * self.cm_per_length_pixel
+        current_distance = (self.initial_smartphone_cam_pos[0] - img_x) * self.cm_per_length_pixel
         return current_distance
 
     

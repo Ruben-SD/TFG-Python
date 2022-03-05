@@ -15,7 +15,7 @@ class Receiver:
         while time.time() < end_time:
             self.socket.recv(2048)
 
-    def read_packet(self):
+    def retrieve_sound_samples(self):
         data = self.socket.recv(2048)
         length = int.from_bytes(data[0:4], "big")
         if length != 1796:

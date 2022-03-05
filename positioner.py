@@ -1,23 +1,8 @@
 import numpy as np
 
-from predictor import Predictor
-from tracker import CameraTracker, CameraTracker1D, CameraTracker2D
-
-class PositionerFactory:
-    @staticmethod
-    def create_predictor(config):
-        return Predictor()
-
-    @staticmethod
-    def create_tracker(config):
-        predictors_types = [CameraTracker1D, CameraTracker2D]
-        predictor = predictors_types[config['tracker_type']]
-        return predictor()
-
-
 class Position:
     def __init__(self, config):
-        self.distances = config['init']
+        self.distances = np.array(config['smartphone']['position'], dtype=float)
 
     def set(self, new_position):
         self.distances = new_position
@@ -28,6 +13,8 @@ class Position:
     def get_position(self):
         raise NotImplemented()
 
+    def __add__(self, vector):
+        return self.distances + np.array(vector)
 
 class Position1D(Position):
 
@@ -63,9 +50,10 @@ class Positioner:
             '1D': Position1D,
             '2D': Distance2D
         }
-        position_config = config['positions_data']
-        self.position = position_types[position_config['type']](
-            position_config)
+        self.position = position_types[config['positioner_type']](config)
 
     def update(self, dt):
         raise NotImplemented()
+
+    def get_position(self):
+        return self.position.get_position()
