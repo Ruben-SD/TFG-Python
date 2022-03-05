@@ -1,14 +1,17 @@
 {
+  "positioner_type": "2D",
+  "tracker_type": "2D",
   "smartphone": {
-    "distance": [
-      21,
-      20.3
+    "position": [
+      26,
+      26
     ],
     "dims": {
       "length": 17.3,
       "width": 7.8
     }
   },
+  "speakers_distance": 30,
   "speakers": [
     {
       "name": "left",
@@ -30,6 +33,5 @@
         19800
       ]
     }
-  ],
-  "speakers_distance": 30.5
+  ]
 }

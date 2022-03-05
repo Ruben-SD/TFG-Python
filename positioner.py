@@ -14,12 +14,11 @@ class Position:
         raise NotImplemented()
 
     def __add__(self, vector):
-        return self.distances + np.array(vector)
+        return self.distances + vector
 
 class Position1D(Position):
 
     def move_by(self, displacements):
-        print(displacements)
         self.distances += np.mean(displacements)
 
     def get_position(self):
@@ -38,7 +37,7 @@ class Distance2D(Position):
         D = self.speakers_distance
         dL = self.distances[0]
         dR = self.distances[1]
-
+        
         theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
         (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
         #print(f"DL: {dL}, DR:{dR}, x: {x}, y: {y}, D: {D}")

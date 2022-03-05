@@ -19,5 +19,5 @@ class Config:
         filenames = [file for file in os.listdir(Config.CONFIGS_PATH)]
         [print(f"[{i}]", filename) for i, filename in enumerate(filenames)]
 
-        filename = filenames[int(input("Enter file index:"))]      
+        filename = filenames[int(input("Enter file index: "))]      
         return filename
