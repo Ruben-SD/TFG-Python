@@ -154,6 +154,7 @@ UDP_PORT = 5555
 s.close()
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 1)
 sock.bind((UDP_IP, UDP_PORT))
 print("Listening on: ", UDP_IP, ":", UDP_PORT)
 
