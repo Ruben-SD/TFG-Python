@@ -1,8 +1,8 @@
 {
-  "2d": false,
+  "positioner_type": "1D",
+  "tracker_type": "1D",
   "smartphone": {
-    "distance": [
-      15,
+    "position": [
       15
     ],
     "dims": {

@@ -24,10 +24,8 @@ class Speaker:
         channel.play(sound, -1)
         if self.config.get_channel() == 0:
             channel.set_volume(0.45, 0)
-            print("a")
         else: 
             channel.set_volume(0, 0.45)
-            print("b")
 
     def get_audio_samples_of_frequencies(self, frequencies):
         # [fStart, fEnd]

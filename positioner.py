@@ -19,6 +19,7 @@ class Position:
 class Position1D(Position):
 
     def move_by(self, displacements):
+        print(displacements)
         self.distances += np.mean(displacements)
 
     def get_position(self):
