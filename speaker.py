@@ -23,20 +23,20 @@ class Speaker:
         channel = pygame.mixer.Channel(self.config.get_channel())
         channel.play(sound, -1)
         if self.config.get_channel() == 0:
-            channel.set_volume(0.45, 0)
+            channel.set_volume(0.5, 0)
         else: 
-            channel.set_volume(0, 0.45)
+            channel.set_volume(0, 0.5)
 
     def get_audio_samples_of_frequencies(self, frequencies):
         # [fStart, fEnd]
         sampleRate = 44100
         current_frequency = frequencies[0]
-        samples = np.array([1024 * np.sin(2.0 * np.pi * current_frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
+        samples = np.array([4096 * np.sin(2.0 * np.pi * current_frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
         for frequency in frequencies[1:-1]:
-            samples -= np.array([1024 * np.sin(2.0 * np.pi * frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
+            samples -= np.array([4096 * np.sin(2.0 * np.pi * frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
         # Add last (instead of substract) samples in order to not overflow int16 range
         current_frequency = frequencies[-1]
-        samples += np.array([1024 * np.sin(2.0 * np.pi * current_frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
+        samples += np.array([4096 * np.sin(2.0 * np.pi * current_frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
         final_samples = np.c_[samples, samples] # Make stereo samples (Sound() expected format)
         return final_samples
 

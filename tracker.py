@@ -1,12 +1,13 @@
 import cv2
 import numpy as np
-from positioner import Positioner
+from positioner import Position2D, Positioner
 from plotter import *
 import copy
 
 class CameraTracker(Positioner):
     def __init__(self, config):
-        super().__init__(config)
+        if not isinstance(self, CameraTracker2D):
+            super().__init__(config)
         self.init_camera()
         _, first_frame = self.cam.read()   
         self.init_smartphone_data(config, first_frame)    
@@ -95,7 +96,8 @@ class CameraTracker1D(CameraTracker):
     
 class CameraTracker2D(CameraTracker):
     def __init__(self, config):
-        super().__init__(config)
+        self.position = Position2D(config)
+        super().__init__(config)        
         
         #position_configs = config['smartphone']['position'] 
         #self.initial_measuring_tape_position = np.array([[position for _, position in position_config.items()] for position_config in position_configs], dtype=float)
