@@ -8,6 +8,7 @@ class CameraTracker(Positioner):
     def __init__(self, config):
         if not isinstance(self, CameraTracker2D):
             super().__init__(config)
+        self.name = 'tracker'
         self.init_camera()
         _, first_frame = self.cam.read()   
         self.init_smartphone_data(config, first_frame)    
@@ -65,10 +66,10 @@ class CameraTracker(Positioner):
             x, y, w, h = cv2.boundingRect(contour)
             mean = cv2.mean(gray_img[y:y+h, x:x+w])[0]
             area = cv2.contourArea(contour)
-            if area > maxArea and mean < 80:
+            if area > maxArea and mean < 80 and 9500 <= area <= 14000:
                 index = i
                 maxArea = area
-
+                
         if index == -1:
             raise ValueError("Cannot find smartphone shaped black contour in image")
         return contours[index]

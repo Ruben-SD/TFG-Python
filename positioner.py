@@ -1,4 +1,5 @@
 import numpy as np
+from plotter import plotter
 
 class Position:
     def __init__(self, config):
@@ -22,7 +23,7 @@ class Distance1D(Position):
         self.distances += np.mean(displacements)
 
     def get_position(self):
-        return self.distances[0]
+        return self.distances
 
 class Position2D(Position):
     def __init__(self, config):
@@ -72,4 +73,8 @@ class Positioner:
         raise NotImplemented()
 
     def get_position(self):
-        return self.position.get_position()
+        coords = ['x', 'y', 'z']
+        position = self.position.get_position()
+        for i, coordinate in enumerate(position):
+            plotter.add_sample(f"{self.name}_position_{coords[i]}", coordinate)
+        return position

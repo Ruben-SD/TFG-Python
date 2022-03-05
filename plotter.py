@@ -23,8 +23,8 @@ class Plotter:
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
-            if data_name == 'real_x_position':
-                plt.fill_between(time_data, data - 0.5, data + 0.5, facecolor='black', label=data_name)
+            if data_name.startswith('tracker_position_'):
+                plt.fill_between(time_data, data - 0.5, data + 0.5, label=data_name)
             else: plt.plot(time_data, data, label=data_name)
         plt.legend()
         figure = plt.gcf()
@@ -36,6 +36,9 @@ class Plotter:
         self.data_dictionary[name] = data
 
     def add_sample(self, name, sample):
+        if name not in self.data_dictionary:
+            self.data_dictionary[name] = []
+            self.data_dictionary['data_names_to_plot'].append(name)
         self.data_dictionary[name].append(sample)        
 
     def save_to_file(self):
@@ -47,13 +50,13 @@ class Plotter:
                     return obj.item()
             raise TypeError('Unknown type:', type(obj))
 
-        self.data_dictionary['description'] = input("Enter data description: ")
-        
+        description = input("Enter data description: ")
+        self.data_dictionary['description'] = description
         file_path = self.SAVED_DATA_PATH + 'data/' + self.start_timestamp + '.json'
         with open(file_path, 'w') as f:
             json.dump(self.data_dictionary, f, default=serialize)
 
-        file_path = self.SAVED_DATA_PATH + 'figures/' + self.start_timestamp + '.png'
+        file_path = self.SAVED_DATA_PATH + 'figures/' + self.start_timestamp + '_' + description + '.png'
         figure = self.generate_figure()
         figure.savefig(file_path)
 
@@ -71,8 +74,8 @@ class Plotter:
                 self.data_dictionary[key] = np.array(value)
 
     def print_metrics(self):
-        real_x_position = np.array(self.data_dictionary['real_x_position'])
-        predicted_x_position = np.array(self.data_dictionary['predicted_x_position'])
+        real_x_position = np.array(self.data_dictionary['tracker_position_x'])
+        predicted_x_position = np.array(self.data_dictionary['predictor_position_x'])
         time_data = self.data_dictionary['time']
         movement_start_time = next(i for i, e in enumerate(real_x_position) if e > 17)
         print("Movement starts at: " + str(time_data[movement_start_time]))

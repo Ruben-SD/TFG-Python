@@ -8,8 +8,9 @@ class DopplerAnalyzer:
     def extract_speeds_from(audio_samples, all_frequencies):
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         speeds = []
-        for frequencies in all_frequencies:
+        for i, frequencies in enumerate(all_frequencies):
             speed = DopplerAnalyzer.extract_speed_from(Sxx, np.array(frequencies))
+            plotter.add_sample(f'doppler_deviation_filtered_{i}', -speed)
             speeds.append(speed)
         return np.array(speeds)
 
@@ -20,15 +21,19 @@ class DopplerAnalyzer:
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
         
+        # Plot
+        # speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)]) 
+        # for i, frequency in enumerate(frequencies):
+        #     plotter.add_sample(f'doppler_deviation_{frequency}_hz', -speeds[i])
+        ###
+
         frequency_displacements, frequencies = DopplerAnalyzer.filter_frequencies(frequency_displacements, frequencies)
 
         # Apply Doppler effect formula to compute speed in cm/s
         speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)]) 
-        # for i, frequency in enumerate(frequencies):
-        #     plotter.add_sample(f'doppler_deviation_{frequency}_hz', speeds[i])
-
+        
         mean = np.mean(speeds)
-        # plotter.add_sample(f'filtered_deviation_chosen', mean)
+        
         return mean
 
     @staticmethod

@@ -21,6 +21,6 @@ while not keyboard.is_pressed('q'):
     
 del positioners
 
-#plotter.print_metrics()
+plotter.print_metrics()
 plotter.plot()
 plotter.save_to_file()

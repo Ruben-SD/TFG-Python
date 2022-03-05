@@ -9,6 +9,7 @@ from plotter import *
 class Predictor(Positioner):
     def __init__(self, config):
         super().__init__(config)
+        self.name = "predictor"
         
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
         self.speakers = [Speaker(speaker_config) for speaker_config in config['speakers']]
