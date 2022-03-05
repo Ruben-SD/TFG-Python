@@ -1,5 +1,19 @@
 import numpy as np
 
+from predictor import Predictor
+from tracker import CameraTracker, CameraTracker1D, CameraTracker2D
+
+class PositionerFactory:
+    @staticmethod
+    def create_predictor(config):
+        return Predictor()
+
+    @staticmethod
+    def create_tracker(config):
+        predictors_types = [CameraTracker1D, CameraTracker2D]
+        predictor = predictors_types[config['tracker_type']]
+        return predictor()
+
 
 class Position:
     def __init__(self, config):
