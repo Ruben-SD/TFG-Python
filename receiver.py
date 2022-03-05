@@ -6,6 +6,7 @@ class Receiver:
     def __init__(self, port=5555):
         self.socket = socket.socket(socket.AF_INET, # Internet
                                     socket.SOCK_DGRAM) # UDP
+        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 1)
         ip_address = Receiver.get_pc_ip()
         self.socket.bind((ip_address, port))
         print("Listening on: ", ip_address, ":", port)
