@@ -54,7 +54,7 @@ class Distance2D(Position):
         theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
         (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
         
-        #print(f"DL: {dL}, DR:{dR}, x: {x}, y: {y}, D: {D}")
+        print(f"DL: {dL}, DR:{dR}")
 
         return (x, y)
 
