@@ -17,6 +17,7 @@ class Predictor(Positioner):
             speaker.play_sound()
         
         self.receiver = Receiver()
+        self.sound = []
         # for i, speaker in enumerate(self.speakers):
         #     plotter.add_data(f'predicted_x_position_{i}', [], plot=True)
         
@@ -34,6 +35,7 @@ class Predictor(Positioner):
     #TODO abstract to update_measurement
     def update(self, dt):
         sound_samples = self.receiver.retrieve_sound_samples()
+        self.sound = self.sound + list(sound_samples)
         speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
         self.position.move_by(-np.array(speeds) * dt)
         # for i, _ in enumerate(self.speakers):
@@ -45,3 +47,6 @@ class Predictor(Positioner):
     def __del__(self):
         if pygame.mixer.get_init() is not None:
             pygame.mixer.stop()
+        import pickle
+        with open('sound', 'wb') as f:
+           pickle.dump(self.sound, f)

@@ -42,13 +42,12 @@ class DopplerAnalyzer:
             not_outliers = ~DopplerAnalyzer.find_outliers(frequency_displacements)
             frequency_displacements = frequency_displacements[not_outliers]
             frequencies = frequencies[not_outliers]
-        frequency_displacements[np.abs(frequency_displacements) <= 1] = 0 # Treshold to avoid small noise
+        frequency_displacements[np.abs(frequency_displacements) <= 1] = 0 # Threshold to avoid small noise
         best_frequencies_indices = DopplerAnalyzer.select_best_frequencies(frequency_displacements)
         frequency_displacements = frequency_displacements[best_frequencies_indices]
         frequencies = frequencies[best_frequencies_indices]
         return frequency_displacements, frequencies
     
-
     @staticmethod
     def select_best_frequencies(frequency_displacements):
         # indicesOfBest = np.abs(dopplerXS).argsort()[:5][::-1] # Get the 
