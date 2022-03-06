@@ -13,7 +13,7 @@ class SpeakerDistanceFinder:
 
     def update(self, speeds):
         print(speeds)
-        if np.abs(speeds)[0] < 5 and np.abs(speeds)[1] < 5:
+        if np.abs(speeds)[0] < 20 and np.abs(speeds)[1] < 20:
             return
         self.speeds.append(speeds)
         if self.positive is None:
@@ -46,7 +46,7 @@ class Predictor(Positioner):
         sound_samples = self.receiver.retrieve_sound_samples()
         speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
         self.position.move_by(-np.array(speeds) * dt)
-        #self.speaker_distance_finder.update(speeds)
+        self.speaker_distance_finder.update(speeds)
         #speaker_distance = self.speaker_distance_finder.update(speeds)
         #print(speaker_distance)
 

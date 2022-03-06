@@ -16,7 +16,7 @@ while not keyboard.is_pressed('q'):
     
     for positioner in positioners:
         positioner.update(delta_time)
-    positioners[0].get_position()
+    #positioners[0].get_position()
    # print(f"Predicted position: {po3sitioners[0].get_position()}")#Tracked position: {positioners[1].get_position()}")
     
 del positioners
