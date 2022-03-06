@@ -3,42 +3,34 @@
   "tracker_type": "2D",
   "smartphone": {
     "position": [
-      20.5,
-      20
+      0,
+      0
     ],
     "dims": {
       "length": 17.3,
       "width": 7.8
     }
   },
-  "speakers_distance": 41,
+  "speakers_distance": 30,
   "speakers": [
     {
       "name": "left",
       "frequencies": [
-        17800,
+        18000,
         18200,
+        18400,
         18600,
-        19000,
-        19400,
-        19800,
-        20200,
-        20600,
-        21000
+        18800
       ]
     },
     {
       "name": "right",
       "frequencies": [
-        18000,
-        18400,
-        18800,
+        19000,
         19200,
+        19400,
         19600,
-        20000,
-        20400,
-        20800,
-        21200
+        19800
       ]
     }
   ]
