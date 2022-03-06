@@ -6,6 +6,29 @@ import plotter
 from doppleranalyzer import DopplerAnalyzer
 from plotter import *
 
+class SpeakerDistanceFinder:
+    def __init__(self):
+        self.speeds = []
+        self.positive = None
+
+    def update(self, speeds):
+        print(speeds)
+        if np.abs(speeds)[0] < 5 and np.abs(speeds)[1] < 5:
+            return
+        self.speeds.append(speeds)
+        if self.positive is None:
+            self.positive = [speeds[0] > 0, speeds[1] > 0]
+        else:
+            if (speeds[0] < 0 and self.positive[0]) or (speeds[0] > 0 and not self.positive[0]):
+                print("LEFT\n")
+                self.positive[0] = not self.positive[0]
+                #self.speeds = []
+            if (speeds[1] < 0 and self.positive[1]) or (speeds[1] > 0 and not self.positive[1]):
+                self.positive[1] = not self.positive[1]
+                print("RIGHT\n")
+                #self.speeds = []
+                #print distance = integrate self.speeds from last interval change
+
 class Predictor(Positioner):
     def __init__(self, config):
         super().__init__(config)
@@ -17,29 +40,15 @@ class Predictor(Positioner):
             speaker.play_sound()
         
         self.receiver = Receiver()
-        # for i, speaker in enumerate(self.speakers):
-        #     plotter.add_data(f'predicted_x_position_{i}', [], plot=True)
-        
-        # if self.two_dimensions:
-        #     plotter.add_data('predicted_y_position', [], plot=True)
+        self.speaker_distance_finder = SpeakerDistanceFinder()
 
-        # frequencies = []
-        # for speaker in self.speakers:
-        #     frequencies = frequencies + speaker.get_config().get_frequencies()
-        # for frequency in frequencies: 
-        #     plotter.add_data(f'doppler_deviation_{frequency}_hz', [], plot=True)
-        
-        # plotter.add_data(f'doppler_deviation_chosen', [], plot=True)
-
-    #TODO abstract to update_measurement
     def update(self, dt):
         sound_samples = self.receiver.retrieve_sound_samples()
         speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
         self.position.move_by(-np.array(speeds) * dt)
-        # for i, _ in enumerate(self.speakers):
-        #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
-        # if self.two_dimensions:
-        #     plotter.add_sample('predicted_y_position', self.get_distance()[1])
+        #self.speaker_distance_finder.update(speeds)
+        #speaker_distance = self.speaker_distance_finder.update(speeds)
+        #print(speaker_distance)
 
 
     def __del__(self):
