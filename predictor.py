@@ -8,26 +8,37 @@ from plotter import *
 
 class SpeakerDistanceFinder:
     def __init__(self):
-        self.speeds = []
-        self.positive = None
+        self.speeds_left = []
+        self.speeds_right = []
+        self.is_on_left = True
+        self.delay = False
 
     def update(self, speeds):
-        print(speeds)
-        if np.abs(speeds)[0] < 20 and np.abs(speeds)[1] < 20:
+        if np.all(np.abs(speeds) < 0.2):
             return
-        self.speeds.append(speeds)
-        if self.positive is None:
-            self.positive = [speeds[0] > 0, speeds[1] > 0]
-        else:
-            if (speeds[0] < 0 and self.positive[0]) or (speeds[0] > 0 and not self.positive[0]):
-                print("LEFT\n")
-                self.positive[0] = not self.positive[0]
-                #self.speeds = []
-            if (speeds[1] < 0 and self.positive[1]) or (speeds[1] > 0 and not self.positive[1]):
-                self.positive[1] = not self.positive[1]
-                print("RIGHT\n")
-                #self.speeds = []
-                #print distance = integrate self.speeds from last interval change
+
+        self.speeds_left.append(speeds[0])
+        self.speeds_right.append(speeds[1])
+
+        if len(self.speeds_left) > 30 and self.is_on_left and speeds[0] >= 1:            
+            distance = np.sum(self.speeds_left) # promediar con distances anteriores
+            if np.abs(distance) > 4:
+                self.delay = True
+                self.start = time.time()
+                print(f"In Left speaker, distance = {distance}")
+                self.speeds_left = []
+                self.speeds_right = []
+                self.is_on_left = False
+        if len(self.speeds_right) > 30 and not self.is_on_left and speeds[1] >= 1:
+            distance = np.sum(self.speeds_right)
+            if np.abs(distance) > 4:
+                print(f"In Right speaker, distance = {distance}")
+                self.delay = True
+                self.start = time.time()
+                self.speeds_left = []              
+                self.speeds_right = [] 
+                self.is_on_left = True 
+            #print distance = integrate self.speeds from last interval change
 
 class Predictor(Positioner):
     def __init__(self, config):
@@ -45,10 +56,9 @@ class Predictor(Positioner):
     def update(self, dt):
         sound_samples = self.receiver.retrieve_sound_samples()
         speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
-        self.position.move_by(-np.array(speeds) * dt)
-        self.speaker_distance_finder.update(speeds)
-        #speaker_distance = self.speaker_distance_finder.update(speeds)
-        #print(speaker_distance)
+        displacements = -np.array(speeds) * dt
+        self.position.move_by(displacements)
+        self.speakers_distance = self.speaker_distance_finder.update(displacements)
 
 
     def __del__(self):
