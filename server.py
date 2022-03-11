@@ -40,12 +40,16 @@ sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 sock.bind((UDP_IP, UDP_PORT))
 print("Listening on: ", UDP_IP, ":", UDP_PORT)
-
+pg.mixer.pre_init(44100, -16, 1, 512)
+pg.init()
 
 init = time.time()
 timestamp = time.strftime("%d-%m-%Y-%H:%M:%S")
 i = 0
 arr2 = np.c_[np.ones(44100) * 40960, np.ones(44100) * 40960] # Make stereo samples
+
+
+
 sound = pg.mixer.Sound(arr2)
 
 pgChannel = pg.mixer.Channel(0)
