@@ -1,3 +1,4 @@
+from math import dist
 import pygame
 from positioner import Positioner
 from speaker import Speaker
@@ -8,37 +9,31 @@ from plotter import *
 
 class SpeakerDistanceFinder:
     def __init__(self):
-        self.speeds_left = []
-        self.speeds_right = []
+        self.distances = np.zeros(2)
+        self.time = 0
         self.is_on_left = True
         self.delay = False
+        self.all_distances = []
 
-    def update(self, speeds):
-        if np.all(np.abs(speeds) < 0.2):
-            return
+    def update(self, dt, displacements):
+        self.time += dt
+        self.distances += np.abs(displacements)
 
-        self.speeds_left.append(speeds[0])
-        self.speeds_right.append(speeds[1])
-
-        if len(self.speeds_left) > 30 and self.is_on_left and speeds[0] >= 1:            
-            distance = np.sum(self.speeds_left) # promediar con distances anteriores
-            if np.abs(distance) > 4:
-                self.delay = True
-                self.start = time.time()
-                print(f"In Left speaker, distance = {distance}")
-                self.speeds_left = []
-                self.speeds_right = []
-                self.is_on_left = False
-        if len(self.speeds_right) > 30 and not self.is_on_left and speeds[1] >= 1:
-            distance = np.sum(self.speeds_right)
-            if np.abs(distance) > 4:
-                print(f"In Right speaker, distance = {distance}")
-                self.delay = True
-                self.start = time.time()
-                self.speeds_left = []              
-                self.speeds_right = [] 
-                self.is_on_left = True 
-            #print distance = integrate self.speeds from last interval change
+        if self.time > 0.5 and self.is_on_left and displacements[0] > 0 and self.distances[0] > 5:
+            self.time = 0            
+            distance = self.distances[0]
+            self.all_distances.append(distance)
+            print(distance)
+            self.distances = displacements
+            self.is_on_left = False
+        if self.time > 0.5 and not self.is_on_left and displacements[1] > 0 and self.distances[1] > 5:
+            self.time = 0
+            distance = self.distances[1]
+            self.all_distances.append(distance)
+            print(distance)
+            self.distances = displacements
+            self.is_on_left = True 
+        print("Distance: ", np.mean(self.all_distances))
 
 class Predictor(Positioner):
     def __init__(self, config):
@@ -58,7 +53,7 @@ class Predictor(Positioner):
         speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
         displacements = -np.array(speeds) * dt
         self.position.move_by(displacements)
-        self.speakers_distance = self.speaker_distance_finder.update(displacements)
+        self.speakers_distance = self.speaker_distance_finder.update(dt, displacements)
 
 
     def __del__(self):
