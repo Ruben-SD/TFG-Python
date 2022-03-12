@@ -19,13 +19,14 @@ class Speaker:
 
     def play_sound(self):        
         audio_samples = self.get_audio_samples_of_frequencies(self.config.get_frequencies())
-        sound = pygame.mixer.Sound(audio_samples)
+        sound = pygame.mixer.Sound('sound44.wav')
         channel = pygame.mixer.Channel(self.config.get_channel())
         channel.play(sound, -1)
         if self.config.get_channel() == 0:
             channel.set_volume(0.5, 0)
         else: 
             channel.set_volume(0, 0.5)
+        return [x for x in sound.get_raw()]
 
     def get_audio_samples_of_frequencies(self, frequencies):
         # [fStart, fEnd]
@@ -37,6 +38,9 @@ class Speaker:
         # Add last (instead of substract) samples in order to not overflow int16 range
         current_frequency = frequencies[-1]
         samples += np.array([1024 * np.sin(2.0 * np.pi * current_frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
+        import matplotlib.pyplot as plt 
+        #plt.plot(np.arange(len(samples)), samples)
+        samples = np.random.rand(44100) * 1024
         final_samples = np.c_[samples, samples] # Make stereo samples (Sound() expected format)
         return final_samples
 
