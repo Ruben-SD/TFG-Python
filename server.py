@@ -1,40 +1,46 @@
 
 from os import times
+from random import sample
 import socket
 import numpy as np
 import pygame as pg
 
+from scipy import signal
+
 import time
 
 start = None
-def play_sound():        
-    audio_samples = get_audio_samples_of_frequencies([18000, 18200, 18400, 18600, 18800, 19000, 500, 1000, 1600, 2500])
-    sound = pg.mixer.Sound(audio_samples)
-    channel = pg.mixer.Channel(0)
-    
-    global start
-    
-    
-    channel.set_volume(1, 0)
-    start = time.time_ns()/1000
-    channel.play(sound, -1)
 
 def get_audio_samples_of_frequencies(frequencies):
     # [fStart, fEnd]
     sampleRate = 44100
     current_frequency = frequencies[0]
-    samples = np.array([1024 * np.sin(2.0 * np.pi * current_frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
-    for frequency in frequencies[1:-1]:
-        samples -= np.array([1024 * np.sin(2.0 * np.pi * frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
-    # Add last (instead of substract) samples in order to not overflow int16 range
-    current_frequency = frequencies[-1]
-    samples += np.array([1024 * np.sin(2.0 * np.pi * current_frequency * x / sampleRate) for x in range(0, sampleRate)]).astype(np.int16)
+    samples = [1024 for x in range(sampleRate)]
+    samples = samples + [-1024 for x in range(sampleRate)]
+    for x in range(4):
+        samples = samples + samples
+    samples = np.array(samples).astype(np.int16)
     final_samples = np.c_[samples, samples] # Make stereo samples (Sound() expected format)
     return final_samples
 
 
+def play_sound():        
+    audio_samples = get_audio_samples_of_frequencies([440, 18200, 18400, 18600, 18800, 19000, 500, 1000, 1600, 2500])
+    sound = pg.mixer.Sound(audio_samples)
+    channel = pg.mixer.Channel(0)
+    from  scipy.io import wavfile 
+    wavfile.write('abcsadf.wav', 44100, audio_samples)
+    global start
+    
+    
+    channel.set_volume(1, 0)
+    start = time.time_ns()/1000
+    channel.play(sound)
+    print("Done")
 
 pg.mixer.init(frequency=44100, size=-16,channels=2, buffer=512)
+
+play_sound()
 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -56,124 +62,95 @@ arr2 = np.c_[np.ones(44100) * 40960, np.ones(44100) * 40960] # Make stereo sampl
 
 
 
+
+import rtmixer
+import sounddevice as sd
+import soundfile as sf
+starttime = None
+def thisf():
+    filename = "sound.wav"
+    playback_blocksize = None
+    latency = None
+    reading_blocksize = 1024  # (reading_blocksize * rb_size) has to be power of 2
+    rb_size = 16  # Number of blocks
+
+    with sf.SoundFile(filename) as f:
+        with rtmixer.Mixer(channels=f.channels,
+                        blocksize=playback_blocksize,
+                        samplerate=f.samplerate, latency=latency) as m:
+            elementsize = f.channels * m.samplesize
+            rb = rtmixer.RingBuffer(elementsize, reading_blocksize * rb_size)
+            # Pre-fill ringbuffer:
+            _, buf, _ = rb.get_write_buffers(reading_blocksize * rb_size)
+            written = f.buffer_read_into(buf, dtype='float32')
+            rb.advance_write_index(written)
+            action = m.play_ringbuffer(rb)
+            global starttime
+            starttime = time.time_ns()/10e9
+            while True:
+                while rb.write_available < reading_blocksize:
+                    if action not in m.actions:
+                        break
+                    sd.sleep(int(1000 * reading_blocksize / f.samplerate))
+                if action not in m.actions:
+                    break
+                size, buf1, buf2 = rb.get_write_buffers(reading_blocksize)
+                assert not buf2
+                written = f.buffer_read_into(buf1, dtype='float32')
+                rb.advance_write_index(written)
+                if written < size:
+                    break
+            m.wait(action)
+            if action.done_frames != f.frames:
+                RuntimeError('Something went wrong, not all frames were played')
+            if action.stats.output_underflows:
+                print('output underflows:', action.stats.output_underflows)
+
+
+
 sound = pg.mixer.Sound(arr2)
 
 pgChannel = pg.mixer.Channel(0)
 
 a  = time.time()
 played = False
+last = 0
+start = 0
+wait = 0
+from threading import Thread
+thread = Thread(target = thisf)
+thread.start()
+beepi = 0
+other = 0
+last = -1
 
+greater = -1
+import keyboard
 
-#!/usr/bin/env python3
-"""Play some random bleeps.
-
-This example shows the feature of playing a buffer at a given absolute time.
-Since all play_buffer() invocations are (deliberately) done at once, this puts
-some strain on the "action queue".
-The "qsize" has to be increased in order to handle this.
-
-This example also shows that NumPy arrays can be used, as long as they are
-C-contiguous and use the 'float32' data type.
-
-"""
-
-
-import numpy as np
-import rtmixer
-import sounddevice as sd
-
-seed = 99
-
-device = None
-blocksize = 0
-latency = 'low'
-samplerate = 44100
-
-bleeps = 300
-qsize = 512  # Must be a power of 2
-
-attack = 0.005
-release = 0.1
-pitch_min = 40
-pitch_max = 80
-duration_min = 0.2
-duration_max = 0.6
-amplitude_min = 0.05
-amplitude_max = 0.15
-start_min = 0
-start_max = 10
-channels = None
-
-if duration_min < max(attack, release):
-    raise ValueError('minimum duration is too short')
-
-fade_in = np.linspace(0, 1, num=int(samplerate * attack))
-fade_out = np.linspace(1, 0, num=int(samplerate * release))
-
-r = np.random.RandomState(seed)
-
-bleeplist = []
-
-if channels is None:
-    channels = sd.default.channels['output']
-    if channels is None:
-        channels = sd.query_devices(device, 'output')['max_output_channels']
-
-for _ in range(bleeps):
-    duration = r.uniform(duration_min, duration_max)
-    amplitude = r.uniform(amplitude_min, amplitude_max)
-    pitch = r.uniform(pitch_min, pitch_max)
-    # Convert MIDI pitch (https://en.wikipedia.org/wiki/MIDI_Tuning_Standard)
-    frequency = 2 ** ((pitch - 69) / 12) * 440
-    t = np.arange(int(samplerate * duration)) / samplerate
-    bleep = amplitude * np.sin(2 * np.pi * frequency * t, dtype='float32')
-    bleep[:len(fade_in)] *= fade_in
-    bleep[-len(fade_out):] *= fade_out
-
-    # Note: Arrays must be 32-bit float and C contiguous!
-    assert bleep.dtype == 'float32'
-    assert bleep.flags.c_contiguous
-    bleeplist.append(bleep)
-
-actionlist = []
-
-
-with rtmixer.Mixer(device=device, channels=channels, blocksize=blocksize,
-                samplerate=samplerate, latency=latency, qsize=qsize) as m:
-    while True:
-        if time.time() - a > 3 and not played:
-                start_time = m.time
-                start = time.time_ns()/1000
-                actionlist = [
-                    m.play_buffer(bleep,
-                                    channels=[r.randint(channels) + 1],
-                                    start=start_time + r.uniform(start_min, start_max),
-                                    allow_belated=False)
-                    for bleep in bleeplist
-                ]
-                played = True
-
-        data = sock.recv(2048)     
-        x = [0, 0, 0, data[0]]
-        s = [0, 0, 0, data[9]]
-
-        timestamp = int.from_bytes(data[1:9], "big")
-        times = time.time_ns()/1000
-
-        length = int.from_bytes(x, "big")
-
-        sound2 = int.from_bytes(s, "big")
-
-        if sound2 != 128:        
-            timestamp = int.from_bytes(data[1:9], "big")
-            dt = (timestamp - start)/10e6 + 0.19093565
-            print(dt)
-            print((344.44*100) * dt)
-            break
-
-        if (length != i and i != 0):
-            break
-        if length == i:
-            if i == 255:
-                i = -1
-            i += 1
+samples = []
+while not keyboard.is_pressed('q'):
+    data = sock.recv(2048)  
+    import array
+    arr = array.array('f', data[8:])
+    samples = samples + arr.tolist()
+    
+    if len(samples) >= 1792:            
+        _, _, Sxx = signal.spectrogram(np.array(samples), fs=44100, nfft=44100, nperseg=len(samples), mode='magnitude')
+        dopplerRS = np.argmax(Sxx[500:2000])
+        
+        if dopplerRS == 419 and time.time() > wait:
+            wait = time.time() + 1.1
+            timestamp = int.from_bytes(data[:8], "little")
+            dt = (timestamp/10e6 - (starttime/10e6))
+            starttime = timestamp
+            print(dt, "+-0.002")
+            #print((344.44*100) * dt)
+        samples = []
+        # np.array([np.argmax(Sxx[x-100:x+100]) - 100 for x in range(20000, 22000, 200)])
+        # if np.abs(f) > 0.5 and time.time() > wait:
+        #     wait = time.time() + 1.1
+        #     timestamp = int.from_bytes(data[1:9], "big")
+        #     dt = (timestamp/10e6 - (starttime + beepi))
+        #     beepi += 1
+        #     print(dt)
+        #     #print((344.44*100) * dt)
