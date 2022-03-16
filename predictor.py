@@ -33,7 +33,12 @@ class Predictor(Positioner):
 
     #TODO abstract to update_measurement
     def update(self, dt):
+        
         sound_samples = self.receiver.retrieve_sound_samples()
+        with open('samples_external_speakers.txt', 'a') as f:
+            for item in sound_samples:
+                f.write(str(item) + ",")
+            f.write("\n")
         speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
         self.position.move_by(-np.array(speeds) * dt)
         # for i, _ in enumerate(self.speakers):

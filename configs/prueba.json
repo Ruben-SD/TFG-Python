@@ -1,0 +1,21 @@
+{
+  "positioner_type": "1D",
+  "tracker_type": "1D",
+  "smartphone": {
+    "distance": [
+      15
+    ],
+    "dims": {
+      "length": 17.3,
+      "width": 7.8
+    }
+  },
+  "speakers": [
+    {
+      "name": "left",
+      "frequencies": [
+        18600
+      ]
+    }
+  ]
+}
