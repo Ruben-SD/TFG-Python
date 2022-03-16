@@ -133,13 +133,20 @@ while not keyboard.is_pressed('q'):
     arr = array.array('f', data[8:])
     samples = samples + arr.tolist()
     
-    if len(samples) >= 1792:            
-        _, _, Sxx = signal.spectrogram(np.array(samples), fs=48000, nfft=48000, nperseg=len(samples), mode='magnitude')
-        dopplerRS = np.argmax(Sxx[450:550])
-        if dopplerRS == 50 and time.time() > wait:
-            wait = time.time() + 1.2
-            timestamp = int.from_bytes(data[:8], "little")
-            dt = (timestamp/10e6 - (starttime/10e6))
-            starttime = timestamp
-            print(344.44 * 100 * dt, dt)
-        samples = []
+    _, _, Sxx = signal.spectrogram(np.array(samples), fs=48000, nfft=48000, nperseg=len(samples), mode='magnitude')
+    dopplerRS = np.argmax(Sxx[450:550])
+    # hay que ver cual es la muestra exacta donde se nota el cambio, y asi timestamp + muestra * 1/48000
+    #print(dopplerRS)
+    if dopplerRS != 0 and time.time() > wait: # probar sin hacer fourier, y tener en cuenta que se hace de 1792 o mas muestras, osea q max res =
+        # = 1792*1/48000=0.03s
+        # tiene pinta de q a veces coincide justo al principio y otras veces no
+        # claroo, estoy pillando el timestamp de recepciones anteriores, necesito justo el de la vez q cuele
+
+        #tambien se puede tener en cuenta si pasa 1s justo entre picos y valles o no, si se alarga se alejó y si no se acercó
+        #pero podemos tener en cuenta q en 1s no se va a mover nada, osea q igual se puede sacar algo de q tenga q ser 1s exacto
+        wait = time.time() + 1.2
+        timestamp = int.from_bytes(data[:8], "little")
+        dt = (timestamp/10e6 - (starttime/10e6))
+        starttime = timestamp
+        print(344.44 * 100 * dt, dt)
+    samples = []
