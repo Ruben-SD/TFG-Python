@@ -20,7 +20,6 @@ class DopplerAnalyzer:
         
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
-        plotter.add_sample(f'frequency', 18000 + frequency_displacements[0])
         
         # Plot
         # speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)]) 

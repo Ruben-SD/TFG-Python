@@ -9,7 +9,7 @@ config = Config.read_config(3)
 
 frame_timer = FrameTimer()
 
-positioners = [PositionerFactory.create_predictor(config)]#, PositionerFactory.create_tracker(config)]
+positioners = [PositionerFactory.create_predictor(config), PositionerFactory.create_tracker(config)]
 
 while not keyboard.is_pressed('esc'):
     delta_time = frame_timer.mark()
@@ -17,10 +17,10 @@ while not keyboard.is_pressed('esc'):
     for positioner in positioners:
         positioner.update(delta_time)
     
-    print(f"Predicted position: {positioners[0].get_position()}")# Tracked position: {positioners[1].get_position()}")
+    print(f"Predicted position: {positioners[0].get_position()} Tracked position: {positioners[1].get_position()}")
     
 del positioners
 
-#plotter.print_metrics(config)
+plotter.print_metrics(config)
 plotter.plot()
 plotter.save_to_file()
