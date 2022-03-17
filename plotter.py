@@ -21,7 +21,7 @@ class Plotter:
         plt.ylabel("Position (cm)")
         plt.title("Position over time")
         plt.xticks(np.arange(0, len(time_data), 0.25))
-        plt.yticks(np.arange(17990, 18020, 1))
+        plt.yticks(np.arange(-60, 60, 5))
         plt.grid()
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
