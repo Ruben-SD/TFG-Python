@@ -66,7 +66,7 @@ class CameraTracker(Positioner):
             x, y, w, h = cv2.boundingRect(contour)
             mean = cv2.mean(gray_img[y:y+h, x:x+w])[0]
             area = cv2.contourArea(contour)
-            if area > maxArea and mean < 80 and 9500 <= area <= 14000:
+            if area > maxArea and mean < 100 and 6000 <= area <= 14000:
                 index = i
                 maxArea = area
                 

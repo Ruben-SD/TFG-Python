@@ -20,6 +20,7 @@ class DopplerAnalyzer:
         
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
+        plotter.add_sample(f'frequency', 18000 + frequency_displacements[0])
         
         # Plot
         # speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)]) 
@@ -42,7 +43,7 @@ class DopplerAnalyzer:
             not_outliers = ~DopplerAnalyzer.find_outliers(frequency_displacements)
             frequency_displacements = frequency_displacements[not_outliers]
             frequencies = frequencies[not_outliers]
-        frequency_displacements[np.abs(frequency_displacements) <= 1] = 0 # Treshold to avoid small noise
+        frequency_displacements[np.abs(frequency_displacements) <= 1.5] = 0 # Treshold to avoid small noise
         best_frequencies_indices = DopplerAnalyzer.select_best_frequencies(frequency_displacements)
         frequency_displacements = frequency_displacements[best_frequencies_indices]
         frequencies = frequencies[best_frequencies_indices]

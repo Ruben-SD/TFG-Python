@@ -19,14 +19,17 @@ class Plotter:
         plt.xlabel("Time (s)")
         plt.ylabel("Position (cm)")
         plt.title("Position over time")
+        plt.xticks(np.arange(0, len(self.data_dictionary['time']), 0.25))
+        plt.yticks(np.arange(17990, 18020, 1))
         plt.grid()
         time_data = self.data_dictionary['time']
-        for data_name in self.data_dictionary['data_names_to_plot']:
-            data = np.array(self.data_dictionary[data_name])
-            if data_name.startswith('tracker_position_'):
-                plt.fill_between(time_data, data - 0.5, data + 0.5, label=data_name)
-            else: plt.plot(time_data, data, label=data_name)
-        plt.legend()
+        # for data_name in self.data_dictionary['data_names_to_plot']:
+        #     data = np.array(self.data_dictionary[data_name])
+        #     if data_name.startswith('tracker_position_'):
+        #         plt.fill_between(time_data, data - 0.5, data + 0.5, label=data_name)
+        #     else: plt.plot(time_data, data, label=data_name)
+        plt.plot(time_data, self.data_dictionary['frequency'], label='freq')
+        plt.legend()        
         figure = plt.gcf()
         return figure
 
@@ -73,11 +76,12 @@ class Plotter:
             if isinstance(value, list):
                 self.data_dictionary[key] = np.array(value)
 
-    def print_metrics(self):
+    def print_metrics(self, config):
         real_x_position = np.array(self.data_dictionary['tracker_position_x'])
         predicted_x_position = np.array(self.data_dictionary['predictor_position_x'])
+        doppler = np.array(self.data_dictionary['doppler_deviation_filtered_0'])
         time_data = self.data_dictionary['time']
-        movement_start_time = next(i for i, e in enumerate(real_x_position) if e > 17)
+        movement_start_time = next(i for i, d in enumerate(doppler) if d > 4)
         print("Movement starts at: " + str(time_data[movement_start_time]))
         error = np.abs(real_x_position[movement_start_time:] - predicted_x_position[movement_start_time:])
         avgError = np.sum(error)/(len(time_data)-movement_start_time)

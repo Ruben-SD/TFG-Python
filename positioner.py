@@ -33,6 +33,11 @@ class Position2D(Position):
         self.position = new_position
 
     def get_position(self):
+        x, y = self.position[0], self.position[1]
+        dL = np.sqrt(x * x + y * y)
+        dR = np.sqrt((41 - x) * (41 - x) + y * y)
+        # plotter.add_sample("tracker_distance_left", dL)
+        # plotter.add_sample("tracker_distance_right", dR)
         return self.position[0], self.position[1]
 
     def __add__(self, displacements):
@@ -51,7 +56,8 @@ class Distance2D(Position):
         D = self.speakers_distance
         dL = self.distances[0]
         dR = self.distances[1]
-        
+        # plotter.add_sample("positioner_distance_left", dL)
+        # plotter.add_sample("positioner_distance_right", dR)
         theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
         (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
         
