@@ -16,7 +16,7 @@ class Predictor(Positioner):
         for speaker in self.speakers:
             speaker.play_sound()
         
-        self.receiver = Receiver()
+        #self.receiver = Receiver()
         # for i, speaker in enumerate(self.speakers):
         #     plotter.add_data(f'predicted_x_position_{i}', [], plot=True)
         

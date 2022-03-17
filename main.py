@@ -10,7 +10,8 @@ config = Config.read_config()
 frame_timer = FrameTimer()
 
 positioners = [PositionerFactory.create_predictor(config)]#, PositionerFactory.create_tracker(config)]
-
+while True:
+    pass
 while not keyboard.is_pressed('q'):
     delta_time = frame_timer.mark()
     
