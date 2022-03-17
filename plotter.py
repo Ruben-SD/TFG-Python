@@ -1,28 +1,93 @@
-import os
-folders = [folder[0] for folder in os.walk(".\data")]
-[print("["+str(i)+"]", folder) for i, folder in enumerate(folders)]
-path = folders[int(input("Enter file index:"))]
-
-
-import numpy as np
-posData = np.loadtxt(path + '/posData.csv', delimiter=',')
-realPosData = np.loadtxt(path + '/realPosData.csv', delimiter=',')
-timeData = np.loadtxt(path + '/timeData.csv', delimiter=',')
-
-
+import time
 import matplotlib.pyplot as plt
-plt.plot(timeData, posData, 'b')
-plt.fill_between(timeData, realPosData - 0.5, realPosData + 0.5, facecolor='black')
-plt.xlabel("Time (s)")
-plt.ylabel("Position (cm)")
-plt.title("Position over time")
-plt.yticks(np.arange(0, 64, 2))
-plt.grid()
-plt.show()
+import numpy as np
+import os
+import json
 
-movementStartTime = next(i for i, e in enumerate(realPosData) if e > 11)
-print("Movement starts at: " + str(timeData[movementStartTime]))
-error = np.abs(realPosData[movementStartTime:] - posData[movementStartTime:])
-avgError = np.sum(error)/(len(timeData)-movementStartTime)
-print("Mean error = " + str(avgError))
-print("Highest error = " + str(max(error)))
+class Plotter:
+    def __init__(self) -> None:
+        self.start_timestamp = time.strftime("%d-%m-%Y_%H-%M-%S")
+        self.data_dictionary = {}
+        self.SAVED_DATA_PATH = './saved_data/'
+        self.data_dictionary['data_names_to_plot'] = []
+
+    def plot(self):
+        self.generate_figure()
+        plt.show()
+
+    def generate_figure(self):
+        plt.xlabel("Time (s)")
+        plt.ylabel("Position (cm)")
+        plt.title("Position over time")
+        plt.grid()
+        time_data = self.data_dictionary['time']
+        for data_name in self.data_dictionary['data_names_to_plot']:
+            data = np.array(self.data_dictionary[data_name])
+            if data_name.startswith('tracker_position_'):
+                plt.fill_between(time_data, data - 0.5, data + 0.5, label=data_name)
+            else: plt.plot(time_data, data, label=data_name)
+        plt.legend()
+        figure = plt.gcf()
+        return figure
+
+    def add_data(self, name, data, plot=False):
+        if plot: 
+            self.data_dictionary['data_names_to_plot'].append(name)
+        self.data_dictionary[name] = data
+
+    def add_sample(self, name, sample):
+        if name not in self.data_dictionary:
+            self.data_dictionary[name] = []
+            self.data_dictionary['data_names_to_plot'].append(name)
+        self.data_dictionary[name].append(sample)        
+
+    def save_to_file(self):
+        def serialize(obj):
+            if type(obj).__module__ == np.__name__:
+                if isinstance(obj, np.ndarray):
+                    return obj.tolist()
+                else:
+                    return obj.item()
+            raise TypeError('Unknown type:', type(obj))
+
+        description = input("Enter data description: ")
+        self.data_dictionary['description'] = description
+        file_path = self.SAVED_DATA_PATH + 'data/' + self.start_timestamp + '.json'
+        with open(file_path, 'w') as f:
+            json.dump(self.data_dictionary, f, default=serialize)
+
+        file_path = self.SAVED_DATA_PATH + 'figures/' + self.start_timestamp + '_' + description + '.png'
+        figure = self.generate_figure()
+        figure.savefig(file_path)
+
+
+    def load_from_file(self):
+        filenames = [file for file in os.listdir(self.SAVED_DATA_PATH + 'data/')]
+        [print(f"[{i}]", filename) for i, filename in enumerate(filenames)]
+
+        path = self.SAVED_DATA_PATH + 'data/' + filenames[int(input("Enter file index:"))]      
+        with open(path, 'r') as file:
+            self.data_dictionary = json.load(file)
+
+        for key, value in self.data_dictionary.items():
+            if isinstance(value, list):
+                self.data_dictionary[key] = np.array(value)
+
+    def print_metrics(self):
+        real_x_position = np.array(self.data_dictionary['tracker_position_x'])
+        predicted_x_position = np.array(self.data_dictionary['predictor_position_x'])
+        time_data = self.data_dictionary['time']
+        movement_start_time = next(i for i, e in enumerate(real_x_position) if e > 17)
+        print("Movement starts at: " + str(time_data[movement_start_time]))
+        error = np.abs(real_x_position[movement_start_time:] - predicted_x_position[movement_start_time:])
+        avgError = np.sum(error)/(len(time_data)-movement_start_time)
+        print("Mean error = " + str(avgError))
+        print("Highest error = " + str(max(error)))
+
+plotter = Plotter()
+
+
+if __name__ == '__main__':
+    plotter.load_from_file()
+    plotter.print_metrics()
+    plotter.plot()
