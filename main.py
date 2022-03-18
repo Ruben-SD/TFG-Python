@@ -5,13 +5,13 @@ from positionerfactory import PositionerFactory
 from config import Config
 from plotter import *
 
-config = Config.read_config(0)
+config = Config.read_config(offline=True)
 
-frame_timer = FrameTimer()
+frame_timer = FrameTimer(config)
 
 positioners = [PositionerFactory.create_predictor(config), PositionerFactory.create_tracker(config)]
 
-while not keyboard.is_pressed('esc'):
+while not keyboard.is_pressed('esc') and not frame_timer.reached_end():
     delta_time = frame_timer.mark()
     
     for positioner in positioners:

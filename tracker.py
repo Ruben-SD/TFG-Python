@@ -106,3 +106,21 @@ class CameraTracker2D(CameraTracker):
         (img_x, img_y) = self.get_smartphone_img_coords(frame)  
         current_distance = np.array([(img_x - self.initial_smartphone_cam_pos[0]) * self.cm_per_length_pixel, (img_y - self.initial_smartphone_cam_pos[1]) * self.cm_per_width_pixel])
         return current_distance
+
+class OfflineCameraTracker(CameraTracker):
+    def __init__(self, config):
+        self.name = 'tracker'
+        self.position = Position2D(config['config'])
+        self.camera_positions = config['tracker_position_x']
+        if 'tracker_position_y' in config:
+            self.camera_positions = list(zip(self.camera_positions, config['tracker_position_y']))
+    #todo
+        self.curr_frame = -1
+
+    def obtain_current_position(self):
+        self.curr_frame += 1
+        new_position = self.camera_positions[self.curr_frame]
+        return new_position
+    
+    def __del__(self):
+        pass

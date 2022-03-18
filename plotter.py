@@ -55,6 +55,9 @@ class Plotter:
         description = input("Enter data description: ")
         self.data_dictionary['description'] = description
         file_path = self.SAVED_DATA_PATH + 'data/' + self.start_timestamp + '.json'
+        audio_samples = self.data_dictionary['audio_samples']
+        for i, samples in enumerate(audio_samples):
+            self.data_dictionary['audio_samples'][i] = samples
         with open(file_path, 'w') as f:
             json.dump(self.data_dictionary, f, default=serialize)
 

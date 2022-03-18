@@ -2,7 +2,6 @@ import pygame
 from positioner import Positioner
 from speaker import Speaker
 from receiver import Receiver
-import plotter
 from doppleranalyzer import DopplerAnalyzer
 from plotter import *
 
@@ -45,3 +44,25 @@ class Predictor(Positioner):
     def __del__(self):
         if pygame.mixer.get_init() is not None:
             pygame.mixer.stop()
+
+
+class OfflinePredictor(Predictor):
+    def __init__(self, config):
+        self.config = config['config']
+        Positioner.__init__(self, self.config)
+        self.name = "predictor"
+        
+        pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
+        self.speakers = [Speaker(speaker_config) for speaker_config in self.config['speakers']]
+        for speaker in self.speakers:
+            speaker.play_sound()
+        
+        self.sound_samples = np.array([x for x in config['audio_samples']])
+        self.cur_sound_samples = 0
+        
+    def update(self, dt):
+        sound_samples = self.sound_samples[self.cur_sound_samples]
+        self.cur_sound_samples += 1
+        
+        speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
+        self.position.move_by(-np.array(speeds) * dt)
