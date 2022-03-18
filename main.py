@@ -5,7 +5,7 @@ from positionerfactory import PositionerFactory
 from config import Config
 from plotter import *
 
-config = Config.read_config(3)
+config = Config.read_config(0)
 
 frame_timer = FrameTimer()
 

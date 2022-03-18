@@ -1,3 +1,4 @@
+from email.mime import audio
 import numpy as np
 from scipy import signal
 from plotter import *
@@ -6,6 +7,7 @@ class DopplerAnalyzer:
 
     @staticmethod
     def extract_speeds_from(audio_samples, all_frequencies):
+        plotter.add_sample('audio_samples', audio_samples)
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         speeds = []
         for i, frequencies in enumerate(all_frequencies):
@@ -24,7 +26,7 @@ class DopplerAnalyzer:
         # Plot
         # speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)]) 
         # for i, frequency in enumerate(frequencies):
-        #     plotter.add_sample(f'doppler_deviation_{frequency}_hz', -speeds[i])
+        #     plotter.add_sample(f'doppler_deviation_{frequency}_hz', frequency_displacements[i])
         ###
 
         frequency_displacements, frequencies = DopplerAnalyzer.filter_frequencies(frequency_displacements, frequencies)
