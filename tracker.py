@@ -109,18 +109,31 @@ class CameraTracker2D(CameraTracker):
 
 class OfflineCameraTracker(CameraTracker):
     def __init__(self, config):
+        if not isinstance(self, OfflineCameraTracker2D):
+            Positioner.__init__(self, config['config'])
         self.name = 'tracker'
-        self.position = Position2D(config['config'])
-        self.camera_positions = config['tracker_position_x']
-        if 'tracker_position_y' in config:
-            self.camera_positions = list(zip(self.camera_positions, config['tracker_position_y']))
-    #todo
         self.curr_frame = -1
+    
+    def __del__(self):
+        pass
+
+class OfflineCameraTracker1D(OfflineCameraTracker):
+    def __init__(self, config):
+        super().__init__(config)
+        self.camera_positions = config['tracker_position_x']
+
+    def obtain_current_position(self):
+        self.curr_frame += 1
+        new_position = [self.camera_positions[self.curr_frame]]
+        return new_position    
+
+class OfflineCameraTracker2D(OfflineCameraTracker):
+    def __init__(self, config):
+        super().__init__(config)
+        self.position = Position2D(config['config'])
+        self.camera_positions = list(zip(config['tracker_position_x'], config['tracker_position_y']))
 
     def obtain_current_position(self):
         self.curr_frame += 1
         new_position = self.camera_positions[self.curr_frame]
         return new_position
-    
-    def __del__(self):
-        pass

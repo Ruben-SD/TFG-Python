@@ -1,5 +1,5 @@
 from predictor import Predictor, OfflinePredictor
-from tracker import CameraTracker1D, CameraTracker2D, OfflineCameraTracker
+from tracker import CameraTracker1D, CameraTracker2D, OfflineCameraTracker, OfflineCameraTracker1D, OfflineCameraTracker2D
 
 
 class PositionerFactory:
@@ -13,7 +13,10 @@ class PositionerFactory:
     @staticmethod
     def create_tracker(config):
         if config['offline']:
-            return OfflineCameraTracker(config)
+            trackers_types = {"1D": OfflineCameraTracker1D,
+                              "2D": OfflineCameraTracker2D}
+            tracker = trackers_types[config['config']['tracker_type']]
+            return tracker(config)
         else:
             trackers_types = {"1D": CameraTracker1D,
                               "2D": CameraTracker2D}

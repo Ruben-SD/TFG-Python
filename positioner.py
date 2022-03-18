@@ -28,6 +28,7 @@ class Distance1D(Position):
 class Position2D(Position):
     def __init__(self, config):
         self.position = config['smartphone']['position']
+        self.speakers_distance = config['speakers_distance']
 
     def set(self, new_position):
         self.position = new_position
@@ -35,7 +36,7 @@ class Position2D(Position):
     def get_position(self):
         x, y = self.position[0], self.position[1]
         dL = np.sqrt(x * x + y * y)
-        dR = np.sqrt((41 - x) * (41 - x) + y * y)
+        dR = np.sqrt((self.speakers_distance - x) * (self.speakers_distance - x) + y * y)
         # plotter.add_sample("tracker_distance_left", dL)
         # plotter.add_sample("tracker_distance_right", dR)
         return self.position[0], self.position[1]
@@ -81,6 +82,7 @@ class Positioner:
     def get_position(self):
         coords = ['x', 'y', 'z']
         position = self.position.get_position()
+        
         for i, coordinate in enumerate(position):
             plotter.add_sample(f"{self.name}_position_{coords[i]}", coordinate)
         return position
