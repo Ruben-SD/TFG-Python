@@ -18,7 +18,7 @@ while not keyboard.is_pressed('esc'):
         positioner.update(delta_time)
     
     print(f"Predicted position: {positioners[0].get_position()} Tracked position: {positioners[1].get_position()}")
-    
+
 del positioners
 
 plotter.print_metrics(config)

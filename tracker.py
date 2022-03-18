@@ -15,7 +15,7 @@ class CameraTracker(Positioner):
               
     def init_camera(self):
         self.cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-        self.cam.set(cv2.CAP_PROP_AUTOFOCUS, 0) 
+        self.cam.set(cv2.CAP_PROP_AUTOFOCUS, 0)
     
     def init_smartphone_data(self, config, frame):
         self.smartphone_dims = config['smartphone']['dims']
@@ -47,7 +47,7 @@ class CameraTracker(Positioner):
         binary_img = CameraTracker.binarize_image(frame)
         improved_img = cv2.erode(binary_img, np.ones(12, dtype=int))
         contours, _ = cv2.findContours(improved_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        smartphone_contour = CameraTracker.find_smartphone_contour(contours, frame)
+        smartphone_contour = CameraTracker.find_smartphone_contour(contours)
         x, y, w, h = cv2.boundingRect(smartphone_contour)
         return (x, y, w, h)
 
@@ -58,17 +58,12 @@ class CameraTracker(Positioner):
         return binary
 
     @staticmethod #TODO Could take into consideration smartphone dimensions to improve detection
-    def find_smartphone_contour(contours, img):
-        gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)    
-        maxArea = -1
+    def find_smartphone_contour(contours):
         index = -1
         for i, contour in enumerate(contours):
-            x, y, w, h = cv2.boundingRect(contour)
-            mean = cv2.mean(gray_img[y:y+h, x:x+w])[0]
             area = cv2.contourArea(contour)
-            if area > maxArea and mean < 100 and 6000 <= area <= 14000:
+            if 6000 <= area <= 14000:
                 index = i
-                maxArea = area
                 
         if index == -1:
             raise ValueError("Cannot find smartphone shaped black contour in image")
