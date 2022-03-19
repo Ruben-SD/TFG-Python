@@ -57,7 +57,7 @@ class DopplerAnalyzer:
         return np.ones(len(frequency_displacements), dtype=bool) # TODO replace by actual algorithm
     
     @staticmethod
-    def find_outliers(data, max_deviation=1.35): 
+    def find_outliers(data, max_deviation=1.65): 
         if not np.all(np.isclose(data, data[0])):  # Do this check so it doesn't return an empty list
             return np.array(abs(data - np.median(data)) > max_deviation * np.std(data), dtype=bool)
         else:
