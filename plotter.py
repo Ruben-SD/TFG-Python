@@ -96,6 +96,17 @@ class Plotter:
             print("Mean error Y = " + str(avgError))
         print("Highest error = " + str(max(error)))
 
+        kalman_x = self.data_dictionary['kf_x']
+        error = np.abs(real_x_position[movement_start_time:] - kalman_x[movement_start_time:])
+        avgError = np.sum(error)/(len(time_data)-movement_start_time)
+        print("Kalman error X:", avgError)
+
+        kalman_x = self.data_dictionary['kf_y']
+        error = np.abs(real_y_position[movement_start_time:] - kalman_x[movement_start_time:])
+        avgError = np.sum(error)/(len(time_data)-movement_start_time)
+        print("Kalman error Y:", avgError)
+
+
 plotter = Plotter()
 
 

@@ -28,7 +28,12 @@ class DopplerAnalyzer:
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
 #        np.sum(np.square(frequency_displacements - mean_freqs_displacements))
         self.all_frequency_displacements.append(frequency_displacements)
-        
+        difference = np.abs(self.all_frequency_displacements[-1] - frequency_displacements)
+        greater_than_ten = difference > 10
+        if np.all(greater_than_ten):
+            frequency_displacements.fill(self.all_frequency_displacements[np.argmin(difference)])
+        else: 
+            frequency_displacements[greater_than_ten] = np.mean(frequency_displacements)
         variances = np.var(self.all_frequency_displacements, axis=0, ddof=1)
         
         variances[variances == 0] = 0.00001
@@ -46,6 +51,7 @@ class DopplerAnalyzer:
 
         #variances = 1/variances
         mean = np.sum(speeds * (variances/np.sum(variances)))
+        #TODO take into account that higher frequencies mean more speed
         
         
         return mean
