@@ -87,7 +87,13 @@ class Plotter:
         print("Movement starts at: " + str(time_data[movement_start_time]))
         error = np.abs(real_x_position[movement_start_time:] - predicted_x_position[movement_start_time:])
         avgError = np.sum(error)/(len(time_data)-movement_start_time)
-        print("Mean error = " + str(avgError))
+        print("Mean error X = " + str(avgError))
+        if 'predictor_position_y' in self.data_dictionary:
+            real_y_position = np.array(self.data_dictionary['tracker_position_y'])
+            predicted_y_position = np.array(self.data_dictionary['predictor_position_y'])
+            error = np.abs(real_y_position[movement_start_time:] - predicted_y_position[movement_start_time:])
+            avgError = np.sum(error)/(len(time_data)-movement_start_time)
+            print("Mean error Y = " + str(avgError))
         print("Highest error = " + str(max(error)))
 
 plotter = Plotter()

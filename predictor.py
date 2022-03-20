@@ -16,6 +16,7 @@ class Predictor(Positioner):
             speaker.play_sound()
         
         self.receiver = Receiver()
+        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies()) for speaker in self.speakers]
         # for i, speaker in enumerate(self.speakers):
         #     plotter.add_data(f'predicted_x_position_{i}', [], plot=True)
         
@@ -33,7 +34,7 @@ class Predictor(Positioner):
     #TODO abstract to update_measurement
     def update(self, dt):
         sound_samples = self.receiver.retrieve_sound_samples()
-        speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for doppler_analyzer in self.doppler_analyzers])
         self.position.move_by(-np.array(speeds) * dt)
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
@@ -51,12 +52,14 @@ class OfflinePredictor(Predictor):
         self.config = config['config']
         Positioner.__init__(self, self.config)
         self.name = "predictor"
-        
+                
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
         self.speakers = [Speaker(speaker_config) for speaker_config in self.config['speakers']]
         for speaker in self.speakers:
             speaker.play_sound()
         
+        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies()) for speaker in self.speakers]
+
         self.sound_samples = np.array([x for x in config['audio_samples']])
         self.cur_sound_samples = 0
         
@@ -64,5 +67,5 @@ class OfflinePredictor(Predictor):
         sound_samples = self.sound_samples[self.cur_sound_samples]
         self.cur_sound_samples += 1
         
-        speeds = DopplerAnalyzer.extract_speeds_from(sound_samples, [speaker.get_config().get_frequencies() for speaker in self.speakers])
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for doppler_analyzer in self.doppler_analyzers])
         self.position.move_by(-np.array(speeds) * dt)
