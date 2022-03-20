@@ -8,6 +8,7 @@ from positionerfactory import PositionerFactory
 from config import Config
 import multiprocessing
 from plotting import Plotter
+import itertools
 
 def main_loop(config):
     plotter = Plotter()
@@ -34,20 +35,41 @@ def main_loop(config):
     plotter.save_to_file()
 
 def offline_loop(config):
-    print("\nRunning", config['description'], "...")
+    print("Running", config['description'] + "...")
     sys.stdout = open(os.devnull, 'w')
     plotter = main_loop(config)
     sys.stdout = sys.__stdout__
-    print("\nResults for", config['description'], ":\n")
-    plotter.print_metrics()
+    #plotter.print_metrics()
+    return plotter.compute_metrics(), config['description'], config['options']
 
 
 if __name__=="__main__":
     offline = True
     if offline:
         configs = Config.get_all_configs()        
-        pool = multiprocessing.Pool(processes=len(configs))
-        result = pool.map(offline_loop, configs)         
+        options = ['doppler_threshold', 'noise_variance_weighted_mean', 'outlier_removal']
+        all_configs = []
+        print("Generating all configurations and options combinations...")
+        for i in range(1, len(options) + 1):
+            current_options = list(itertools.combinations(options, i))
+            for conf, opt in list(itertools.product(configs, current_options)):
+                import copy
+                current_config = copy.deepcopy(conf)
+                current_config['options'] = opt
+                all_configs.append(current_config)
+        
+        print("Total combinations:", len(all_configs), "\n")
+        print("Starting threads...")
+        pool = multiprocessing.Pool(processes=len(all_configs))
+        results = pool.map(offline_loop, all_configs)    
+        
+        results = sorted(results, key=lambda t: (t[1], t[0]['Mean error X: ']))
+        
+        print("\n")        
+        for i, result in enumerate(results):
+            metrics, description, options = result
+            print("Results for", description, options, " = ", metrics)
+            # add method of doppler per example in config and select best (min error ) printint that method used
         print("\nEnd")
     else:
         config = Config.read_config(offline=True)

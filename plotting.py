@@ -78,33 +78,45 @@ class Plotter:
             if isinstance(value, list):
                 self.data_dictionary[key] = np.array(value)
 
-    def print_metrics(self):
-        real_x_position = np.array(self.data_dictionary['tracker_position_x'])
-        predicted_x_position = np.array(self.data_dictionary['predictor_position_x'])
-        doppler = np.array(self.data_dictionary['doppler_deviation_filtered_0'])
-        time_data = self.data_dictionary['time']
-        movement_start_time = next(i for i, d in enumerate(doppler) if d > 4)
-        print("Movement starts at: " + str(time_data[movement_start_time]))
-        error = np.abs(real_x_position[movement_start_time:] - predicted_x_position[movement_start_time:])
-        avgError = np.sum(error)/(len(time_data)-movement_start_time)
-        print("Mean error X = " + str(avgError))
+    def compute_metrics(self):
+        metrics = {}
+        tracker_position_x = np.array(self.data_dictionary['tracker_position_x'])
+        predictor_position_x = np.array(self.data_dictionary['predictor_position_x'])
+        doppler_deviation_filtered_0 = np.array(self.data_dictionary['doppler_deviation_filtered_0'])
+        time = self.data_dictionary['time']
+
+        movement_start_time = next(i for i, d in enumerate(doppler_deviation_filtered_0) if d > 4)
+        metrics['Movement start time: '] = time[movement_start_time]
+
+        error = np.abs(tracker_position_x[movement_start_time:] - predictor_position_x[movement_start_time:])
+        avg_error = np.sum(error)/(len(time)-movement_start_time)
+        metrics['Mean error X: '] = avg_error
+
         if 'predictor_position_y' in self.data_dictionary:
-            real_y_position = np.array(self.data_dictionary['tracker_position_y'])
-            predicted_y_position = np.array(self.data_dictionary['predictor_position_y'])
-            error = np.abs(real_y_position[movement_start_time:] - predicted_y_position[movement_start_time:])
-            avgError = np.sum(error)/(len(time_data)-movement_start_time)
-            print("Mean error Y = " + str(avgError))
-        print("Highest error = " + str(max(error)))
+            tracker_position_y = np.array(self.data_dictionary['tracker_position_y'])
+            predictor_position_y = np.array(self.data_dictionary['predictor_position_y'])
+            error = np.abs(tracker_position_y[movement_start_time:] - predictor_position_y[movement_start_time:])
+            avg_error = np.sum(error)/(len(time)-movement_start_time)
+            metrics['Mean error Y: '] = avg_error
+        metrics['Highest error: '] = max(error)
 
         kalman_x = self.data_dictionary['kf_x']
-        error = np.abs(real_x_position[movement_start_time:] - kalman_x[movement_start_time:])
-        avgError = np.sum(error)/(len(time_data)-movement_start_time)
-        print("Kalman error X:", avgError)
+        error = np.abs(tracker_position_x[movement_start_time:] - kalman_x[movement_start_time:])
+        avg_error = np.sum(error)/(len(time)-movement_start_time)
+        metrics['Kalman error X: '] = avg_error
 
         kalman_x = self.data_dictionary['kf_y']
-        error = np.abs(real_y_position[movement_start_time:] - kalman_x[movement_start_time:])
-        avgError = np.sum(error)/(len(time_data)-movement_start_time)
-        print("Kalman error Y:", avgError)
+        error = np.abs(tracker_position_y[movement_start_time:] - kalman_x[movement_start_time:])
+        avg_error = np.sum(error)/(len(time)-movement_start_time)
+        metrics['Kalman error Y: '] = avg_error
+        
+        self.metrics = metrics
+        return metrics
+
+    def print_metrics(self, metrics):
+        if self.metrics is None:
+            self.metrics = self.compute_metrics()
+        print(self.metrics) 
 
 
 if __name__ == '__main__':
