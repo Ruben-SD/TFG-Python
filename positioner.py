@@ -1,5 +1,5 @@
 import numpy as np
-from plotter import plotter
+import plotting
 
 class Position:
     def __init__(self, config):
@@ -68,7 +68,9 @@ class Distance2D(Position):
 
 
 class Positioner:
-    def __init__(self, config):
+    def __init__(self, config, plotter):
+        self.plotter = plotter
+
         position_types = {
             '1D': Distance1D,
             '2D': Distance2D
@@ -84,5 +86,5 @@ class Positioner:
         position = self.position.get_position()
         
         for i, coordinate in enumerate(position):
-            plotter.add_sample(f"{self.name}_position_{coords[i]}", coordinate)
+            self.plotter.add_sample(f"{self.name}_position_{coords[i]}", coordinate)
         return position

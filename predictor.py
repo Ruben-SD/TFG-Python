@@ -4,11 +4,11 @@ from positioner import Positioner
 from speaker import Speaker
 from receiver import Receiver
 from doppleranalyzer import DopplerAnalyzer
-from plotter import *
+import numpy as np
 
 class Predictor(Positioner):
-    def __init__(self, config):
-        super().__init__(config)
+    def __init__(self, config, plotter):
+        super().__init__(config, plotter)
         self.name = "predictor"
         
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
@@ -80,9 +80,9 @@ class KalmanFilter(object):
         	(I - np.dot(K, self.H)).T) + np.dot(np.dot(K, self.R), K.T)
 
 class OfflinePredictor(Predictor):
-    def __init__(self, config):
+    def __init__(self, config, plotter):
         self.config = config['config']
-        Positioner.__init__(self, self.config)
+        Positioner.__init__(self, self.config, plotter)
         self.name = "predictor"
                 
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
@@ -90,7 +90,7 @@ class OfflinePredictor(Predictor):
         for speaker in self.speakers:
             speaker.play_sound()
         
-        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies()) for speaker in self.speakers]
+        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter) for speaker in self.speakers]
 
         self.sound_samples = np.array([x for x in config['audio_samples']])
         self.cur_sound_samples = 0
@@ -113,11 +113,11 @@ class OfflinePredictor(Predictor):
         self.kf.F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
         w = np.dot(self.H,  self.kf.predict())[0]
         print(w)
-        plotter.add_sample('kf_x', w[0])
+        self.plotter.add_sample('kf_x', w[0])
         if len(w) > 1:        
-            plotter.add_sample('kf_y', w[1])
+            self.plotter.add_sample('kf_y', w[1])
         else: 
-            plotter.add_sample('kf_y', 0)
+            self.plotter.add_sample('kf_y', 0)
         
         
         self.position.move_by(-np.array(speeds) * dt)

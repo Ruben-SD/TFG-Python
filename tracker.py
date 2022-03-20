@@ -1,13 +1,12 @@
 import cv2
 import numpy as np
 from positioner import Position2D, Positioner
-from plotter import *
 import copy
 
 class CameraTracker(Positioner):
-    def __init__(self, config):
+    def __init__(self, config, plotter):
         if not isinstance(self, CameraTracker2D):
-            super().__init__(config)
+            super().__init__(config, plotter)
         self.name = 'tracker'
         self.init_camera()
         _, first_frame = self.cam.read()   
@@ -108,9 +107,9 @@ class CameraTracker2D(CameraTracker):
         return current_distance
 
 class OfflineCameraTracker(CameraTracker):
-    def __init__(self, config):
+    def __init__(self, config, plotter):
         if not isinstance(self, OfflineCameraTracker2D):
-            Positioner.__init__(self, config['config'])
+            Positioner.__init__(self, config['config'], plotter)
         self.name = 'tracker'
         self.curr_frame = -1
     
@@ -118,8 +117,8 @@ class OfflineCameraTracker(CameraTracker):
         pass
 
 class OfflineCameraTracker1D(OfflineCameraTracker):
-    def __init__(self, config):
-        super().__init__(config)
+    def __init__(self, config, plotter):
+        super().__init__(config, plotter)
         self.camera_positions = config['tracker_position_x']
 
     def obtain_current_position(self):
@@ -128,8 +127,9 @@ class OfflineCameraTracker1D(OfflineCameraTracker):
         return new_position    
 
 class OfflineCameraTracker2D(OfflineCameraTracker):
-    def __init__(self, config):
-        super().__init__(config)
+    def __init__(self, config, plotter):
+        super().__init__(config, plotter)
+        self.plotter = plotter
         self.position = Position2D(config['config'])
         self.camera_positions = list(zip(config['tracker_position_x'], config['tracker_position_y']))
 

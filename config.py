@@ -1,9 +1,11 @@
 import json
-from plotter import *
+import plotting
+import os
 
 class Config:
     CONFIGS_PATH='configs/'
     SAVED_DATA_PATH='saved_data/data/'
+    OFFLINE_DATA_PATH='offline_data/'
 
     @staticmethod
     def read_config(index=None, filename=None, offline=False):
@@ -14,12 +16,10 @@ class Config:
             
         with open(folder + filename, 'r') as file:
             config = json.load(file)
-            plotter.add_data('config', config)    
+            plotting.plotter.add_data('config', config)    
         config['offline'] = offline
 
         return config
-
-
 
     @staticmethod
     def ask_for_filename(folder, index=None):
@@ -31,3 +31,16 @@ class Config:
         [print(f"[{i}]", filename) for i, filename in enumerate(filenames)]
         filename = filenames[int(input("Enter file index: "))]      
         return filename
+
+    
+    @staticmethod
+    def get_all_configs(index=None):
+        configs = []
+        folder = Config.OFFLINE_DATA_PATH
+        filenames = [file for file in os.listdir(folder)]
+        for filename in filenames:
+            with open(folder + filename, 'r') as file:
+                config = json.load(file)
+                config['offline'] = True
+                configs.append(config)
+        return configs

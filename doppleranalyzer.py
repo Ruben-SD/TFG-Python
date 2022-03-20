@@ -1,23 +1,26 @@
 import numpy as np
-from scipy import signal, special
-from plotter import *
+from scipy import signal
+import plotting
 
 class DopplerAnalyzer:
-    ID = -1
+    ID = 0
 
-    def __init__(self, frequencies) -> None:
+    def __init__(self, frequencies, plotter) -> None:
+        self.plotter = plotter
         self.id = DopplerAnalyzer.ID
         DopplerAnalyzer.ID += 1
-        self.all_frequency_displacements = [0 for f in frequencies]
+        if DopplerAnalyzer.ID == 2:
+            DopplerAnalyzer.ID = 0
+        self.all_frequency_displacements = [list(np.zeros(len(frequencies)))]
         self.frequencies = frequencies
 
     def extract_speeds_from(self, audio_samples):
-        plotter.add_sample('audio_samples', audio_samples)
+        self.plotter.add_sample('audio_samples', audio_samples)
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         
         speed = self.extract_speed_from(Sxx, np.array(self.frequencies))
         
-        plotter.add_sample(f'doppler_deviation_filtered_{self.id}', -speed)
+        self.plotter.add_sample(f'doppler_deviation_filtered_{self.id}', -speed)
         
         return speed
 
