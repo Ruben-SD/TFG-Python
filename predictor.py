@@ -82,6 +82,7 @@ class KalmanFilter(object):
 class OfflinePredictor(Predictor):
     def __init__(self, config, plotter):
         self.config = config['config']
+        self.options = config['options']
         Positioner.__init__(self, self.config, plotter)
         self.name = "predictor"
                 
@@ -90,18 +91,19 @@ class OfflinePredictor(Predictor):
         for speaker in self.speakers:
             speaker.play_sound()
         
-        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter) for speaker in self.speakers]
+        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speakers]
 
         self.sound_samples = np.array([x for x in config['audio_samples']])
         self.cur_sound_samples = 0
 
-        dt = 1.0/60
-        F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
-        self.H = np.array([1, 0, 0]).reshape(1, 3)
-        Q = np.array([[0.00001, 0.00001, 0.0], [0.00001, 0.00001, 0.0], [0.0, 0.0, 0.0]])
-        R = np.array([0.00001]).reshape(1, 1)
+        if 'kalman_filter' in self.options:
+            dt = 1.0/60
+            F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
+            self.H = np.array([1, 0, 0]).reshape(1, 3)
+            Q = np.array([[0.00001, 0.00001, 0.0], [0.00001, 0.00001, 0.0], [0.0, 0.0, 0.0]])
+            R = np.array([0.00001]).reshape(1, 1)
 
-        self.kf = KalmanFilter(F = F, H = self.H, Q = Q, R = R)
+            self.kf = KalmanFilter(F = F, H = self.H, Q = Q, R = R)
         
         
     def update(self, dt):
@@ -109,16 +111,15 @@ class OfflinePredictor(Predictor):
         self.cur_sound_samples += 1
         
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for doppler_analyzer in self.doppler_analyzers])
-
-        self.kf.F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
-        w = np.dot(self.H,  self.kf.predict())[0]
-        print(w)
-        self.plotter.add_sample('kf_x', w[0])
-        if len(w) > 1:        
-            self.plotter.add_sample('kf_y', w[1])
-        else: 
-            self.plotter.add_sample('kf_y', 0)
-        
-        
         self.position.move_by(-np.array(speeds) * dt)
-        self.kf.update(self.position.get_position())
+
+        if 'kalman_filter' in self.options:
+            self.kf.F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
+            w = np.dot(self.H,  self.kf.predict())[0]
+            print(w)
+            self.plotter.add_sample('kalman_filter_x', w[0])
+            if len(w) > 1:        
+                self.plotter.add_sample('kalman_filter_y', w[1])
+            else: 
+                self.plotter.add_sample('kalman_filter_y', 0)
+            self.kf.update(self.position.get_position())

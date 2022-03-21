@@ -100,15 +100,17 @@ class Plotter:
             metrics['Mean error Y: '] = avg_error
         metrics['Highest error: '] = max(error)
 
-        kalman_x = self.data_dictionary['kf_x']
-        error = np.abs(tracker_position_x[movement_start_time:] - kalman_x[movement_start_time:])
-        avg_error = np.sum(error)/(len(time)-movement_start_time)
-        metrics['Kalman error X: '] = avg_error
+        if 'kalman_filter_x' in self.data_dictionary:
+            kalman_x = self.data_dictionary['kalman_filter_x']
+            error = np.abs(tracker_position_x[movement_start_time:] - kalman_x[movement_start_time:])
+            avg_error = np.sum(error)/(len(time)-movement_start_time)
+            metrics['Kalman error X: '] = avg_error
 
-        kalman_x = self.data_dictionary['kf_y']
-        error = np.abs(tracker_position_y[movement_start_time:] - kalman_x[movement_start_time:])
-        avg_error = np.sum(error)/(len(time)-movement_start_time)
-        metrics['Kalman error Y: '] = avg_error
+        if 'kalman_filter_y' in self.data_dictionary:
+            kalman_x = self.data_dictionary['kalman_filter_y']
+            error = np.abs(tracker_position_y[movement_start_time:] - kalman_x[movement_start_time:])
+            avg_error = np.sum(error)/(len(time)-movement_start_time)
+            metrics['Kalman error Y: '] = avg_error
         
         self.metrics = metrics
         return metrics

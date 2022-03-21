@@ -47,20 +47,24 @@ if __name__=="__main__":
     offline = True
     if offline:
         configs = Config.get_all_configs()        
-        options = ['doppler_threshold', 'noise_variance_weighted_mean', 'outlier_removal']
+        options = {'kalman_filter': None, 'doppler_threshold': { "values": [1.35, 20] }, 'noise_variance_weighted_mean': None, 'outlier_removal': { "values": [1.25, 1.5, 1.75, 2, 2.35]}, 'ignore_spikes': None}
         all_configs = []
         print("Generating all configurations and options combinations...")
         for i in range(1, len(options) + 1):
-            current_options = list(itertools.combinations(options, i))
-            for conf, opt in list(itertools.product(configs, current_options)):
-                import copy
-                current_config = copy.deepcopy(conf)
-                current_config['options'] = opt
-                all_configs.append(current_config)
+            current_options = list(map(dict, itertools.combinations(options.items(), i)))
+            for conf, opts in list(itertools.product(configs, current_options)):
+                for key, val in opts.items():
+                    if val is not None and "values" in val:
+                        for i in range(len(val["values"])):
+                            curr_opts = {key: value for key, value in opts.items()}
+                            curr_opts[key]["index"] = i
+                            current_config = {key: value for key, value in conf.items()}
+                            current_config['options'] = curr_opts
+                            all_configs.append(current_config)
         
         print("Total combinations:", len(all_configs), "\n")
         print("Starting threads...")
-        pool = multiprocessing.Pool(processes=len(all_configs))
+        pool = multiprocessing.Pool(processes=12)
         results = pool.map(offline_loop, all_configs)    
         
         results = sorted(results, key=lambda t: (t[1], t[0]['Mean error X: ']))
