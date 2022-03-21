@@ -88,8 +88,6 @@ class OfflinePredictor(Predictor):
                 
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
         self.speakers = [Speaker(speaker_config) for speaker_config in self.config['speakers']]
-        for speaker in self.speakers:
-            speaker.play_sound()
         
         self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speakers]
 
