@@ -45,7 +45,7 @@ def offline_loop(config):
 
 
 if __name__=="__main__":
-    offline = True
+    offline = False
     if offline:
         configs = Config.get_all_configs()        
         options = {'kalman_filter': None, 'doppler_threshold': { "values": [1.35, 1.5] }, 'noise_variance_weighted_mean': None, 'outlier_removal': { "values": [1.25, 1.5, 1.75, 2, 2.35]}, 'ignore_spikes': None}
@@ -68,14 +68,37 @@ if __name__=="__main__":
         pool = multiprocessing.Pool(processes=os.cpu_count())
         results = pool.map(offline_loop, all_configs)    
         
-        results = sorted(results, key=lambda t: (t[1], t[0]['Mean error Y: ']))
+        one_dim = []
+        two_dims = []
+        for r in results:
+            if 'Mean error Y: ' in r[0]:
+                two_dims.append(r)
+            else:
+                one_dim.append(r)
+
+        one_dim = sorted(one_dim, key=lambda t: (t[1], t[0]['Mean error X: ']))
+        two_dims = sorted(two_dims, key=lambda t: (t[1], t[0]['Mean error Y: ']))
         
         print("\n")        
-        for i, result in enumerate(results):
+
+        result_string = "-" * 20 + " 1D " + "-" * 20
+        for i, result in enumerate(one_dim):
             metrics, description, options = result
-            print("Results for", description, options, " = ", metrics)
+            result_string += "Results for " + description + str(options) + " = " + str(metrics) + "\n"
             # add method of doppler per example in config and select best (min error ) printint that method used
+        with open('result.txt', 'w') as f:
+            f.write(result_string)
+
+        result_string = "-" * 20 + " 2D " + "-" * 20
+        for i, result in enumerate(two_dims):
+            metrics, description, options = result
+            result_string += "Results for " + description + str(options) + " = " + str(metrics) + "\n"
+            # add method of doppler per example in config and select best (min error ) printint that method used
+        with open('result.txt', 'a') as f:
+            f.write(result_string)
+        
         print("\nEnd")
+
     else:
         config = Config.read_config(offline=False)
         plotter = Plotter()

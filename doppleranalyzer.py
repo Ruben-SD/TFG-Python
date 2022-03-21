@@ -1,8 +1,5 @@
-from pickletools import optimize
-from re import M
 import numpy as np
 from scipy import signal
-import plotting
 
 class DopplerAnalyzer:
     ID = 0
@@ -11,9 +8,7 @@ class DopplerAnalyzer:
         self.options = config['options'] if "options" in config else None
         self.plotter = plotter
         self.id = DopplerAnalyzer.ID
-        DopplerAnalyzer.ID += 1
-        if DopplerAnalyzer.ID == 2:
-            DopplerAnalyzer.ID = 0
+        DopplerAnalyzer.ID = (DopplerAnalyzer.ID + 1) % 2
         self.all_frequency_displacements = [list(np.zeros(len(frequencies)))]
         self.frequencies = frequencies
 

@@ -83,10 +83,14 @@ class Plotter:
         metrics = {}
         tracker_position_x = np.array(self.data_dictionary['tracker_position_x'])
         predictor_position_x = np.array(self.data_dictionary['predictor_position_x'])
-        doppler_deviation_filtered_0 = np.array(self.data_dictionary['doppler_deviation_filtered_0'])
+    
+        if 'doppler_deviation_filtered_0' in self.data_dictionary:
+            doppler_deviation_filtered = np.array(self.data_dictionary['doppler_deviation_filtered_0'])
+        else:
+            doppler_deviation_filtered = np.array(self.data_dictionary['doppler_deviation_filtered_1'])
         time = self.data_dictionary['time']
 
-        movement_start_time = next(i for i, d in enumerate(doppler_deviation_filtered_0) if d > 4)
+        movement_start_time = next(i for i, d in enumerate(doppler_deviation_filtered) if d > 4)
         metrics['Movement start time: '] = time[movement_start_time]
 
         error = np.abs(tracker_position_x[movement_start_time:] - predictor_position_x[movement_start_time:])
@@ -99,6 +103,13 @@ class Plotter:
             error = np.abs(tracker_position_y[movement_start_time:] - predictor_position_y[movement_start_time:])
             avg_error = np.sum(error)/(len(time)-movement_start_time)
             metrics['Mean error Y: '] = avg_error
+
+            if 'kalman_filter_y' in self.data_dictionary:
+                kalman_y = self.data_dictionary['kalman_filter_y']
+                error = np.abs(tracker_position_y[movement_start_time:] - kalman_y[movement_start_time:])
+                avg_error = np.sum(error)/(len(time)-movement_start_time)
+                metrics['Kalman error Y: '] = avg_error
+
         metrics['Highest error: '] = max(error)
 
         if 'kalman_filter_x' in self.data_dictionary:
@@ -106,12 +117,6 @@ class Plotter:
             error = np.abs(tracker_position_x[movement_start_time:] - kalman_x[movement_start_time:])
             avg_error = np.sum(error)/(len(time)-movement_start_time)
             metrics['Kalman error X: '] = avg_error
-
-        if 'kalman_filter_y' in self.data_dictionary:
-            kalman_x = self.data_dictionary['kalman_filter_y']
-            error = np.abs(tracker_position_y[movement_start_time:] - kalman_x[movement_start_time:])
-            avg_error = np.sum(error)/(len(time)-movement_start_time)
-            metrics['Kalman error Y: '] = avg_error
         
         self.metrics = metrics
         return metrics
