@@ -33,8 +33,9 @@ class DopplerAnalyzer:
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
 #        np.sum(np.square(frequency_displacements - mean_freqs_displacements))
+
+        self.all_frequency_displacements.append(frequency_displacements)
         if 'noise_variance_weighted_mean' in self.options:
-            self.all_frequency_displacements.append(frequency_displacements)
             variances = np.var(self.all_frequency_displacements, axis=0, ddof=1)
             variances[variances == 0] = 0.00001
         else:

@@ -40,6 +40,8 @@ def offline_loop(config):
     plotter = main_loop(config)
     sys.stdout = sys.__stdout__
     #plotter.print_metrics()
+    #todo save graph
+    #plotter.save_to_file('offlinefolder)
     return plotter.compute_metrics(), config['description'], config['options']
 
 
@@ -47,7 +49,7 @@ if __name__=="__main__":
     offline = True
     if offline:
         configs = Config.get_all_configs()        
-        options = {'kalman_filter': None, 'doppler_threshold': { "values": [1.35, 20] }, 'noise_variance_weighted_mean': None, 'outlier_removal': { "values": [1.25, 1.5, 1.75, 2, 2.35]}, 'ignore_spikes': None}
+        options = {'kalman_filter': None, 'doppler_threshold': { "values": [1.35, 1.5] }, 'noise_variance_weighted_mean': None, 'outlier_removal': { "values": [1.25, 1.5, 1.75, 2, 2.35]}, 'ignore_spikes': None}
         all_configs = []
         print("Generating all configurations and options combinations...")
         for i in range(1, len(options) + 1):
@@ -64,9 +66,10 @@ if __name__=="__main__":
         
         print("Total combinations:", len(all_configs), "\n")
         print("Starting threads...")
-        pool = multiprocessing.Pool(processes=12)
+        pool = multiprocessing.Pool(processes=os.cpu_count())
         results = pool.map(offline_loop, all_configs)    
         
+        results = sorted(results, key=lambda t: (t[1], t[0]['Mean error Y: ']))
         results = sorted(results, key=lambda t: (t[1], t[0]['Mean error X: ']))
         
         print("\n")        
