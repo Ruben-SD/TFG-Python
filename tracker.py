@@ -7,6 +7,7 @@ class CameraTracker(Positioner):
     def __init__(self, config, plotter):
         if not isinstance(self, CameraTracker2D):
             super().__init__(config, plotter)
+        self.plotter = plotter
         self.name = 'tracker'
         self.init_camera()
         _, first_frame = self.cam.read()   
@@ -63,8 +64,11 @@ class CameraTracker(Positioner):
             area = cv2.contourArea(contour)
             if 6000 <= area <= 14000:
                 index = i
-                
+        
         if index == -1:
+            import winsound, time
+            winsound.Beep(5000, 2)
+            time.sleep(2)
             raise ValueError("Cannot find smartphone shaped black contour in image")
         return contours[index]
 
@@ -79,8 +83,8 @@ class CameraTracker(Positioner):
         self.cam.release()
 
 class CameraTracker1D(CameraTracker):
-    def __init__(self, config):
-        super().__init__(config)
+    def __init__(self, config, plotter):
+        super().__init__(config, plotter)
 
     def look_smartphone_distance_from_initial_pos(self):
         _, frame = self.cam.read()
@@ -90,9 +94,9 @@ class CameraTracker1D(CameraTracker):
 
     
 class CameraTracker2D(CameraTracker):
-    def __init__(self, config):
+    def __init__(self, config, plotter):
         self.position = Position2D(config)
-        super().__init__(config)        
+        super().__init__(config, plotter)        
         
         #position_configs = config['smartphone']['position'] 
         #self.initial_measuring_tape_position = np.array([[position for _, position in position_config.items()] for position_config in position_configs], dtype=float)

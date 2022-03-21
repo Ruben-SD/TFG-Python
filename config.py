@@ -16,7 +16,6 @@ class Config:
             
         with open(folder + filename, 'r') as file:
             config = json.load(file)
-            plotting.plotter.add_data('config', config)    
         config['offline'] = offline
 
         return config

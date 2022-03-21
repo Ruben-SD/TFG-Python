@@ -35,13 +35,13 @@ class DopplerAnalyzer:
 #        np.sum(np.square(frequency_displacements - mean_freqs_displacements))
 
         self.all_frequency_displacements.append(frequency_displacements)
-        if 'noise_variance_weighted_mean' in self.options:
+        if self.options is not None and 'noise_variance_weighted_mean' in self.options:
             variances = np.var(self.all_frequency_displacements, axis=0, ddof=1)
             variances[variances == 0] = 0.00001
         else:
             variances = None
 
-        if 'ignore_spikes' in self.options:
+        if self.options is None or 'ignore_spikes' in self.options:
             difference = np.abs(self.all_frequency_displacements[-1] - frequency_displacements)
             greater_than_ten = difference > 10
             if np.all(greater_than_ten):
@@ -55,13 +55,13 @@ class DopplerAnalyzer:
         #     plotter.add_sample(f'doppler_deviation_{frequency}_hz', frequency_displacements[i])
         ###
 
-        frequency_displacements, frequencies, variances = self.filter_frequencies(frequency_displacements, frequencies, variances=variances, remove_outliers='outlier_removal' in self.options)
+        frequency_displacements, frequencies, variances = self.filter_frequencies(frequency_displacements, frequencies, variances=variances, remove_outliers=self.options is None or 'outlier_removal' in self.options)
         
         # Apply Doppler effect formula to compute speed in cm/s
         speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
 
         #variances = 1/variances
-        if 'noise_variance_weighted_mean' in self.options:
+        if self.options is not None and 'noise_variance_weighted_mean' in self.options:
             mean = np.sum(speeds * (variances/np.sum(variances)))
         else: 
             mean = np.mean(speeds)
@@ -72,7 +72,10 @@ class DopplerAnalyzer:
 
     def filter_frequencies(self, frequency_displacements, frequencies, variances=None, remove_outliers=True):
         if remove_outliers:
-            max_deviation = self.options['outlier_removal']['values'][self.options['outlier_removal']['index']]
+            if self.options is not None and 'outlier_removal' in self.options:
+                max_deviation = self.options['outlier_removal']['values'][self.options['outlier_removal']['index']]
+            else: 
+                max_deviation = 2.35
             not_outliers = ~DopplerAnalyzer.find_outliers(frequency_displacements, max_deviation=max_deviation)
             frequency_displacements = frequency_displacements[not_outliers]
             frequencies = frequencies[not_outliers]

@@ -17,7 +17,7 @@ class Predictor(Positioner):
             speaker.play_sound()
         
         self.receiver = Receiver()
-        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies()) for speaker in self.speakers]
+        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speakers]
         # for i, speaker in enumerate(self.speakers):
         #     plotter.add_data(f'predicted_x_position_{i}', [], plot=True)
         

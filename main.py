@@ -10,9 +10,7 @@ import multiprocessing
 from plotting import Plotter
 import itertools
 
-def main_loop(config):
-    plotter = Plotter()
-
+def main_loop(plotter, config):
     frame_timer = FrameTimer(config, plotter)
 
     positioners = [PositionerFactory.create_predictor(config, plotter), PositionerFactory.create_tracker(config, plotter)]
@@ -28,7 +26,7 @@ def main_loop(config):
     del positioners
 
     if config['offline']:
-        return plotter
+        return
 
     plotter.print_metrics()
     plotter.plot()
@@ -37,7 +35,8 @@ def main_loop(config):
 def offline_loop(config):
     print("Running", config['description'] + "...")
     sys.stdout = open(os.devnull, 'w')
-    plotter = main_loop(config)
+    plotter = Plotter()
+    main_loop(plotter, config)
     sys.stdout = sys.__stdout__
     #plotter.print_metrics()
     #todo save graph
@@ -70,7 +69,6 @@ if __name__=="__main__":
         results = pool.map(offline_loop, all_configs)    
         
         results = sorted(results, key=lambda t: (t[1], t[0]['Mean error Y: ']))
-        results = sorted(results, key=lambda t: (t[1], t[0]['Mean error X: ']))
         
         print("\n")        
         for i, result in enumerate(results):
@@ -79,8 +77,10 @@ if __name__=="__main__":
             # add method of doppler per example in config and select best (min error ) printint that method used
         print("\nEnd")
     else:
-        config = Config.read_config(offline=True)
-        main_loop(config)
+        config = Config.read_config(offline=False)
+        plotter = Plotter()
+        plotter.add_data('config', config)    
+        main_loop(plotter, config)
 
 
 

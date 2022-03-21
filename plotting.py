@@ -10,6 +10,7 @@ class Plotter:
         self.data_dictionary = {}
         self.SAVED_DATA_PATH = './saved_data/'
         self.data_dictionary['data_names_to_plot'] = []
+        self.metrics = None
 
     def plot(self):
         self.generate_figure()
@@ -115,7 +116,7 @@ class Plotter:
         self.metrics = metrics
         return metrics
 
-    def print_metrics(self, metrics):
+    def print_metrics(self):
         if self.metrics is None:
             self.metrics = self.compute_metrics()
         print(self.metrics) 

@@ -1,5 +1,4 @@
 import time
-import plotting
 
 class FrameTimer:
     def __init__(self, config, plotter):
@@ -7,7 +6,7 @@ class FrameTimer:
         self.plotter = plotter
         if not self.offline:
             self.last_frame_time = time.time()
-            plotting.add_data('time', [])
+            plotter.add_data('time', [])
             self.start_time = time.time()
         else:
             self.cur_frame = -1
