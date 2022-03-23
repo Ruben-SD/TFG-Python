@@ -12,11 +12,11 @@ class DopplerAnalyzer:
         self.all_frequency_displacements = [list(np.zeros(len(frequencies)))]
         self.frequencies = frequencies
 
-    def extract_speeds_from(self, audio_samples):
+    def extract_speeds_from(self, audio_samples, cosine):
         self.plotter.add_sample('audio_samples', audio_samples)
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         
-        speed = self.extract_speed_from(Sxx, np.array(self.frequencies))
+        speed = self.extract_speed_from(Sxx, np.array(self.frequencies))/cosine
         
         self.plotter.add_sample(f'doppler_deviation_filtered_{self.id}', -speed)
         

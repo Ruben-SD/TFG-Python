@@ -35,6 +35,7 @@ class Predictor(Positioner):
     #TODO abstract to update_measurement
     def update(self, dt):
         sound_samples = self.receiver.retrieve_sound_samples()
+        angles = self.position
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for doppler_analyzer in self.doppler_analyzers])
         self.position.move_by(-np.array(speeds) * dt)
         # for i, _ in enumerate(self.speakers):
@@ -107,8 +108,10 @@ class OfflinePredictor(Predictor):
     def update(self, dt):
         sound_samples = self.sound_samples[self.cur_sound_samples]
         self.cur_sound_samples += 1
-        
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for doppler_analyzer in self.doppler_analyzers])
+        x, y = self.position.get_position()
+        xR, yR = x + self.speakers_distance, y
+        cosines = ((y/np.sqrt(x * x + y * y)), y/np.sqrt(xR * xR + yR * yR))
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, cosines[i]) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.position.move_by(-np.array(speeds) * dt)
 
         if 'kalman_filter' in self.options:
