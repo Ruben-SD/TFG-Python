@@ -37,7 +37,8 @@ def offline_loop(config):
     sys.stdout = open(os.devnull, 'w')
     plotter = Plotter()
     main_loop(plotter, config)
-    sys.stdout = sys.__stdout__
+    sys.stdout = sys.__stdout__3
+    
     #plotter.print_metrics()
     #todo save graph
     #plotter.save_to_file('offlinefolder)

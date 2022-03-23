@@ -35,8 +35,16 @@ class Predictor(Positioner):
     #TODO abstract to update_measurement
     def update(self, dt):
         sound_samples = self.receiver.retrieve_sound_samples()
-        angles = self.position
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for doppler_analyzer in self.doppler_analyzers])
+        x, y = self.position.get_position()
+        xR, yR = self.position.get_other_position()
+        
+        cosines = ((y/np.sqrt(x * x + y * y)), y/np.sqrt(xR * xR + yR * yR))
+        # deg = np.arctan2(y, x)*180.0/np.pi
+        # deg1 = np.arctan2(xR, yR)*180.0/np.pi
+        # print("this", deg, deg1)
+        print(np.arccos(cosines[0]) *180/3.14, np.arccos(cosines[1]) * 180/3.14)
+        print(cosines)
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, cosines[i]) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.position.move_by(-np.array(speeds) * dt)
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
@@ -109,7 +117,7 @@ class OfflinePredictor(Predictor):
         sound_samples = self.sound_samples[self.cur_sound_samples]
         self.cur_sound_samples += 1
         x, y = self.position.get_position()
-        xR, yR = x + self.speakers_distance, y
+        xR, yR = self.position.get_other_position()
         cosines = ((y/np.sqrt(x * x + y * y)), y/np.sqrt(xR * xR + yR * yR))
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, cosines[i]) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.position.move_by(-np.array(speeds) * dt)

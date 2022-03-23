@@ -16,50 +16,50 @@ class DopplerAnalyzer:
         self.plotter.add_sample('audio_samples', audio_samples)
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         
-        speed = self.extract_speed_from(Sxx, np.array(self.frequencies))/cosine
+        speed = self.extract_speed_from(Sxx, np.array(self.frequencies), cosine)
         
         self.plotter.add_sample(f'doppler_deviation_filtered_{self.id}', -speed)
         
         return speed
 
-    def extract_speed_from(self, Sxx, frequencies):
+    def extract_speed_from(self, Sxx, frequencies, cosine):
         flw = 100 # Frequency lookup width
         
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
 #        np.sum(np.square(frequency_displacements - mean_freqs_displacements))
 
-        self.all_frequency_displacements.append(frequency_displacements)
-        if self.options is not None and 'noise_variance_weighted_mean' in self.options:
-            variances = np.var(self.all_frequency_displacements, axis=0, ddof=1)
-            variances[variances == 0] = 0.00001
-        else:
-            variances = None
+        # self.all_frequency_displacements.append(frequency_displacements)
+        # if self.options is not None and 'noise_variance_weighted_mean' in self.options:
+        #     variances = np.var(self.all_frequency_displacements, axis=0, ddof=1)
+        #     variances[variances == 0] = 0.00001
+        # else:
+        #     variances = None
 
-        if self.options is None or 'ignore_spikes' in self.options:
-            difference = np.abs(self.all_frequency_displacements[-1] - frequency_displacements)
-            greater_than_ten = difference > 10
-            if np.all(greater_than_ten):
-                frequency_displacements.fill(self.all_frequency_displacements[np.argmin(difference)])
-            else: 
-                frequency_displacements[greater_than_ten] = np.mean(frequency_displacements)
+        # if self.options is None or 'ignore_spikes' in self.options:
+        #     difference = np.abs(self.all_frequency_displacements[-1] - frequency_displacements)
+        #     greater_than_ten = difference > 10
+        #     if np.all(greater_than_ten):
+        #         frequency_displacements.fill(self.all_frequency_displacements[np.argmin(difference)])
+        #     else: 
+        #         frequency_displacements[greater_than_ten] = np.mean(frequency_displacements)
 
         # Plot
         # speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)]) 
         # for i, frequency in enumerate(frequencies):
         #     plotter.add_sample(f'doppler_deviation_{frequency}_hz', frequency_displacements[i])
         ###
-
+        variances = None
         frequency_displacements, frequencies, variances = self.filter_frequencies(frequency_displacements, frequencies, variances=variances, remove_outliers=self.options is None or 'outlier_removal' in self.options)
         
         # Apply Doppler effect formula to compute speed in cm/s
-        speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
+        speeds = np.array([(frequency_displacements[i]/(frequency * 2 * cosine)) * 343.73 * 100 for i, frequency in enumerate(frequencies)])
 
         #variances = 1/variances
-        if self.options is not None and 'noise_variance_weighted_mean' in self.options:
-            mean = np.sum(speeds * (variances/np.sum(variances)))
-        else: 
-            mean = np.mean(speeds)
+        # if self.options is not None and 'noise_variance_weighted_mean' in self.options:
+        #     mean = np.sum(speeds * (variances/np.sum(variances)))
+        # else: 
+        mean = np.mean(speeds)
         #TODO take into account that higher frequencies mean more speed
         
         

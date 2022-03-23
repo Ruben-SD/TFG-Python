@@ -67,8 +67,8 @@ class CameraTracker(Positioner):
         
         if index == -1:
             import winsound, time
-            winsound.Beep(5000, 2)
-            time.sleep(2)
+            winsound.Beep(440, 1)
+            time.sleep(1)
             raise ValueError("Cannot find smartphone shaped black contour in image")
         return contours[index]
 
