@@ -12,7 +12,7 @@ class Receiver:
         print("Listening on: ", ip_address, ":", port)
 
         # Discard first packets because they are noisy
-        end_time = time.time() + 1
+        end_time = time.time() + 2
         while time.time() < end_time:
             self.socket.recv(2048)
 

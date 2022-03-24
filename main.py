@@ -100,10 +100,15 @@ if __name__=="__main__":
         print("\nEnd")
 
     else:
-        config = Config.read_config(offline=False)
+        plot = False
         plotter = Plotter()
-        plotter.add_data('config', config)    
-        main_loop(plotter, config)
+        if plot:
+            plotter.load_from_file()
+            plotter.plot()
+        else:
+            config = Config.read_config(offline=False)
+            plotter.add_data('config', config)    
+            main_loop(plotter, config)
 
 
 
