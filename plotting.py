@@ -27,7 +27,7 @@ class Plotter:
             data = np.array(self.data_dictionary[data_name])
             if data_name.startswith('tracker_position_'):
                 plt.fill_between(time_data, data - 0.5, data + 0.5, label=data_name, facecolor='black')
-            elif not data_name.startswith('audio_samples') and not data_name == 'time': 
+            elif not data_name.startswith('audio_samples') and not data_name == 'time' and not data_name.startswith('doppler'): 
                 plt.plot(time_data, data, label=data_name)
         plt.legend()        
         figure = plt.gcf()

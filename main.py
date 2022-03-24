@@ -25,8 +25,8 @@ def main_loop(plotter, config):
 
     del positioners
 
-    if config['offline']:
-        return
+    # if config['offline']:
+    #     return
 
     plotter.print_metrics()
     plotter.plot()
@@ -106,10 +106,6 @@ if __name__=="__main__":
             plotter.load_from_file()
             plotter.plot()
         else:
-            config = Config.read_config(offline=True)
+            config = Config.read_config(offline=False)
             plotter.add_data('config', config)    
             main_loop(plotter, config)
-            plotter.print_metrics()
-            plotter.plot()
-
-

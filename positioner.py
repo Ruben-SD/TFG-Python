@@ -84,11 +84,7 @@ class Positioner:
     def get_position(self):
         coords = ['x', 'y', 'z']
         position = self.position.get_position()
-        import sys, os
-        if self.name != 'predictor' and self.name != 'tracker':
-            sys.stdout = sys.__stdout__
-            print(self.name)
-            sys.stdout = open(os.devnull, 'w')
+        
         for i, coordinate in enumerate(position):
             self.plotter.add_sample(f"{self.name}_position_{coords[i]}", coordinate)
         return position
