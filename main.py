@@ -106,9 +106,10 @@ if __name__=="__main__":
             plotter.load_from_file()
             plotter.plot()
         else:
-            config = Config.read_config(offline=False)
+            config = Config.read_config(offline=True)
             plotter.add_data('config', config)    
             main_loop(plotter, config)
-
+            plotter.print_metrics()
+            plotter.plot()
 
 

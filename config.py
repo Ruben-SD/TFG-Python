@@ -17,6 +17,7 @@ class Config:
         with open(folder + filename, 'r') as file:
             config = json.load(file)
         config['offline'] = offline
+        config['options'] = {}
 
         return config
 
