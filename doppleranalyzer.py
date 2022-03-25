@@ -12,33 +12,24 @@ class DopplerAnalyzer:
         self.all_frequency_displacements = [list(np.zeros(len(frequencies)))]
         self.frequencies = frequencies
 
-    def extract_speeds_from(self, audio_samples):
+    def extract_speeds_from(self, audio_samples, cosine):
         self.plotter.add_sample('audio_samples', audio_samples)
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         
-        speed = self.extract_speed_from(Sxx, np.array(self.frequencies))
+        speed = self.extract_speed_from(Sxx, np.array(self.frequencies), cosine)
         
         self.plotter.add_sample(f'doppler_deviation_filtered_{self.id}', speed)
         
         return speed
 
-    def extract_speed_from(self, Sxx, frequencies):
-        flw = 100 # Frequency lookup width
+    def extract_speed_from(self, Sxx, frequencies, cosine):
+        flw = 90 # Frequency lookup width
         
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
 #        np.sum(np.square(frequency_displacements - mean_freqs_displacements))
-        self.all_frequency_displacements.append(frequency_displacements)
-        speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)]) 
-        for f, speed in zip(frequencies, speeds):
-            self.plotter.add_sample(f'doppler_deviation_{f}_hz', speed)
-        if len(self.all_frequency_displacements) < 3:
-            return 0
-        return np.mean(speeds)
-        i = np.argmax(np.abs(frequency_displacements))
-        return (frequency_displacements[i] * 343.4 * 100)/frequencies[i] 
 
-        
+        self.all_frequency_displacements.append(frequency_displacements)
         if self.options and 'noise_variance_weighted_mean' in self.options:
             variances = np.var(self.all_frequency_displacements, axis=0, ddof=1)
             variances[variances == 0] = 0.00001
@@ -62,7 +53,7 @@ class DopplerAnalyzer:
         frequency_displacements, frequencies, variances = self.filter_frequencies(frequency_displacements, frequencies, variances=variances, remove_outliers=not self.options or 'outlier_removal' in self.options)
         
         # Apply Doppler effect formula to compute speed in cm/s
-        speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
+        speeds = np.array([(frequency_displacements[i]/(frequency * cosine)) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
 
         #variances = 1/variances
         if self.options and 'noise_variance_weighted_mean' in self.options:
@@ -106,5 +97,5 @@ class DopplerAnalyzer:
         return indicesOfBest #np.ones(len(frequency_displacements), dtype=bool) # TODO replace by actual algorithm
     
     @staticmethod
-    def find_outliers(data, max_deviation=2.65): 
+    def find_outliers(data, max_deviation=1.35): 
         return np.array(abs(data - np.median(data)) > max_deviation * np.std(data), dtype=bool)

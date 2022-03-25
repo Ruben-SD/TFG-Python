@@ -53,6 +53,11 @@ class Distance2D(Position):
     def move_by(self, displacements):
         self.distances += displacements
 
+    def get_other_position(self):
+        x, y = self.get_position()
+        xR, yR = -x + self.speakers_distance, y
+        return (xR, yR)
+
     def get_position(self):
         D = self.speakers_distance
         dL = self.distances[0]
