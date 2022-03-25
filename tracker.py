@@ -48,7 +48,11 @@ class CameraTracker(Positioner):
         improved_img = cv2.erode(binary_img, np.ones(12, dtype=int))
         contours, _ = cv2.findContours(improved_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         smartphone_contour = CameraTracker.find_smartphone_contour(contours)
+        
         x, y, w, h = cv2.boundingRect(smartphone_contour)
+        cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0))
+        cv2.imshow("Smartphone", frame)
+        cv2.waitKey(1)
         return (x, y, w, h)
 
     @staticmethod
@@ -62,14 +66,15 @@ class CameraTracker(Positioner):
         index = -1
         for i, contour in enumerate(contours):
             area = cv2.contourArea(contour)
+            
             if 6000 <= area <= 14000:
                 index = i
         
-        if index == -1:
-            import winsound, time
-            winsound.Beep(5000, 2)
-            time.sleep(2)
-            raise ValueError("Cannot find smartphone shaped black contour in image")
+        # if index == -1:
+        #     import winsound, time
+        #     winsound.Beep(5000, 2)
+        #     time.sleep(2)
+        #     raise ValueError("Cannot find smartphone shaped black contour in image")
         return contours[index]
 
     @staticmethod
