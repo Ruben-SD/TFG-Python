@@ -41,11 +41,11 @@ class Predictor(Positioner):
         sin = yR/np.sqrt(xR * xR + yR * yR)
         cosL = (x/np.sqrt(x * x + y * y))
         sinL = (y/np.sqrt(x * x + y * y))
-        cosines = (cosL * 0.70710678 + sinL * 0.70710678, cos * 0.70710678 + sin * 0.70710678)
+        cosines = (cosL * 0.92050485 + sinL * 0.39073113, cos * 0.93969262 + sin * 0.34202014)
         # deg = np.arctan2(y, x)*180.0/np.pi
         # deg1 = np.arctan2(xR, yR)*180.0/np.pi
         # print("this", deg, deg1)
-        print("POS: ", x, y, xR, yR, "ANGLES: ", np.arccos(cosines[0]) *180/np.pi, np.arccos(cosines[1]) * 180/np.pi, "COS: ", cosines)
+        #print("POS: ", x, y, xR, yR, "ANGLES: ", np.arccos(cosines[0]) *180/np.pi, np.arccos(cosines[1]) * 180/np.pi, "COS: ", cosines)
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, cosines[i]) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.position.move_by((-np.array(speeds) * dt))
         # for i, _ in enumerate(self.speakers):

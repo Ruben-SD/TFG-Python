@@ -13,7 +13,7 @@ import itertools
 def main_loop(plotter, config):
     frame_timer = FrameTimer(config, plotter)
 
-    positioners = [PositionerFactory.create_predictor(config, plotter)]#, PositionerFactory.create_tracker(config, plotter)]
+    positioners = [PositionerFactory.create_predictor(config, plotter), PositionerFactory.create_tracker(config, plotter)]
 
     while not keyboard.is_pressed('esc') and not frame_timer.reached_end():
         delta_time = frame_timer.mark()
@@ -21,7 +21,7 @@ def main_loop(plotter, config):
         for positioner in positioners:
             positioner.update(delta_time)
         
-        print(f"Predicted position: {positioners[0].get_position()}")# Tracked position: {positioners[1].get_position()}")
+        print(f"Predicted position: {positioners[0].get_position()} Tracked position: {positioners[1].get_position()}")
 
     del positioners
 
