@@ -23,7 +23,7 @@ class DopplerAnalyzer:
         return speed
 
     def extract_speed_from(self, Sxx, frequencies, cosine):
-        flw = 90 # Frequency lookup width
+        flw = 100 # Frequency lookup width
         
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
@@ -53,7 +53,10 @@ class DopplerAnalyzer:
         frequency_displacements, frequencies, variances = self.filter_frequencies(frequency_displacements, frequencies, variances=variances, remove_outliers=not self.options or 'outlier_removal' in self.options)
         
         # Apply Doppler effect formula to compute speed in cm/s
-        speeds = np.array([(frequency_displacements[i]/(frequency * cosine)) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
+        if cosine is None:
+            speeds = np.array([(frequency_displacements[i]/(frequency)) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
+        else:
+            speeds = np.array([(frequency_displacements[i]/(frequency * cosine)) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
 
         #variances = 1/variances
         if self.options and 'noise_variance_weighted_mean' in self.options:
@@ -93,8 +96,8 @@ class DopplerAnalyzer:
 
     @staticmethod
     def select_best_frequencies(frequency_displacements):
-        indicesOfBest = np.abs(frequency_displacements).argsort()[:2][::-1] # Get the 
-        return indicesOfBest #np.ones(len(frequency_displacements), dtype=bool) # TODO replace by actual algorithm
+        #indicesOfBest = np.abs(frequency_displacements).argsort()[:2][::-1] # Get the 
+        return np.ones(len(frequency_displacements), dtype=bool) # TODO replace by actual algorithm
     
     @staticmethod
     def find_outliers(data, max_deviation=1.35): 

@@ -111,6 +111,8 @@ class CameraTracker2D(CameraTracker):
 
     def look_smartphone_distance_from_initial_pos(self):
         _, frame = self.cam.read()
+        cv2.imshow("Smartphone", frame)
+        cv2.waitKey(1)
         (img_x, img_y) = self.get_smartphone_img_coords(frame)  
         current_distance = np.array([(img_x - self.initial_smartphone_cam_pos[0]) * self.cm_per_length_pixel, (img_y - self.initial_smartphone_cam_pos[1]) * self.cm_per_width_pixel])
         return current_distance
