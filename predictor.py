@@ -41,11 +41,7 @@ class Predictor(Positioner):
         sin = yR/np.sqrt(xR * xR + yR * yR)
         cosL = (x/np.sqrt(x * x + y * y))
         sinL = (y/np.sqrt(x * x + y * y))
-<<<<<<< HEAD
-        cosines = (cosL * 0.93358043 + sinL * 0.35836795, cos * 0.93358043 + sin * 0.35836795)
-=======
         cosines = (cosL * 0.92050485 + sinL * 0.39073113, cos * 0.93969262 + sin * 0.34202014)
->>>>>>> main
         # deg = np.arctan2(y, x)*180.0/np.pi
         # deg1 = np.arctan2(xR, yR)*180.0/np.pi
         # print("this", deg, deg1)
