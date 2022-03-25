@@ -16,19 +16,39 @@ class Plotter:
         self.generate_figure()
         plt.show()
 
-    def generate_figure(self):
+    def plot_position(self):
         time_data = self.data_dictionary['time']
-        plt.xlabel("Time (s)")
-        plt.ylabel("Position (cm)")
-        plt.title("Position over time")
-        plt.yticks(np.arange(-60, 60, 5))
-        plt.grid()
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
             if data_name.startswith('tracker_position_'):
                 plt.fill_between(time_data, data - 0.5, data + 0.5, label=data_name, facecolor='black')
             elif not data_name.startswith('audio_samples') and not data_name == 'time' and not data_name.startswith('doppler'): 
                 plt.plot(time_data, data, label=data_name)
+
+    def plot_all_doppler(self):
+        time_data = self.data_dictionary['time']
+        for data_name in self.data_dictionary['data_names_to_plot']:
+            data = np.array(self.data_dictionary[data_name])
+            if data_name.startswith('doppler'):
+                plt.plot(time_data, data, label=data_name)
+        
+            # elif data_name.startswith('predictor'):
+            #     plt.plot(time_data, data, label=data_name)
+            #     dydx = np.diff(data)/np.diff(time_data)
+            #     #plt.plot(time_data, -np.append(dydx, 0), label='derivative')
+
+    def generate_figure(self):
+        plt.xlabel("Time (s)")
+        plt.ylabel("Speed (cm/s)")
+        plt.title("Speed over time")
+        plt.yticks(np.arange(-60, 60, 5))
+        plt.grid()
+        self.plot_position()
+        plt.figure()
+        self.plot_all_doppler()
+        #plt.figure()
+        #self.plot_position_and_doppler_filtered()
+        
         plt.legend()        
         figure = plt.gcf()
         return figure
