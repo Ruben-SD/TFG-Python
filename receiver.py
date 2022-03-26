@@ -1,6 +1,7 @@
 import socket
 import time
 import numpy as np
+import array
 
 class Receiver:
     def __init__(self, port=5555):
@@ -12,17 +13,17 @@ class Receiver:
         print("Listening on: ", ip_address, ":", port)
 
         # Discard first packets because they are noisy
-        end_time = time.time() + 3
+        end_time = time.time() + 0.5
         while time.time() < end_time:
-            self.socket.recv(2048)
+            self.socket.recv(30720)
 
     def retrieve_sound_samples(self):
-        data = self.socket.recv(2048)
-        length = int.from_bytes(data[0:4], "big")
-        if length != 1796:
+        data = self.socket.recv(30720)
+        data = array.array('f', data)
+        data.byteswap()
+        if len(data) != 7680:
             raise ValueError("Received malformed packet")
-        int_values = np.array([x for x in data[4:length]])
-        return int_values
+        return np.array(data.tolist())
 
     @staticmethod
     def get_pc_ip():
