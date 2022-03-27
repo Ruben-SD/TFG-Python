@@ -15,13 +15,13 @@ class DopplerAnalyzer:
 
     def extract_speeds_from(self, audio_samples, cosine):
         self.plotter.add_sample('audio_samples', audio_samples)
-        if len(audio_samples) != 7680:
+        if len(audio_samples) != 1920:
             print(len(audio_samples))
             raise ValueError("wfas")
         
-        f, t, Sxx = signal.spectrogram(audio_samples, fs=48000, nfft=48000, nperseg=7680, mode='magnitude')
+        f, t, Sxx = signal.spectrogram(audio_samples, fs=48000, nfft=48000, nperseg=1920, mode='magnitude')
         
-        speed = self.extract_speed_from(Sxx, np.array(self.frequencies), 1)
+        speed = self.extract_speed_from(Sxx, np.array(self.frequencies), cosine)
         
         self.plotter.add_sample(f'doppler_deviation_filtered_{self.id}', speed)
         
@@ -33,7 +33,7 @@ class DopplerAnalyzer:
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
 #        np.sum(np.square(frequency_displacements - mean_freqs_displacements))
-        print(frequency_displacements)
+        
         self.all_frequency_displacements.append(frequency_displacements)
         if self.options and 'noise_variance_weighted_mean' in self.options:
             variances = np.var(self.all_frequency_displacements, axis=0, ddof=1)
@@ -60,7 +60,9 @@ class DopplerAnalyzer:
         # Apply Doppler effect formula to compute speed in cm/s
         if cosine is None:
             speeds = np.array([(frequency_displacements[i]/(frequency)) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
-        else:
+        elif cosine == 0:
+            return 0
+        else: 
             speeds = np.array([(frequency_displacements[i]/(frequency * cosine)) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
 
         #variances = 1/variances

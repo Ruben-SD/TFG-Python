@@ -3,7 +3,7 @@
   "tracker_type": "2D",
   "smartphone": {
     "position": [
-      20.5,
+      19.5,
       20
     ],
     "dims": {
@@ -11,7 +11,7 @@
       "width": 7.8
     }
   },
-  "speakers_distance": 41,
+  "speakers_distance": 39,
   "speakers": [
     {
       "name": "left",
