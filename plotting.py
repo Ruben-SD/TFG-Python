@@ -108,6 +108,7 @@ class Plotter:
 
     def compute_metrics(self):
         metrics = {}
+        return
         tracker_position_x = np.array(self.data_dictionary['tracker_position_x'])
         predictor_position_x = np.array(self.data_dictionary['predictor_position_x'])
     
