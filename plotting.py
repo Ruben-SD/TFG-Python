@@ -29,7 +29,7 @@ class Plotter:
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
-            if data_name == 'doppler_deviation_18000_hz':
+            if data_name.startswith('doppler'):
                 plt.plot(time_data, data, label=data_name)
         
             # elif data_name.startswith('predictor'):

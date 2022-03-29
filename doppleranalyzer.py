@@ -15,11 +15,11 @@ class DopplerAnalyzer:
 
     def extract_speeds_from(self, audio_samples, cosine):
         self.plotter.add_sample('audio_samples', audio_samples)
-        if len(audio_samples) != 960:
+        if len(audio_samples) != 4800:
             print(len(audio_samples))
             raise ValueError("wfas")
         
-        f, t, Sxx = signal.spectrogram(audio_samples, fs=48000, nfft=48000, nperseg=960, mode='magnitude')
+        f, t, Sxx = signal.spectrogram(audio_samples, fs=48000, nfft=48000, nperseg=4800, mode='magnitude')
         
         speed = self.extract_speed_from(Sxx, np.array(self.frequencies), cosine)
         

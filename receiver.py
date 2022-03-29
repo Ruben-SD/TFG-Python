@@ -21,27 +21,27 @@ class Receiver:
     def retrieve_sound_samples(self):
         # import pygame
         # pygame.mixer.stop()
-        # total_samples = []
-        # while True:
-        data = self.socket.recv(1921 * 2)
-        data = array.array('h', data)
-        data.byteswap()
-                
-        if len(data) != 1921 or data[0] != 342:
-            print(len(data))
-            raise ValueError("Received malformed packet")
+        total_samples = []
+        while True:
+            data = self.socket.recv(1921 * 2)
+            data = array.array('h', data)
+            data.byteswap()
+                    
+            if len(data) != 1921 or data[0] != 342:
+                print(len(data))
+                raise ValueError("Received malformed packet")
 
-        samples = np.array(data[1:].tolist())
-        # total_samples.append(samples)
-        # print(len(total_samples))
-        # if len(total_samples) == 48000/1920 * 5:
-        #     break
+            samples = np.array(data[1:].tolist())
+            total_samples.append(samples)
+            
+            if len(total_samples) == 5:
+                break
     
         import sounddevice as sd
        
-        x = np.array(samples).flatten()
+        x = np.array(total_samples).flatten()
         # print(len(x))
-        # x = np.interp(x, (x.min(), x.max()), (-1, +1))
+        #x = np.interp(x, (x.min(), x.max()), (-1, +1))
         # print(x)
         # sd.play(x[1::2], 48000, blocking=True)
         
