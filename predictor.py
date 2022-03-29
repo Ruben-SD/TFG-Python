@@ -45,8 +45,8 @@ class Predictor(Positioner):
         # deg = np.arctan2(y, x)*180.0/np.pi
         # deg1 = np.arctan2(xR, yR)*180.0/np.pi
         # print("this", deg, deg1)
-        print("POS: ", x, 15, "ANGLES: ", np.arccos(cosines[0]) *180/np.pi, "COS: ", cosines[0])
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, cosines[i]) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+        #print("POS: ", x, 15, "ANGLES: ", np.arccos(cosines[0]) *180/np.pi, "COS: ", cosines[0])
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.position.move_by((-np.array(speeds) * dt))
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])

@@ -13,20 +13,44 @@ class Receiver:
         print("Listening on: ", ip_address, ":", port)
 
         # Discard first packets because they are noisy
-        end_time = time.time() + 2.5
+        end_time = time.time() + 1
         
         while time.time() < end_time:
-            self.socket.recv(1921*4)
+            self.socket.recv(1921 * 2)
 
     def retrieve_sound_samples(self):
-        data = self.socket.recv(1921*4)
-        data = array.array('f', data)
+        # import pygame
+        # pygame.mixer.stop()
+        # total_samples = []
+        # while True:
+        data = self.socket.recv(1921 * 2)
+        data = array.array('h', data)
         data.byteswap()
-                 
-        if len(data) != 1921:
+                
+        if len(data) != 1921 or data[0] != 342:
+            print(len(data))
             raise ValueError("Received malformed packet")
+
+        samples = np.array(data[1:].tolist())
+        # total_samples.append(samples)
+        # print(len(total_samples))
+        # if len(total_samples) == 48000/1920 * 5:
+        #     break
     
-        return np.array(data[1:].tolist())
+        import sounddevice as sd
+       
+        x = np.array(samples).flatten()
+        # print(len(x))
+        # x = np.interp(x, (x.min(), x.max()), (-1, +1))
+        # print(x)
+        # sd.play(x[1::2], 48000, blocking=True)
+        
+        l = x[::2]
+        r = x[1::2]
+
+        result = (l + r) / 2
+
+        return np.array(result)
 
     @staticmethod
     def get_pc_ip():
