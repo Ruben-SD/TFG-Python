@@ -1,7 +1,9 @@
 import socket
 import time
 import numpy as np
-
+import pyaudio
+import struct
+SHORT_NORMALIZE = (1.0/32768.0)
 class Receiver:
     def __init__(self, port=5555):
         self.socket = socket.socket(socket.AF_INET, # Internet
@@ -10,7 +12,17 @@ class Receiver:
         ip_address = Receiver.get_pc_ip()
         self.socket.bind((ip_address, port))
         print("Listening on: ", ip_address, ":", port)
+        pa = pyaudio.PyAudio()
+        FORMAT = pyaudio.paInt16 
 
+        CHANNELS = 1
+        RATE = 44100  
+                
+        self.stream = pa.open(format = FORMAT,                      #|
+         channels = CHANNELS,                          #|---- You always use this in pyaudio...
+         rate = RATE,                                  #|
+         input = True,                                 #|
+         frames_per_buffer = 1792)
         # Discard first packets because they are noisy
         end_time = time.time() + 3
         while time.time() < end_time:
@@ -22,7 +34,12 @@ class Receiver:
         if length != 1796:
             raise ValueError("Received malformed packet")
         int_values = np.array([x for x in data[4:length]])
-        return int_values
+        data = self.stream.read(1792) 
+        count = len(data)/2
+        format = "%dh"%(count)
+        shorts = struct.unpack(format, data)
+        #print(shorts)
+        return np.array(list(shorts)) * SHORT_NORMALIZE
 
     @staticmethod
     def get_pc_ip():
