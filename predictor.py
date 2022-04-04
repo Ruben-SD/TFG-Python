@@ -40,7 +40,7 @@ class Predictor(Positioner):
         # deg1 = np.arctan2(xR, yR)*180.0/np.pi
         # print("this", deg, deg1)
         #print("POS: ", x, y, xR, yR, "ANGLES: ", np.arccos(cosines[0]) *180/np.pi, np.arccos(cosines[1]) * 180/np.pi, "COS: ", cosines)
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, None) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.position.move_by((-np.array(speeds) * dt))
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
@@ -94,7 +94,7 @@ class OfflinePredictor(Predictor):
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
         self.speakers = [Speaker(speaker_config) for speaker_config in self.config['speakers']]
         
-        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speakers]
+        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies()[:5], plotter, config) for speaker in self.speakers]
 
         self.sound_samples = np.array([x for x in config['audio_samples']])
         self.cur_sound_samples = 0
@@ -113,7 +113,7 @@ class OfflinePredictor(Predictor):
         sound_samples = self.sound_samples[self.cur_sound_samples]
         self.cur_sound_samples += 1
         
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for doppler_analyzer in self.doppler_analyzers])
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, None) for doppler_analyzer in self.doppler_analyzers])
         self.position.move_by(-np.array(speeds) * dt)
 
         if 'kalman_filter' in self.options:

@@ -50,9 +50,9 @@ class CameraTracker(Positioner):
         smartphone_contour = CameraTracker.find_smartphone_contour(contours)
         
         x, y, w, h = cv2.boundingRect(smartphone_contour)
-        cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0))
-        cv2.imshow("Smartphone", frame)
-        cv2.waitKey(1)
+        # cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0))
+        # cv2.imshow("Smartphone", frame)
+        # cv2.waitKey(1)
         return (x, y, w, h)
 
     @staticmethod
