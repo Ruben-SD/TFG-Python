@@ -24,11 +24,7 @@ class Plotter:
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
-            if data_name == 'tracker_position_x':
-                plt.fill_between(time_data, data - 0.5, data + 0.5, label=data_name, facecolor='orange')
-            elif data_name == 'tracker_position_y':
-                plt.fill_between(time_data, data - 0.5, data + 0.5, label=data_name, facecolor='green')
-            elif not data_name.startswith('audio_samples') and not data_name == 'time' and not data_name.startswith('doppler'): 
+            if not data_name.startswith('audio_samples') and not data_name == 'time' and not data_name.startswith('doppler'): 
                 plt.plot(time_data, data, label=data_name)
         plt.legend()        
 

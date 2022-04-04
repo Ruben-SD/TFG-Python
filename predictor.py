@@ -41,7 +41,7 @@ class Predictor(Positioner):
         sin = yR/np.sqrt(xR * xR + yR * yR)
         cosL = (x/np.sqrt(x * x + y * y))
         sinL = (y/np.sqrt(x * x + y * y))
-        cosines = (cosL * 0.92050485 + sinL * 0.39073113, cos * 0.93969262 + sin * 0.34202014)
+        cosines = (cosL * 0.70710678 + sinL * 0.70710678, cos * 0.70710678 + sin * 0.70710678)
         # deg = np.arctan2(y, x)*180.0/np.pi
         # deg1 = np.arctan2(xR, yR)*180.0/np.pi
         # print("this", deg, deg1)
@@ -118,17 +118,23 @@ class OfflinePredictor(Predictor):
     def update(self, dt):
         sound_samples = self.sound_samples[self.cur_sound_samples]
         self.cur_sound_samples += 1
-        
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for doppler_analyzer in self.doppler_analyzers])
+        x, y = self.position.get_position()
+        xR, yR = self.position.get_other_position()
+        cos = xR/np.sqrt(xR * xR + yR * yR)
+        sin = yR/np.sqrt(xR * xR + yR * yR)
+        cosL = (x/np.sqrt(x * x + y * y))
+        sinL = (y/np.sqrt(x * x + y * y))
+        cosines = (cosL * 0.70710678 + sinL * 0.70710678, cos * 0.70710678 + sin * 0.70710678)
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, cosines[i]) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.position.move_by(-np.array(speeds) * dt)
 
-        if 'kalman_filter' in self.options:
-            self.kf.F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
-            w = np.dot(self.H,  self.kf.predict())[0]
-            print(w)
-            self.plotter.add_sample('kalman_filter_x', w[0])
-            if len(w) > 1:        
-                self.plotter.add_sample('kalman_filter_y', w[1])
-            else: 
-                self.plotter.add_sample('kalman_filter_y', 0)
-            self.kf.update(self.position.get_position())
+        # if 'kalman_filter' in self.options:
+        #     self.kf.F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
+        #     w = np.dot(self.H,  self.kf.predict())[0]
+        #     print(w)
+        #     self.plotter.add_sample('kalman_filter_x', w[0])
+        #     if len(w) > 1:        
+        #         self.plotter.add_sample('kalman_filter_y', w[1])
+        #     else: 
+        #         self.plotter.add_sample('kalman_filter_y', 0)
+        #     self.kf.update(self.position.get_position())
