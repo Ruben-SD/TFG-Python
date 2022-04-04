@@ -11,6 +11,13 @@ class CameraTracker(Positioner):
         self.name = 'tracker'
         self.init_camera()
         _, first_frame = self.cam.read()   
+        # H = np.array([[1.26213555e+00,  2.83856294e-01, -9.87249618e+01],
+        # [ 2.14629478e-02,  1.50449918e+00, -1.27283610e+02],
+        # [-4.48193557e-06,  8.80835975e-04,  1.00000000e+00]])
+        H = np.array([[ 1.05745429e+00,  4.18373700e-01, -9.73201167e+01],
+ [-1.21183918e-01, 1.45779698e+00, -3.03398596e+01],
+ [-3.00899006e-04,  8.93216421e-04,  1.00000000e+00]])
+        first_frame = cv2.warpPerspective(first_frame, H, (first_frame.shape[1], first_frame.shape[0]))
         self.init_smartphone_data(config, first_frame)    
               
     def init_camera(self):
@@ -49,6 +56,9 @@ class CameraTracker(Positioner):
         contours, _ = cv2.findContours(improved_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         smartphone_contour = CameraTracker.find_smartphone_contour(contours)
         x, y, w, h = cv2.boundingRect(smartphone_contour)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0))
+        cv2.imshow("frame", frame)
+        cv2.waitKey(1)
         return (x, y, w, h)
 
     @staticmethod
@@ -106,6 +116,13 @@ class CameraTracker2D(CameraTracker):
 
     def look_smartphone_distance_from_initial_pos(self):
         _, frame = self.cam.read()
+        # H = np.array([[1.26213555e+00,  2.83856294e-01, -9.87249618e+01],
+        # [ 2.14629478e-02,  1.50449918e+00, -1.27283610e+02],
+        # [-4.48193557e-06,  8.80835975e-04,  1.00000000e+00]])
+        H = np.array([[ 1.05745429e+00,  4.18373700e-01, -9.73201167e+01],
+ [-1.21183918e-01, 1.45779698e+00, -3.03398596e+01],
+ [-3.00899006e-04,  8.93216421e-04,  1.00000000e+00]])
+        frame = cv2.warpPerspective(frame, H, (frame.shape[1], frame.shape[0]))
         (img_x, img_y) = self.get_smartphone_img_coords(frame)  
         current_distance = np.array([(img_x - self.initial_smartphone_cam_pos[0]) * self.cm_per_length_pixel, (img_y - self.initial_smartphone_cam_pos[1]) * self.cm_per_width_pixel])
         return current_distance

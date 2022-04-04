@@ -13,7 +13,7 @@ import itertools
 def main_loop(plotter, config):
     frame_timer = FrameTimer(config, plotter)
 
-    positioners = [PositionerFactory.create_predictor(config, plotter)]#, PositionerFactory.create_tracker(config, plotter)]
+    positioners = [PositionerFactory.create_predictor(config, plotter), PositionerFactory.create_tracker(config, plotter)]
 
     while not keyboard.is_pressed('esc') and not frame_timer.reached_end():
         delta_time = frame_timer.mark()
@@ -21,7 +21,7 @@ def main_loop(plotter, config):
         for positioner in positioners:
             positioner.update(delta_time)
         
-        print(f"Predicted position: {positioners[0].get_position()}")# Tracked position: {positioners[1].get_position()}")
+        print(f"Predicted position: {positioners[0].get_position()} Tracked position: {positioners[1].get_position()}")
 
     del positioners
 
@@ -45,6 +45,55 @@ def offline_loop(config):
 
 
 if __name__=="__main__":
+#     import numpy as np
+#     H = np.array([[1.26213555e+00,  2.83856294e-01, -9.87249618e+01],
+#  [ 2.14629478e-02,  1.50449918e+00, -1.27283610e+02],
+#  [-4.48193557e-06,  8.80835975e-04,  1.00000000e+00]])
+
+    
+#     import cv2
+#     v = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+#     srcpts = []
+#     dstpts = []
+#     while True:
+#         _, img = v.read()
+#         cv2.imshow("a", img)
+#         key = cv2.waitKey(-1)
+#         if key != ord('a'):
+#             continue
+#         import time
+#         time.sleep(5)
+#         _, img = v.read()
+#         ret1, corners1 = cv2.findChessboardCorners(img, (7, 6))
+#         while corners1 is None:
+#             ret1, corners1 = cv2.findChessboardCorners(img, (7, 6))
+#         srcpts.append(corners1)
+#         print(corners1)
+#         if key == ord('a'):
+#             while True:
+#                 ret, img = v.read()
+#                 cv2.imshow("a", img)
+#                 key = cv2.waitKey(-1)
+#                 if key != ord('a'):
+#                     continue
+#                 if key == ord('a'):
+#                     time.sleep(5)
+#                     _, img = v.read()
+#                     ret2, corners2 = cv2.findChessboardCorners(img, (7, 6))
+#                     while corners2 is None:
+#                         ret2, corners2 = cv2.findChessboardCorners(img, (7, 6))
+#                     dstpts.append(corners2)
+                    
+#                     H, _ = cv2.findHomography(corners1, corners2)
+#                     print(H)
+#                     break
+
+#         if len(dstpts) > 5:
+#             H, _ = cv2.findHomography(srcpts, dstpts)
+#             print(H)
+#             break
+
+#     exit(0)
     offline = False
     if offline:
         configs = Config.get_all_configs()        

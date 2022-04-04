@@ -45,7 +45,7 @@ class DopplerAnalyzer:
                 frequency_displacements[greater_than_ten] = np.mean(frequency_displacements)
 
         # Plot
-        speeds = np.array([(frequency_displacements[i]/frequency) * 346.3 * 100 for i, frequency in enumerate(frequencies)]) 
+        speeds = np.array([(frequency_displacements[i]/frequency) * 343.73 * 100 for i, frequency in enumerate(frequencies)]) 
         for f, speed in zip(frequencies, speeds):
             self.plotter.add_sample(f'doppler_deviation_{f}_hz', speed)
         ###
@@ -53,7 +53,7 @@ class DopplerAnalyzer:
         frequency_displacements, frequencies, variances = self.filter_frequencies(frequency_displacements, frequencies, variances=variances, remove_outliers=not self.options or 'outlier_removal' in self.options)
         
         # Apply Doppler effect formula to compute speed in cm/s
-        speeds = np.array([(frequency_displacements[i]/(frequency * cosine)) * 346.3 * 100 for i, frequency in enumerate(frequencies)])
+        speeds = np.array([(frequency_displacements[i]/(frequency * cosine)) * 343.73 * 100 for i, frequency in enumerate(frequencies)])
 
         #variances = 1/variances
         if self.options and 'noise_variance_weighted_mean' in self.options:
