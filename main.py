@@ -100,7 +100,7 @@ if __name__=="__main__":
         print("\nEnd")
 
     else:
-        plot = True
+        plot = False
         plotter = Plotter()
         if plot:
             plotter.load_from_file()
