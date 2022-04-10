@@ -147,5 +147,4 @@ class OfflineCameraTracker2D(OfflineCameraTracker):
     def obtain_current_position(self):
         self.curr_frame += 1
         new_position = self.camera_positions[self.curr_frame]
-        print(new_position)
         return new_position
