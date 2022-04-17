@@ -14,12 +14,12 @@ class Receiver:
         # Discard first packets because they are noisy
         end_time = time.time() + 3
         while time.time() < end_time:
-            self.socket.recv(2048)
+            self.socket.recv(3588)
 
     def retrieve_sound_samples(self):
-        data = self.socket.recv(2048)
+        data = self.socket.recv(3588)
         length = int.from_bytes(data[0:4], "big")
-        if length != 1796:
+        if length != 3588:
             raise ValueError("Received malformed packet")
         int_values = np.array([x for x in data[4:length]])
         return int_values
