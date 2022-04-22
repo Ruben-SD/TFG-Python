@@ -28,6 +28,8 @@ def main_loop(plotter, config):
     # if config['offline']:
     #     return
 
+    import pygame
+    pygame.mixer.stop()
     plotter.print_metrics()
     plotter.plot()
     plotter.save_to_file()
