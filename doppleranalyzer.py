@@ -16,7 +16,7 @@ class DopplerAnalyzer:
         self.plotter.add_sample('audio_samples', audio_samples)
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         
-        speed = self.extract_speed_from(Sxx, np.array(self.frequencies), cosine)
+        speed = self.extract_speed_from(Sxx, np.array(self.frequencies), 1)
         
         self.plotter.add_sample(f'doppler_deviation_filtered_{self.id}', speed)
         

@@ -36,7 +36,7 @@ class Plotter:
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
-            if data_name.startswith('doppler'):
+            if data_name.startswith('doppler_deviation_filt'):
                 plt.plot(time_data, data, label=data_name)
         plt.legend()        
             # elif data_name.startswith('predictor'):
@@ -45,9 +45,9 @@ class Plotter:
             #     #plt.plot(time_data, -np.append(dydx, 0), label='derivative')
 
     def generate_figure(self):
-        plt.yticks(np.arange(-60, 60, 5))
-        self.plot_position()
-        plt.figure()
+        # plt.yticks(np.arange(-60, 60, 5))
+        # self.plot_position()
+        # plt.figure()
         self.plot_all_doppler()
         #plt.figure()
         #self.plot_position_and_doppler_filtered()
