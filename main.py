@@ -21,7 +21,7 @@ def main_loop(plotter, config):
         for positioner in positioners:
             positioner.update(delta_time)
         
-        print(f"Predicted position: {positioners[0].get_position()}")# Tracked position: {positioners[1].get_position()}")
+        #print(f"Predicted position: {positioners[0].get_position()}")# Tracked position: {positioners[1].get_position()}")
 
     del positioners
 
@@ -108,6 +108,6 @@ if __name__=="__main__":
             plotter.load_from_file()
             plotter.plot()
         else:
-            config = Config.read_config(offline=False)
+            config = Config.read_config(offline=True)
             plotter.add_data('config', config)    
             main_loop(plotter, config)

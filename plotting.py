@@ -33,11 +33,16 @@ class Plotter:
         plt.ylabel("Speed (cm/s)")
         plt.title("Speed over time")
         plt.grid()
+        zcross_l = self.data_dictionary['zcross_l']
+        zcross_r = self.data_dictionary['zcross_r']
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
             if data_name.startswith('doppler_deviation_filt'):
-                plt.plot(time_data, data, label=data_name)
+                if data_name.endswith('0'):
+                    plt.plot(time_data, data, '-D', label=data_name, markevery=zcross_l)
+                else:
+                    plt.plot(time_data, data, '-D', label=data_name, markevery=zcross_r)
         plt.legend()        
             # elif data_name.startswith('predictor'):
             #     plt.plot(time_data, data, label=data_name)
