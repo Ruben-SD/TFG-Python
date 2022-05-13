@@ -128,7 +128,7 @@ class OfflinePredictor(Predictor):
         cosL = (x/np.sqrt(x * x + y * y))
         sinL = (y/np.sqrt(x * x + y * y))
         cosines = (cosL * 0.70710678 + sinL * 0.70710678, cos * 0.70710678 + sin * 0.70710678)
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, cosines[i]) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.position.move_by(-np.array(speeds) * dt)
 
         # if 'kalman_filter' in self.options:
