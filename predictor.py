@@ -310,7 +310,7 @@ class OfflinePredictor(Predictor):
         self.my_filter.predict()
         self.my_filter.update(speeds[0]*dt)
 
-        self.position.move_by(-speeds[0]*dt)
+        self.position.move_by(-self.my_filter.x[0])
 
         # if 'kalman_filter' in self.options:
         #     self.kf.F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
