@@ -29,6 +29,11 @@ class Plotter:
         plt.legend()        
 
     def plot_all_doppler(self):        
+        def low_pass_filter(data, band_limit, sampling_rate):
+            cutoff_index = int(band_limit * data.size / sampling_rate)
+            F = np.fft.rfft(data)
+            F[cutoff_index + 1:] = 0
+            return np.fft.irfft(F, n=data.size).real
         plt.xlabel("Time (s)")
         plt.ylabel("Speed (cm/s)")
         plt.title("Speed over time")
@@ -37,6 +42,7 @@ class Plotter:
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
             if data_name.startswith('doppler_deviation_filtered'):
+                #plt.plot(time_data, low_pass_filter(data, 3, 24), label=data_name)
                 plt.plot(time_data, data, label=data_name)
         # left_speaker_crosses = np.array(self.data_dictionary['left_speaker_crosses']) + 1
         # right_speaker_crosses = np.array(self.data_dictionary['right_speaker_crosses']) + 1
