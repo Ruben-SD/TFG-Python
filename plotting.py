@@ -24,7 +24,7 @@ class Plotter:
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
-            if not data_name.startswith('audio_samples') and not data_name == 'time' and not data_name.startswith('doppler'): 
+            if data_name.startswith('predictor_position_x'): 
                 plt.plot(time_data, data, label=data_name)
         plt.legend()        
 
@@ -38,6 +38,16 @@ class Plotter:
             data = np.array(self.data_dictionary[data_name])
             if data_name.startswith('doppler_deviation_filtered'):
                 plt.plot(time_data, data, label=data_name)
+        # left_speaker_crosses = np.array(self.data_dictionary['left_speaker_crosses']) + 1
+        # right_speaker_crosses = np.array(self.data_dictionary['right_speaker_crosses']) + 1
+        # time_data = self.data_dictionary['time']
+        # for data_name in self.data_dictionary['data_names_to_plot']:
+        #     data = np.array(self.data_dictionary[data_name])
+        #     if data_name.startswith('doppler_deviation_filtered'):
+        #         if data_name.endswith('0'):
+        #             plt.plot(time_data, data, '-D', label=data_name, markevery=left_speaker_crosses)
+        #         elif data_name.endswith('1'):
+        #             plt.plot(time_data, data, '-D', label=data_name, markevery=right_speaker_crosses)
         plt.legend()        
             # elif data_name.startswith('predictor'):
             #     plt.plot(time_data, data, label=data_name)
@@ -46,8 +56,8 @@ class Plotter:
 
     def generate_figure(self):
         # plt.yticks(np.arange(-60, 60, 5))
-        # self.plot_position()
-        # plt.figure()
+        self.plot_position()
+        plt.figure()
         self.plot_all_doppler()
         #plt.figure()
         #self.plot_position_and_doppler_filtered()

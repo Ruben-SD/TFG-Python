@@ -67,7 +67,7 @@ class Distance2D(Position):
         theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
         (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
         
-        print(f"DL: {dL}, DR:{dR}")
+        #print(f"DL: {dL}, DR:{dR}")
 
         return (x, y)
 
@@ -88,7 +88,7 @@ class Positioner:
 
     def get_position(self):
         coords = ['x', 'y', 'z']
-        position = self.position.get_position()
+        position = [self.position.distances[0]]
         
         for i, coordinate in enumerate(position):
             self.plotter.add_sample(f"{self.name}_position_{coords[i]}", coordinate)

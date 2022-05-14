@@ -3,8 +3,8 @@
   "tracker_type": "2D",
   "smartphone": {
     "position": [
-      20,
-      20
+      0,
+      0
     ],
     "dims": {
       "length": 17.3,
