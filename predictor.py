@@ -289,10 +289,12 @@ class OfflinePredictor(Predictor):
         self.my_filter.H = np.array([[1.,0.]])    # Measurement function
         self.my_filter.P *= 1000                 # covariance matrix
         self.my_filter.R = 0.00001                      # state uncertainty
-        self.my_filter.Q = Q_discrete_white_noise(2, 1/24, .1) # process uncertainty
+        
         
         
     def update(self, dt):
+        self.my_filter.Q = Q_discrete_white_noise(2, dt, 0.00001) # process uncertainty
+
         sound_samples = self.sound_samples[self.cur_sound_samples]
         self.cur_sound_samples += 1
         x, y = self.position.get_position()
@@ -308,7 +310,7 @@ class OfflinePredictor(Predictor):
         self.my_filter.predict()
         self.my_filter.update(speeds[0]*dt)
 
-        self.position.move_by(-self.my_filter.x[0])
+        self.position.move_by(-speeds[0]*dt)
 
         # if 'kalman_filter' in self.options:
         #     self.kf.F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
