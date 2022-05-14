@@ -176,7 +176,7 @@ class Predictor(Positioner):
         
         # plotter.add_data(f'doppler_deviation_chosen', [], plot=True)
         self.my_filter = KalmanFilter(dim_x=2, dim_z=1)
-        self.my_filter.x = np.array([[2.],
+        self.my_filter.x = np.array([[0.],
                 [0.]])       # initial state (location and velocity)
 
         self.my_filter.F = np.array([[1.,1.],
@@ -206,11 +206,11 @@ class Predictor(Positioner):
             speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         else:
             speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, None) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+        
         self.my_filter.predict()
         self.my_filter.update(speeds[0]*dt)
 
-
-        self.position.move_by(-self.my_filter.x)
+        self.position.move_by(-speeds[0]*dt)
         #self.speakers_distance = self.speaker_distance_finder.update(dt, speeds * dt)
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
