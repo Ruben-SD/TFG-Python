@@ -25,15 +25,16 @@ class Receiver:
          frames_per_buffer = 1792)
         # Discard first packets because they are noisy
         end_time = time.time() + 3
-        while time.time() < end_time:
-            self.socket.recv(2048)
+        # while time.time() < end_time:
+        #     self.socket.recv(2048)
 
     def retrieve_sound_samples(self):
-        data = self.socket.recv(2048)
-        length = int.from_bytes(data[0:4], "big")
-        if length != 1796:
-            raise ValueError("Received malformed packet")
-        int_values = np.array([x for x in data[4:length]])
+        # data = self.socket.recv(2048)
+        # length = int.from_bytes(data[0:4], "big")
+        # if length != 1796:
+        #     raise ValueError("Received malformed packet")
+        # int_values = np.array([x for x in data[4:length]])
+        time.sleep(1/24)
         data = self.stream.read(1792) 
         count = len(data)/2
         format = "%dh"%(count)
