@@ -92,7 +92,7 @@ class Predictor(Positioner):
 
     #TODO abstract to update_measurement
     def update(self, dt):
-        sound_samples = self.receiver.retrieve_sound_samples()
+        sound_samples = self.receiver.read_phone_mic()
         if len(self.position.get_position()) > 1:
             x, y = self.position.get_position()
             xR, yR = self.position.get_other_position()

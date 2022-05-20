@@ -1,7 +1,7 @@
 from pykalman import KalmanFilter
 import pygame
 from positioner import Positioner
-from speaker import Speaker
+from speaker import PhoneSpeaker, Speaker
 from receiver import Receiver
 from doppleranalyzer import DopplerAnalyzer
 import numpy as np
@@ -154,7 +154,7 @@ class Predictor(Positioner):
         self.name = "predictor"
         
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
-        self.speakers = [Speaker(speaker_config) for speaker_config in config['speakers']]
+        self.speakers = [PhoneSpeaker(speaker_config) if speaker_config['name'] == 'phone' else Speaker(speaker_config) for speaker_config in config['speakers']]
         for speaker in self.speakers:
             speaker.play_sound()
         
@@ -190,7 +190,7 @@ class Predictor(Positioner):
     #TODO abstract to update_measurement
     def update(self, dt):
         self.my_filter.Q = Q_discrete_white_noise(2, dt, .1) # process uncertainty
-        sound_samples = self.receiver.retrieve_sound_samples()
+        sound_samples = [self.receiver.read_phone_mic(), self.receiver.read_pc_mic()]
         if len(self.position.get_position()) > 1:
             x, y = self.position.get_position()
             xR, yR = self.position.get_other_position()
@@ -203,14 +203,14 @@ class Predictor(Positioner):
             # deg1 = np.arctan2(xR, yR)*180.0/np.pi
             # print("this", deg, deg1)
             #print("POS: ", x, y, xR, yR, "ANGLES: ", np.arccos(cosines[0]) *180/np.pi, np.arccos(cosines[1]) * 180/np.pi, "COS: ", cosines)
-            speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+            speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != 2 else 1], 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         else:
             speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, None) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         
-        self.my_filter.predict()
-        self.my_filter.update(speeds[0]*dt)
+        # self.my_filter.predict()
+        # self.my_filter.update(speeds[0]*dt)
 
-        self.position.move_by(-speeds[0]*dt)
+        self.position.move_by(-speeds*dt)
         #self.speakers_distance = self.speaker_distance_finder.update(dt, speeds * dt)
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])

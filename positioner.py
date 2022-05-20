@@ -71,6 +71,34 @@ class Distance2D(Position):
 
         return (x, y)
 
+class Distance3D(Position):
+    def __init__(self, config):
+        position = np.array(config['smartphone']['position'], dtype=float)
+        self.speakers_distance = config['speakers_distance']
+        self.distances = [np.linalg.norm(position), np.linalg.norm(position - np.array([self.speakers_distance, 0]))]
+
+    def move_by(self, displacements):
+        self.distances += displacements
+
+    # def get_other_position(self):
+    #     x, y, z = self.get_position()
+    #     xR, yR, zR = -x + self.speakers_distance, y
+    #     return (xR, yR)
+
+    def get_position(self):
+        D = self.speakers_distance
+        dL = self.distances[0]
+        dR = self.distances[1]
+        dX = self.distances[2]
+        # plotter.add_sample("positioner_distance_left", dL)
+        # plotter.add_sample("positioner_distance_right", dR)
+        theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
+        (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
+        
+        #print(f"DL: {dL}, DR:{dR}")
+
+        return (x, y)
+
 
 class Positioner:
     def __init__(self, config, plotter):
@@ -78,7 +106,8 @@ class Positioner:
 
         position_types = {
             '1D': Distance1D,
-            '2D': Distance2D
+            '2D': Distance2D,
+            '3D': Distance3D
         }
         
         self.position = position_types[config['positioner_type']](config)

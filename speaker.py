@@ -42,3 +42,10 @@ class Speaker:
 
     def get_config(self):
         return self.config
+
+class PhoneSpeaker(Speaker):
+    def __init__(self, config):
+        self.config = SpeakerConfig(config)
+
+    def play_sound(self):        
+        pass

@@ -1,34 +1,18 @@
 {
+  "positioner_type": "3D",
+  "tracker_type": "2D",
   "smartphone": {
     "position": [
-      {
-        "x": 75,
-        "y": 10,
-        "z": 40
-      },
-      {
-        "x": 275,
-        "y": 210,
-        "z": 240
-      }
-    ],
-    "distance": [
-      {
-        "x": 15,
-        "y": 10,
-        "z": 35
-      },
-      {
-        "x": 215,
-        "y": 210,
-        "z": 235
-      }
+      0,
+      0,
+      0
     ],
     "dims": {
       "length": 17.3,
       "width": 7.8
     }
   },
+  "speakers_distance": 41,
   "speakers": [
     {
       "name": "left",
@@ -47,7 +31,14 @@
         19200,
         19400,
         19600,
-        19800
+        19800     
+      ]
+    },
+    {
+      "name": "phone",
+      "frequencies": [
+        17800,
+        17500   
       ]
     }
   ]
