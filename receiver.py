@@ -41,11 +41,18 @@ class Receiver:
         return int_values
 
     def read_pc_mic(self):
-        data = self.stream.read(1792)
-        count = len(data)/2
-        format = "%dh" % (count)
-        shorts = struct.unpack(format, data)
-        return np.array(list(shorts)) * SHORT_NORMALIZE
+        frames = [] # A python-list of chunks(numpy.ndarray)
+        for _ in range(0, int(44100 / 1792 * 10)):
+            print("RECORDING")
+            data = self.stream.read(1792)
+            frames.append(np.fromstring(data, dtype=np.int16))
+
+        #Convert the list of numpy-arrays into a 1D array (column-wise)
+        numpydata = np.hstack(frames)
+        from scipy.io.wavfile import write
+        write('test.wav', 44100, numpydata)
+        print("DONE")
+        return "asd"
 
     @staticmethod
     def get_pc_ip():

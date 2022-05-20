@@ -21,7 +21,7 @@ def main_loop(plotter, config):
         for positioner in positioners:
             positioner.update(delta_time)
         
-        print(f"Predicted position: {positioners[0].get_position()}")# Tracked position: {positioners[1].get_position()}")
+        #print(f"Predicted position: {positioners[0].get_position()}")# Tracked position: {positioners[1].get_position()}")
 
     del positioners
 
@@ -47,39 +47,6 @@ def offline_loop(config):
 
 
 if __name__=="__main__":
-    import numpy as np  
-    import scipy
-    from scipy.optimize import least_squares
-
-    # Test point is 2000, 2000, -100, 0
-
-    x1, y1, z1, dist_1 = ( 9,1,8 ,5.8518)
-    x2, y2, z2, dist_2 = ( 9,2,6 ,7.0837)
-    x3, y3, z3, dist_3 = ( 1,3,3 ,8.2641)
-
-
-    #Define a function that evaluates the equations
-    def equations( guess ):
-        x, y, z, r = guess
-        r = 0
-        return (
-            (x - x1)**2 + (y - y1)**2 + (z - z1)**2 - (dist_1 - r )**2,
-            (x - x2)**2 + (y - y2)**2 + (z - z2)**2 - (dist_2 - r )**2,
-            (x - x3)**2 + (y - y3)**2 + (z - z3)**2 - (dist_3 - r )**2
-        )
-            
-
-
-    # Make SciPy solve the system using an initial guess.
-    # The initial guess affects which of the "candidates" SciPy finds.
-    #initial_guess = (1000, 1000, -100, 0)
-
-    #equations( initial_guess )
-    
-    results = least_squares(equations, ((x1+x2+x3)/3, (y1+y2+y3)/3, (z1+z2+z3)/3, (dist_1+dist_2+dist_3)/3), gtol=0.04, ftol=0.04, xtol=0.04)
-    print(results)
-    #print(trilaterate(np.array([9,1,8]), np.array([9,2,6]), np.array([1,3,3]), 5.8518, 7.0837, 8.2641))
-    sys.exit(0)
     offline = False
     if offline:
         configs = Config.get_all_configs()        
