@@ -61,8 +61,7 @@ if __name__=="__main__":
     #Define a function that evaluates the equations
     def equations( guess ):
         x, y, z, r = guess
-        
-    
+        r = 0
         return (
             (x - x1)**2 + (y - y1)**2 + (z - z1)**2 - (dist_1 - r )**2,
             (x - x2)**2 + (y - y2)**2 + (z - z2)**2 - (dist_2 - r )**2,
@@ -77,7 +76,7 @@ if __name__=="__main__":
 
     #equations( initial_guess )
     
-    results = least_squares(equations, (x2, y2, z2, dist_2), ftol=None, xtol=None)
+    results = least_squares(equations, ((x1+x2+x3)/3, (y1+y2+y3)/3, (z1+z2+z3)/3, (dist_1+dist_2+dist_3)/3), gtol=0.04, ftol=0.04, xtol=0.04)
     print(results)
     #print(trilaterate(np.array([9,1,8]), np.array([9,2,6]), np.array([1,3,3]), 5.8518, 7.0837, 8.2641))
     sys.exit(0)
