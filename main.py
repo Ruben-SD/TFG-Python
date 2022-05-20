@@ -48,33 +48,37 @@ def offline_loop(config):
 
 if __name__=="__main__":
     import numpy as np  
-    from numpy import sqrt, dot, cross                       
-    from numpy.linalg import norm                            
+    import scipy
+    from scipy.optimize import least_squares
 
-    # Find the intersection of three spheres                 
-    # P1,P2,P3 are the centers, r1,r2,r3 are the radii       
-    # Implementaton based on Wikipedia Trilateration article.                              
-    def trilaterate(P1,P2,P3,r1,r2,r3):                      
-        temp1 = P2-P1                                        
-        e_x = temp1/norm(temp1)                              
-        temp2 = P3-P1                                        
-        i = dot(e_x,temp2)                                   
-        temp3 = temp2 - i*e_x                                
-        e_y = temp3/norm(temp3)                              
-        e_z = cross(e_x,e_y)                                 
-        d = norm(P2-P1)                                      
-        j = dot(e_y,temp2)                                   
-        x = (r1*r1 - r2*r2 + d*d) / (2*d)                    
-        y = (r1*r1 - r3*r3 -2*i*x + i*i + j*j) / (2*j)       
-        temp4 = r1*r1 - x*x - y*y          
-        print(temp4)                  
-        if temp4<0:                                          
-            raise Exception("The three spheres do not intersect!");
-        z = sqrt(temp4)                                      
-        p_12_a = P1 + x*e_x + y*e_y + z*e_z                  
-        p_12_b = P1 + x*e_x + y*e_y - z*e_z                  
-        return p_12_a,p_12_b           
-    print(trilaterate(np.array([9,1,8]), np.array([9,2,6]), np.array([1,3,3]), 5.8518, 7.0837, 8.2641))
+    # Test point is 2000, 2000, -100, 0
+
+    x1, y1, z1, dist_1 = ( 9,1,8 ,5.8518)
+    x2, y2, z2, dist_2 = ( 9,2,6 ,7.0837)
+    x3, y3, z3, dist_3 = ( 1,3,3 ,8.2641)
+
+
+    #Define a function that evaluates the equations
+    def equations( guess ):
+        x, y, z, r = guess
+        
+    
+        return (
+            (x - x1)**2 + (y - y1)**2 + (z - z1)**2 - (dist_1 - r )**2,
+            (x - x2)**2 + (y - y2)**2 + (z - z2)**2 - (dist_2 - r )**2,
+            (x - x3)**2 + (y - y3)**2 + (z - z3)**2 - (dist_3 - r )**2
+        )
+            
+
+
+    # Make SciPy solve the system using an initial guess.
+    # The initial guess affects which of the "candidates" SciPy finds.
+    #initial_guess = (1000, 1000, -100, 0)
+
+    #equations( initial_guess )
+    results = least_squares(equations, (0,0,0,0))
+    print(results)
+    #print(trilaterate(np.array([9,1,8]), np.array([9,2,6]), np.array([1,3,3]), 5.8518, 7.0837, 8.2641))
     sys.exit(0)
     offline = False
     if offline:
