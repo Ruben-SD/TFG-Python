@@ -76,7 +76,8 @@ if __name__=="__main__":
     #initial_guess = (1000, 1000, -100, 0)
 
     #equations( initial_guess )
-    results = least_squares(equations, (0,0,0,0))
+    
+    results = least_squares(equations, (x2, y2, z2, dist_2), ftol=None, xtol=None)
     print(results)
     #print(trilaterate(np.array([9,1,8]), np.array([9,2,6]), np.array([1,3,3]), 5.8518, 7.0837, 8.2641))
     sys.exit(0)
