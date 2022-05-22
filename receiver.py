@@ -19,7 +19,13 @@ class Receiver:
         end_time = time.time() + 3
         while time.time() < end_time:
             self.socket.recv(2048)
+        p = pyaudio.PyAudio()
+        info = p.get_host_api_info_by_index(0)
+        numdevices = info.get('deviceCount')
 
+        for i in range(0, numdevices):
+            if (p.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
+                print("Input Device id ", i, " - ", p.get_device_info_by_host_api_device_index(0, i).get('name'))
         pa = pyaudio.PyAudio()
         FORMAT = pyaudio.paInt16
 
@@ -32,6 +38,7 @@ class Receiver:
                               input=True,
                               frames_per_buffer=1792)
 
+
     def read_phone_mic(self):
         data = self.socket.recv(2048)
         length = int.from_bytes(data[0:4], "big")
@@ -41,18 +48,14 @@ class Receiver:
         return int_values
 
     def read_pc_mic(self):
-        frames = [] # A python-list of chunks(numpy.ndarray)
-        for _ in range(0, int(44100 / 1792 * 10)):
-            print("RECORDING")
-            data = self.stream.read(1792)
-            frames.append(np.fromstring(data, dtype=np.int16))
+        data = self.stream.read(1792)
+        ret = np.frombuffer(data, dtype=np.int16)
+        # import sounddevice as sd
 
-        #Convert the list of numpy-arrays into a 1D array (column-wise)
-        numpydata = np.hstack(frames)
-        from scipy.io.wavfile import write
-        write('test.wav', 44100, numpydata)
-        print("DONE")
-        return "asd"
+        # fs = 44100
+        # sd.play(ret, fs)
+
+        return ret
 
     @staticmethod
     def get_pc_ip():
