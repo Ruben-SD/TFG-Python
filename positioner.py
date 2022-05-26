@@ -160,9 +160,9 @@ class Positioner:
         #     if '3d_x' in pos:
         #         self.graph._offsets3d = ([pos['3d_x'][-1]], [pos['3d_z'][-1]], [pos['3d_y'][-1]])
         #     return self.graph,
-        self.ax.set_xlim3d(-255, 255)
-        self.ax.set_ylim3d(-255, 255)
-        self.ax.set_zlim3d(-255, 255)
+        self.ax.set_xlim3d(-100, 100)
+        self.ax.set_ylim3d(-100, 100)
+        self.ax.set_zlim3d(-100, 100)
 
         # self.ani = animation.FuncAnimation(self.fig, update, frames=200, interval=50, blit=False)
         plt.show(block=False)
@@ -175,7 +175,7 @@ class Positioner:
 
     def get_position(self):
         coords = ['x', 'y', 'z']
-        position = self.position.distances
+        position = self.position.get_position()
         self.plotter.add_sample("3d_x", position[0])
         self.plotter.add_sample("3d_y", position[1])
         self.plotter.add_sample("3d_z", position[2])
