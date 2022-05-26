@@ -155,8 +155,8 @@ class Predictor(Positioner):
         
         pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
         self.speakers = [PhoneSpeaker(speaker_config) if speaker_config['name'] == 'phone' else Speaker(speaker_config) for speaker_config in config['speakers']]
-        # for speaker in self.speakers:
-        #     speaker.play_sound()
+        for speaker in self.speakers:
+            speaker.play_sound()
         
         self.receiver = Receiver()
         self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speakers]
@@ -192,7 +192,7 @@ class Predictor(Positioner):
         self.my_filter.Q = Q_discrete_white_noise(2, dt, .1) # process uncertainty
         sound_samples = [self.receiver.read_phone_mic(), self.receiver.read_pc_mic()]
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != 2 else 1], 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
-        print(speeds[2])
+        #print(speeds[2])
         # self.my_filter.predict()
         # self.my_filter.update(speeds[0]*dt)
 

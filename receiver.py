@@ -15,17 +15,6 @@ class Receiver:
         self.socket.bind((ip_address, port))
         print("Listening on: ", ip_address, ":", port)
 
-        # Discard first packets because they are noisy
-        end_time = time.time() + 3
-        while time.time() < end_time:
-            self.socket.recv(2048)
-        p = pyaudio.PyAudio()
-        info = p.get_host_api_info_by_index(0)
-        numdevices = info.get('deviceCount')
-
-        for i in range(0, numdevices):
-            if (p.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
-                print("Input Device id ", i, " - ", p.get_device_info_by_host_api_device_index(0, i).get('name'))
         pa = pyaudio.PyAudio()
         FORMAT = pyaudio.paInt16
 
@@ -37,6 +26,12 @@ class Receiver:
                               rate=RATE,
                               input=True,
                               frames_per_buffer=1792)
+
+        # Discard first packets because they are noisy
+        end_time = time.time() + 3
+        while time.time() < end_time:
+            self.socket.recv(2048)
+            self.stream.read(1792)
 
 
     def read_phone_mic(self):

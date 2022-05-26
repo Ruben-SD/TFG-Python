@@ -1,4 +1,5 @@
-from turtle import position
+from turtle import pos, position
+from matplotlib import animation, projections
 import numpy as np
 import plotting
 
@@ -101,6 +102,8 @@ class Distance3D(Position):
         dR = self.distances[1]
         dX = self.distances[2]
 
+        # return (dL, dR, dX)
+
         pos0 = self.speakers_pos[0]
         pos1 = self.speakers_pos[1]
         pos2 = self.speakers_pos[2]
@@ -122,7 +125,7 @@ class Distance3D(Position):
         result = least_squares(equations, ((x1+x2+x3)/3, (y1+y2+y3)/3, (z1+z2+z3)/3,
                                (dist_1+dist_2+dist_3)/3), gtol=0.04, ftol=0.04, xtol=0.04)['x']
         (x, y, z) = (result[0], result[1], result[2])
-
+        
         # plotter.add_sample("positioner_distance_left", dL)
         # plotter.add_sample("positioner_distance_right", dR)
 
@@ -130,6 +133,7 @@ class Distance3D(Position):
 
         return (x, y, z)
 
+import matplotlib.pyplot as plt
 
 class Positioner:
     def __init__(self, config, plotter):
@@ -143,14 +147,43 @@ class Positioner:
 
         self.position = position_types[config['positioner_type']](config)
 
+        
+
+        self.fig = plt.figure()
+        self.ax = self.fig.add_subplot(111, projection='3d')
+        x = np.arange(0, 2*np.pi, 0.01)
+        self.line, = self.ax.plot(x, np.sin(x))
+        def animate(i):
+            pos = self.position.distances
+            #self.line.set_xdata([pos[0]])  # update the data
+            print(pos)
+            self.line.set_data(np.arange(100), np.arange(100))
+            self.ax.set_xlim(100)
+            self.ax.set_ylim(100)
+            self.ax.set_zlim(100)
+            # self.line.set_ydata([pos[2]])
+            self.line.set_3d_properties(np.arange(100))
+            return self.line,
+        def init():
+
+            return self.line,
+        self.ani = animation.FuncAnimation(self.fig, animate, np.arange(1,200), init_func=init, interval=1000/24, blit=False)
+        plt.show(block=False)
+        # self.ax = plt.axes(projection='3d')
+        # self.plot = self.ax.plot([0], [0], [0], 'ro')[0]
+
     def update(self, dt):
         raise NotImplemented()
 
     def get_position(self):
         coords = ['x', 'y', 'z']
-        position = [self.position.distances[0]]
-
-        for i, coordinate in enumerate(position):
-            self.plotter.add_sample(
-                f"{self.name}_position_{coords[i]}", coordinate)
+        position = self.position.distances
+        self.plotter.add_sample("3d_x", position[0])
+        self.plotter.add_sample("3d_y", position[1])
+        self.plotter.add_sample("3d_z", position[2])
+        plt.pause(0.05)
+        #self.ax.cla()
+        # for i, coordinate in enumerate(position):
+        #     self.plotter.add_sample(
+        #         f"{self.name}_position_{coords[i]}", coordinate)
         return position

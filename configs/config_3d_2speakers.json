@@ -3,9 +3,9 @@
   "tracker_type": "2D",
   "smartphone": {
     "position": [
-      20,
-      20,
-      0
+      15,
+      15,
+      25
     ],
     "dims": {
       "length": 17.3,
@@ -16,8 +16,8 @@
     {
       "name": "left",
       "frequencies": [
-        17600,
-        17800
+        18200,
+        18600
       ],
       "pos": [0,0,0]
     },

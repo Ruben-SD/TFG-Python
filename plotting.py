@@ -62,9 +62,27 @@ class Plotter:
 
     def generate_figure(self):
         # plt.yticks(np.arange(-60, 60, 5))
-        self.plot_position()
-        plt.figure()
-        self.plot_all_doppler()
+        from mpl_toolkits import mplot3d
+        fig = plt.figure()
+        ax = plt.axes(projection='3d')
+
+        ax = plt.axes(projection='3d')
+
+        # Data for a three-dimensional line
+        zline = self.data_dictionary['3d_z']
+        xline = self.data_dictionary['3d_x']
+        yline = self.data_dictionary['3d_y']
+        ax.plot3D(xline, zline, yline, 'gray')
+
+        # Data for three-dimensional scattered points
+        # zdata = 15 * np.random.random(100)
+        # xdata = np.sin(zdata) + 0.1 * np.random.randn(100)
+        # ydata = np.cos(zdata) + 0.1 * np.random.randn(100)
+        # ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap='Greens')
+
+        # self.plot_position()
+        # plt.figure()
+        # self.plot_all_doppler()
         #plt.figure()
         #self.plot_position_and_doppler_filtered()
         
