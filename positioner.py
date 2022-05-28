@@ -184,8 +184,8 @@ class Positioner:
         plt.pause(0.001)
         if time.time() - self.last > 0.15:
             pos = self.plotter.data_dictionary
-            self.li.set_data(pos['3d_x'][-15:], pos['3d_y'][-15:])#, pos['3d_z'])
-            self.li.set_3d_properties(pos['3d_z'][-15:])
+            self.li.set_data(pos['3d_x'][-15:], pos['3d_z'][-15:])#, pos['3d_z'])
+            self.li.set_3d_properties(pos['3d_y'][-15:])
             self.fig.canvas.draw()
             self.last = time.time()
         #self.ax.cla()
