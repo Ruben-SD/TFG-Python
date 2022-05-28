@@ -85,16 +85,30 @@ class Distance3D(Position):
     def __init__(self, config):
         self.speakers_pos = [np.array(speakerConfig['pos'], dtype=float)
                              for speakerConfig in config['speakers']]
-        self.distances = np.array(config['smartphone']['position'], dtype=float)
-
+        coords = np.array(config['smartphone']['position'], dtype=float)
+        self.distances = [np.linalg.norm(speaker_pos - coords) for speaker_pos in self.speakers_pos] # Distances from phone to each speaker
 
     def move_by(self, displacements):
+        print(displacements)
         self.distances += displacements
 
     # def get_other_position(self):
     #     x, y, z = self.get_position()
     #     xR, yR, zR = -x + self.speakers_distance, y
     #     return (xR, yR)
+
+    def gps_solve(self, distances_to_station, stations_coordinates):
+        def error(x, c, r):
+            return sum([(np.linalg.norm(x - c[i]) - r[i]) ** 2 for i in range(len(c))])
+
+        l = len(stations_coordinates)
+        S = sum(distances_to_station)
+        # compute weight vector for initial guess
+        W = [((l - 1) * S) / (S - w) for w in distances_to_station]
+        # get initial guess of point location
+        x0 = sum([W[i] * stations_coordinates[i] for i in range(l)])
+        # optimize distance from signal origin to border of spheres
+        return minimize(error, x0, args=(stations_coordinates, distances_to_station), method='Nelder-Mead').x
 
     def get_position(self):
 
@@ -111,19 +125,12 @@ class Distance3D(Position):
         x1, y1, z1, dist_1 = (pos0[0], pos0[1], pos0[2], dL)
         x2, y2, z2, dist_2 = (pos1[0], pos1[1], pos1[2], dR)
         x3, y3, z3, dist_3 = (pos2[0], pos2[1], pos2[2], dX)
-
-        def equations(guess):
-            x, y, z, r = guess
-            r = 0
-            return (
-                (x - x1)**2 + (y - y1)**2 + (z - z1)**2 - (dist_1 - r)**2,
-                (x - x2)**2 + (y - y2)**2 + (z - z2)**2 - (dist_2 - r)**2,
-                (x - x3)**2 + (y - y3)**2 + (z - z3)**2 - (dist_3 - r)**2
-            )
-
-        from scipy.optimize import least_squares
-        result = least_squares(equations, ((x1+x2+x3)/3, (y1+y2+y3)/3, (z1+z2+z3)/3,
-                               (dist_1+dist_2+dist_3)/3), gtol=0.04, ftol=0.04, xtol=0.04)['x']
+        
+        # stations = list(np.array([[0,0,0], [40,0,0], [70,22.5,60], [70,22.5,60]]))
+        # distances_to_station = [30.103986447, 30.103986447, 78.1024967591, 78.1024967591]
+        stations = list(np.array([[x1, y1, z1], [x2, y2, z2], [x3, y3, z3], [x3, y3, z3]]))
+        distances_to_station = [dist_1, dist_2, dist_3, dist_3]
+        result = self.gps_solve(distances_to_station, stations)
         (x, y, z) = (result[0], result[1], result[2])
         
         # plotter.add_sample("positioner_distance_left", dL)
@@ -132,6 +139,9 @@ class Distance3D(Position):
         #print(f"DL: {dL}, DR:{dR}")
 
         return (x, y, z)
+
+from scipy.optimize import minimize
+import numpy as np
 
 import matplotlib.pyplot as plt
 import time
@@ -192,4 +202,4 @@ class Positioner:
         # for i, coordinate in enumerate(position):
         #     self.plotter.add_sample(
         #         f"{self.name}_position_{coords[i]}", coordinate)
-        return position
+        return position, self.position.distances

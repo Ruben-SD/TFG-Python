@@ -59,7 +59,7 @@ class DopplerAnalyzer:
         elif np.isclose(0, cosine):
             speeds = np.array([(frequency_displacements[i]/(frequency)) * 343.73 * 100 for i, frequency in enumerate(frequencies)])
         else:
-            speeds = np.array([(frequency_displacements[i]/(frequency * cosine)) * 343.73 * 100 for i, frequency in enumerate(frequencies)])
+            speeds = np.array([(frequency_displacements[i]/(frequency)) * 343.73 * 100 for i, frequency in enumerate(frequencies)])
 
         #variances = 1/variances
         if self.options and 'noise_variance_weighted_mean' in self.options:

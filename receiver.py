@@ -31,6 +31,8 @@ class Receiver:
         end_time = time.time() + 3
         while time.time() < end_time:
             self.socket.recv(2048)
+        end_time = time.time() + 3
+        while time.time() < end_time:
             self.stream.read(1792)
 
 
