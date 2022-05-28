@@ -15,7 +15,7 @@ class DopplerAnalyzer:
     def extract_speeds_from(self, audio_samples, cosine):
         if self.id == 0:
             self.plotter.add_sample('audio_samples', audio_samples)
-        _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude', noverlap=1501)
+        _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
         
         speed = self.extract_speed_from(Sxx, np.array(self.frequencies), cosine)
         
@@ -66,6 +66,8 @@ class DopplerAnalyzer:
             mean = np.sum(speeds * (variances/np.sum(variances)))
         else: 
             mean = np.mean(speeds)
+        # weights = [np.argmax(Sxx[f-flw:f+flw]) for f in frequencies]
+        # mean = np.average(frequency_displacements, weights=weights)
         #TODO take into account that higher frequencies mean more speed
         
         

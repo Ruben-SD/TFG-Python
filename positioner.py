@@ -87,6 +87,7 @@ class Distance3D(Position):
                              for speakerConfig in config['speakers']]
         coords = np.array(config['smartphone']['position'], dtype=float)
         self.distances = [np.linalg.norm(speaker_pos - coords) for speaker_pos in self.speakers_pos] # Distances from phone to each speaker
+        self.last_prediction = None
 
     def move_by(self, displacements):
         print(displacements)
@@ -99,7 +100,11 @@ class Distance3D(Position):
 
     def gps_solve(self, distances_to_station, stations_coordinates):
         def error(x, c, r):
-            return sum([(np.linalg.norm(x - c[i]) - r[i]) ** 2 for i in range(len(c))])
+            # calcular distancia respecto al ultimo punto predicho
+            if self.last_prediction is None:
+                return sum([(np.linalg.norm(x - c[i]) - r[i]) ** 2 for i in range(len(c))])
+            else:
+                return sum([(np.linalg.norm(x - c[i]) - r[i]) ** 2 for i in range(len(c))] + [np.linalg.norm((x - self.last_prediction))])
 
         l = len(stations_coordinates)
         S = sum(distances_to_station)
@@ -132,7 +137,7 @@ class Distance3D(Position):
         distances_to_station = [dist_1, dist_2, dist_3, dist_3]
         result = self.gps_solve(distances_to_station, stations)
         (x, y, z) = (result[0], result[1], result[2])
-        
+        self.last_prediction = np.array([x, y, z])
         # plotter.add_sample("positioner_distance_left", dL)
         # plotter.add_sample("positioner_distance_right", dR)
 
