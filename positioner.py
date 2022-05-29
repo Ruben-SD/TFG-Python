@@ -87,10 +87,10 @@ class Distance3D(Position):
                              for speakerConfig in config['speakers']]
         coords = np.array(config['smartphone']['position'], dtype=float)
         self.distances = [np.linalg.norm(speaker_pos - coords) for speaker_pos in self.speakers_pos] # Distances from phone to each speaker
-        self.last_prediction = None
+        self.last_prediction = coords
 
     def move_by(self, displacements):
-        print(displacements)
+        #print(displacements)
         self.distances += displacements
 
     # def get_other_position(self):
@@ -101,10 +101,7 @@ class Distance3D(Position):
     def gps_solve(self, distances_to_station, stations_coordinates):
         def error(x, c, r):
             # calcular distancia respecto al ultimo punto predicho
-            if self.last_prediction is None:
-                return sum([(np.linalg.norm(x - c[i]) - r[i]) ** 2 for i in range(len(c))])
-            else:
-                return sum([(np.linalg.norm(x - c[i]) - r[i]) ** 2 for i in range(len(c))] + [np.linalg.norm((x - self.last_prediction))])
+            return sum([(np.linalg.norm(x - c[i]) - r[i]) ** 2 for i in range(len(c))] + [np.linalg.norm((x - self.last_prediction))])
 
         l = len(stations_coordinates)
         S = sum(distances_to_station)
@@ -113,7 +110,7 @@ class Distance3D(Position):
         # get initial guess of point location
         x0 = sum([W[i] * stations_coordinates[i] for i in range(l)])
         # optimize distance from signal origin to border of spheres
-        return minimize(error, x0, args=(stations_coordinates, distances_to_station), method='Nelder-Mead').x
+        return minimize(error, self.last_prediction, args=(stations_coordinates, distances_to_station), method='Nelder-Mead').x
 
     def get_position(self):
 
@@ -135,15 +132,12 @@ class Distance3D(Position):
         # distances_to_station = [30.103986447, 30.103986447, 78.1024967591, 78.1024967591]
         stations = list(np.array([[x1, y1, z1], [x2, y2, z2], [x3, y3, z3], [x3, y3, z3]]))
         distances_to_station = [dist_1, dist_2, dist_3, dist_3]
-        result = self.gps_solve(distances_to_station, stations)
-        (x, y, z) = (result[0], result[1], result[2])
-        self.last_prediction = np.array([x, y, z])
+        self.last_prediction = self.gps_solve(distances_to_station, stations)
+        return self.last_prediction
         # plotter.add_sample("positioner_distance_left", dL)
         # plotter.add_sample("positioner_distance_right", dR)
 
         #print(f"DL: {dL}, DR:{dR}")
-
-        return (x, y, z)
 
 from scipy.optimize import minimize
 import numpy as np
