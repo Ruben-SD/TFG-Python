@@ -88,7 +88,7 @@ class Positioner:
 
     def get_position(self):
         coords = ['x', 'y', 'z']
-        position = [self.position.distances[0]]
+        position = self.position.get_position()
         
         for i, coordinate in enumerate(position):
             self.plotter.add_sample(f"{self.name}_position_{coords[i]}", coordinate)

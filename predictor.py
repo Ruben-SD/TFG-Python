@@ -210,7 +210,7 @@ class Predictor(Positioner):
         self.my_filter.predict()
         self.my_filter.update(speeds[0]*dt)
 
-        self.position.move_by(-speeds[0]*dt)
+        self.position.move_by(-speeds*dt)
         #self.speakers_distance = self.speaker_distance_finder.update(dt, speeds * dt)
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
