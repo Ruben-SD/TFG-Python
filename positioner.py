@@ -1,5 +1,6 @@
 import numpy as np
 import plotting
+from scipy.optimize import minimize
 
 class Position:
     def __init__(self, config):
@@ -49,6 +50,7 @@ class Distance2D(Position):
         position = np.array(config['smartphone']['position'], dtype=float)
         self.speakers_distance = config['speakers_distance']
         self.distances = [np.linalg.norm(position), np.linalg.norm(position - np.array([self.speakers_distance, 0]))]
+        self.last_prediction = np.array([20, 23])
 
     def move_by(self, displacements):
         self.distances += displacements
@@ -58,6 +60,20 @@ class Distance2D(Position):
         xR, yR = -x + self.speakers_distance, y
         return (xR, yR)
 
+    def gps_solve(self, distances_to_station, stations_coordinates):
+        def error(x, c, r):
+            # calcular distancia respecto al ultimo punto predicho
+            return sum([(np.linalg.norm(x - c[i]) - r[i]) ** 2 for i in range(len(c))])
+
+        l = len(stations_coordinates)
+        S = sum(distances_to_station)
+        # compute weight vector for initial guess
+        W = [((l - 1) * S) / (S - w) for w in distances_to_station]
+        # get initial guess of point location
+        x0 = sum([W[i] * stations_coordinates[i] for i in range(l)])
+        # optimize distance from signal origin to border of spheres
+        return minimize(error, self.last_prediction, args=(stations_coordinates, distances_to_station), method='Nelder-Mead').x
+
     def get_position(self):
         D = self.speakers_distance
         dL = self.distances[0]
@@ -66,10 +82,13 @@ class Distance2D(Position):
         # plotter.add_sample("positioner_distance_right", dR)
         theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
         (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
+
+        self.last_prediction = self.gps_solve([dL, dR], list(np.array([[0, 0], [40, 0]])))
+        return self.last_prediction
         
         #print(f"DL: {dL}, DR:{dR}")
 
-        return (x, y)
+        #return (x, y)
 
 
 class Positioner:
@@ -92,4 +111,4 @@ class Positioner:
         
         for i, coordinate in enumerate(position):
             self.plotter.add_sample(f"{self.name}_position_{coords[i]}", coordinate)
-        return position
+        return position, self.position.distances
