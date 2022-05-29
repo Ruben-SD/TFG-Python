@@ -80,10 +80,11 @@ class Distance2D(Position):
         dR = self.distances[1]
         # plotter.add_sample("positioner_distance_left", dL)
         # plotter.add_sample("positioner_distance_right", dR)
-        theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
-        (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
+        # theta = np.arccos((dL*dL + D*D - dR*dR)/(2*D*dL))
+        # (x, y) = (dL * np.cos(theta), dL * np.sin(theta))
 
         self.last_prediction = self.gps_solve([dL, dR], list(np.array([[0, 0], [40, 0]])))
+        #self.distances = [np.linalg.norm(self.last_prediction), np.linalg.norm(self.last_prediction - np.array([self.speakers_distance, 0]))]
         return self.last_prediction
         
         #print(f"DL: {dL}, DR:{dR}")
