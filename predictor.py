@@ -1,7 +1,7 @@
 from pykalman import KalmanFilter
 import pygame
 from positioner import Positioner
-from speaker import PhoneSpeaker, Speaker
+from speaker import PhoneSpeaker, Speaker, SpeakersOrchestrator
 from receiver import Receiver
 from doppleranalyzer import DopplerAnalyzer
 import numpy as np
@@ -153,10 +153,8 @@ class Predictor(Positioner):
         super().__init__(config, plotter)
         self.name = "predictor"
         
-        pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
-        self.speakers = [PhoneSpeaker(speaker_config) if speaker_config['name'] == 'phone' else Speaker(speaker_config) for speaker_config in config['speakers']]
-        for speaker in self.speakers:
-            speaker.play_sound()
+        self.speakers_orchestrator = SpeakersOrchestrator(config)
+        self.spakers = self.speakers_orchestrator.get_speakers()
         
         self.receiver = Receiver()
         self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speakers]
