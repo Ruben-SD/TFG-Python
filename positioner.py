@@ -87,6 +87,7 @@ class Distance3D(Position):
                              for speakerConfig in config['speakers']]
         coords = np.array(config['smartphone']['position'], dtype=float)
         self.distances = [np.linalg.norm(speaker_pos - coords) for speaker_pos in self.speakers_pos] # Distances from phone to each speaker
+        
         self.last_prediction = coords
 
     def move_by(self, displacements):
