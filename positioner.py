@@ -169,9 +169,9 @@ class Positioner:
         #     if '3d_x' in pos:
         #         self.graph._offsets3d = ([pos['3d_x'][-1]], [pos['3d_z'][-1]], [pos['3d_y'][-1]])
         #     return self.graph,
-        self.ax.set_xlim3d(-100, 100)
-        self.ax.set_ylim3d(-100, 100)
-        self.ax.set_zlim3d(-100, 100)
+        self.ax.set_xlim3d(-20, 150)
+        self.ax.set_ylim3d(-20, 200)
+        self.ax.set_zlim3d(-20, 75)
 
         # self.ani = animation.FuncAnimation(self.fig, update, frames=200, interval=50, blit=False)
         plt.show(block=False)
@@ -193,8 +193,8 @@ class Positioner:
         plt.pause(0.001)
         if time.time() - self.last > 0.15:
             pos = self.plotter.data_dictionary
-            self.li.set_data(pos['3d_x'][-15:], pos['3d_z'][-15:])#, pos['3d_z'])
-            self.li.set_3d_properties(pos['3d_y'][-15:])
+            self.li.set_data(pos['3d_x'][-15:], pos['3d_y'][-15:])#, pos['3d_z'])
+            self.li.set_3d_properties(pos['3d_z'][-15:])
             self.fig.canvas.draw()
             self.last = time.time()
         #self.ax.cla()

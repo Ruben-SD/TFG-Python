@@ -191,7 +191,7 @@ class Predictor(Positioner):
     def update(self, dt):
         self.my_filter.Q = Q_discrete_white_noise(2, dt, .1) # process uncertainty
         sound_samples = [self.receiver.read_phone_mic(), self.receiver.read_pc_mic()]
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != 2 else 1], 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != (4) else 1], 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         #print(speeds[2])
         # self.my_filter.predict()
         # self.my_filter.update(speeds[0]*dt)
