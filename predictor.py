@@ -1,7 +1,7 @@
 from pykalman import KalmanFilter
 import pygame
 from positioner import Positioner
-from speaker import PhoneSpeaker, Speaker
+from speaker import SpeakerOrchestrator, VirtualSpeaker, Speaker
 from receiver import Receiver
 from doppleranalyzer import DopplerAnalyzer
 import numpy as np
@@ -152,29 +152,12 @@ class Predictor(Positioner):
     def __init__(self, config, plotter):
         super().__init__(config, plotter)
         self.name = "predictor"
-        
-        pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
-        self.speakers = [PhoneSpeaker(speaker_config) if speaker_config['name'] == 'phone' else Speaker(speaker_config) for speaker_config in config['speakers']]
-        for speaker in self.speakers:
-            speaker.play_sound()
-        
+        self.speaker_orchestrator = SpeakerOrchestrator(config)
+        self.speaker_orchestrator.play_sound()
         self.receiver = Receiver()
-        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speakers]
-
+        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speaker_orchestrator.get_speakers()]
         self.speaker_distance_finder = SpeakerDistanceFinder(plotter)
-        # for i, speaker in enumerate(self.speakers):
-        #     plotter.add_data(f'predicted_x_position_{i}', [], plot=True)
         
-        # if self.two_dimensions:
-        #     plotter.add_data('predicted_y_position', [], plot=True)
-
-        # frequencies = []
-        # for speaker in self.speakers:
-        #     frequencies = frequencies + speaker.get_config().get_frequencies()
-        # for frequency in frequencies: 
-        #     plotter.add_data(f'doppler_deviation_{frequency}_hz', [], plot=True)
-        
-        # plotter.add_data(f'doppler_deviation_chosen', [], plot=True)
         self.my_filter = KalmanFilter(dim_x=2, dim_z=1)
         self.my_filter.x = np.array([[0.],
                 [0.]])       # initial state (location and velocity)
@@ -189,6 +172,7 @@ class Predictor(Positioner):
 
     #TODO abstract to update_measurement
     def update(self, dt):
+        super().update(self)
         self.my_filter.Q = Q_discrete_white_noise(2, dt, .1) # process uncertainty
         sound_samples = [self.receiver.read_phone_mic(), self.receiver.read_pc_mic()]
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != (4) else 1], 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
@@ -196,18 +180,15 @@ class Predictor(Positioner):
         # self.my_filter.predict()
         # self.my_filter.update(speeds[0]*dt)
 
-        self.position.move_by(-speeds*dt)
+        self.move_by(-speeds*dt)
         #self.speakers_distance = self.speaker_distance_finder.update(dt, speeds * dt)
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
         # if self.two_dimensions:
         #     plotter.add_sample('predicted_y_position', self.get_distance()[1])
 
-
-    def __del__(self):
-        if pygame.mixer.get_init() is not None:
-            pygame.mixer.stop()
-
+    def stop(self):
+        self.speaker_orchestrator.stop_sound()
 
 class KalmanFiltery(object):
     def __init__(self, F = None, B = None, H = None, Q = None, R = None, P = None, x0 = None):

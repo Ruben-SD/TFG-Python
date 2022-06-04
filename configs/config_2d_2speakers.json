@@ -1,17 +1,19 @@
 {
-  "positioner_type": "2D",
-  "tracker_type": "2D",
+  "positioning": {
+    "type": "2D",
+    "tracker": false
+  },
   "smartphone": {
     "position": [
-      0,
-      0
+      20,
+      20
     ],
     "dims": {
       "length": 17.3,
       "width": 7.8
     }
   },
-  "speakers_distance": 41,
+  "speakers_distance": 40,
   "speakers": [
     {
       "name": "left",
@@ -21,7 +23,13 @@
         18400,
         18600,
         18800
-      ]
+      ],
+      "pos": [
+        0,
+        0
+      ],
+      "device": 0,
+      "channel": 1
     },
     {
       "name": "right",
@@ -30,8 +38,14 @@
         19200,
         19400,
         19600,
-        19800     
-      ]
+        19800
+      ],
+      "pos": [
+        40,
+        0
+      ],
+      "device": 0,
+      "channel": 0
     }
   ]
 }

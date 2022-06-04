@@ -17,14 +17,14 @@ class Plotter:
         plt.show()
 
     def plot_position(self):
-        plt.xlabel("Time (s)")
-        plt.ylabel("Position (cm)")
-        plt.title("Position over time")
+        plt.xlabel("Tiempo (s)")
+        plt.ylabel("Posición (cm)")
+        plt.title("Posición vs. tiempo")
         plt.grid()
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
-            data = np.array(self.data_dictionary[data_name])
-            if data_name.startswith('predictor_position_x'): 
+            if 'position' in data_name:
+                data = np.array(self.data_dictionary[data_name])
                 plt.plot(time_data, data, label=data_name)
         plt.legend()        
 
@@ -62,17 +62,17 @@ class Plotter:
 
     def generate_figure(self):
         # plt.yticks(np.arange(-60, 60, 5))
-        from mpl_toolkits import mplot3d
-        fig = plt.figure()
-        ax = plt.axes(projection='3d')
+        # from mpl_toolkits import mplot3d
+        # fig = plt.figure()
+        # ax = plt.axes(projection='3d')
 
-        ax = plt.axes(projection='3d')
+        # ax = plt.axes(projection='3d')
 
-        # Data for a three-dimensional line
-        zline = self.data_dictionary['3d_z']
-        xline = self.data_dictionary['3d_x']
-        yline = self.data_dictionary['3d_y']
-        ax.plot3D(xline, zline, yline, 'gray')
+        # # Data for a three-dimensional line
+        # zline = self.data_dictionary['3d_z']
+        # xline = self.data_dictionary['3d_x']
+        # yline = self.data_dictionary['3d_y']
+        # ax.plot3D(xline, zline, yline, 'gray')
 
         # Data for three-dimensional scattered points
         # zdata = 15 * np.random.random(100)
@@ -80,7 +80,7 @@ class Plotter:
         # ydata = np.cos(zdata) + 0.1 * np.random.randn(100)
         # ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap='Greens')
 
-        # self.plot_position()
+        self.plot_position()
         # plt.figure()
         # self.plot_all_doppler()
         #plt.figure()

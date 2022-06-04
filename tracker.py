@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from positioner import Position2D, Positioner
+from positioner import Positioner
 import copy
 
 class CameraTracker(Positioner):
@@ -100,7 +100,6 @@ class CameraTracker1D(CameraTracker):
     
 class CameraTracker2D(CameraTracker):
     def __init__(self, config, plotter):
-        self.position = Position2D(config)
         super().__init__(config, plotter)        
         
         #position_configs = config['smartphone']['position'] 
@@ -141,7 +140,7 @@ class OfflineCameraTracker2D(OfflineCameraTracker):
     def __init__(self, config, plotter):
         super().__init__(config, plotter)
         self.plotter = plotter
-        self.position = Position2D(config['config'])
+        #self.position = Position2D(config['config'])
         self.camera_positions = list(zip(config['tracker_position_x'], config['tracker_position_y']))
 
     def obtain_current_position(self):

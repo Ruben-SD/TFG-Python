@@ -11,28 +11,23 @@ from plotting import Plotter
 import itertools
 
 def main_loop(plotter, config):
-    positioners = [PositionerFactory.create_predictor(config, plotter)]#, PositionerFactory.create_tracker(config, plotter)]
+    positioners = PositionerFactory.create_positioners(config, plotter)
 
     frame_timer = FrameTimer(config, plotter)
     while not keyboard.is_pressed('esc') and not frame_timer.reached_end():
         delta_time = frame_timer.mark()
-        #print(1/delta_time)
         
         for positioner in positioners:
             positioner.update(delta_time)
         
         print(f"Predicted position: {positioners[0].get_position()}")# Tracked position: {positioners[1].get_position()}")
 
-    del positioners
+    for positioner in positioners:
+        positioner.stop()
 
-    # if config['offline']:
-    #     return
-
-    import pygame
-    pygame.mixer.stop()
     #plotter.print_metrics()
     plotter.plot()
-    plotter.save_to_file()
+    # plotter.save_to_file()
 
 def offline_loop(config):
     print("Running", config['description'] + "...")

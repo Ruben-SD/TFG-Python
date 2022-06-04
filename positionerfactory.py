@@ -5,20 +5,28 @@ from tracker import CameraTracker1D, CameraTracker2D, OfflineCameraTracker1D, Of
 class PositionerFactory:
     @staticmethod
     def create_predictor(config, plotter):
-        if config['offline']:
+        if config.get('offline', False):
             return OfflinePredictor(config, plotter)
         else: 
             return Predictor(config, plotter)
 
     @staticmethod
     def create_tracker(config, plotter):
-        if config['offline']:
-            trackers_types = {"1D": OfflineCameraTracker1D,
+        tracker_type = config['positioning']['type']
+        if config.get('offline', False):
+            trackers = {"1D": OfflineCameraTracker1D,
                               "2D": OfflineCameraTracker2D}
-            tracker = trackers_types[config['config']['tracker_type']]
+            tracker = trackers[tracker_type]
             return tracker(config, plotter)
         else:
-            trackers_types = {"1D": CameraTracker1D,
+            trackers = {"1D": CameraTracker1D,
                               "2D": CameraTracker2D}
-            tracker = trackers_types[config['tracker_type']]
+            tracker = trackers[tracker_type]
             return tracker(config, plotter)
+
+    @staticmethod
+    def create_positioners(config, plotter):
+        positioners = [PositionerFactory.create_predictor(config, plotter)]
+        if config['positioning'].get('tracker', False):
+            positioners.append(PositionerFactory.create_tracker(config, plotter))
+        return positioners

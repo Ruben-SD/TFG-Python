@@ -28,12 +28,14 @@ class Receiver:
                               frames_per_buffer=1792)
 
         # Discard first packets because they are noisy
+        print("Discarding initial noisy audio samples...")
         end_time = time.time() + 3
         while time.time() < end_time:
             self.socket.recv(2048)
         end_time = time.time() + 3
-        while time.time() < end_time:
-            self.stream.read(1792)
+        # while time.time() < end_time:
+        #     self.stream.read(1792)
+        print("Finished discarding")
 
 
     def read_phone_mic(self):
