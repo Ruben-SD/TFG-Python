@@ -78,6 +78,7 @@ class VirtualSpeaker(Speaker):
     def play_sound(self):        
         pass
 
+
 class SpeakerOrchestrator:
     def __init__(self, config):
         self.speakers = [VirtualSpeaker(speaker_config) if 'type' in speaker_config and speaker_config['type'] == 'virtual' else Speaker(speaker_config) for speaker_config in config['speakers']]

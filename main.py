@@ -20,7 +20,7 @@ def main_loop(plotter, config):
         for positioner in positioners:
             positioner.update(delta_time)
         
-        print(f"Predicted position: {positioners[0].get_position()}")# Tracked position: {positioners[1].get_position()}")
+        print(f"Predicted position: {positioners[0].get_position()} Tracked position: {positioners[1].get_position()}")
 
     for positioner in positioners:
         positioner.stop()

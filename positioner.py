@@ -3,7 +3,8 @@ import numpy as np
 
 
 class Positioner:
-    def __init__(self, config, plotter):
+    def __init__(self, name, config, plotter):
+        self.name = name
         self.plotter = plotter
         self.speakers_pos = [np.array(speaker_config['pos'], dtype=float)
                              for speaker_config in config['speakers']]
@@ -20,7 +21,7 @@ class Positioner:
         self.update_distances()
 
     def get_position(self):
-        return list(self.position), list(self.distances)
+        return list(self.position)#, list(self.distances)
 
     def update_distances(self):
         self.distances = [np.linalg.norm(speaker_pos - self.position) for speaker_pos in self.speakers_pos]

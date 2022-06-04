@@ -150,8 +150,7 @@ from filterpy.kalman import KalmanFilter
 from filterpy.common import Q_discrete_white_noise
 class Predictor(Positioner):
     def __init__(self, config, plotter):
-        super().__init__(config, plotter)
-        self.name = "predictor"
+        super().__init__('Predictor', config, plotter)
         self.speaker_orchestrator = SpeakerOrchestrator(config)
         self.speaker_orchestrator.play_sound()
         self.receiver = Receiver()
@@ -172,7 +171,7 @@ class Predictor(Positioner):
 
     #TODO abstract to update_measurement
     def update(self, dt):
-        super().update(self)
+        super().update(dt)
         self.my_filter.Q = Q_discrete_white_noise(2, dt, .1) # process uncertainty
         sound_samples = [self.receiver.read_phone_mic(), self.receiver.read_pc_mic()]
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != (4) else 1], 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
