@@ -26,7 +26,7 @@ def main_loop(plotter, config):
 
     #plotter.print_metrics()
     plotter.plot()
-    # plotter.save_to_file()
+    plotter.save_to_file()
 
 def offline_loop(config):
     print("Running", config['description'] + "...")

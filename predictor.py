@@ -180,7 +180,7 @@ class Predictor(Positioner):
         # self.my_filter.update(speeds[0]*dt)
 
         self.move_by(-speeds*dt)
-        self.plotter.add_sample('audio_samples', sound_samples)
+        self.plotter.add_sample('audio_samples', sound_samples[0])
         #self.speakers_distance = self.speaker_distance_finder.update(dt, speeds * dt)
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
@@ -190,102 +190,22 @@ class Predictor(Positioner):
     def stop(self):
         self.speaker_orchestrator.stop_sound()
 
-class KalmanFiltery(object):
-    def __init__(self, F = None, B = None, H = None, Q = None, R = None, P = None, x0 = None):
-
-        if(F is None or H is None):
-            raise ValueError("Set proper system dynamics.")
-
-        self.n = F.shape[1]
-        self.m = H.shape[1]
-
-        self.F = F
-        self.H = H
-        self.B = 0 if B is None else B
-        self.Q = np.eye(self.n) if Q is None else Q
-        self.R = np.eye(self.n) if R is None else R
-        self.P = np.eye(self.n) if P is None else P
-        self.x = np.zeros((self.n, 1)) if x0 is None else x0
-
-    def predict(self, u = 0):
-        self.x = np.dot(self.F, self.x) + np.dot(self.B, u)
-        self.P = np.dot(np.dot(self.F, self.P), self.F.T) + self.Q
-        return self.x
-
-    def update(self, z):
-        y = z - np.dot(self.H, self.x)
-        S = self.R + np.dot(self.H, np.dot(self.P, self.H.T))
-        K = np.dot(np.dot(self.P, self.H.T), np.linalg.inv(S))
-        self.x = self.x + np.dot(K, y)
-        I = np.eye(self.n)
-        self.P = np.dot(np.dot(I - np.dot(K, self.H), self.P), 
-        	(I - np.dot(K, self.H)).T) + np.dot(np.dot(K, self.R), K.T)
-
-class OfflinePredictor(Predictor):
+class OfflinePredictor(Positioner):
     def __init__(self, config, plotter):
-        self.config = config['config']
-        self.options = config['options']
-        Positioner.__init__(self, self.config, plotter)
-        self.name = "predictor"
-                
-        pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
-        self.speakers = [Speaker(speaker_config) for speaker_config in self.config['speakers']]
+        super().__init__('Predictor', config['config'], plotter)
         
-        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speakers]
+        self.speaker_orchestrator = SpeakerOrchestrator(config['config'])
+        self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speaker_orchestrator.get_speakers()]
+        
 
         self.sound_samples = np.array([x for x in config['audio_samples']])
         self.cur_sound_samples = 0
-
-        if 'kalman_filter' in self.options:
-            dt = 1.0/60
-            F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
-            self.H = np.array([1, 0, 0]).reshape(1, 3)
-            Q = np.array([[0.00001, 0.00001, 0.0], [0.00001, 0.00001, 0.0], [0.0, 0.0, 0.0]])
-            R = np.array([0.00001]).reshape(1, 1)
-
-            self.kf = KalmanFilter(F = F, H = self.H, Q = Q, R = R)
-
-        self.speaker_distance_finder = SpeakerDistanceFinder(plotter)
-        self.my_filter = KalmanFilter(dim_x=2, dim_z=1)
-        self.my_filter.x = np.array([[0.],
-                [0.]])       # initial state (location and velocity)
-
-        self.my_filter.F = np.array([[1.,1.],
-                        [0.,1.]])    # state transition matrix
-
-        self.my_filter.H = np.array([[1.,0.]])    # Measurement function
-        self.my_filter.P *= 1000                 # covariance matrix
-        self.my_filter.R = 0.00001                      # state uncertainty
-        
         
         
     def update(self, dt):
-        self.my_filter.Q = Q_discrete_white_noise(2, dt, 0.00001) # process uncertainty
-
+        super().update(dt)
         sound_samples = self.sound_samples[self.cur_sound_samples]
         self.cur_sound_samples += 1
-        x, y = self.position.get_position()
-        xR, yR = self.position.get_other_position()
-        cos = xR/np.sqrt(xR * xR + yR * yR)
-        sin = yR/np.sqrt(xR * xR + yR * yR)
-        cosL = (x/np.sqrt(x * x + y * y))
-        sinL = (y/np.sqrt(x * x + y * y))
-        cosines = (cosL * 0.70710678 + sinL * 0.70710678, cos * 0.70710678 + sin * 0.70710678)
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
-        #self.speakers_distance = self.speaker_distance_finder.update(dt, speeds)
-        
-        self.my_filter.predict()
-        self.my_filter.update(speeds[0]*dt)
-
-        self.position.move_by(-self.my_filter.x[0])
-
-        # if 'kalman_filter' in self.options:
-        #     self.kf.F = np.array([[1, dt, 0], [0, 1, dt], [0, 0, 1]])
-        #     w = np.dot(self.H,  self.kf.predict())[0]
-        #     print(w)
-        #     self.plotter.add_sample('kalman_filter_x', w[0])
-        #     if len(w) > 1:        
-        #         self.plotter.add_sample('kalman_filter_y', w[1])
-        #     else: 
-        #         self.plotter.add_sample('kalman_filter_y', 0)
-        #     self.kf.update(self.position.get_position())
+        self.move_by(-speeds*dt)
+        self.plotter.add_sample('audio_samples', sound_samples)

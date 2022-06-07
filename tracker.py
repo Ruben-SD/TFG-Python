@@ -93,64 +93,23 @@ class CameraTracker(Positioner):
     @staticmethod
     def get_smartphone_img_coords(frame):
         x, y, w, h = CameraTracker.extract_smartphone_bounding_rect(frame)
-        # x = int(x + w/2)
-        # y = int(y + h/2)
         return np.array([x, y])
 
     def stop(self):
         self.cam.release()
 
-# class CameraTracker1D(CameraTracker):
-#     def look_smartphone_distance_from_initial_pos(self):
-#         _, frame = self.cam.read()
-#         img_x, _ = self.get_smartphone_img_coords(frame)
-#         current_distance = np.array(
-#             [(self.initial_smartphone_cam_pos[0] - img_x) * self.cm_per_length_pixel])
-#         return current_distance
 
-
-# class CameraTracker2D(CameraTracker):
-#         #position_configs = config['smartphone']['position']
-#         #self.initial_measuring_tape_position = np.array([[position for _, position in position_config.items()] for position_config in position_configs], dtype=float)
-#         # if self.two_dimensions:
-#         #     plotter.add_data('real_y_position', [], plot=True)
-#         # plotter.add_data('real_x_position', [], plot=True)
-
-#     def look_smartphone_distance_from_initial_pos(self):
-#         _, frame = self.cam.read()
-#         cv2.imshow("Smartphone", frame)
-#         cv2.waitKey(1)
-#         (img_x, img_y) = self.get_smartphone_img_coords(frame)
-#         current_distance = np.array([(img_x - self.initial_smartphone_cam_pos[0]) * self.cm_per_length_pixel,
-#                                     (img_y - self.initial_smartphone_cam_pos[1]) * self.cm_per_width_pixel])
-#         return current_distance
-
-
-class OfflineCameraTracker(CameraTracker):
+class OfflineCameraTracker(Positioner):
     def __init__(self, config, plotter):
-        if not isinstance(self, OfflineCameraTracker2D):
-            Positioner.__init__(self, config['config'], plotter)
-        self.name = 'tracker'
+        super().__init__('Tracker', config['config'], plotter)
         self.curr_frame = -1
+        coords_names = [data_name for data_name in config['data_names_to_plot'] if 'Tracker_position_' in data_name]
+        self.camera_positions = np.transpose([config[coords_name] for coords_name in coords_names])
 
-class OfflineCameraTracker1D(OfflineCameraTracker):
-    def __init__(self, config, plotter):
-        super().__init__(config, plotter)
-        self.camera_positions = config['tracker_position_x']
-
-    def obtain_current_position(self):
-        self.curr_frame += 1
-        new_position = [self.camera_positions[self.curr_frame]]
-        return new_position
-
-
-class OfflineCameraTracker2D(OfflineCameraTracker):
-    def __init__(self, config, plotter):
-        super().__init__(config, plotter)
-        self.plotter = plotter
-        #self.position = Position2D(config['config'])
-        self.camera_positions = list(
-            zip(config['tracker_position_x'], config['tracker_position_y']))
+    def update(self, dt):
+        super().update(dt)
+        current_position = self.obtain_current_position()
+        self.set_position(current_position)
 
     def obtain_current_position(self):
         self.curr_frame += 1

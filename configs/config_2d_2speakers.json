@@ -1,12 +1,12 @@
 {
   "positioning": {
     "type": "2D",
-    "tracker": false
+    "tracker": true
   },
   "smartphone": {
     "position": [
       21.5,
-      20
+      82
     ],
     "dims": {
       "length": 17.3,

@@ -50,3 +50,6 @@ class Positioner:
         x0 = sum([W[i] * stations_coordinates[i] for i in range(l)])
         # optimize distance from signal origin to border of spheres
         return minimize(error, last_position, args=(stations_coordinates, distances_to_stations), method='Nelder-Mead').x
+
+    def stop(self):
+        pass

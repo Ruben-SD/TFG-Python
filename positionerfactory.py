@@ -19,6 +19,7 @@ class PositionerFactory:
     @staticmethod
     def create_positioners(config, plotter):
         positioners = [PositionerFactory.create_predictor(config, plotter)]
-        if config['positioning'].get('tracker', False):
+        enable_tracker = config['config']['positioning']['tracker'] if 'config' in config else config['positioning']['tracker']
+        if enable_tracker:
             positioners.append(PositionerFactory.create_tracker(config, plotter))
         return positioners

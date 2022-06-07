@@ -13,7 +13,7 @@ class DopplerAnalyzer:
         self.frequencies = frequencies
 
     def extract_speeds_from(self, audio_samples, cosine):
-        _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=1792, mode='magnitude')
+        _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=len(audio_samples), mode='magnitude')
         
         speed = self.extract_speed_from(Sxx, np.array(self.frequencies), cosine)
         
