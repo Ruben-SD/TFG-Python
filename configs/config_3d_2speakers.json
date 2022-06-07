@@ -2,11 +2,10 @@
   "positioning": {
     "type": "3D"
   },
-
   "smartphone": {
     "position": [
-      75,
-      25,
+      39,
+      50,
       0
     ],
     "dims": {
@@ -14,7 +13,6 @@
       "width": 7.8
     }
   },
-
   "speakers": [
     {
       "name": "Bottom left",
@@ -24,7 +22,7 @@
         18600
       ],
       "pos": [
-        100,
+        0,
         0,
         6
       ],
@@ -39,9 +37,9 @@
         19200
       ],
       "pos": [
-        150,
-        0,
-        6
+        7,
+        -11,
+        40
       ],
       "device": 0,
       "channel": 1
@@ -54,12 +52,12 @@
         19800
       ],
       "pos": [
-        0,
-        0,
-        0
+        54,
+        -11,
+        47.5
       ],
       "device": 1,
-      "channel": 0
+      "channel": 1
     },
     {
       "name": "Bottom right",
@@ -70,12 +68,12 @@
         20600
       ],
       "pos": [
-        50,
+        79,
         0,
-        0
+        6
       ],
       "device": 1,
-      "channel": 1
+      "channel": 0
     }
   ]
 }

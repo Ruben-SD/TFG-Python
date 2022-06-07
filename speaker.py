@@ -85,7 +85,7 @@ class SpeakerOrchestrator:
         
     def play_sound(self):        
         for speaker in self.speakers:
-            speaker.play_sound()
+            pass
 
     def get_speakers(self):
         return self.speakers

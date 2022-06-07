@@ -39,11 +39,38 @@ class Receiver:
 
 
     def read_phone_mic(self):
-        data = self.socket.recv(2048)
-        length = int.from_bytes(data[0:4], "big")
-        if length != 1796:
-            raise ValueError("Received malformed packet")
-        int_values = np.array([x for x in data[4:length]])
+        #length = int.from_bytes(data[0:4], "big")
+
+        import sounddevice as sd
+
+        fs = 44100
+        i = 0
+        while i < 50:
+            i = i + 1
+            self.socket.recv(2048)
+        
+        x = []
+        # if length != 1796:
+        #     raise ValueError("Received malformed packet")
+        last = None
+        while len(x) < 44100 * 5:
+            
+            data = self.socket.recv(2048)
+            length = int.from_bytes(data[0:4], "big")
+            if last is not None and length != last + 1:
+                raise Exception(last, length)
+            last = length
+            print("Reading", length)
+            int_values = [x for x in data[4:1796]]
+            x = x + int_values
+        x = np.array(x)
+        
+        x = 2 * (x - np.min(x)) / (np.max(x) - np.min(x)) - 1
+        print(x, len(x))
+        print("Playing")
+        sd.play(x, 44100)
+        sd.wait()
+        print("dONE")
         return int_values
 
     def read_pc_mic(self):

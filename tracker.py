@@ -93,8 +93,8 @@ class CameraTracker(Positioner):
     @staticmethod
     def get_smartphone_img_coords(frame):
         x, y, w, h = CameraTracker.extract_smartphone_bounding_rect(frame)
-        x = int(x + w/2)
-        y = int(y + h/2)
+        # x = int(x + w/2)
+        # y = int(y + h/2)
         return np.array([x, y])
 
     def stop(self):

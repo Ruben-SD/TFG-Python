@@ -2,13 +2,14 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import sys
 import json
 
 class Plotter:
     def __init__(self) -> None:
         self.start_timestamp = time.strftime("%d-%m-%Y_%H-%M-%S")
         self.data_dictionary = {}
-        self.SAVED_DATA_PATH = './saved_data/'
+        self.SAVED_DATA_PATH = sys.path[0] + '/saved_data/'
         self.data_dictionary['data_names_to_plot'] = []
         self.metrics = None
 
@@ -34,14 +35,14 @@ class Plotter:
             F = np.fft.rfft(data)
             F[cutoff_index + 1:] = 0
             return np.fft.irfft(F, n=data.size).real
-        plt.xlabel("Time (s)")
-        plt.ylabel("Speed (cm/s)")
-        plt.title("Speed over time")
+        plt.xlabel("Tiempo (s)")
+        plt.ylabel("Velocidad (cm/s)")
+        plt.title("Velocidad vs. tiempo")
         plt.grid()
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
-            if data_name.startswith('doppler_deviation_filtered'):
+            if data_name.startswith('Doppler_deviation_filtered'):
                 #plt.plot(time_data, low_pass_filter(data, 3, 24), label=data_name)
                 plt.plot(time_data, data, label=data_name)
         # left_speaker_crosses = np.array(self.data_dictionary['left_speaker_crosses']) + 1
@@ -81,8 +82,8 @@ class Plotter:
         # ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap='Greens')
 
         self.plot_position()
-        # plt.figure()
-        # self.plot_all_doppler()
+        plt.figure()
+        self.plot_all_doppler()
         #plt.figure()
         #self.plot_position_and_doppler_filtered()
         

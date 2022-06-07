@@ -21,7 +21,7 @@ class Positioner:
         self.update_distances()
 
     def get_position(self):
-        return list(self.position)#, list(self.distances)
+        return list(self.position), list(self.distances)
 
     def update_distances(self):
         self.distances = [np.linalg.norm(speaker_pos - self.position) for speaker_pos in self.speakers_pos]
@@ -33,6 +33,9 @@ class Positioner:
         coords_names = ['x', 'y', 'z']
         for i, coord in enumerate(self.position): 
             self.plotter.add_sample(self.name + f'_position_{coords_names[i]}', coord)
+
+    def print_position(self):
+        print(f"{self.name} position: {self.get_position()}")
 
     @staticmethod
     def multilaterate(distances_to_stations, stations_coordinates, last_position):
