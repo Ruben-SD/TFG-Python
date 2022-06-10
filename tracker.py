@@ -37,7 +37,7 @@ class CameraTracker(Positioner):
 
     def obtain_current_position(self):
         new_position = self.initial_position + \
-            self.look_smartphone_displacement_from_initial_pos()
+            self.look_smartphone_displacement_from_initial_pos()[:len(self.position)]
         return new_position
 
     def look_smartphone_displacement_from_initial_pos(self):

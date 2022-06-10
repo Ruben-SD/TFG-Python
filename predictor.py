@@ -173,8 +173,16 @@ class Predictor(Positioner):
     def update(self, dt):
         super().update(dt)
         self.my_filter.Q = Q_discrete_white_noise(2, dt, .1) # process uncertainty
-        sound_samples = [self.receiver.read_phone_mic(), self.receiver.read_pc_mic()]
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != (4) else 1], 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+
+        relative_pos_to_speakers = [self.position - speaker_pos for speaker_pos in self.speakers_pos]
+        
+        coss = [abs(relative_pos[1]/dist) for relative_pos, dist in zip(relative_pos_to_speakers, self.distances)]
+
+        print(f"L {coss[0]} {np.arccos(coss[0]) * 180/np.pi}, R {coss[1]} {np.arccos(coss[1]) * 180/np.pi}")
+
+
+        sound_samples = [self.receiver.read_phone_mic()]#, self.receiver.read_pc_mic()]
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != (4) else 1], coss[i]) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         #print(speeds[2])
         # self.my_filter.predict()
         # self.my_filter.update(speeds[0]*dt)
@@ -206,6 +214,14 @@ class OfflinePredictor(Positioner):
         super().update(dt)
         sound_samples = self.sound_samples[self.cur_sound_samples]
         self.cur_sound_samples += 1
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+        
+        relative_pos_to_speakers = [speaker_pos - self.position for speaker_pos in self.speakers_pos]
+        dists = [np.linalg.norm(speaker_pos - self.position) for speaker_pos in self.speakers_pos]
+        coss = [relative_pos[0]/dist for relative_pos, dist in zip(relative_pos_to_speakers, dists)]
+        sins = [relative_pos[1]/dist for relative_pos, dist in zip(relative_pos_to_speakers, dists)]
+        
+        cosines = (coss[0] * 0.70710678 + sins[0] * 0.70710678, coss[1] * 0.70710678 + sins[1] * 0.70710678)
+        print(f"L {coss[0]} {np.arccos(coss[0]) * 180/np.pi}, R {coss[1]} {np.arccos(coss[1]) * 180/np.pi}")
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 0.93969262) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.move_by(-speeds*dt)
         self.plotter.add_sample('audio_samples', sound_samples)

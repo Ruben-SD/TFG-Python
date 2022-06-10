@@ -1,10 +1,11 @@
 {
   "positioning": {
-    "type": "1D"
+    "type": "1D",
+    "tracker": true
   },
   "smartphone": {
     "position": [
-      0
+      82
     ],
     "dims": {
       "length": 17.3,
