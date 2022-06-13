@@ -16,7 +16,7 @@ def main_loop(plotter, config):
     frame_timer = FrameTimer(config, plotter)
     while not keyboard.is_pressed('esc') and not frame_timer.reached_end():
         delta_time = frame_timer.mark()
-        
+        #print(1/delta_time)
         for positioner in positioners:
             positioner.update(delta_time)
             positioner.print_position()
@@ -41,6 +41,7 @@ def offline_loop(config):
 
 
 if __name__=="__main__":
+    
     offline = False
     if offline:
         configs = Config.get_all_configs()        
@@ -102,6 +103,6 @@ if __name__=="__main__":
             plotter.load_from_file()
             plotter.plot()
         else:
-            config = Config.read_config(offline=False)
+            config = Config.read_config(offline=True)
             plotter.add_data('config', config)    
             main_loop(plotter, config)

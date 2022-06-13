@@ -1,5 +1,7 @@
 import numpy as np
 from scipy import signal
+from filterpy.kalman import KalmanFilter
+from filterpy.common import Q_discrete_white_noise
 
 class DopplerAnalyzer:
     ID = 0
@@ -12,39 +14,75 @@ class DopplerAnalyzer:
         self.all_frequency_displacements = [list(np.zeros(len(frequencies)))]
         self.frequencies = frequencies
 
+        self.my_filter = KalmanFilter(dim_x=2, dim_z=1)
+        self.my_filter.x = np.array([[0.],
+                [0.]])       # initial state (location and velocity)
+
+        self.my_filter.F = np.array([[1.,1.],
+                        [0.,1.]])    # state transition matrix
+
+        self.my_filter.H = np.array([[0.,1.]])    # Measurement function
+        self.my_filter.P *= 10                 # covariance matrix
+        self.my_filter.R = 0.001                      # state uncertainty
+        self.my_filter.Q = Q_discrete_white_noise(2, 1/24.0, .1) # process uncertainty
+
     def extract_speeds_from(self, audio_samples, cosine):
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=len(audio_samples), mode='magnitude')
         
         speed = self.extract_speed_from(Sxx, np.array(self.frequencies), cosine)
         
         self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}', speed)
+
+        self.my_filter.predict()
+        self.my_filter.update(speed)
+
+        self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}_K', self.my_filter.x[1][0])
+        return self.my_filter.x[1][0]
         
         return speed
 
     def extract_speed_from(self, Sxx, frequencies, cosine):
-        flw = 100 # Frequency lookup width
+        flw = 50 # Frequency lookup width
         
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
 #        np.sum(np.square(frequency_displacements - mean_freqs_displacements))
+        frequency_displacements[abs(frequency_displacements) <= 1.5] = 0
 
+        last_displacements = self.all_frequency_displacements[-1]
+        print(last_displacements, frequency_displacements)
+        print(np.linalg.norm(last_displacements - frequency_displacements))
+        if np.linalg.norm(last_displacements - frequency_displacements) > 10:
+            self.all_frequency_displacements.append(frequency_displacements)
+            return np.mean(self.all_frequency_displacements[-1])
+        
         self.all_frequency_displacements.append(frequency_displacements)
-  
 
-        # Plot
-        ###
+        # if self.options and 'noise_variance_weighted_mean' in self.options:
+        #     variances = np.var(self.all_frequency_displacements, axis=0, ddof=1)
+        #     variances[variances == 0] = 0.00001
+        # else:
+        #     variances = None
+
+        # if self.options and 'ignore_spikes' in self.options:
+        #     difference = np.abs(self.all_frequency_displacements[-1] - frequency_displacements)
+        #     greater_than_ten = difference > 10
+        #     if np.all(greater_than_ten):
+        #         frequency_displacements.fill(self.all_frequency_displacements[np.argmin(difference)])
+        #     else: 
+        #         frequency_displacements[greater_than_ten] = np.mean(frequency_displacements)
+
 
         #frequency_displacements, frequencies, variances = self.filter_frequencies(frequency_displacements, frequencies, variances=variances, remove_outliers=not self.options or 'outlier_removal' in self.options)
         
         # Apply Doppler effect formula to compute speed in cm/s
-        cosine = max(cosine, 0.2)
-        speeds = np.array([(frequency_displacements[i]/(frequency*cosine)) * 343.73 * 100 for i, frequency in enumerate(frequencies)])
-        print(cosine, speeds)
+        speeds = np.array([(frequency_displacements[i]/(frequency)) * 343.73 * 100 for i, frequency in enumerate(frequencies)])
 
         #variances = 1/variances
-        mean = np.mean(speeds)
-        # weights = [np.argmax(Sxx[f-flw:f+flw]) for f in frequencies]
-        # mean = np.average(frequency_displacements, weights=weights)
+        if self.options and 'noise_variance_weighted_mean' in self.options:
+            mean = np.sum(speeds * (variances/np.sum(variances)))
+        else: 
+            mean = np.mean(speeds)
         #TODO take into account that higher frequencies mean more speed
         
         

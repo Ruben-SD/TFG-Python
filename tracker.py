@@ -15,6 +15,8 @@ class CameraTracker(Positioner):
     def init_camera(self):
         self.cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         self.cam.set(cv2.CAP_PROP_AUTOFOCUS, 0)
+        # self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+        # self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
     def init_smartphone_data(self, config, frame):
         self.smartphone_dims = config['smartphone']['dims']

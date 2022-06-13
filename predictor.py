@@ -155,34 +155,22 @@ class Predictor(Positioner):
         self.speaker_orchestrator.play_sound()
         self.receiver = Receiver()
         self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speaker_orchestrator.get_speakers()]
-        self.speaker_distance_finder = SpeakerDistanceFinder(plotter)
-        
-        self.my_filter = KalmanFilter(dim_x=2, dim_z=1)
-        self.my_filter.x = np.array([[0.],
-                [0.]])       # initial state (location and velocity)
-
-        self.my_filter.F = np.array([[1.,1.],
-                        [0.,1.]])    # state transition matrix
-
-        self.my_filter.H = np.array([[1.,0.]])    # Measurement function
-        self.my_filter.P *= 1000                 # covariance matrix
-        self.my_filter.R = 0.00001                      # state uncertainty
-        
+        self.speaker_distance_finder = SpeakerDistanceFinder(plotter)        
 
     #TODO abstract to update_measurement
     def update(self, dt):
         super().update(dt)
-        self.my_filter.Q = Q_discrete_white_noise(2, dt, .1) # process uncertainty
+        # self.my_filter.Q = Q_discrete_white_noise(2, dt, .1) # process uncertainty
 
         relative_pos_to_speakers = [self.position - speaker_pos for speaker_pos in self.speakers_pos]
         
         coss = [abs(relative_pos[1]/dist) for relative_pos, dist in zip(relative_pos_to_speakers, self.distances)]
 
-        print(f"L {coss[0]} {np.arccos(coss[0]) * 180/np.pi}, R {coss[1]} {np.arccos(coss[1]) * 180/np.pi}")
+        #print(f"L {coss[0]} {np.arccos(coss[0]) * 180/np.pi}, R {coss[1]} {np.arccos(coss[1]) * 180/np.pi}")
 
 
         sound_samples = [self.receiver.read_phone_mic()]#, self.receiver.read_pc_mic()]
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != (4) else 1], coss[i]) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples[0 if i != (4) else 1], 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         #print(speeds[2])
         # self.my_filter.predict()
         # self.my_filter.update(speeds[0]*dt)
@@ -221,7 +209,7 @@ class OfflinePredictor(Positioner):
         sins = [relative_pos[1]/dist for relative_pos, dist in zip(relative_pos_to_speakers, dists)]
         
         cosines = (coss[0] * 0.70710678 + sins[0] * 0.70710678, coss[1] * 0.70710678 + sins[1] * 0.70710678)
-        print(f"L {coss[0]} {np.arccos(coss[0]) * 180/np.pi}, R {coss[1]} {np.arccos(coss[1]) * 180/np.pi}")
-        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 0.93969262) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
+        #print(f"L {coss[0]} {np.arccos(coss[0]) * 180/np.pi}, R {coss[1]} {np.arccos(coss[1]) * 180/np.pi}")
+        speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.move_by(-speeds*dt)
         self.plotter.add_sample('audio_samples', sound_samples)

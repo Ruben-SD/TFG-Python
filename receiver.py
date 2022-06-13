@@ -10,7 +10,7 @@ class Receiver:
     def __init__(self, port=5555):
         self.socket = socket.socket(socket.AF_INET,  # Internet
                                     socket.SOCK_DGRAM)  # UDP
-        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 1)
+        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 3588*24)
         ip_address = Receiver.get_pc_ip()
         self.socket.bind((ip_address, port))
         print("Listening on: ", ip_address, ":", port)
@@ -31,7 +31,7 @@ class Receiver:
         print("Discarding initial noisy audio samples...")
         end_time = time.time() + 3
         while time.time() < end_time:
-            self.socket.recv(2048)
+            self.socket.recv(3588)
         end_time = time.time() + 3
         # while time.time() < end_time:
         #     self.stream.read(1792)
@@ -39,12 +39,15 @@ class Receiver:
 
 
     def read_phone_mic(self):
-        data = self.socket.recv(2048)
+        data = self.socket.recv(3588)
         length = int.from_bytes(data[0:4], "big")
         
-        if len(data) != 1796:
+        if len(data) != 1792 * 2 + 4:
             raise ValueError("Received malformed packet")
-        int_values = np.array([x for x in data[4:len(data)]])
+        
+        int_values = np.frombuffer(data[4:], dtype=np.int16)#np.array([x for x in data[4:len(data)]])
+        # print(len(int_values))
+        # print(int_values)
         return int_values
 
     def read_pc_mic(self):

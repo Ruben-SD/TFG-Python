@@ -15,6 +15,7 @@ class Positioner:
         self.distances += displacements
         self.position = self.multilaterate(
             self.distances, self.speakers_pos, self.position)
+        #self.update_distances()
 
     def set_position(self, position):
         self.position = position
