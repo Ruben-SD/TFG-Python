@@ -41,14 +41,8 @@ class Positioner:
     @staticmethod
     def multilaterate(distances_to_stations, stations_coordinates, last_position):
         def error(guess, coords, distances):
-            return sum([(np.linalg.norm(guess - coords[i]) - distances[i]) ** 2 for i in range(len(coords))] + [np.linalg.norm((guess - last_position))])
-
-        l = len(stations_coordinates)
-        S = sum(distances_to_stations)
-        # compute weight vector for initial guess
-        W = [((l - 1) * S) / (S - w) for w in distances_to_stations]
-        # get initial guess of point location
-        x0 = sum([W[i] * stations_coordinates[i] for i in range(l)])
+            return sum([(np.linalg.norm(guess - coords[i]) - distances[i]) ** 2 for i in range(len(coords))])# + [np.linalg.norm((guess - last_position))])
+                    
         # optimize distance from signal origin to border of spheres
         return minimize(error, last_position, args=(stations_coordinates, distances_to_stations), method='Nelder-Mead').x
 

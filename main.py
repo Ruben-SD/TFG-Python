@@ -42,7 +42,7 @@ def offline_loop(config):
 
 if __name__=="__main__":
     
-    offline = False
+    offline = True
     if offline:
         configs = Config.get_all_configs()        
         options = {'kalman_filter': None, 'doppler_threshold': { "values": [1.35, 1.5] }, 'noise_variance_weighted_mean': None, 'outlier_removal': { "values": [1.25, 1.5, 1.75, 2, 2.35]}, 'ignore_spikes': None}
@@ -97,12 +97,14 @@ if __name__=="__main__":
         print("\nEnd")
 
     else:
-        plot = False
+        plot = True
         plotter = Plotter()
+        configs = Config.get_all_configs()
+        print(len(configs))
         if plot:
             plotter.load_from_file()
             plotter.plot()
         else:
-            config = Config.read_config(offline=True)
-            plotter.add_data('config', config)    
+            config = Config.read_config(offline=False)
+            #plotter.add_data('config', config)    
             main_loop(plotter, config)

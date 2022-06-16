@@ -42,10 +42,10 @@ class Receiver:
         data = self.socket.recv(3588)
         length = int.from_bytes(data[0:4], "big")
         
-        if len(data) != 1792 * 2 + 4:
+        if len(data) != 1792  + 4: # * 2 + 4
             raise ValueError("Received malformed packet")
         
-        int_values = np.frombuffer(data[4:], dtype=np.int16)#np.array([x for x in data[4:len(data)]])
+        int_values = np.frombuffer(data[4:], dtype=np.int8)#np.array([x for x in data[4:len(data)]])
         # print(len(int_values))
         # print(int_values)
         return int_values

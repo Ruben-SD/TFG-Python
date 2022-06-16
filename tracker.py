@@ -44,7 +44,7 @@ class CameraTracker(Positioner):
 
     def look_smartphone_displacement_from_initial_pos(self):
         _, frame = self.cam.read()
-        cv2.imshow("Smartphone", frame)
+        
         cv2.waitKey(1)
         img_coords = self.get_smartphone_img_coords(frame)
         current_displacement = (img_coords - self.initial_smartphone_cam_pos) * self.cm_per_dim_pixel
@@ -53,12 +53,14 @@ class CameraTracker(Positioner):
         
         # Go from img to real space coords
         current_displacement[0] *= -1
-        current_displacement = np.flip(current_displacement)
+        if len(self.position) != 1:
+            current_displacement = np.flip(current_displacement)
         return current_displacement
 
     @staticmethod
     def extract_smartphone_bounding_rect(frame):
         binary_img = CameraTracker.binarize_image(frame)
+        
         improved_img = cv2.erode(binary_img, np.ones(12, dtype=int))
         contours, _ = cv2.findContours(
             improved_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -66,7 +68,7 @@ class CameraTracker(Positioner):
 
         x, y, w, h = cv2.boundingRect(smartphone_contour)
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0))
-        cv2.imshow("Smartphone", frame)
+        #cv2.imshow("Smartphone", frame)
         cv2.waitKey(1)
         return (x, y, w, h)
 
@@ -78,23 +80,33 @@ class CameraTracker(Positioner):
 
     @staticmethod  # TODO Could take into consideration smartphone dimensions to improve detection
     def find_smartphone_contour(contours):
-        index = -1
-        for i, contour in enumerate(contours):
-            area = cv2.contourArea(contour)
+        # index = -1
+        # max_area = -1
+        # max_area_index = -1
+        # for i, contour in enumerate(contours):
+        #     area = cv2.contourArea(contour)
+        #     if area > max_area:
+        #         max_area = area
+        #         max_area_index = i
+        #     x, y, w, h = cv2.boundingRect(contour)
 
-            if 6000 <= area <= 14000:
-                index = i
+        #     if 6000 <= area <= 14000 and 1.5 <= w/h <= 4:
+        #         index = i
+        def disimilarity(contour):
+            avg_phone_contour_area = 12000
+            #normal_w_h_ratio = 
+            contour_area = cv2.contourArea(contour)
 
-        # if index == -1:
-        #     import winsound, time
-        #     winsound.Beep(5000, 2)
-        #     time.sleep(2)
-        #     raise ValueError("Cannot find smartphone shaped black contour in image")
-        return contours[index]
+            return abs(contour_area - avg_phone_contour_area)
+        
+        best_contour = sorted(contours, key = disimilarity)[0]
+        
+        return best_contour
 
     @staticmethod
     def get_smartphone_img_coords(frame):
         x, y, w, h = CameraTracker.extract_smartphone_bounding_rect(frame)
+        
         return np.array([x, y])
 
     def stop(self):

@@ -162,9 +162,9 @@ class Predictor(Positioner):
         super().update(dt)
         # self.my_filter.Q = Q_discrete_white_noise(2, dt, .1) # process uncertainty
 
-        relative_pos_to_speakers = [self.position - speaker_pos for speaker_pos in self.speakers_pos]
+        # relative_pos_to_speakers = [self.position - speaker_pos for speaker_pos in self.speakers_pos]
         
-        coss = [abs(relative_pos[1]/dist) for relative_pos, dist in zip(relative_pos_to_speakers, self.distances)]
+        # coss = [abs(relative_pos[1]/dist) for relative_pos, dist in zip(relative_pos_to_speakers, self.distances)]
 
         #print(f"L {coss[0]} {np.arccos(coss[0]) * 180/np.pi}, R {coss[1]} {np.arccos(coss[1]) * 180/np.pi}")
 

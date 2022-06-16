@@ -5,7 +5,7 @@ import sys
 class Config:
     CONFIGS_PATH = sys.path[0] + '/configs/'
     SAVED_DATA_PATH = sys.path[0] + '/saved_data/data/'
-    OFFLINE_DATA_PATH = sys.path[0] + '/offline_data/'
+    OFFLINE_DATA_PATH = sys.path[0] + '/Memoria/1D/'
 
     @staticmethod
     def read_config(index=None, filename=None, offline=False):

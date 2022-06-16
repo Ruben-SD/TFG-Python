@@ -139,8 +139,9 @@ class Plotter:
 
     def compute_metrics(self):
         metrics = {}
+        pos = []
         tracker_position_x = np.array(self.data_dictionary['tracker_position_x'])
-        predictor_position_x = np.array(self.data_dictionary['predictor_position_x'])
+        predictor_position_x = np.array(self.data_dictionary['Predictor_position_x'])
     
         if 'doppler_deviation_filtered_0' in self.data_dictionary:
             doppler_deviation_filtered = np.array(self.data_dictionary['doppler_deviation_filtered_0'])
