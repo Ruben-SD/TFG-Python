@@ -4,6 +4,11 @@ import numpy as np
 import os
 import sys
 import json
+from config import Config
+import multiprocessing
+import itertools
+import ujson
+from main import main_loop
 
 class Plotter:
     def __init__(self) -> None:
@@ -139,43 +144,43 @@ class Plotter:
 
     def compute_metrics(self):
         metrics = {}
-        pos = []
-        tracker_position_x = np.array(self.data_dictionary['tracker_position_x'])
-        predictor_position_x = np.array(self.data_dictionary['Predictor_position_x'])
+        predicted_pos = []
+        tracked_pos = []
+        for data_name in self.data_dictionary:
+            data = self.data_dictionary[data_name]
+            if 'Predictor_position' in data_name:
+                predicted_pos.append(data)
+            elif 'Tracker_position' in data_name:
+                tracked_pos.append(data)
+        
+        error = abs(np.array(tracked_pos) - np.array(predicted_pos))
+        avg_error = np.mean(error)
     
-        if 'doppler_deviation_filtered_0' in self.data_dictionary:
-            doppler_deviation_filtered = np.array(self.data_dictionary['doppler_deviation_filtered_0'])
-        else:
-            doppler_deviation_filtered = np.array(self.data_dictionary['doppler_deviation_filtered_1'])
         time = self.data_dictionary['time']
 
-        movement_start_time = next(i for i, d in enumerate(doppler_deviation_filtered) if d > 4)
-        metrics['Movement start time: '] = time[movement_start_time]
 
-        error = np.abs(tracker_position_x[movement_start_time:] - predictor_position_x[movement_start_time:])
-        avg_error = np.sum(error)/(len(time)-movement_start_time)
-        metrics['Mean error X: '] = avg_error
+        metrics['Avg error'] = avg_error
 
-        if 'predictor_position_y' in self.data_dictionary:
-            tracker_position_y = np.array(self.data_dictionary['tracker_position_y'])
-            predictor_position_y = np.array(self.data_dictionary['predictor_position_y'])
-            error = np.abs(tracker_position_y[movement_start_time:] - predictor_position_y[movement_start_time:])
-            avg_error = np.sum(error)/(len(time)-movement_start_time)
-            metrics['Mean error Y: '] = avg_error
+        # if 'predictor_position_y' in self.data_dictionary:
+        #     tracker_position_y = np.array(self.data_dictionary['tracker_position_y'])
+        #     predictor_position_y = np.array(self.data_dictionary['predictor_position_y'])
+        #     error = np.abs(tracker_position_y[movement_start_time:] - predictor_position_y[movement_start_time:])
+        #     avg_error = np.sum(error)/(len(time)-movement_start_time)
+        #     metrics['Mean error Y: '] = avg_error
 
-            if 'kalman_filter_y' in self.data_dictionary:
-                kalman_y = self.data_dictionary['kalman_filter_y']
-                error = np.abs(tracker_position_y[movement_start_time:] - kalman_y[movement_start_time:])
-                avg_error = np.sum(error)/(len(time)-movement_start_time)
-                metrics['Kalman error Y: '] = avg_error
+        #     if 'kalman_filter_y' in self.data_dictionary:
+        #         kalman_y = self.data_dictionary['kalman_filter_y']
+        #         error = np.abs(tracker_position_y[movement_start_time:] - kalman_y[movement_start_time:])
+        #         avg_error = np.sum(error)/(len(time)-movement_start_time)
+        #         metrics['Kalman error Y: '] = avg_error
 
-        metrics['Highest error: '] = max(error)
+        # metrics['Highest error: '] = max(error)
 
-        if 'kalman_filter_x' in self.data_dictionary:
-            kalman_x = self.data_dictionary['kalman_filter_x']
-            error = np.abs(tracker_position_x[movement_start_time:] - kalman_x[movement_start_time:])
-            avg_error = np.sum(error)/(len(time)-movement_start_time)
-            metrics['Kalman error X: '] = avg_error
+        # if 'kalman_filter_x' in self.data_dictionary:
+        #     kalman_x = self.data_dictionary['kalman_filter_x']
+        #     error = np.abs(tracker_position_x[movement_start_time:] - kalman_x[movement_start_time:])
+        #     avg_error = np.sum(error)/(len(time)-movement_start_time)
+        #     metrics['Kalman error X: '] = avg_error
         
         self.metrics = metrics
         return metrics
@@ -185,6 +190,72 @@ class Plotter:
             self.metrics = self.compute_metrics()
         print(self.metrics) 
 
+    def offline_loop(config):
+        print("Running", config['description'] + "...")
+        sys.stdout = open(os.devnull, 'w')
+        plotter = Plotter()
+        main_loop(plotter, config)
+        sys.stdout = sys.__stdout__
+        #plotter.print_metrics()
+        #todo save graph
+        #plotter.save_to_file('offlinefolder)
+        return plotter.compute_metrics(), config['description'], config['options']
+
+    def run_all():
+        configs = Config.get_all_configs()        
+        options = {'kalman_filter': None, 'doppler_threshold': { "values": [1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]} }#, 'noise_variance_weighted_mean': None, 'outlier_removal': { "values": [1.25, 1.5, 1.75, 2, 2.35]}, 'ignore_spikes': None}
+        all_configs = []
+        print("Generating all configurations and options combinations...")
+        for i in range(len(options) + 1):
+            all_i_options_combinations = list(map(dict, itertools.combinations(options.items(), i))) # All options combinations of i elements
+            for current_conf, current_opts in list(itertools.product(configs, all_i_options_combinations)): # For each config and options combination
+                expanded_values = True
+                saved_opts = ujson.loads(ujson.dumps(current_opts))
+                while expanded_values: # Ends when no values remain in no node
+                    expanded_values = False
+                    current_opts_copy = ujson.loads(ujson.dumps(current_opts))
+                    current_conf_copy = ujson.loads(ujson.dumps(current_conf))
+                    skip = False
+                    for key, val in saved_opts.items():  # For each option
+                        if val is not None and 'values' in val: # Expand all first nodes with values and delete value, then repeat until none is expanded
+                            j = -1
+                            for index, val in enumerate(val['values']):
+                                if val is not None:
+                                    j = index
+                                    break
+                            if j == -1:
+                                skip = True
+                            else:
+                                current_opts_copy[key]["index"] = j
+                                saved_opts[key]['values'][j] = None
+                                expanded_values = True
+                    #cuando todos son menos -1 se va a insertar el original, ignorarlo
+                    if not skip:    
+                        current_conf_copy['options'] = current_opts_copy # When finished this iteration, insert config
+                        all_configs.append(current_conf_copy)
+                        
+            
+        print("Total combinations:", len(all_configs), "\n")
+        print("Starting threads...")
+        pool = multiprocessing.Pool(processes=os.cpu_count())
+        all_results = pool.map(Plotter.offline_loop, all_configs)    
+
+        grouped_results = itertools.groupby(sorted(all_results, key = lambda r: json.dumps(r[2], sort_keys=True)), key = lambda r: r[2])
+        result_string = ''
+        for key, results_group in grouped_results:
+            avg_errors = []
+            for i, result in enumerate(results_group):
+                metrics, description, options = result
+                result_string += "Results for " + description + ' ' + str(options) + " = " + str(metrics) + "\n"
+                avg_error = metrics['Avg error']
+                avg_errors.append(avg_error)
+            result_string += 'Total avg error: ' + str(np.mean(avg_errors)) + '\n'
+        
+        results_filename = 'offline_results/result_' + time.strftime("%d-%m-%Y_%H-%M-%S") + '.txt'
+        with open(results_filename, 'w') as f:
+            f.write(result_string)
+        
+        print(f"\nFinished, results written to file {results_filename}")
 
 if __name__ == '__main__':
     plotter = Plotter()

@@ -1,0 +1,56 @@
+Results for TFG_1D_0 {} = {'Avg error': 3.2287425246413672}
+Results for TFG_1D_1 {} = {'Avg error': 4.505837520792895}
+Results for TFG_1D_2 {} = {'Avg error': 6.157440254777717}
+Results for TFG_1D_3 {} = {'Avg error': 4.422138005461755}
+Results for TFG_1D_4 {} = {'Avg error': 6.811628038164379}
+Total avg error: 5.0251572687676225
+Results for TFG_1D_0 {'kalman_filter': None} = {'Avg error': 2.1016958131767174}
+Total avg error: 2.1016958131767174
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 3.2287425246413672}
+Total avg error: 3.2287425246413672
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 3.2287425246413672}
+Total avg error: 3.2287425246413672
+Results for TFG_1D_1 {'kalman_filter': None} = {'Avg error': 3.486178164608487}
+Total avg error: 3.486178164608487
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 4.505837520792895}
+Total avg error: 4.505837520792895
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 4.505837520792895}
+Total avg error: 4.505837520792895
+Results for TFG_1D_2 {'kalman_filter': None} = {'Avg error': 5.873259024624443}
+Total avg error: 5.873259024624443
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 6.157440254777717}
+Total avg error: 6.157440254777717
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 6.157440254777717}
+Total avg error: 6.157440254777717
+Results for TFG_1D_3 {'kalman_filter': None} = {'Avg error': 4.286154248598536}
+Total avg error: 4.286154248598536
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 4.422138005461755}
+Total avg error: 4.422138005461755
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 4.422138005461755}
+Total avg error: 4.422138005461755
+Results for TFG_1D_4 {'kalman_filter': None} = {'Avg error': 7.5990392567544705}
+Total avg error: 7.5990392567544705
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 6.811628038164379}
+Total avg error: 6.811628038164379
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 6.811628038164379}
+Total avg error: 6.811628038164379
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 2.1016958131767174}
+Total avg error: 2.1016958131767174
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 2.1016958131767174}
+Total avg error: 2.1016958131767174
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 3.486178164608487}
+Total avg error: 3.486178164608487
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 3.486178164608487}
+Total avg error: 3.486178164608487
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 5.873259024624443}
+Total avg error: 5.873259024624443
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 5.873259024624443}
+Total avg error: 5.873259024624443
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 4.286154248598536}
+Total avg error: 4.286154248598536
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 4.286154248598536}
+Total avg error: 4.286154248598536
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 0}} = {'Avg error': 7.5990392567544705}
+Total avg error: 7.5990392567544705
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5], 'index': 1}} = {'Avg error': 7.5990392567544705}
+Total avg error: 7.5990392567544705

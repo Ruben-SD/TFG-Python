@@ -1,0 +1,6 @@
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5]}} = {'Avg error': 2.1016958131767174}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5]}} = {'Avg error': 3.486178164608487}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5]}} = {'Avg error': 5.873259024624443}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5]}} = {'Avg error': 4.286154248598536}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1.35, 1.5]}} = {'Avg error': 7.5990392567544705}
+4.66926530155253

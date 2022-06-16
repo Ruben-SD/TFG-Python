@@ -203,12 +203,12 @@ class OfflinePredictor(Positioner):
         sound_samples = self.sound_samples[self.cur_sound_samples]
         self.cur_sound_samples += 1
         
-        relative_pos_to_speakers = [speaker_pos - self.position for speaker_pos in self.speakers_pos]
-        dists = [np.linalg.norm(speaker_pos - self.position) for speaker_pos in self.speakers_pos]
-        coss = [relative_pos[0]/dist for relative_pos, dist in zip(relative_pos_to_speakers, dists)]
-        sins = [relative_pos[1]/dist for relative_pos, dist in zip(relative_pos_to_speakers, dists)]
+        # relative_pos_to_speakers = [speaker_pos - self.position for speaker_pos in self.speakers_pos]
+        # dists = [np.linalg.norm(speaker_pos - self.position) for speaker_pos in self.speakers_pos]
+        # coss = [relative_pos[0]/dist for relative_pos, dist in zip(relative_pos_to_speakers, dists)]
+        # sins = [relative_pos[1]/dist for relative_pos, dist in zip(relative_pos_to_speakers, dists)]
         
-        cosines = (coss[0] * 0.70710678 + sins[0] * 0.70710678, coss[1] * 0.70710678 + sins[1] * 0.70710678)
+        # cosines = (coss[0] * 0.70710678 + sins[0] * 0.70710678, coss[1] * 0.70710678 + sins[1] * 0.70710678)
         #print(f"L {coss[0]} {np.arccos(coss[0]) * 180/np.pi}, R {coss[1]} {np.arccos(coss[1]) * 180/np.pi}")
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples, 1) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.move_by(-speeds*dt)
