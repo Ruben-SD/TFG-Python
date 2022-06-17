@@ -1,0 +1,88 @@
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 13.522014403292278}
+Total avg error: 13.522014403292278
+Results for TFG_1D_L15_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 13.522014403292278}
+Total avg error: 13.522014403292278
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 14.095355144258594}
+Total avg error: 14.095355144258594
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 14.095355144258594}
+Total avg error: 14.095355144258594
+Results for TFG_1D_L15_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 14.095355144258594}
+Total avg error: 14.095355144258594
+Results for TFG_1D_L15_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 14.095355144258594}
+Total avg error: 14.095355144258594
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 14.114856570367248}
+Total avg error: 14.114856570367248
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 14.114856570367248}
+Total avg error: 14.114856570367248
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 14.114856570367248}
+Total avg error: 14.114856570367248
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 14.114856570367248}
+Total avg error: 14.114856570367248
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 14.114856570367248}
+Total avg error: 14.114856570367248
+Results for TFG_1D_L15_0 {'kalman_filter': None} = {'Avg error': 14.114856570367248}
+Total avg error: 14.114856570367248
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 14.1179603748756}
+Total avg error: 14.1179603748756
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 14.1179603748756}
+Total avg error: 14.1179603748756
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 14.1179603748756}
+Total avg error: 14.1179603748756
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 14.1179603748756}
+Total avg error: 14.1179603748756
+Results for TFG_1D_L15_0 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 14.1179603748756}
+Total avg error: 14.1179603748756
+Results for TFG_1D_L15_0 {} = {'Avg error': 14.1179603748756}
+Total avg error: 14.1179603748756
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 14.320267897542866}
+Total avg error: 14.320267897542866
+Results for TFG_1D_L15_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 14.320267897542866}
+Total avg error: 14.320267897542866
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 14.353439506917823}
+Total avg error: 14.353439506917823
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 14.353439506917823}
+Total avg error: 14.353439506917823
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 14.484312866665974}
+Total avg error: 14.484312866665974
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 14.484312866665974}
+Total avg error: 14.484312866665974
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 14.702601598325607}
+Total avg error: 14.702601598325607
+Results for TFG_1D_L15_0 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 14.702601598325607}
+Total avg error: 14.702601598325607
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 14.728405424323242}
+Total avg error: 14.728405424323242
+Results for TFG_1D_L15_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 14.728405424323242}
+Total avg error: 14.728405424323242
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 14.893690323966391}
+Total avg error: 14.893690323966391
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 14.893690323966391}
+Total avg error: 14.893690323966391
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 14.94687937476048}
+Total avg error: 14.94687937476048
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 14.94687937476048}
+Total avg error: 14.94687937476048
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 14.94687937476048}
+Total avg error: 14.94687937476048
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 14.94687937476048}
+Total avg error: 14.94687937476048
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 15.24999876176735}
+Total avg error: 15.24999876176735
+Results for TFG_1D_L15_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 15.24999876176735}
+Total avg error: 15.24999876176735
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 15.466366956446164}
+Total avg error: 15.466366956446164
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 15.466366956446164}
+Total avg error: 15.466366956446164
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 15.506467490601846}
+Total avg error: 15.506467490601846
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 15.506467490601846}
+Total avg error: 15.506467490601846
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 15.562058969244235}
+Total avg error: 15.562058969244235
+Results for TFG_1D_L15_0 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 15.562058969244235}
+Total avg error: 15.562058969244235
+Results for TFG_1D_L15_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 16.089567861465977}
+Total avg error: 16.089567861465977
+Results for TFG_1D_L15_0 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 16.089567861465977}
+Total avg error: 16.089567861465977

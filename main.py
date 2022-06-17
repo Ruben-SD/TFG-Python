@@ -23,7 +23,7 @@ def main_loop(plotter, config):
         positioner.stop()
 
 if __name__=="__main__":
-    offline = True
+    offline = False
     if offline: # Run all files on folder in offline mode
         plotting.Plotter.run_saved(folder='Memoria/1D/L15/')
     else:
@@ -34,7 +34,7 @@ if __name__=="__main__":
             plotter.print_metrics()
             plotter.plot()
         else:
-            config = Config.read_config(offline=True) # Run positioning in real time (online) mode
+            config = Config.read_config(offline=False) # Run positioning in real time (online) mode
             plotter.add_data('config', config)    
             main_loop(plotter, config)
             plotter.print_metrics()
