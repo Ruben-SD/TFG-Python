@@ -15,10 +15,11 @@ def main_loop(plotter, config):
         delta_time = frame_timer.mark()
         #print(1/delta_time)
         for positioner in positioners:
-            positioner.update(delta_time)
             positioner.print_position()
+            positioner.update(delta_time)
 
     for positioner in positioners:
+        positioner.print_position()
         positioner.stop()
 
     #plotter.print_metrics()
@@ -29,16 +30,19 @@ def main_loop(plotter, config):
 
 
 if __name__=="__main__":
-    offline = True
-    if offline:
-        plotting.Plotter.run_all()
+    offline = False
+    if offline: # Run all files on folder in offline mode
+        plotting.Plotter.run_saved('16-06-2022_15-10-03.json')
     else:
-        plot = True
+        plot = False
         plotter = plotting.Plotter()
-        if plot:
+        if plot: # Simply plot one file
             plotter.load_from_file()
+            plotter.print_metrics()
             plotter.plot()
         else:
-            config = Config.read_config(offline=False)
-            #plotter.add_data('config', config)    
+            config = Config.read_config(offline=True) # Run positioning in real time (online) mode
+            plotter.add_data('config', config)    
             main_loop(plotter, config)
+            plotter.print_metrics()
+            plotter.plot()

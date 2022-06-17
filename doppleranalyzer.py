@@ -14,37 +14,37 @@ class DopplerAnalyzer:
         self.all_frequency_displacements = [list(np.zeros(len(frequencies)))]
         self.frequencies = frequencies
 
-        self.my_filter = KalmanFilter(dim_x=2, dim_z=1)
-        self.my_filter.x = np.array([[0.],
+        self.kalman_filter = KalmanFilter(dim_x=2, dim_z=1)
+        self.kalman_filter.x = np.array([[0.],
                 [0.]])       # initial state (location and velocity)
 
-        self.my_filter.F = np.array([[1.,1.],
+        self.kalman_filter.F = np.array([[1.,1.],
                         [0.,1.]])    # state transition matrix
 
-        self.my_filter.H = np.array([[0.,1.]])    # Measurement function
-        self.my_filter.P *= 10                 # covariance matrix
-        self.my_filter.R = 0.001                      # state uncertainty
-        self.my_filter.Q = Q_discrete_white_noise(2, 1/24.0, .1) # process uncertainty
+        self.kalman_filter.H = np.array([[0.,1.]])    # Measurement function
+        self.kalman_filter.P *= 10                 # covariance matrix
+        self.kalman_filter.R = 0.001                      # state uncertainty
+        self.kalman_filter.Q = Q_discrete_white_noise(2, 1/24.0, .1) # process uncertainty
 
-    def extract_speeds_from(self, audio_samples, cosine):
+    def extract_speeds_from(self, audio_samples):
         _, _, Sxx = signal.spectrogram(audio_samples, fs=44100, nfft=44100, nperseg=len(audio_samples), mode='magnitude')
         
-        speed = self.extract_speed_from(Sxx, np.array(self.frequencies), cosine)
+        speed = self.extract_speed_from(Sxx, np.array(self.frequencies))
         
         self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}', speed)
 
-        self.my_filter.predict()
-        self.my_filter.update(speed)
+        self.kalman_filter.predict()
+        self.kalman_filter.update(speed)
 
         # self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}_K', self.my_filter.x[1][0])
-        if 'kalman_filter' in self.options:
-            return self.my_filter.x[1][0]
+        if self.options is not None and 'kalman_filter' in self.options:
+            return self.kalman_filter.x[1][0]
         
         return speed
 
-    def extract_speed_from(self, Sxx, frequencies, cosine):
+    def extract_speed_from(self, Sxx, frequencies):
         # Frequency lookup width
-        flw = self.options['frequency_lookup_width'] if self.options is not None and 'frequency_lookup_width' in self.options else 100
+        flw = self.options['frequency_lookup_width']["values"][self.options['frequency_lookup_width']["index"]] if self.options is not None and 'frequency_lookup_width' in self.options else 100
         
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
@@ -90,24 +90,20 @@ class DopplerAnalyzer:
         return mean
 
     def filter_frequencies(self, frequency_displacements, frequencies):
-        if not self.options:
-            return frequency_displacements, frequencies
+        # if not self.options:
+        #     return frequency_displacements, frequencies
 
-        if 'doppler_threshold' in self.options:
-            try:
-                threshold = self.options['doppler_threshold']['values'][self.options['doppler_threshold']['index']]
-            except IndexError:
-                print("error")
-            threshold = self.options['doppler_threshold']['values'][self.options['doppler_threshold']['index']]
-            thresholded_freqs = np.array(abs(frequency_displacements) <= threshold, dtype=bool)
-            frequency_displacements = frequency_displacements[~thresholded_freqs]
-            frequencies = frequencies[~thresholded_freqs]
-        
-        if len(frequencies) > 0 and 'outlier_removal' in self.options:
+        if 'outlier_removal' in self.options:
             max_deviation = self.options['outlier_removal']['values'][self.options['outlier_removal']['index']]
             not_outliers = ~DopplerAnalyzer.find_outliers(frequency_displacements, max_deviation=max_deviation)
             frequency_displacements = frequency_displacements[not_outliers]
             frequencies = frequencies[not_outliers]
+
+        if True:
+            threshold = 1
+            thresholded_freqs = np.array(np.abs(frequency_displacements) <= threshold, dtype=bool)
+            frequency_displacements = frequency_displacements[~thresholded_freqs]
+            frequencies = frequencies[~thresholded_freqs]
         
         return frequency_displacements, frequencies
     

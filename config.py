@@ -9,7 +9,7 @@ class Config:
 
     @staticmethod
     def read_config(index=None, filename=None, offline=False):
-        folder = Config.CONFIGS_PATH if not offline else Config.SAVED_DATA_PATH
+        folder = Config.CONFIGS_PATH if not offline else Config.OFFLINE_DATA_PATH
 
         if filename is None:
             filename = Config.ask_for_filename(folder, index)
@@ -18,7 +18,7 @@ class Config:
             config = json.load(file)
         config['offline'] = offline
         config['options'] = {}
-
+        
         return config
 
     @staticmethod

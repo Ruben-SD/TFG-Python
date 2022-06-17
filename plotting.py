@@ -155,6 +155,11 @@ class Plotter:
         
         error = abs(np.array(tracked_pos) - np.array(predicted_pos))
         avg_error = np.mean(error)
+
+        if avg_error < 30:
+            print("not error")
+        else:
+            print("error")
     
         time = self.data_dictionary['time']
 
@@ -201,9 +206,9 @@ class Plotter:
         #plotter.save_to_file('offlinefolder)
         return plotter.compute_metrics(), config['description'], config['options']
 
-    def run_all():
-        configs = Config.get_all_configs()        
-        options = {'kalman_filter': None, 'doppler_threshold': { "values": [1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]} }#, 'noise_variance_weighted_mean': None, 'outlier_removal': { "values": [1.25, 1.5, 1.75, 2, 2.35]}, 'ignore_spikes': None}
+    def run_saved(filename=None):
+        configs = Config.get_all_configs() if filename is None else [Config.read_config(filename=filename, offline=True)]
+        options = {'kalman_filter': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]}, 'frequency_lookup_width': { 'values': [50, 75, 100] } }
         all_configs = []
         print("Generating all configurations and options combinations...")
         for i in range(len(options) + 1):
@@ -241,19 +246,26 @@ class Plotter:
         all_results = pool.map(Plotter.offline_loop, all_configs)    
 
         grouped_results = itertools.groupby(sorted(all_results, key = lambda r: json.dumps(r[2], sort_keys=True)), key = lambda r: r[2])
-        result_string = ''
+
+        results_info = []
         for key, results_group in grouped_results:
             avg_errors = []
+            result_string = ''
             for i, result in enumerate(results_group):
                 metrics, description, options = result
                 result_string += "Results for " + description + ' ' + str(options) + " = " + str(metrics) + "\n"
                 avg_error = metrics['Avg error']
                 avg_errors.append(avg_error)
-            result_string += 'Total avg error: ' + str(np.mean(avg_errors)) + '\n'
+            total_avg_error = np.mean(avg_errors)
+            result_string += 'Total avg error: ' + str(total_avg_error) + '\n'
+            results_info.append((total_avg_error, result_string))
         
+        results_info.sort(key = lambda r: r[0])
+
         results_filename = 'offline_results/result_' + time.strftime("%d-%m-%Y_%H-%M-%S") + '.txt'
         with open(results_filename, 'w') as f:
-            f.write(result_string)
+            output_info_text = ''.join([res[1] for res in results_info])
+            f.write(output_info_text)
         
         print(f"\nFinished, results written to file {results_filename}")
 
