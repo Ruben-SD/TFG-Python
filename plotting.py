@@ -149,21 +149,15 @@ class Plotter:
         for data_name in self.data_dictionary:
             data = self.data_dictionary[data_name]
             if 'Predictor_position' in data_name:
-                predicted_pos.append(data)
+                predicted_pos.append(np.array(data, dtype=np.float64))
             elif 'Tracker_position' in data_name:
-                tracked_pos.append(data)
-        
-        error = abs(np.array(tracked_pos) - np.array(predicted_pos))
-        avg_error = np.mean(error)
+                tracked_pos.append(np.array(data))
+        if len(tracked_pos) == 0:
+            return
 
-        if avg_error < 30:
-            print("not error")
-        else:
-            print("error")
+        error = abs(np.array(tracked_pos, dtype=np.float64) - np.array(predicted_pos, dtype=np.float64))
+        avg_error = np.mean(error, dtype=np.float64)
     
-        time = self.data_dictionary['time']
-
-
         metrics['Avg error'] = avg_error
 
         # if 'predictor_position_y' in self.data_dictionary:
@@ -206,8 +200,8 @@ class Plotter:
         #plotter.save_to_file('offlinefolder)
         return plotter.compute_metrics(), config['description'], config['options']
 
-    def run_saved(filename=None):
-        configs = Config.get_all_configs() if filename is None else [Config.read_config(filename=filename, offline=True)]
+    def run_saved(filename=None, folder=None):
+        configs = Config.get_all_configs(folder=folder) if filename is None else [Config.read_config(filename=filename, offline=True)]
         options = {'kalman_filter': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]}, 'frequency_lookup_width': { 'values': [50, 75, 100] } }
         all_configs = []
         print("Generating all configurations and options combinations...")

@@ -1,8 +1,10 @@
 {
-  "positioner_type": "1D",
-  "tracker_type": "1D",
+  "positioning": {
+    "type": "1D",
+    "tracker": true
+  },
   "smartphone": {
-    "distance": [
+    "position": [
       15
     ],
     "dims": {
@@ -25,7 +27,15 @@
         19600,
         19800,
         20000
-      ]
+      ],
+      "pos": [
+        0
+      ],
+      "device": 0,
+      "channel": 0
     }
+  ],
+  "speakers_devices": [
+    0
   ]
 }

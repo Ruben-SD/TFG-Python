@@ -22,17 +22,10 @@ def main_loop(plotter, config):
         positioner.print_position()
         positioner.stop()
 
-    #plotter.print_metrics()
-    # plotter.plot()
-    # plotter.save_to_file()
-
-
-
-
 if __name__=="__main__":
-    offline = False
+    offline = True
     if offline: # Run all files on folder in offline mode
-        plotting.Plotter.run_saved('16-06-2022_15-10-03.json')
+        plotting.Plotter.run_saved(folder='Memoria/1D/L15/')
     else:
         plot = False
         plotter = plotting.Plotter()
@@ -46,3 +39,4 @@ if __name__=="__main__":
             main_loop(plotter, config)
             plotter.print_metrics()
             plotter.plot()
+            plotter.save_to_file()

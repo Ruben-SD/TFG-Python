@@ -29,7 +29,7 @@ class Receiver:
 
         # Discard first packets because they are noisy
         print("Discarding initial noisy audio samples...")
-        end_time = time.time() + 3
+        end_time = time.time() + 5
         while time.time() < end_time:
             self.socket.recv(3588)
         end_time = time.time() + 3

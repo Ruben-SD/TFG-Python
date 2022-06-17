@@ -116,9 +116,12 @@ class CameraTracker(Positioner):
 class OfflineCameraTracker(Positioner):
     def __init__(self, config, plotter):
         super().__init__('Tracker', config['config'], plotter)
-        self.curr_frame = -1
+        self.curr_frame = 0 # Start at 1 to skip initial pos
         coords_names = [data_name for data_name in config['data_names_to_plot'] if 'Tracker_position_' in data_name]
-        self.camera_positions = np.transpose([config[coords_name] for coords_name in coords_names])
+        self.camera_positions = [config[coords_name] for coords_name in coords_names]
+        for x in self.camera_positions:
+            x.append(x[-1])
+        self.camera_positions = np.transpose(self.camera_positions)
 
     def update(self, dt):
         super().update(dt)

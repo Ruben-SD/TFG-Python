@@ -14,8 +14,7 @@ class Positioner:
     def move_by(self, displacements):
         self.distances += displacements
         self.position = self.multilaterate(
-            self.distances, self.speakers_pos, self.position)
-        print("x")
+            self.distances, self.speakers_pos, self.position) if len(self.position) != 1 else self.distances
         #self.update_distances()
 
     def set_position(self, position):

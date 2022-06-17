@@ -1,19 +1,19 @@
 {
   "positioning": {
     "type": "2D",
-    "tracker": false
+    "tracker": true
   },
   "smartphone": {
     "position": [
-      45,
-      164
+      25,
+      21.5
     ],
     "dims": {
       "length": 17.3,
       "width": 7.8
     }
   },
-  "speakers_distance": 90,
+  "speakers_distance": 43,
   "speakers": [
     {
       "name": "left",
