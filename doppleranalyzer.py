@@ -48,7 +48,10 @@ class DopplerAnalyzer:
         
         # Get displacement in Hz from original frequencies for each wave
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
-        
+
+        for f, disp in zip(frequencies, frequency_displacements):
+            self.plotter.add_sample(f'Doppler_deviation_{f}_Hz', disp)
+
         # last = self.all_frequency_displacements[-1]
         # self.all_frequency_displacements.append(frequency_displacements)
         

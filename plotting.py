@@ -1,4 +1,5 @@
 import time
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -9,6 +10,8 @@ import multiprocessing
 import itertools
 import ujson
 from main import main_loop
+plt.rcParams["figure.figsize"] = [16,9]
+plt.rcParams["figure.dpi"] = 100
 
 class Plotter:
     def __init__(self) -> None:
@@ -45,10 +48,18 @@ class Plotter:
         plt.title("Velocidad vs. tiempo")
         plt.grid()
         time_data = self.data_dictionary['time']
+        
+        # tracker_pos = np.array(self.data_dictionary['Tracker_position_x'])
+        # ideal_speed = np.gradient(-tracker_pos, 1.0/24.0)
+        # plt.plot(time_data, ideal_speed, label='Tracker_speed')
+        #np.gradient(np.sin(x), dx)
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
-            if data_name.startswith('Doppler_deviation_filtered'):
-                #plt.plot(time_data, low_pass_filter(data, 3, 24), label=data_name)
+            # if data_name.startswith('Doppler_deviation_filtered'):
+            #     #plt.plot(time_data, low_pass_filter(data, 3, 24), label=data_name)
+            #     plt.plot(time_data, data, label='Velocidad')
+            # el
+            if '_Hz' in data_name:
                 plt.plot(time_data, data, label=data_name)
         # left_speaker_crosses = np.array(self.data_dictionary['left_speaker_crosses']) + 1
         # right_speaker_crosses = np.array(self.data_dictionary['right_speaker_crosses']) + 1
@@ -66,7 +77,7 @@ class Plotter:
             #     dydx = np.diff(data)/np.diff(time_data)
             #     #plt.plot(time_data, -np.append(dydx, 0), label='derivative')
 
-    def generate_figure(self):
+    def generate_figure(self):        
         # plt.yticks(np.arange(-60, 60, 5))
         # from mpl_toolkits import mplot3d
         # fig = plt.figure()
@@ -86,6 +97,7 @@ class Plotter:
         # ydata = np.cos(zdata) + 0.1 * np.random.randn(100)
         # ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap='Greens')
 
+        #plt.figure(figsize=(8, 6), dpi=80)
         self.plot_position()
         plt.figure()
         self.plot_all_doppler()
@@ -130,8 +142,10 @@ class Plotter:
         figure.savefig(file_path)
 
 
-    def load_from_file(self):
-        filenames = [file for file in os.listdir(self.SAVED_DATA_PATH + 'data/')]
+    def load_from_file(self, folder=None):
+        if folder is None:
+            folder = self.SAVED_DATA_PATH + 'data/'
+        filenames = [file for file in os.listdir(folder)]
         [print(f"[{i}]", filename) for i, filename in enumerate(filenames)]
 
         path = self.SAVED_DATA_PATH + 'data/' + filenames[int(input("Enter file index:"))]      

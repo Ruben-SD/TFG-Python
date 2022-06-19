@@ -1,7 +1,7 @@
 {
   "positioning": {
     "type": "1D",
-    "tracker": true
+    "tracker": false
   },
   "smartphone": {
     "position": [

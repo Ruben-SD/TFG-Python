@@ -8,12 +8,14 @@ SHORT_NORMALIZE = (1.0/32768.0)
 
 class Receiver:
     def __init__(self, port=5555):
-        self.socket = socket.socket(socket.AF_INET,  # Internet
-                                    socket.SOCK_DGRAM)  # UDP
-        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 3588*24)
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         ip_address = Receiver.get_pc_ip()
-        self.socket.bind((ip_address, port))
         print("Listening on: ", ip_address, ":", port)
+        self.socket.bind((ip_address, port))
+        self.socket.listen()
+        print("Waiting for connection...")
+        self.conn, addr = self.socket.accept()
+        print(f"Connected to {addr}")        
 
         pa = pyaudio.PyAudio()
         FORMAT = pyaudio.paInt16
@@ -29,21 +31,32 @@ class Receiver:
 
         # Discard first packets because they are noisy
         print("Discarding initial noisy audio samples...")
-        end_time = time.time() + 5
-        while time.time() < end_time:
-            self.socket.recv(3588)
         end_time = time.time() + 3
+        while time.time() < end_time:
+            self.conn.recv(1796, socket.MSG_WAITALL)
+            # length = int.from_bytes(data[0:4], "big")
+            # print(length)
+        #end_time = time.time() + 3
         # while time.time() < end_time:
         #     self.stream.read(1792)
         print("Finished discarding")
+        self.last = None
 
 
     def read_phone_mic(self):
-        data = self.socket.recv(3588)
+        print("R")
+        data = self.conn.recv(1796, socket.MSG_WAITALL)
+        print("C")
         length = int.from_bytes(data[0:4], "big")
         
-        if len(data) != 1792  + 4: # * 2 + 4
-            raise ValueError("Received malformed packet")
+        if self.last is not None:       
+            if length != self.last + 1:
+                print(length, self.last + 1)     
+                raise ValueError("Received out of order packet")
+        self.last = length
+
+        if len(data) != 1792 + 4: # * 2 + 4
+            raise ValueError(f"Received malformed packet of length {len(data)}")
         
         int_values = np.frombuffer(data[4:], dtype=np.int8)#np.array([x for x in data[4:len(data)]])
         # print(len(int_values))
