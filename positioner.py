@@ -36,8 +36,6 @@ class Positioner:
             self.plotter.add_sample(self.name + f'_position_{coords_names[i]}', coord)
 
     def print_position(self):
-        if self.name == 'Predictor':
-            return
         print(f"{self.name} position: {self.get_position()}")
 
     @staticmethod

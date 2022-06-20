@@ -96,8 +96,8 @@ class DopplerAnalyzer:
         # if not self.options:
         #     return frequency_displacements, frequencies
 
-        if 'outlier_removal' in self.options:
-            max_deviation = self.options['outlier_removal']['values'][self.options['outlier_removal']['index']]
+        if True or 'outlier_removal' in self.options:
+            max_deviation = 1.35#self.options['outlier_removal']['values'][self.options['outlier_removal']['index']]
             not_outliers = ~DopplerAnalyzer.find_outliers(frequency_displacements, max_deviation=max_deviation)
             frequency_displacements = frequency_displacements[not_outliers]
             frequencies = frequencies[not_outliers]

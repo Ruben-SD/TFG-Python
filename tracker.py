@@ -61,17 +61,23 @@ class CameraTracker(Positioner):
 
     @staticmethod
     def extract_smartphone_bounding_rect(frame):
+
+        pts_src = np.array([[511, 255], [294, 254], [181, 257], [58, 260], [491, 60], [292, 51], [188, 50], [77, 44], [521, 423], [294, 434], [172, 444], [50, 451]])
+
+        pts_dst = np.array([[511, 255], [303.85, 255], [200.2, 255], [96.71, 255], [511, 37.27], [303.85, 37.27], [200.28, 37.27], [96.71, 37.27], [511, 418.29], [303.85, 418.29], [200.28, 418.29], [96.71, 418.29]])
+        h, status = cv2.findHomography(pts_src, pts_dst)
+        cv2.imshow("frame", frame)
+        frame = cv2.warpPerspective(frame, h, (frame.shape[1], frame.shape[0]))
+        cv2.imshow("homography", frame)
+        cv2.waitKey(1)
+        
         binary_img = CameraTracker.binarize_image(frame)
         # cv2.imshow("bin", cv2.bitwise_not(binary_img))
         # cv2.waitKey(1)
         improved_img = cv2.erode(cv2.bitwise_not(binary_img), np.ones((1, 4), dtype=int))
         # cv2.imshow("eroded", improved_img)
         # cv2.waitKey(1)
-        pts_src = np.array([[511, 255], [294, 254], [181, 257], [58, 260], [491, 60], [292, 51], [188, 50], [77, 44], [521, 423], [294, 434], [172, 444], [50, 451]])
-
-        pts_dst = np.array([[511, 255], [303.85, 255], [200.2, 255], [96.71, 255], [511, 37.27], [303.85, 37.27], [200.28, 37.27], [96.71, 37.27], [511, 418.29], [303.85, 418.29], [200.28, 418.29], [96.71, 418.29]])
-        h, status = cv2.findHomography(pts_src, pts_dst)
-        improved_img = cv2.warpPerspective(improved_img, h, (improved_img.shape[1], improved_img.shape[0]))
+        
         cv2.imshow("Smartphone", improved_img)
         cv2.waitKey(1)
         contours, _ = cv2.findContours(improved_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
