@@ -44,9 +44,7 @@ class Receiver:
 
 
     def read_phone_mic(self):
-        print("R")
         data = self.conn.recv(1796, socket.MSG_WAITALL)
-        print("C")
         length = int.from_bytes(data[0:4], "big")
         
         if self.last is not None:       

@@ -170,9 +170,12 @@ class Plotter:
             return
 
         error = abs(np.array(tracked_pos, dtype=np.float64) - np.array(predicted_pos, dtype=np.float64))
-        avg_error = np.mean(error, dtype=np.float64)
-    
-        metrics['Avg error'] = avg_error
+        
+        avg_error = np.mean(error, axis=1, dtype=np.float64) # Compute error for each coordinate
+        coords_names = ['x', 'y', 'z']
+        metrics['Total avg error'] = np.mean(avg_error)
+        for coord, error in zip(coords_names, avg_error):
+            metrics[f'Avg error {coord}'] = error
 
         # if 'predictor_position_y' in self.data_dictionary:
         #     tracker_position_y = np.array(self.data_dictionary['tracker_position_y'])
@@ -262,7 +265,7 @@ class Plotter:
             for i, result in enumerate(results_group):
                 metrics, description, options = result
                 result_string += "Results for " + description + ' ' + str(options) + " = " + str(metrics) + "\n"
-                avg_error = metrics['Avg error']
+                avg_error = metrics['Total avg error']
                 avg_errors.append(avg_error)
             total_avg_error = np.mean(avg_errors)
             result_string += 'Total avg error: ' + str(total_avg_error) + '\n'

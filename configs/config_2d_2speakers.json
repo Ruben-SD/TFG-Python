@@ -1,24 +1,28 @@
 {
   "positioning": {
     "type": "2D",
-    "tracker": false
+    "tracker": true
   },
   "smartphone": {
     "position": [
-      40,
-      35
+      45,
+      53
     ],
     "dims": {
-      "length": 17.3,
-      "width": 7.8
+      "length": 16.8,
+      "width": 7.9
     }
   },
-  "speakers_distance": 80,
+  "speakers_distance": 90,
   "speakers": [
     {
       "name": "left",
       "frequencies": [
-        18000
+        18000,
+        18200,
+        18400,
+        18600,
+        18800
       ],
       "pos": [
         0,
@@ -30,10 +34,14 @@
     {
       "name": "right",
       "frequencies": [
+        19200,
+        19400,
+        19600,
+        19800,
         20000
       ],
       "pos": [
-        80,
+        90,
         0
       ],
       "device": 0,

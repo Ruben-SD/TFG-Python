@@ -48,11 +48,13 @@ class CameraTracker(Positioner):
         cv2.waitKey(1)
         img_coords = self.get_smartphone_img_coords(frame)
         current_displacement = (img_coords - self.initial_smartphone_cam_pos) * self.cm_per_dim_pixel
+        #print(img_coords, self.initial_smartphone_cam_pos, self.cm_per_dim_pixel)
+        # (initial[1] + new_img_x / self.cm_per_dim_pixel_x)
         # np.array([(img_x - self.initial_smartphone_cam_pos[0]) * self.cm_per_length_pixel,
         #                             (img_y - self.initial_smartphone_cam_pos[1]) * self.cm_per_width_pixel])
         
         # Go from img to real space coords
-        current_displacement[0] *= -1
+        current_displacement *= -1
         if len(self.position) != 1:
             current_displacement = np.flip(current_displacement)
         return current_displacement
@@ -60,15 +62,24 @@ class CameraTracker(Positioner):
     @staticmethod
     def extract_smartphone_bounding_rect(frame):
         binary_img = CameraTracker.binarize_image(frame)
-        
-        improved_img = cv2.erode(binary_img, np.ones(12, dtype=int))
-        contours, _ = cv2.findContours(
-            improved_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        # cv2.imshow("bin", cv2.bitwise_not(binary_img))
+        # cv2.waitKey(1)
+        improved_img = cv2.erode(cv2.bitwise_not(binary_img), np.ones((1, 4), dtype=int))
+        # cv2.imshow("eroded", improved_img)
+        # cv2.waitKey(1)
+        pts_src = np.array([[511, 255], [294, 254], [181, 257], [58, 260], [491, 60], [292, 51], [188, 50], [77, 44], [521, 423], [294, 434], [172, 444], [50, 451]])
+
+        pts_dst = np.array([[511, 255], [303.85, 255], [200.2, 255], [96.71, 255], [511, 37.27], [303.85, 37.27], [200.28, 37.27], [96.71, 37.27], [511, 418.29], [303.85, 418.29], [200.28, 418.29], [96.71, 418.29]])
+        h, status = cv2.findHomography(pts_src, pts_dst)
+        improved_img = cv2.warpPerspective(improved_img, h, (improved_img.shape[1], improved_img.shape[0]))
+        cv2.imshow("Smartphone", improved_img)
+        cv2.waitKey(1)
+        contours, _ = cv2.findContours(improved_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         smartphone_contour = CameraTracker.find_smartphone_contour(contours)
 
         x, y, w, h = cv2.boundingRect(smartphone_contour)
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0))
-        #cv2.imshow("Smartphone", frame)
+        cv2.imshow("Smartphone", frame)
         cv2.waitKey(1)
         return (x, y, w, h)
 
@@ -93,7 +104,7 @@ class CameraTracker(Positioner):
         #     if 6000 <= area <= 14000 and 1.5 <= w/h <= 4:
         #         index = i
         def disimilarity(contour):
-            avg_phone_contour_area = 12000
+            avg_phone_contour_area = 3500
             #normal_w_h_ratio = 
             contour_area = cv2.contourArea(contour)
 

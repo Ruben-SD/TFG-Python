@@ -13,6 +13,8 @@ def main_loop(plotter, config):
     frame_timer = FrameTimer(config, plotter)
     while not keyboard.is_pressed('esc') and not frame_timer.reached_end():
         delta_time = frame_timer.mark()
+        #delta_time = 0.04063
+        
         for positioner in positioners:
             positioner.print_position()
             positioner.update(delta_time)
@@ -24,12 +26,12 @@ def main_loop(plotter, config):
 if __name__=="__main__":
     offline = False
     if offline: # Run all files on folder in offline mode
-        plotting.Plotter.run_saved(filename='17-06-2022_13-13-15.json')#folder='Memoria/1D/18-19/')
+        plotting.Plotter.run_saved(filename='20-06-2022_17-58-19.json')#folder='Memoria/1D/18-19/')
     else:
         plot = False
         plotter = plotting.Plotter()
         if plot: # Simply plot one file
-            plotter.load_from_file(folder='Memoria/1D/18-19')
+            plotter.load_from_file(folder='Memoria/2D/')
             plotter.print_metrics()
             plotter.plot()
         else:
