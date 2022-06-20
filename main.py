@@ -14,6 +14,7 @@ def main_loop(plotter, config):
     while not keyboard.is_pressed('esc') and not frame_timer.reached_end():
         delta_time = frame_timer.mark()
         #delta_time = 0.04063
+        print(1/delta_time)
         
         for positioner in positioners:
             positioner.print_position()
