@@ -50,7 +50,8 @@ class DopplerAnalyzer:
         frequency_displacements = np.array([np.argmax(Sxx[f-flw:f+flw]) - flw for f in frequencies])
 
         for f, disp in zip(frequencies, frequency_displacements):
-            self.plotter.add_sample(f'Doppler_deviation_{f}_Hz', disp)
+            speed = disp/f * 343.73 * 100
+            self.plotter.add_sample(f'Doppler_deviation_{f}_Hz', speed)
 
         # last = self.all_frequency_displacements[-1]
         # self.all_frequency_displacements.append(frequency_displacements)
@@ -97,13 +98,13 @@ class DopplerAnalyzer:
         #     return frequency_displacements, frequencies
 
         if True or 'outlier_removal' in self.options:
-            max_deviation = 1.35#self.options['outlier_removal']['values'][self.options['outlier_removal']['index']]
+            max_deviation = 1.75#self.options['outlier_removal']['values'][self.options['outlier_removal']['index']]
             not_outliers = ~DopplerAnalyzer.find_outliers(frequency_displacements, max_deviation=max_deviation)
             frequency_displacements = frequency_displacements[not_outliers]
             frequencies = frequencies[not_outliers]
 
         if True:
-            threshold = 1
+            threshold = 1.5
             thresholded_freqs = np.array(np.abs(frequency_displacements) <= threshold, dtype=bool)
             frequency_displacements = frequency_displacements[~thresholded_freqs]
             frequencies = frequencies[~thresholded_freqs]

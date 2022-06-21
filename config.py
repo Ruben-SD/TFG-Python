@@ -5,7 +5,7 @@ import sys
 class Config:
     CONFIGS_PATH = sys.path[0] + '/configs/'
     SAVED_DATA_PATH = sys.path[0] + '/saved_data/data/'
-    OFFLINE_DATA_PATH = sys.path[0] + '/Memoria/test/'
+    OFFLINE_DATA_PATH = sys.path[0] + '/offline_data/'
 
     @staticmethod
     def read_config(index=None, filename=None, offline=False):
@@ -39,6 +39,8 @@ class Config:
             folder = Config.OFFLINE_DATA_PATH
         filenames = [file for file in os.listdir(folder)]
         for filename in filenames:
+            if os.path.isdir(folder + filename):
+                continue
             with open(folder + filename, 'r') as file:
                 config = json.load(file)
                 config['offline'] = True

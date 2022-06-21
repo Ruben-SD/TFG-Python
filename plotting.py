@@ -10,8 +10,23 @@ import multiprocessing
 import itertools
 import ujson
 from main import main_loop
-plt.rcParams["figure.figsize"] = [16,9]
+plt.rcParams["figure.figsize"] = [16, 9]
 plt.rcParams["figure.dpi"] = 100
+#pos
+# plt.rcParams.update({'font.size': 25,
+#                      'legend.fontsize': 22,
+#                      'legend.handlelength': 1.75})
+
+
+#speed
+# plt.rcParams.update({'font.size': 35,
+#                      'legend.fontsize': 32,
+#                      'legend.handlelength': 1.75})                     
+
+# alls peeds
+plt.rcParams.update({'font.size': 35,
+                     'legend.fontsize': 23,
+                     'legend.handlelength': 1.75})       
 
 class Plotter:
     def __init__(self) -> None:
@@ -32,9 +47,14 @@ class Plotter:
         plt.grid()
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
-            if 'position' in data_name:
+            if 'position' in data_name or 'osición' in data_name:
+                new_data_name = data_name
+                if 'Predictor_position' in data_name:
+                    new_data_name = 'Predicción posición ' + data_name[-1]
+                elif 'Tracker_position' in data_name:
+                    new_data_name = 'Posición ' + data_name[-1]
                 data = np.array(self.data_dictionary[data_name])
-                plt.plot(time_data, data, label=data_name)
+                plt.plot(time_data, data, label=new_data_name)
         plt.legend()        
 
     def plot_all_doppler(self):        
@@ -59,8 +79,44 @@ class Plotter:
             #     #plt.plot(time_data, low_pass_filter(data, 3, 24), label=data_name)
             #     plt.plot(time_data, data, label='Velocidad')
             # el
-            if '_Hz' in data_name:
+            if 'oppler' in data_name and not 'filtered' in data_name:
+                data_name = 'Velocidad en f = ' + data_name.split('_')[-2] + ' Hz'
                 plt.plot(time_data, data, label=data_name)
+        # left_speaker_crosses = np.array(self.data_dictionary['left_speaker_crosses']) + 1
+        # right_speaker_crosses = np.array(self.data_dictionary['right_speaker_crosses']) + 1
+        # time_data = self.data_dictionary['time']
+        # for data_name in self.data_dictionary['data_names_to_plot']:
+        #     data = np.array(self.data_dictionary[data_name])
+        #     if data_name.startswith('doppler_deviation_filtered'):
+        #         if data_name.endswith('0'):
+        #             plt.plot(time_data, data, '-D', label=data_name, markevery=left_speaker_crosses)
+        #         elif data_name.endswith('1'):
+        #             plt.plot(time_data, data, '-D', label=data_name, markevery=right_speaker_crosses)
+        plt.legend(loc='upper right')
+            # elif data_name.startswith('predictor'):
+            #     plt.plot(time_data, data, label=data_name)
+            #     dydx = np.diff(data)/np.diff(time_data)
+            #     #plt.plot(time_data, -np.append(dydx, 0), label='derivative')
+
+    def plot_final_doppler(self):        
+        plt.xlabel("Tiempo (s)")
+        plt.ylabel("Velocidad (cm/s)")
+        plt.title("Velocidad vs. tiempo")
+        plt.grid()
+        time_data = self.data_dictionary['time']
+        
+        # tracker_pos = np.array(self.data_dictionary['Tracker_position_x'])
+        # ideal_speed = np.gradient(-tracker_pos, 1.0/24.0)
+        # plt.plot(time_data, ideal_speed, label='Tracker_speed')
+        #np.gradient(np.sin(x), dx)
+        for data_name in self.data_dictionary['data_names_to_plot']:
+            data = np.array(self.data_dictionary[data_name])
+            # if data_name.startswith('Doppler_deviation_filtered'):
+            #     #plt.plot(time_data, low_pass_filter(data, 3, 24), label=data_name)
+            #     plt.plot(time_data, data, label='Velocidad')
+            # el
+            if 'Doppler_deviation_filtered_' in data_name:
+                plt.plot(time_data, data, label='Velocidad')
         # left_speaker_crosses = np.array(self.data_dictionary['left_speaker_crosses']) + 1
         # right_speaker_crosses = np.array(self.data_dictionary['right_speaker_crosses']) + 1
         # time_data = self.data_dictionary['time']
@@ -98,15 +154,14 @@ class Plotter:
         # ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap='Greens')
 
         #plt.figure(figsize=(8, 6), dpi=80)
+        
         self.plot_position()
         plt.figure()
         self.plot_all_doppler()
+        plt.figure()
+        self.plot_final_doppler()
         #plt.figure()
         #self.plot_position_and_doppler_filtered()
-        
-        
-        figure = plt.gcf()
-        return figure
 
     def add_data(self, name, data, plot=False):
         if plot: 
@@ -148,7 +203,7 @@ class Plotter:
         filenames = [file for file in os.listdir(folder)]
         [print(f"[{i}]", filename) for i, filename in enumerate(filenames)]
 
-        path = self.SAVED_DATA_PATH + 'data/' + filenames[int(input("Enter file index:"))]      
+        path = folder + '/' + filenames[int(input("Enter file index:"))]      
         with open(path, 'r') as file:
             self.data_dictionary = json.load(file)
 
@@ -162,9 +217,9 @@ class Plotter:
         tracked_pos = []
         for data_name in self.data_dictionary:
             data = self.data_dictionary[data_name]
-            if 'Predictor_position' in data_name:
+            if 'Predictor_position' in data_name or 'Predicción posición' in data_name:
                 predicted_pos.append(np.array(data, dtype=np.float64))
-            elif 'Tracker_position' in data_name:
+            elif 'Tracker_position' in data_name or data_name.startswith('Posición'):
                 tracked_pos.append(np.array(data))
         if len(tracked_pos) == 0:
             return
@@ -219,7 +274,7 @@ class Plotter:
 
     def run_saved(filename=None, folder=None):
         configs = Config.get_all_configs(folder=folder) if filename is None else [Config.read_config(filename=filename, offline=True)]
-        options = {'kalman_filter': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]}, 'frequency_lookup_width': { 'values': [50, 75, 100] } }
+        options = {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]}, 'frequency_lookup_width': { 'values': [50, 75, 100] } }
         all_configs = []
         print("Generating all configurations and options combinations...")
         for i in range(len(options) + 1):
