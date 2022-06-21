@@ -4,6 +4,13 @@ import numpy as np
 import os
 import json
 
+plt.rcParams["figure.figsize"] = [16, 9]
+plt.rcParams["figure.dpi"] = 100
+
+plt.rcParams.update({'font.size': 30,
+                     'legend.fontsize': 22,
+                     'legend.handlelength': 1.75})       
+
 class Plotter:
     def __init__(self) -> None:
         self.start_timestamp = time.strftime("%d-%m-%Y_%H-%M-%S")
@@ -17,14 +24,26 @@ class Plotter:
         plt.show()
 
     def plot_position(self):
-        plt.xlabel("Time (s)")
-        plt.ylabel("Position (cm)")
-        plt.title("Position over time")
+        plt.xlabel("Tiempo (s)")
+        plt.ylabel("Posición (cm)")
+        plt.title("Posición vs. tiempo")
         plt.grid()
+
+        def low_pass_filter(data, band_limit, sampling_rate):
+            cutoff_index = int(band_limit * data.size / sampling_rate)
+            F = np.fft.rfft(data)
+            F[cutoff_index + 1:] = 0
+            return np.fft.irfft(F, n=data.size).real
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
             if not data_name.startswith('audio_samples') and not data_name == 'time' and not data_name.startswith('doppler'): 
+                if 'tracker_position_y' == data_name:
+                    data =low_pass_filter(data, 2, 24)
+                if 'tracker' in data_name:
+                    data_name = 'Posición ' + data_name[-1]
+                if 'predictor' in data_name:
+                    data_name = 'Predicción posición ' + data_name[-1]
                 plt.plot(time_data, data, label=data_name)
         plt.legend()        
 
@@ -33,16 +52,16 @@ class Plotter:
         plt.ylabel("Speed (cm/s)")
         plt.title("Speed over time")
         plt.grid()
-        zcross_l = self.data_dictionary['zcross_l']
-        zcross_r = self.data_dictionary['zcross_r']
+        # zcross_l = self.data_dictionary['zcross_l']
+        # zcross_r = self.data_dictionary['zcross_r']
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
             if data_name.startswith('doppler_deviation_filt'):
                 if data_name.endswith('0'):
-                    plt.plot(time_data, data, '-D', label=data_name, markevery=zcross_l)
+                    plt.plot(time_data, data, label=data_name)#, markevery=zcross_l)
                 else:
-                    plt.plot(time_data, data, '-D', label=data_name, markevery=zcross_r)
+                    plt.plot(time_data, data, label=data_name)#, markevery=zcross_r)
         plt.legend()        
             # elif data_name.startswith('predictor'):
             #     plt.plot(time_data, data, label=data_name)
@@ -51,8 +70,8 @@ class Plotter:
 
     def generate_figure(self):
         # plt.yticks(np.arange(-60, 60, 5))
-        # self.plot_position()
-        # plt.figure()
+        self.plot_position()
+        plt.figure()
         self.plot_all_doppler()
         #plt.figure()
         #self.plot_position_and_doppler_filtered()
