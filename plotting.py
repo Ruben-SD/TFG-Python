@@ -4,6 +4,12 @@ import numpy as np
 import os
 import json
 
+plt.rcParams["figure.figsize"] = [16, 9]
+plt.rcParams["figure.dpi"] = 100
+plt.rcParams.update({'font.size': 25,
+                     'legend.fontsize': 22,
+                     'legend.handlelength': 1.75})
+
 class Plotter:
     def __init__(self) -> None:
         self.start_timestamp = time.strftime("%d-%m-%Y_%H-%M-%S")
@@ -33,14 +39,15 @@ class Plotter:
         plt.legend()        
 
     def plot_all_doppler(self):        
-        plt.xlabel("Time (s)")
-        plt.ylabel("Speed (cm/s)")
-        plt.title("Speed over time")
+        plt.xlabel("Tiempo (s)")
+        plt.ylabel("Velocidad (cm/s)")
+        plt.title("Velocidad vs. tiempo")
         plt.grid()
         time_data = self.data_dictionary['time']
         for data_name in self.data_dictionary['data_names_to_plot']:
             data = np.array(self.data_dictionary[data_name])
-            if data_name.startswith('doppler'):
+            if data_name.startswith('doppler') and not 'filtered' in data_name:
+                data_name = 'Velocidad en f = ' + data_name.split('_')[-2] + ' Hz'
                 plt.plot(time_data, data, label=data_name)
         plt.legend()        
             # elif data_name.startswith('predictor'):
