@@ -48,9 +48,9 @@ class Plotter:
         plt.legend()        
 
     def plot_all_doppler(self):        
-        plt.xlabel("Time (s)")
-        plt.ylabel("Speed (cm/s)")
-        plt.title("Speed over time")
+        plt.xlabel("Tiempo (s)")
+        plt.ylabel("Velocidad (cm/s)")
+        plt.title("Velocidad vs. tiempo")
         plt.grid()
         # zcross_l = self.data_dictionary['zcross_l']
         # zcross_r = self.data_dictionary['zcross_r']
@@ -59,8 +59,10 @@ class Plotter:
             data = np.array(self.data_dictionary[data_name])
             if data_name.startswith('doppler_deviation_filt'):
                 if data_name.endswith('0'):
+                    data_name = 'Velocidad respecto al altavoz izquierdo'
                     plt.plot(time_data, data, label=data_name)#, markevery=zcross_l)
                 else:
+                    data_name = 'Velocidad respecto al altavoz derecho'
                     plt.plot(time_data, data, label=data_name)#, markevery=zcross_r)
         plt.legend()        
             # elif data_name.startswith('predictor'):
