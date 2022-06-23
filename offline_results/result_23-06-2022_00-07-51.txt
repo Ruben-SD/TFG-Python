@@ -1,0 +1,264 @@
+Results for vlong2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 7.014921830323091}
+Results for good2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.950271396237333}
+Results for possiblybestofall {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 10.501047095109842}
+Results for absolutebest {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 6.747370901549207}
+Results for besty51.52d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 6.0581045392451}
+Total avg error: 7.854343152492914
+Results for vlong2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 7.324448687143501}
+Results for good2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.65705587356614}
+Results for possiblybestofall {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 11.39239611914772}
+Results for absolutebest {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 7.13090414591137}
+Results for besty51.52d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 6.837850537801403}
+Total avg error: 8.268531072714028
+Results for vlong2d {'snr_avg': None} = {'Total avg error': 11.093920557294776}
+Results for good2d {'snr_avg': None} = {'Total avg error': 5.958640015098473}
+Results for possiblybestofall {'snr_avg': None} = {'Total avg error': 10.552470631433572}
+Results for absolutebest {'snr_avg': None} = {'Total avg error': 5.690351396819365}
+Results for besty51.52d {'snr_avg': None} = {'Total avg error': 8.339199624589103}
+Total avg error: 8.326916445047058
+Results for vlong2d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 9.35075962257465}
+Results for good2d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 7.334484196604637}
+Results for possiblybestofall {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 10.688065289925573}
+Results for absolutebest {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 7.151021273824282}
+Results for besty51.52d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 7.445826575824834}
+Total avg error: 8.394031391750795
+Results for vlong2d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.272713611684699}
+Results for good2d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 9.598373838739573}
+Results for possiblybestofall {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 10.23406630232781}
+Results for absolutebest {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.003492071636591}
+Results for besty51.52d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 7.428735569269446}
+Total avg error: 8.707476278731624
+Results for vlong2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.412553221591665}
+Results for good2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.311061278261366}
+Results for possiblybestofall {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 11.185042234363788}
+Results for absolutebest {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 7.7406299045102545}
+Results for besty51.52d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.892395141334154}
+Total avg error: 8.908336356012246
+Results for vlong2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 8.264147150352159}
+Results for good2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 10.929628981245083}
+Results for possiblybestofall {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 11.540356964282687}
+Results for absolutebest {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 7.276264507405533}
+Results for besty51.52d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 7.614574742318916}
+Total avg error: 9.124994469120875
+Results for vlong2d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.658621437530577}
+Results for good2d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 9.372001148836615}
+Results for possiblybestofall {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 11.30920651068909}
+Results for absolutebest {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.516976470338175}
+Results for besty51.52d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.238326130975409}
+Total avg error: 9.219026339673974
+Results for vlong2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 8.364886761299102}
+Results for good2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 10.429505059231818}
+Results for possiblybestofall {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 12.012059905111286}
+Results for absolutebest {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 7.632765028883147}
+Results for besty51.52d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 7.675738547844102}
+Total avg error: 9.222991060473891
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.578378362649945}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.159126545090452}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 12.283225451749296}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 7.683772079997077}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 9.75345804259751}
+Total avg error: 9.291592096416855
+Results for vlong2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 8.230009590420982}
+Results for good2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 10.683537304710251}
+Results for possiblybestofall {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 12.645195936008749}
+Results for absolutebest {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 7.55253176986122}
+Results for besty51.52d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 7.3781205206202465}
+Total avg error: 9.297879024324288
+Results for vlong2d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 9.670810711683728}
+Results for good2d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 8.982539392428754}
+Results for possiblybestofall {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 11.43950859128378}
+Results for absolutebest {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 7.784151054115251}
+Results for besty51.52d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 8.736304607557893}
+Total avg error: 9.32266287141388
+Results for vlong2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 8.235676558782933}
+Results for good2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 10.26716073837415}
+Results for possiblybestofall {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 13.333059747451735}
+Results for absolutebest {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 7.513729937724946}
+Results for besty51.52d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 7.5956749934981715}
+Total avg error: 9.389060395166386
+Results for vlong2d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 10.01853179431785}
+Results for good2d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 7.147984194590238}
+Results for possiblybestofall {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 11.988565981306099}
+Results for absolutebest {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 8.300905895560785}
+Results for besty51.52d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 10.05643894451607}
+Total avg error: 9.50248536205821
+Results for vlong2d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.326430212133344}
+Results for good2d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 10.797891996149124}
+Results for possiblybestofall {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 11.558448392557857}
+Results for absolutebest {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 8.813056783988916}
+Results for besty51.52d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 8.178960671481205}
+Total avg error: 9.73495761126209
+Results for vlong2d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 9.105865998438851}
+Results for good2d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 11.471519042842147}
+Results for possiblybestofall {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 11.231691336059164}
+Results for absolutebest {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 8.431977172168592}
+Results for besty51.52d {'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 8.554479987336986}
+Total avg error: 9.759106707369147
+Results for vlong2d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 9.818921718737714}
+Results for good2d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.828537204304876}
+Results for possiblybestofall {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 11.487679198724013}
+Results for absolutebest {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 9.233954428394007}
+Results for besty51.52d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 9.816949106673528}
+Total avg error: 9.837208331366828
+Results for vlong2d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.39014881243892}
+Results for good2d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 10.49813369911523}
+Results for possiblybestofall {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 12.442723528119087}
+Results for absolutebest {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 8.888449299949745}
+Results for besty51.52d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 8.482372697708046}
+Total avg error: 9.940365607466205
+Results for vlong2d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 9.212570027438291}
+Results for good2d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 10.99621747069096}
+Results for possiblybestofall {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 12.006732952504095}
+Results for absolutebest {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 8.919708501214776}
+Results for besty51.52d {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 8.632201455536851}
+Total avg error: 9.953486081476996
+Results for vlong2d {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 13.02998296785046}
+Results for good2d {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 6.805481174787444}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 12.229371204440467}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 6.620570388864036}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 11.408665719603704}
+Total avg error: 10.018814291109223
+Results for vlong2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 10.039274245760947}
+Results for good2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 10.05784226115428}
+Results for possiblybestofall {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 12.385234710710986}
+Results for absolutebest {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 8.435039079460786}
+Results for besty51.52d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 9.550628961783378}
+Total avg error: 10.093603851774077
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 9.89442755005202}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 9.749799441195574}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 13.009689118704474}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 8.411919808420206}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 9.874904728153826}
+Total avg error: 10.188148129305219
+Results for vlong2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 10.02985675922626}
+Results for good2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 10.049474727773319}
+Results for possiblybestofall {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 13.352667686174966}
+Results for absolutebest {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 8.668607424084977}
+Results for besty51.52d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.065611103909506}
+Total avg error: 10.233243540233804
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.787428459633508}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.812772660211685}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 14.185540534848029}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 8.247636707052845}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.648097807465332}
+Total avg error: 10.336295233842282
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 10.05782105573677}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 8.695203926732393}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 12.833584259356485}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 9.322111103869995}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 2}} = {'Total avg error': 10.839010891875954}
+Total avg error: 10.34954624751432
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 10.270049205954244}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 8.5159616905197}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 13.018881549412225}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 8.472365454348862}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 3}} = {'Total avg error': 11.52213681023802}
+Total avg error: 10.35987894209461
+Results for vlong2d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 10.89331949055832}
+Results for good2d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 10.095675785755736}
+Results for possiblybestofall {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 12.787550044893665}
+Results for absolutebest {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 9.617524656394421}
+Results for besty51.52d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 10.739281540476616}
+Total avg error: 10.826670303615753
+Results for vlong2d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 11.171158970591467}
+Results for good2d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.984909065090637}
+Results for possiblybestofall {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 13.029881797628759}
+Results for absolutebest {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.995193081309404}
+Results for besty51.52d {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 10.083697663613922}
+Total avg error: 10.852968115646837
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 10.75835172939121}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 9.800287632893708}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 13.716663132307763}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 9.765434214308055}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 0}} = {'Total avg error': 11.100427928316766}
+Total avg error: 11.0282329274435
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 11.007006101470056}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.82331740309523}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 14.097675121423384}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 9.742192256462998}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75, 2], 'index': 1}} = {'Total avg error': 10.770059676180573}
+Total avg error: 11.08805011172645
+Results for vlong2d {} = {'Total avg error': 15.494872019509934}
+Results for good2d {} = {'Total avg error': 14.307814924886168}
+Results for possiblybestofall {} = {'Total avg error': 11.925050230759414}
+Results for absolutebest {} = {'Total avg error': 7.898763785307127}
+Results for besty51.52d {} = {'Total avg error': 7.854380269986169}
+Total avg error: 11.49617624608976
+Results for vlong2d {'constant_dt': None} = {'Total avg error': 18.70874624468557}
+Results for good2d {'constant_dt': None} = {'Total avg error': 14.916444932085813}
+Results for possiblybestofall {'constant_dt': None} = {'Total avg error': 14.381545465416844}
+Results for absolutebest {'constant_dt': None} = {'Total avg error': 10.107181990325856}
+Results for besty51.52d {'constant_dt': None} = {'Total avg error': 13.35566046434439}
+Total avg error: 14.293915819371694
+Results for vlong2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 13.48669481723673}
+Results for good2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 50.27979064028848}
+Results for possiblybestofall {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 28.95354780450572}
+Results for absolutebest {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 19.127323631308794}
+Results for besty51.52d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 24.533300675460012}
+Total avg error: 27.276131513759946
+Results for vlong2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 13.48669481723673}
+Results for good2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 50.27979064028848}
+Results for possiblybestofall {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 28.95354780450572}
+Results for absolutebest {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 19.127323631308794}
+Results for besty51.52d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 24.533300675460012}
+Total avg error: 27.276131513759946
+Results for vlong2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 13.48669481723673}
+Results for good2d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 50.27979064028848}
+Results for possiblybestofall {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 28.95354780450572}
+Results for absolutebest {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 19.127323631308794}
+Results for besty51.52d {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 24.533300675460012}
+Total avg error: 27.276131513759946
+Results for vlong2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 19.867149007724425}
+Results for good2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 58.54507734554633}
+Results for possiblybestofall {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 31.29185933785285}
+Results for absolutebest {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 24.68319014602652}
+Results for besty51.52d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 28.413672684403522}
+Total avg error: 32.56018970431073
+Results for vlong2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 19.867149007724425}
+Results for good2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 58.54507734554633}
+Results for possiblybestofall {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 31.29185933785285}
+Results for absolutebest {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 24.68319014602652}
+Results for besty51.52d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 28.413672684403522}
+Total avg error: 32.56018970431073
+Results for vlong2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 19.867149007724425}
+Results for good2d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 58.54507734554633}
+Results for possiblybestofall {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 31.29185933785285}
+Results for absolutebest {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 24.68319014602652}
+Results for besty51.52d {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 28.413672684403522}
+Total avg error: 32.56018970431073
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 14.319802683137304}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 50.9191732951842}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 41.54686889751881}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 22.537489940818656}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 38.375616070245535}
+Total avg error: 33.53979017738091
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 14.319802683137304}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 50.9191732951842}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 41.54686889751881}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 22.537489940818656}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 38.375616070245535}
+Total avg error: 33.53979017738091
+Results for vlong2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 14.319802683137304}
+Results for good2d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 50.9191732951842}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 41.54686889751881}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 22.537489940818656}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 38.375616070245535}
+Total avg error: 33.53979017738091
+Results for vlong2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 23.098588960928954}
+Results for good2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 58.73633811677148}
+Results for possiblybestofall {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 44.7757097844002}
+Results for absolutebest {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 29.81061770409107}
+Results for besty51.52d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 44.24747745520109}
+Total avg error: 40.133746404278554
+Results for vlong2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 23.098588960928954}
+Results for good2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 58.73633811677148}
+Results for possiblybestofall {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 44.7757097844002}
+Results for absolutebest {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 29.81061770409107}
+Results for besty51.52d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 44.24747745520109}
+Total avg error: 40.133746404278554
+Results for vlong2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 23.098588960928954}
+Results for good2d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 58.73633811677148}
+Results for possiblybestofall {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 44.7757097844002}
+Results for absolutebest {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 29.81061770409107}
+Results for besty51.52d {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 44.24747745520109}
+Total avg error: 40.133746404278554

@@ -1,0 +1,88 @@
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 6.6019418374032375}
+Total avg error: 6.6019418374032375
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.6019418374032375}
+Total avg error: 6.6019418374032375
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.815998018471641}
+Total avg error: 6.815998018471641
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.871655366033425}
+Total avg error: 6.871655366033425
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 6.897323402609585}
+Total avg error: 6.897323402609585
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 6.962082780006}
+Total avg error: 6.962082780006
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 7.002020245034198}
+Total avg error: 7.002020245034198
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 7.090524096969676}
+Total avg error: 7.090524096969676
+Results for caidaconex {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 7.277333096703118}
+Total avg error: 7.277333096703118
+Results for caidaconex {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 7.277333096703118}
+Total avg error: 7.277333096703118
+Results for caidaconex {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 7.429735456291578}
+Total avg error: 7.429735456291578
+Results for caidaconex {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 7.444929648162396}
+Total avg error: 7.444929648162396
+Results for caidaconex {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 7.504246393251497}
+Total avg error: 7.504246393251497
+Results for caidaconex {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 7.570280561516817}
+Total avg error: 7.570280561516817
+Results for caidaconex {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 7.964677165068031}
+Total avg error: 7.964677165068031
+Results for caidaconex {'constant_dt': None} = {'Total avg error': 7.964677165068031}
+Total avg error: 7.964677165068031
+Results for caidaconex {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 8.06331868390828}
+Total avg error: 8.06331868390828
+Results for caidaconex {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 8.140553045354613}
+Total avg error: 8.140553045354613
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 12.96365140742479}
+Total avg error: 12.96365140742479
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 12.96365140742479}
+Total avg error: 12.96365140742479
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 12.96365140742479}
+Total avg error: 12.96365140742479
+Results for caidaconex {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 12.96365140742479}
+Total avg error: 12.96365140742479
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 16.63315370294289}
+Total avg error: 16.63315370294289
+Results for caidaconex {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 16.77222854881879}
+Total avg error: 16.77222854881879
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 17.709813910464966}
+Total avg error: 17.709813910464966
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 17.772251123814037}
+Total avg error: 17.772251123814037
+Results for caidaconex {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 17.795542167596725}
+Total avg error: 17.795542167596725
+Results for caidaconex {} = {'Total avg error': 17.795542167596725}
+Total avg error: 17.795542167596725
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 17.884765329323777}
+Total avg error: 17.884765329323777
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 17.884765329323777}
+Total avg error: 17.884765329323777
+Results for caidaconex {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 17.97169646553688}
+Total avg error: 17.97169646553688
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 17.98644188497672}
+Total avg error: 17.98644188497672
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 18.118574813909092}
+Total avg error: 18.118574813909092
+Results for caidaconex {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 18.190820942001245}
+Total avg error: 18.190820942001245
+Results for caidaconex {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 18.29793156932189}
+Total avg error: 18.29793156932189
+Results for caidaconex {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 18.31639020246375}
+Total avg error: 18.31639020246375
+Results for caidaconex {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 18.31639020246375}
+Total avg error: 18.31639020246375
+Results for caidaconex {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 18.40142909388802}
+Total avg error: 18.40142909388802
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 18.6188338111525}
+Total avg error: 18.6188338111525
+Results for caidaconex {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 18.767021766550545}
+Total avg error: 18.767021766550545
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 21.652543683714892}
+Total avg error: 21.652543683714892
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 21.652543683714892}
+Total avg error: 21.652543683714892
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 21.652543683714892}
+Total avg error: 21.652543683714892
+Results for caidaconex {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 21.652543683714892}
+Total avg error: 21.652543683714892

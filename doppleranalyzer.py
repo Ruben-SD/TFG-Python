@@ -64,7 +64,7 @@ class DopplerAnalyzer:
         # if frequencies.size == 0:
         #     return 0
 
-        # snr = np.array([np.max(Sxx[f-flw:f+flw]) for f in frequencies])
+        snr = np.array([np.max(Sxx[f-flw:f+flw]) for f in frequencies])
         
         # if self.options and 'noise_variance_weighted_mean' in self.options:
         
@@ -79,7 +79,7 @@ class DopplerAnalyzer:
         #     else: 
         #         frequency_displacements[greater_than_ten] = np.mean(frequency_displacements)
 
-        frequency_displacements, frequencies = self.filter_frequencies(frequency_displacements, frequencies)
+        frequency_displacements, frequencies, snr = self.filter_frequencies(frequency_displacements, frequencies, snr)
 
         if len(frequencies) == 0:
             return 0
@@ -87,29 +87,33 @@ class DopplerAnalyzer:
         speeds = np.array([(frequency_displacements[i]/(frequency)) * 343.73 * 100 for i, frequency in enumerate(frequencies)])
 
         #variances = 1/variances
-        mean = np.mean(speeds)#np.average(speeds, weights=snr)
+        if 'snr_avg' in self.options:
+            mean = np.average(speeds, weights=snr)
+        else:
+            mean = np.mean(speeds)#
         #TODO take into account that higher frequencies mean more speed
-        
         
         return mean
 
-    def filter_frequencies(self, frequency_displacements, frequencies):
+    def filter_frequencies(self, frequency_displacements, frequencies, snr):
         # if not self.options:
         #     return frequency_displacements, frequencies
 
-        if True or 'outlier_removal' in self.options:
-            max_deviation = 1.75#self.options['outlier_removal']['values'][self.options['outlier_removal']['index']]
+        if 'outlier_removal' in self.options:
+            max_deviation = self.options['outlier_removal']['values'][self.options['outlier_removal']['index']]
             not_outliers = ~DopplerAnalyzer.find_outliers(frequency_displacements, max_deviation=max_deviation)
             frequency_displacements = frequency_displacements[not_outliers]
             frequencies = frequencies[not_outliers]
+            snr = snr[not_outliers]
 
-        if True:
-            threshold = 1.5
+        if 'doppler_threshold' in self.options:
+            threshold = self.options['doppler_threshold']['values'][self.options['doppler_threshold']['index']]
             thresholded_freqs = np.array(np.abs(frequency_displacements) <= threshold, dtype=bool)
             frequency_displacements = frequency_displacements[~thresholded_freqs]
             frequencies = frequencies[~thresholded_freqs]
+            snr = snr[~thresholded_freqs]
         
-        return frequency_displacements, frequencies
+        return frequency_displacements, frequencies, snr
     
     @staticmethod
     def find_outliers(data, max_deviation=1.35): 

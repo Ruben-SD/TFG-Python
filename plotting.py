@@ -25,7 +25,7 @@ plt.rcParams["figure.dpi"] = 100
 
 # alls peeds
 plt.rcParams.update({'font.size': 35,
-                     'legend.fontsize': 23,
+                     'legend.fontsize': 30,
                      'legend.handlelength': 1.75})       
 
 class Plotter:
@@ -80,7 +80,7 @@ class Plotter:
             #     plt.plot(time_data, data, label='Velocidad')
             # el
             if 'oppler' in data_name and not 'filtered' in data_name:
-                data_name = 'Velocidad en f = ' + data_name.split('_')[-2] + ' Hz'
+                data_name = 'f = ' + data_name.split('_')[-2] + ' Hz'
                 plt.plot(time_data, data, label=data_name)
         # left_speaker_crosses = np.array(self.data_dictionary['left_speaker_crosses']) + 1
         # right_speaker_crosses = np.array(self.data_dictionary['right_speaker_crosses']) + 1
@@ -154,7 +154,7 @@ class Plotter:
         # ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap='Greens')
 
         #plt.figure(figsize=(8, 6), dpi=80)
-        
+        pos = plt.figure()
         self.plot_position()
         plt.figure()
         self.plot_all_doppler()
@@ -162,6 +162,7 @@ class Plotter:
         self.plot_final_doppler()
         #plt.figure()
         #self.plot_position_and_doppler_filtered()
+        return pos
 
     def add_data(self, name, data, plot=False):
         if plot: 
@@ -224,13 +225,19 @@ class Plotter:
         if len(tracked_pos) == 0:
             return
 
-        error = abs(np.array(tracked_pos, dtype=np.float64) - np.array(predicted_pos, dtype=np.float64))
+        if len(predicted_pos) == 1:
+            error = abs(np.array(tracked_pos, dtype=np.float64) - np.array(predicted_pos, dtype=np.float64))
+            avg_error = np.mean(error, axis=1, dtype=np.float64) # Compute error for each coordinate
+            coords_names = ['x', 'y', 'z']
+            metrics['Total avg error'] = np.mean(avg_error)
+            for coord, error in zip(coords_names, avg_error):
+                metrics[f'Avg error {coord}'] = error
+        else:
+            error = np.linalg.norm(np.array(tracked_pos, dtype=np.float64) - np.array(predicted_pos, dtype=np.float64), axis=0)
+            avg_error = np.mean(error, dtype=np.float64) # Compute error for each coordinate
+            metrics['Total avg error'] = avg_error
         
-        avg_error = np.mean(error, axis=1, dtype=np.float64) # Compute error for each coordinate
-        coords_names = ['x', 'y', 'z']
-        metrics['Total avg error'] = np.mean(avg_error)
-        for coord, error in zip(coords_names, avg_error):
-            metrics[f'Avg error {coord}'] = error
+
 
         # if 'predictor_position_y' in self.data_dictionary:
         #     tracker_position_y = np.array(self.data_dictionary['tracker_position_y'])
@@ -274,7 +281,7 @@ class Plotter:
 
     def run_saved(filename=None, folder=None):
         configs = Config.get_all_configs(folder=folder) if filename is None else [Config.read_config(filename=filename, offline=True)]
-        options = {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]}, 'frequency_lookup_width': { 'values': [50, 75, 100] } }
+        options = {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]}}#, 'frequency_lookup_width': { 'values': [50, 75, 100] } }
         all_configs = []
         print("Generating all configurations and options combinations...")
         for i in range(len(options) + 1):
