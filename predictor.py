@@ -38,27 +38,19 @@ class SpeakerDistanceFinder:
             self.plotter.add_data('zcross_l', zero_crossings_l)
             self.plotter.add_data('zcross_r', zero_crossings_r)
   
-            self.print_times(zero_crossings_l)
-            self.print_times(zero_crossings_r)
-
             inner_left_crosses = []
             for zcross in zero_crossings_l:
-                if zcross <= 20:
-                    continue
-                if (l[zcross - 10: zcross] > 0).sum() >= 3: # se estaba acercando? (en el medio)
-                  inner_left_crosses.append(zcross)
-                  
-            self.print_times(inner_left_crosses)
-            
+                if (l[zcross - 10: zcross] > 0).sum() >= 7: # se estaba acercando? (en el medio)
+                  inner_left_crosses.append(zcross)            
 
             inner_right_crosses = []
             for zcross in zero_crossings_r:
-                if zcross <= 20:
-                    continue
-                if (r[zcross - 10: zcross] > 0).sum() >= 3: # se estaba acercando? (en el medio)
+                if (r[zcross - 10: zcross] > 0).sum() >= 7: # se estaba acercando? (en el medio)
                   inner_right_crosses.append(zcross)
 
+            self.print_times(inner_left_crosses)
             self.print_times(inner_right_crosses)
+
 
             total_d = 0
             for i, inner_left_cross in enumerate(inner_left_crosses[:-5]):
@@ -184,7 +176,7 @@ class OfflinePredictor(Predictor):
         
         self.doppler_analyzers = [DopplerAnalyzer(speaker.get_config().get_frequencies(), plotter, config) for speaker in self.speakers]
         self.speaker_distance_finder = SpeakerDistanceFinder(plotter)
-        self.sound_samples = np.array([x for x in config['audio_samples']])
+        self.sound_samples = np.array([x for x in config['audio_samples'][::2]])
         self.cur_sound_samples = 0
 
         if 'kalman_filter' in self.options:
