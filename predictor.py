@@ -5,6 +5,7 @@ from speaker import SpeakerOrchestrator, VirtualSpeaker, Speaker
 from receiver import Receiver
 from doppleranalyzer import DopplerAnalyzer
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 class SpeakerDistanceFinder:
@@ -17,13 +18,6 @@ class SpeakerDistanceFinder:
         self.all_speeds = []
         self.plotter = plotter
         self.dts= []
-        
-        self.pos = 'unknown'
-        self.speeds_left = []
-        self.speeds_right = []
-        self.speeds_left_dt = []
-        self.speeds_right_dt = []
-        self.on_left_speaker = True
 
     def print_times(self, times):
         for x in times:
@@ -33,38 +27,30 @@ class SpeakerDistanceFinder:
     def update(self, dt, displacements):
         self.time += dt
         self.dts.append(dt)
+        self.distances += np.abs(displacements)
 
-        self.speeds_left.append(displacements[0])
-        self.speeds_right.append(displacements[1])
+        self.all_speeds.append(displacements)
 
-        self.speeds_left_dt.append(displacements[0] * dt)
-        self.speeds_right_dt.append(displacements[1] * dt)
+        if len(self.all_speeds) > 100:
+            left_speaker_crosses = np.array(self.plotter.data_dictionary['zcross_l']) + 1
+            right_speaker_crosses = np.array(self.plotter.data_dictionary['zcross_r']) + 1
+            time_data = self.plotter.data_dictionary['time']
+            for data_name in self.plotter.data_dictionary['data_names_to_plot']:
+                data = np.array(self.plotter.data_dictionary[data_name])
+                if data_name.startswith('Doppler'):
+                    if data_name.endswith('0'):
+                        plt.plot(time_data, data, '-D', label=data_name, markevery=left_speaker_crosses)
+                    elif data_name.endswith('1'):
+                        plt.plot(time_data, data, '-D', label=data_name, markevery=right_speaker_crosses)
+            plt.show()
 
-        zero_crosses_l = np.where(np.diff(np.signbit(self.speeds_left)))[0][1:]
-        left_speaker_crosses = zero_crosses_l[[np.where([np.sum(self.speeds_left[val-20:val]) > 40 and np.abs(val - zero_crosses_l[idx - 1]) > 15 for idx, val in enumerate(zero_crosses_l)])[0]]]
-
-        self.plotter.add_data('zero_crosses_l', zero_crosses_l)
-        self.plotter.add_data('left_speaker_crosses', left_speaker_crosses)
-
-        zero_crosses_r = np.where(np.diff(np.signbit(self.speeds_right)))[0][1:]
-        right_speaker_crosses = zero_crosses_r[[np.where([np.sum(self.speeds_right[val-20:val]) > 40 and np.abs(val - zero_crosses_r[idx - 1]) > 15 for idx, val in enumerate(zero_crosses_r)])[0]]]
-
-        self.plotter.add_data('zero_crosses_r', zero_crosses_r)
-        self.plotter.add_data('right_speaker_crosses', right_speaker_crosses)
-
-        print(left_speaker_crosses)
-        print(right_speaker_crosses)
+        l, r = map(np.array, zip(*self.all_speeds))
         
-        total_distance = 0
-        for i, left_speaker_cross in enumerate(left_speaker_crosses[:-1]):
-            distance = np.sum(self.speeds_left_dt[left_speaker_cross:right_speaker_crosses[i + 1]])
-            print(distance)
-            total_distance += distance
-        if len(left_speaker_crosses) > 1:
-            computed_distance = total_distance/(len(left_speaker_crosses) - 1)
-            print("Total distance: ", computed_distance)
+        zero_crossings_l = np.where(np.diff(np.signbit(l)))[0][1:]
+        zero_crossings_r = np.where(np.diff(np.signbit(r)))[0][1:]
 
-        print("SUM=", np.sum(self.speeds_left_dt[64:92]))
+        self.plotter.add_data('zcross_l', zero_crossings_l)
+        self.plotter.add_data('zcross_r', zero_crossings_r)
 
         # if len(zero_crossings_l) == 2 and len(zero_crossings_l) == len(zero_crossings_r):
         #     self.on_left_speaker = False
