@@ -29,8 +29,6 @@ class FrameTimer:
             else:
                 self.plotter.add_sample('time', self.saved_time[self.cur_frame])
                 delta_time = self.saved_time[self.cur_frame] - self.saved_time[self.cur_frame - 1] if not 'constant_dt' in self.config['options'] else 1.0/24.0
-                if 'constant_dt' in self.config['options']:
-                    print(delta_time)
                 return delta_time
 
     def reached_end(self):
