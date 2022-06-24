@@ -31,13 +31,14 @@ class DopplerAnalyzer:
         
         speed = self.extract_speed_from(Sxx, np.array(self.frequencies))
         
-        self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}', speed)
+        
 
         self.kalman_filter.predict()
         self.kalman_filter.update(speed)
 
         # self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}_K', self.my_filter.x[1][0])
-        if self.options is not None and 'kalman_filter' in self.options:
+        if True or self.options is not None and 'kalman_filter' in self.options:
+            self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}', self.kalman_filter.x[1][0])
             return self.kalman_filter.x[1][0]
         
         return speed

@@ -116,7 +116,10 @@ class Plotter:
             #     plt.plot(time_data, data, label='Velocidad')
             # el
             if 'Doppler_deviation_filtered_' in data_name:
-                plt.plot(time_data, data, label='Velocidad')
+                if data_name.endswith('0'):
+                    plt.plot(time_data, data, '-D', label='Velocidad', markevery=self.data_dictionary['zcross_l'])
+                else:
+                    plt.plot(time_data, data, '-D', label='Velocidad', markevery=self.data_dictionary['zcross_r'])
         # left_speaker_crosses = np.array(self.data_dictionary['left_speaker_crosses']) + 1
         # right_speaker_crosses = np.array(self.data_dictionary['right_speaker_crosses']) + 1
         # time_data = self.data_dictionary['time']

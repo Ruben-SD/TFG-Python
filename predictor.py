@@ -29,28 +29,32 @@ class SpeakerDistanceFinder:
         self.dts.append(dt)
         self.distances += np.abs(displacements)
 
-        self.all_speeds.append(displacements)
+        self.all_speeds.append(displacements * dt)
 
         if len(self.all_speeds) > 100:
-            left_speaker_crosses = np.array(self.plotter.data_dictionary['zcross_l']) + 1
-            right_speaker_crosses = np.array(self.plotter.data_dictionary['zcross_r']) + 1
-            time_data = self.plotter.data_dictionary['time']
-            for data_name in self.plotter.data_dictionary['data_names_to_plot']:
-                data = np.array(self.plotter.data_dictionary[data_name])
-                if data_name.startswith('Doppler'):
-                    if data_name.endswith('0'):
-                        plt.plot(time_data, data, '-D', label=data_name, markevery=left_speaker_crosses)
-                    elif data_name.endswith('1'):
-                        plt.plot(time_data, data, '-D', label=data_name, markevery=right_speaker_crosses)
-            plt.show()
+            
+            l, r = map(np.array, zip(*self.all_speeds))
+            
+            zero_crossings_l = np.where(np.diff(np.signbit(l[np.argmax(np.abs(l) > 5):])))[0][1:]
+            zero_crossings_r = np.where(np.diff(np.signbit(r[np.argmax(np.abs(r) > 5):])))[0][1:]
+            self.plotter.add_data('zcross_l', zero_crossings_l)
+            self.plotter.add_data('zcross_r', zero_crossings_r)
 
-        l, r = map(np.array, zip(*self.all_speeds))
-        
-        zero_crossings_l = np.where(np.diff(np.signbit(l)))[0][1:]
-        zero_crossings_r = np.where(np.diff(np.signbit(r)))[0][1:]
-
-        self.plotter.add_data('zcross_l', zero_crossings_l)
-        self.plotter.add_data('zcross_r', zero_crossings_r)
+            #cogemos el corte más tardío (ver cual es de los dos altavoces)
+            latest_zcross_index = -1
+            for i in range(min(len(zero_crossings_l), len(zero_crossings_r))):
+                zero_crosses = (zero_crossings_l[i], zero_crossings_r[i])
+                if abs(zero_crosses[0] - zero_crosses[1]) < 5:
+                    continue
+                latest_zcross_index = np.argmax(zero_crosses)
+                latest_zcross = zero_crosses[latest_zcross_index]
+                prev_zcross = zero_crossings_r[zero_crossings_r < latest_zcross].max() if latest_zcross_index == 0 else zero_crossings_l[zero_crossings_l < latest_zcross].max() 
+                distance = (abs(np.sum(l[prev_zcross:latest_zcross])) + abs(np.sum(r[prev_zcross:latest_zcross])))/2
+                # from scipy import integrate
+                # distance2 = (abs(np.trapz(l[prev_zcross:latest_zcross])) + abs(np.trapz(r[prev_zcross:latest_zcross])))/2
+                # print(distance2)
+                print(f"Distance of interval {self.print_times([prev_zcross, latest_zcross])} = {distance}")
+            return
 
         # if len(zero_crossings_l) == 2 and len(zero_crossings_l) == len(zero_crossings_r):
         #     self.on_left_speaker = False
@@ -163,7 +167,7 @@ class Predictor(Positioner):
 
         self.move_by(-speeds*dt)
         self.plotter.add_sample('audio_samples', sound_samples[0])
-        #self.speakers_distance = self.speaker_distance_finder.update(dt, speeds * dt)
+        self.speakers_distance = self.speaker_distance_finder.update(dt, speeds)
         # for i, _ in enumerate(self.speakers):
         #     plotter.add_sample(f'predicted_x_position_{i}', self.get_distance()[i])
         # if self.two_dimensions:
@@ -182,6 +186,7 @@ class OfflinePredictor(Positioner):
 
         self.sound_samples = np.array([x for x in config['audio_samples']])
         self.cur_sound_samples = 0
+        self.speaker_distance_finder = SpeakerDistanceFinder(plotter)     
         
         
     def update(self, dt):
@@ -192,3 +197,5 @@ class OfflinePredictor(Positioner):
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.move_by(-speeds*dt)
         self.plotter.add_sample('audio_samples', sound_samples)
+        self.speakers_distance = self.speaker_distance_finder.update(dt, speeds)
+        

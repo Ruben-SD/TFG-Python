@@ -35,7 +35,7 @@ if __name__=="__main__":
             plotter.print_metrics()
             plotter.plot()
         else:
-            config = Config.read_config(filename='13-05-2022_21-28-51.json', offline=True)#bestis17-06-2022_17-50-18.json#filename='17-06-2022_13-13-15.json', offline=True) # Run positioning in real time (online) mode11
+            config = Config.read_config(offline=False)#bestis17-06-2022_17-50-18.json#filename='17-06-2022_13-13-15.json', offline=True) # Run positioning in real time (online) mode11
             plotter.add_data('config', config)    
             main_loop(plotter, config)
             plotter.print_metrics()
