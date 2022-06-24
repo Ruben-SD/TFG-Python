@@ -1,0 +1,264 @@
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 2.4845139418284745}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 3.1306609470864157}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 5.248249347494143}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.171187630410484}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 2.2041618358615485}
+Total avg error: 3.447754740536213
+Results for TFG_1D_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 2.4845139418284745}
+Results for TFG_1D_1 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 3.1306609470864157}
+Results for TFG_1D_2 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 5.248249347494143}
+Results for TFG_1D_3 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.171187630410484}
+Results for TFG_1D_4 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 2.2041618358615485}
+Total avg error: 3.447754740536213
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 2.504262481451161}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.1306609470864157}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 5.248249347494143}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.171187630410484}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 2.2041618358615485}
+Total avg error: 3.45170444846075
+Results for TFG_1D_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 2.504262481451161}
+Results for TFG_1D_1 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.1306609470864157}
+Results for TFG_1D_2 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 5.248249347494143}
+Results for TFG_1D_3 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.171187630410484}
+Results for TFG_1D_4 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 2.2041618358615485}
+Total avg error: 3.45170444846075
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 2.166523589856127}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.3610641556385423}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 5.490930330727963}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.360302233094159}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 2.1086324842106627}
+Total avg error: 3.4974905587054907
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 2.166523589856127}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 3.3610641556385423}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 5.490930330727963}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.360302233094159}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 2.1086324842106627}
+Total avg error: 3.4974905587054907
+Results for TFG_1D_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 2.166523589856127}
+Results for TFG_1D_1 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.3610641556385423}
+Results for TFG_1D_2 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 5.490930330727963}
+Results for TFG_1D_3 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.360302233094159}
+Results for TFG_1D_4 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 2.1086324842106627}
+Total avg error: 3.4974905587054907
+Results for TFG_1D_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 2.166523589856127}
+Results for TFG_1D_1 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 3.3610641556385423}
+Results for TFG_1D_2 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 5.490930330727963}
+Results for TFG_1D_3 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.360302233094159}
+Results for TFG_1D_4 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 2.1086324842106627}
+Total avg error: 3.4974905587054907
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 2.2954601746823386}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 3.315493164099969}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 5.618589547330837}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 4.224421377272296}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 2.194621450805513}
+Total avg error: 3.529717142838191
+Results for TFG_1D_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 2.2954601746823386}
+Results for TFG_1D_1 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 3.315493164099969}
+Results for TFG_1D_2 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 5.618589547330837}
+Results for TFG_1D_3 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 4.224421377272296}
+Results for TFG_1D_4 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 2.194621450805513}
+Total avg error: 3.529717142838191
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 2.4054172067996844}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.3237630158623763}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 5.618589547330837}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.224421377272296}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 2.194621450805513}
+Total avg error: 3.5533625196141414
+Results for TFG_1D_0 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 2.4054172067996844}
+Results for TFG_1D_1 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.3237630158623763}
+Results for TFG_1D_2 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 5.618589547330837}
+Results for TFG_1D_3 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.224421377272296}
+Results for TFG_1D_4 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 2.194621450805513}
+Total avg error: 3.5533625196141414
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 2.8373597737392826}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 2.741291943532359}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.66918129311851
+Results for TFG_1D_0 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 2.8373597737392826}
+Results for TFG_1D_1 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 2.741291943532359}
+Results for TFG_1D_2 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.66918129311851
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 2.1459322973714303}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 3.5959673061963997}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.701830870377748
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 2.1459322973714303}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 3.5959673061963997}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.701830870377748
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 2.1459322973714303}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.5959673061963997}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.701830870377748
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 2.1459322973714303}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 3.5959673061963997}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.701830870377748
+Results for TFG_1D_0 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 2.1459322973714303}
+Results for TFG_1D_1 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.5959673061963997}
+Results for TFG_1D_2 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.701830870377748
+Results for TFG_1D_0 {'kalman_filter': None} = {'Avg error': 2.1459322973714303}
+Results for TFG_1D_1 {'kalman_filter': None} = {'Avg error': 3.5959673061963997}
+Results for TFG_1D_2 {'kalman_filter': None} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.701830870377748
+Results for TFG_1D_0 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.3118125960982896}
+Results for TFG_1D_1 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 2.652691274601098}
+Results for TFG_1D_2 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.7463517238040596
+Results for TFG_1D_0 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.3118125960982896}
+Results for TFG_1D_1 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 2.652691274601098}
+Results for TFG_1D_2 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 5.944928619678862}
+Results for TFG_1D_3 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.7742285942381937}
+Results for TFG_1D_4 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.0480975344038517}
+Total avg error: 3.7463517238040596
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 3.4814438326860846}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.155116072378222}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 5.530315733716866}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.363214319210835}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 3.0437663238514165}
+Total avg error: 4.114771256368684
+Results for TFG_1D_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 3.4814438326860846}
+Results for TFG_1D_1 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.155116072378222}
+Results for TFG_1D_2 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 5.530315733716866}
+Results for TFG_1D_3 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.363214319210835}
+Results for TFG_1D_4 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 3.0437663238514165}
+Total avg error: 4.114771256368684
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.4980289483724096}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.155116072378222}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 5.530315733716866}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.363214319210835}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.0437663238514165}
+Total avg error: 4.118088279505949
+Results for TFG_1D_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.4980289483724096}
+Results for TFG_1D_1 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.155116072378222}
+Results for TFG_1D_2 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 5.530315733716866}
+Results for TFG_1D_3 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.363214319210835}
+Results for TFG_1D_4 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.0437663238514165}
+Total avg error: 4.118088279505949
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.2813307136378804}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.326919528327553}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 5.756728102830481}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.492208187870092}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.0249661805754555}
+Total avg error: 4.176430542648292
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 3.2813307136378804}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.326919528327553}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 5.756728102830481}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.492208187870092}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 3.0249661805754555}
+Total avg error: 4.176430542648292
+Results for TFG_1D_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.2813307136378804}
+Results for TFG_1D_1 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.326919528327553}
+Results for TFG_1D_2 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 5.756728102830481}
+Results for TFG_1D_3 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.492208187870092}
+Results for TFG_1D_4 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.0249661805754555}
+Total avg error: 4.176430542648292
+Results for TFG_1D_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 3.2813307136378804}
+Results for TFG_1D_1 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.326919528327553}
+Results for TFG_1D_2 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 5.756728102830481}
+Results for TFG_1D_3 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.492208187870092}
+Results for TFG_1D_4 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 3.0249661805754555}
+Total avg error: 4.176430542648292
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 3.3677365405199238}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 4.283921177219142}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 5.87481021357474}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 4.445226004822628}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 3.0458969279147725}
+Total avg error: 4.2035181728102415
+Results for TFG_1D_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 3.3677365405199238}
+Results for TFG_1D_1 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 4.283921177219142}
+Results for TFG_1D_2 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 5.87481021357474}
+Results for TFG_1D_3 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 4.445226004822628}
+Results for TFG_1D_4 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 3.0458969279147725}
+Total avg error: 4.2035181728102415
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.4440282923638135}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.290046581939983}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 5.87481021357474}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.445226004822628}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.0458969279147725}
+Total avg error: 4.220001604123188
+Results for TFG_1D_0 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.4440282923638135}
+Results for TFG_1D_1 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.290046581939983}
+Results for TFG_1D_2 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 5.87481021357474}
+Results for TFG_1D_3 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.445226004822628}
+Results for TFG_1D_4 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.0458969279147725}
+Total avg error: 4.220001604123188
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.719145148935556}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.774303941558324}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.266640126585181
+Results for TFG_1D_0 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.719145148935556}
+Results for TFG_1D_1 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.774303941558324}
+Results for TFG_1D_2 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.266640126585181
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 3.213413426064445}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 4.5759383097362765}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.32582065564655
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 3.213413426064445}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 4.5759383097362765}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.32582065564655
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.213413426064445}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.5759383097362765}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.32582065564655
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 3.213413426064445}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 4.5759383097362765}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.32582065564655
+Results for TFG_1D_0 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.213413426064445}
+Results for TFG_1D_1 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.5759383097362765}
+Results for TFG_1D_2 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.32582065564655
+Results for TFG_1D_0 {} = {'Avg error': 3.213413426064445}
+Results for TFG_1D_1 {} = {'Avg error': 4.5759383097362765}
+Results for TFG_1D_2 {} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.32582065564655
+Results for TFG_1D_0 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.16663402408903}
+Results for TFG_1D_1 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.713544613331909}
+Results for TFG_1D_2 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.343986035970593
+Results for TFG_1D_0 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.16663402408903}
+Results for TFG_1D_1 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.713544613331909}
+Results for TFG_1D_2 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 6.354862252747078}
+Results for TFG_1D_3 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.9948467190288786}
+Results for TFG_1D_4 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.4900425706560703}
+Total avg error: 4.343986035970593

@@ -1,0 +1,88 @@
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 9.231275400512729, 'Avg error x': 5.045788009352389, 'Avg error y': 13.41676279167307}
+Total avg error: 9.231275400512729
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 9.339111188338462, 'Avg error x': 5.2454781927881236, 'Avg error y': 13.4327441838888}
+Total avg error: 9.339111188338462
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 9.4543000415671, 'Avg error x': 6.134293793126298, 'Avg error y': 12.774306290007901}
+Total avg error: 9.4543000415671
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 9.616346258444016, 'Avg error x': 7.003807743440251, 'Avg error y': 12.228884773447781}
+Total avg error: 9.616346258444016
+Results for perfect2dbutstrangeoffset {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 9.655566838215822, 'Avg error x': 3.5720414767443747, 'Avg error y': 15.739092199687269}
+Total avg error: 9.655566838215822
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 9.655915319693722, 'Avg error x': 3.6431427480957206, 'Avg error y': 15.668687891291723}
+Total avg error: 9.655915319693722
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 9.681591705622242, 'Avg error x': 5.751449654066649, 'Avg error y': 13.611733757177834}
+Total avg error: 9.681591705622242
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 9.76318816692175, 'Avg error x': 5.911724513360658, 'Avg error y': 13.614651820482845}
+Total avg error: 9.76318816692175
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 9.766827883540508, 'Avg error x': 4.018397711690604, 'Avg error y': 15.515258055390413}
+Total avg error: 9.766827883540508
+Results for perfect2dbutstrangeoffset {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 9.769928873578667, 'Avg error x': 3.9518428948857416, 'Avg error y': 15.588014852271595}
+Total avg error: 9.769928873578667
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 9.783453538744983, 'Avg error x': 5.8426655974082, 'Avg error y': 13.724241480081766}
+Total avg error: 9.783453538744983
+Results for perfect2dbutstrangeoffset {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 9.78392647291654, 'Avg error x': 4.010396593474934, 'Avg error y': 15.557456352358148}
+Total avg error: 9.78392647291654
+Results for perfect2dbutstrangeoffset {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 9.784848058609768, 'Avg error x': 4.044814599130994, 'Avg error y': 15.52488151808854}
+Total avg error: 9.784848058609768
+Results for perfect2dbutstrangeoffset {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 9.784848058609768, 'Avg error x': 4.044814599130994, 'Avg error y': 15.52488151808854}
+Total avg error: 9.784848058609768
+Results for perfect2dbutstrangeoffset {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 9.84417588986906, 'Avg error x': 4.136184808626819, 'Avg error y': 15.5521669711113}
+Total avg error: 9.84417588986906
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 9.913819587408021, 'Avg error x': 6.0739465978077405, 'Avg error y': 13.7536925770083}
+Total avg error: 9.913819587408021
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 9.967758248607694, 'Avg error x': 4.325305415765736, 'Avg error y': 15.610211081449652}
+Total avg error: 9.967758248607694
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 9.969994010361248, 'Avg error x': 4.369770328389591, 'Avg error y': 15.570217692332903}
+Total avg error: 9.969994010361248
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 9.982925406438703, 'Avg error x': 6.392858683579771, 'Avg error y': 13.572992129297637}
+Total avg error: 9.982925406438703
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 10.006006916512456, 'Avg error x': 6.1549878493010866, 'Avg error y': 13.857025983723826}
+Total avg error: 10.006006916512456
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 10.006006916512456, 'Avg error x': 6.1549878493010866, 'Avg error y': 13.857025983723826}
+Total avg error: 10.006006916512456
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 10.059206544358581, 'Avg error x': 6.476742680907784, 'Avg error y': 13.641670407809377}
+Total avg error: 10.059206544358581
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 10.09218008940438, 'Avg error x': 4.5582536815995764, 'Avg error y': 15.626106497209184}
+Total avg error: 10.09218008940438
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 10.09218008940438, 'Avg error x': 4.5582536815995764, 'Avg error y': 15.626106497209184}
+Total avg error: 10.09218008940438
+Results for perfect2dbutstrangeoffset {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 10.49036412066114, 'Avg error x': 4.448189142260084, 'Avg error y': 16.532539099062195}
+Total avg error: 10.49036412066114
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 10.512776925041585, 'Avg error x': 7.282339628855219, 'Avg error y': 13.743214221227952}
+Total avg error: 10.512776925041585
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 10.512776925041585, 'Avg error x': 7.282339628855219, 'Avg error y': 13.743214221227952}
+Total avg error: 10.512776925041585
+Results for perfect2dbutstrangeoffset {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 10.849306971678113, 'Avg error x': 6.069796882435267, 'Avg error y': 15.628817060920959}
+Total avg error: 10.849306971678113
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 10.928442230128276, 'Avg error x': 4.772268224906969, 'Avg error y': 17.084616235349582}
+Total avg error: 10.928442230128276
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 11.342836407140974, 'Avg error x': 9.026212401381086, 'Avg error y': 13.659460412900861}
+Total avg error: 11.342836407140974
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 11.830468450495259, 'Avg error x': 7.3255819081189335, 'Avg error y': 16.335354992871583}
+Total avg error: 11.830468450495259
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 12.193166240434088, 'Avg error x': 11.43239585225321, 'Avg error y': 12.953936628614969}
+Total avg error: 12.193166240434088
+Results for perfect2dbutstrangeoffset {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 20.39411383472831, 'Avg error x': 19.0906141659128, 'Avg error y': 21.697613503543817}
+Total avg error: 20.39411383472831
+Results for perfect2dbutstrangeoffset {} = {'Total avg error': 20.39411383472831, 'Avg error x': 19.0906141659128, 'Avg error y': 21.697613503543817}
+Total avg error: 20.39411383472831
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 20.749305858913367, 'Avg error x': 24.607707433459733, 'Avg error y': 16.890904284367}
+Total avg error: 20.749305858913367
+Results for perfect2dbutstrangeoffset {'constant_dt': None} = {'Total avg error': 20.749305858913367, 'Avg error x': 24.607707433459733, 'Avg error y': 16.890904284367}
+Total avg error: 20.749305858913367
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 63.26834429863459, 'Avg error x': 46.505684095724384, 'Avg error y': 80.03100450154479}
+Total avg error: 63.26834429863459
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 63.26834429863459, 'Avg error x': 46.505684095724384, 'Avg error y': 80.03100450154479}
+Total avg error: 63.26834429863459
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 63.26834429863459, 'Avg error x': 46.505684095724384, 'Avg error y': 80.03100450154479}
+Total avg error: 63.26834429863459
+Results for perfect2dbutstrangeoffset {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 63.26834429863459, 'Avg error x': 46.505684095724384, 'Avg error y': 80.03100450154479}
+Total avg error: 63.26834429863459
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 67.61442105642365, 'Avg error x': 52.81561331278975, 'Avg error y': 82.41322880005755}
+Total avg error: 67.61442105642365
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 67.61442105642365, 'Avg error x': 52.81561331278975, 'Avg error y': 82.41322880005755}
+Total avg error: 67.61442105642365
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 67.61442105642365, 'Avg error x': 52.81561331278975, 'Avg error y': 82.41322880005755}
+Total avg error: 67.61442105642365
+Results for perfect2dbutstrangeoffset {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 67.61442105642365, 'Avg error x': 52.81561331278975, 'Avg error y': 82.41322880005755}
+Total avg error: 67.61442105642365

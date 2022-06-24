@@ -1,0 +1,56 @@
+Results for perfect2d {'constant_dt': None} = {'Total avg error': 6.992256570362152, 'Avg error x': 8.032206072404867, 'Avg error y': 5.952307068319438}
+Results for perfect2dbutstrangeoffset {'constant_dt': None} = {'Total avg error': 20.39411383472831, 'Avg error x': 19.0906141659128, 'Avg error y': 21.697613503543817}
+Results for best2dincrediblygoodyas {'constant_dt': None} = {'Total avg error': 4.318147420525543, 'Avg error x': 4.164760977026898, 'Avg error y': 4.471533864024189}
+Results for caidaconex {'constant_dt': None} = {'Total avg error': 11.614774706636124, 'Avg error x': 8.24994234239818, 'Avg error y': 14.979607070874069}
+Results for perfect2dtoo {'constant_dt': None} = {'Total avg error': 3.1146728988749857, 'Avg error x': 3.802961987944011, 'Avg error y': 2.4263838098059605}
+Results for longestgood {'constant_dt': None} = {'Total avg error': 8.188855585566198, 'Avg error x': 13.470904635096751, 'Avg error y': 2.906806536035645}
+Results for mostlong2dgood {'constant_dt': None} = {'Total avg error': 7.018734111355537, 'Avg error x': 9.079894312082047, 'Avg error y': 4.957573910629026}
+Results for vlong2d {'constant_dt': None} = {'Total avg error': 9.234277152817372, 'Avg error x': 13.942753929851087, 'Avg error y': 4.525800375783657}
+Results for good2d {'constant_dt': None} = {'Total avg error': 9.354014409859879, 'Avg error x': 10.439123900277435, 'Avg error y': 8.268904919442324}
+Results for possiblybestofall {'constant_dt': None} = {'Total avg error': 7.872305835703893, 'Avg error x': 7.5369712666240565, 'Avg error y': 8.207640404783728}
+Results for absolutebest {'constant_dt': None} = {'Total avg error': 5.070968331643178, 'Avg error x': 5.070856765792949, 'Avg error y': 5.071079897493408}
+Results for besty51.52d {'constant_dt': None} = {'Total avg error': 5.104791676947899, 'Avg error x': 5.034772743380848, 'Avg error y': 5.174810610514951}
+Results for ultragood51.5 {'constant_dt': None} = {'Total avg error': 14.014208571058434, 'Avg error x': 12.436922284676086, 'Avg error y': 15.591494857440782}
+Total avg error: 8.637855469698424
+Results for perfect2d {} = {'Total avg error': 6.992256570362152, 'Avg error x': 8.032206072404867, 'Avg error y': 5.952307068319438}
+Results for perfect2dbutstrangeoffset {} = {'Total avg error': 20.39411383472831, 'Avg error x': 19.0906141659128, 'Avg error y': 21.697613503543817}
+Results for best2dincrediblygoodyas {} = {'Total avg error': 4.318147420525543, 'Avg error x': 4.164760977026898, 'Avg error y': 4.471533864024189}
+Results for caidaconex {} = {'Total avg error': 11.614774706636124, 'Avg error x': 8.24994234239818, 'Avg error y': 14.979607070874069}
+Results for perfect2dtoo {} = {'Total avg error': 3.1146728988749857, 'Avg error x': 3.802961987944011, 'Avg error y': 2.4263838098059605}
+Results for longestgood {} = {'Total avg error': 8.188855585566198, 'Avg error x': 13.470904635096751, 'Avg error y': 2.906806536035645}
+Results for mostlong2dgood {} = {'Total avg error': 7.018734111355537, 'Avg error x': 9.079894312082047, 'Avg error y': 4.957573910629026}
+Results for vlong2d {} = {'Total avg error': 9.234277152817372, 'Avg error x': 13.942753929851087, 'Avg error y': 4.525800375783657}
+Results for good2d {} = {'Total avg error': 9.354014409859879, 'Avg error x': 10.439123900277435, 'Avg error y': 8.268904919442324}
+Results for possiblybestofall {} = {'Total avg error': 7.872305835703893, 'Avg error x': 7.5369712666240565, 'Avg error y': 8.207640404783728}
+Results for absolutebest {} = {'Total avg error': 5.070968331643178, 'Avg error x': 5.070856765792949, 'Avg error y': 5.071079897493408}
+Results for besty51.52d {} = {'Total avg error': 5.104791676947899, 'Avg error x': 5.034772743380848, 'Avg error y': 5.174810610514951}
+Results for ultragood51.5 {} = {'Total avg error': 14.014208571058434, 'Avg error x': 12.436922284676086, 'Avg error y': 15.591494857440782}
+Total avg error: 8.637855469698424
+Results for perfect2d {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 7.52659267783277, 'Avg error x': 7.228579957773574, 'Avg error y': 7.824605397891966}
+Results for perfect2dbutstrangeoffset {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 19.864416330774638, 'Avg error x': 18.4603958441273, 'Avg error y': 21.26843681742198}
+Results for best2dincrediblygoodyas {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 4.525179095736522, 'Avg error x': 4.155592710194509, 'Avg error y': 4.894765481278537}
+Results for caidaconex {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 11.38911767906661, 'Avg error x': 7.209880008541244, 'Avg error y': 15.568355349591975}
+Results for perfect2dtoo {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 3.3274384330813405, 'Avg error x': 3.7160914413158626, 'Avg error y': 2.938785424846818}
+Results for longestgood {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 8.25555513654167, 'Avg error x': 12.62015335331922, 'Avg error y': 3.8909569197641205}
+Results for mostlong2dgood {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 7.368746126530592, 'Avg error x': 9.540351978375572, 'Avg error y': 5.197140274685613}
+Results for vlong2d {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 9.697306566546242, 'Avg error x': 14.48258443343121, 'Avg error y': 4.912028699661275}
+Results for good2d {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 9.11368232190643, 'Avg error x': 10.300558362444884, 'Avg error y': 7.926806281367975}
+Results for possiblybestofall {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 7.9321020998612495, 'Avg error x': 6.79542617712462, 'Avg error y': 9.06877802259788}
+Results for absolutebest {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 5.063832768893439, 'Avg error x': 4.364965059949915, 'Avg error y': 5.762700477836963}
+Results for besty51.52d {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 5.062595092330768, 'Avg error x': 4.833758381406136, 'Avg error y': 5.2914318032554}
+Results for ultragood51.5 {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 13.969649640870632, 'Avg error x': 12.469799396804051, 'Avg error y': 15.469499884937214}
+Total avg error: 8.699708766920992
+Results for perfect2d {'kalman_filter': None} = {'Total avg error': 7.52659267783277, 'Avg error x': 7.228579957773574, 'Avg error y': 7.824605397891966}
+Results for perfect2dbutstrangeoffset {'kalman_filter': None} = {'Total avg error': 19.864416330774638, 'Avg error x': 18.4603958441273, 'Avg error y': 21.26843681742198}
+Results for best2dincrediblygoodyas {'kalman_filter': None} = {'Total avg error': 4.525179095736522, 'Avg error x': 4.155592710194509, 'Avg error y': 4.894765481278537}
+Results for caidaconex {'kalman_filter': None} = {'Total avg error': 11.38911767906661, 'Avg error x': 7.209880008541244, 'Avg error y': 15.568355349591975}
+Results for perfect2dtoo {'kalman_filter': None} = {'Total avg error': 3.3274384330813405, 'Avg error x': 3.7160914413158626, 'Avg error y': 2.938785424846818}
+Results for longestgood {'kalman_filter': None} = {'Total avg error': 8.25555513654167, 'Avg error x': 12.62015335331922, 'Avg error y': 3.8909569197641205}
+Results for mostlong2dgood {'kalman_filter': None} = {'Total avg error': 7.368746126530592, 'Avg error x': 9.540351978375572, 'Avg error y': 5.197140274685613}
+Results for vlong2d {'kalman_filter': None} = {'Total avg error': 9.697306566546242, 'Avg error x': 14.48258443343121, 'Avg error y': 4.912028699661275}
+Results for good2d {'kalman_filter': None} = {'Total avg error': 9.11368232190643, 'Avg error x': 10.300558362444884, 'Avg error y': 7.926806281367975}
+Results for possiblybestofall {'kalman_filter': None} = {'Total avg error': 7.9321020998612495, 'Avg error x': 6.79542617712462, 'Avg error y': 9.06877802259788}
+Results for absolutebest {'kalman_filter': None} = {'Total avg error': 5.063832768893439, 'Avg error x': 4.364965059949915, 'Avg error y': 5.762700477836963}
+Results for besty51.52d {'kalman_filter': None} = {'Total avg error': 5.062595092330768, 'Avg error x': 4.833758381406136, 'Avg error y': 5.2914318032554}
+Results for ultragood51.5 {'kalman_filter': None} = {'Total avg error': 13.969649640870632, 'Avg error x': 12.469799396804051, 'Avg error y': 15.469499884937214}
+Total avg error: 8.699708766920992

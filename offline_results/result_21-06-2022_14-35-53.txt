@@ -1,0 +1,4 @@
+Results for TFG_1D_18-20_0 {} = {'Total avg error': 3.613728218465532, 'Avg error x': 3.613728218465532}
+Total avg error: 3.613728218465532
+Results for TFG_1D_18-20_0 {'kalman_filter': None} = {'Total avg error': 3.9692294621389417, 'Avg error x': 3.9692294621389417}
+Total avg error: 3.9692294621389417

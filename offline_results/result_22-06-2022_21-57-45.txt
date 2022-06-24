@@ -1,0 +1,52 @@
+Results for perfect2d {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 6.599931376261392}
+Results for best2dincrediblygoodyas {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 6.410190595766935}
+Results for caidaconex {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 6.688168428567567}
+Results for perfect2dtoo {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 5.534475207250158}
+Results for longestgood {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 11.01946931268115}
+Results for mostlong2dgood {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 9.632856008933611}
+Results for vlong2d {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 13.024081707152337}
+Results for good2d {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 6.801221949308947}
+Results for possiblybestofall {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 12.009652484486772}
+Results for absolutebest {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 6.660575625622075}
+Results for besty51.52d {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 11.408452319705972}
+Results for ultragood51.5 {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 14.938643943447858}
+Total avg error: 9.227309913265398
+Results for perfect2d {'snr_avg': None} = {'Total avg error': 8.46600142191635}
+Results for best2dincrediblygoodyas {'snr_avg': None} = {'Total avg error': 6.511414353428621}
+Results for caidaconex {'snr_avg': None} = {'Total avg error': 17.16041731311698}
+Results for perfect2dtoo {'snr_avg': None} = {'Total avg error': 3.934980828389899}
+Results for longestgood {'snr_avg': None} = {'Total avg error': 11.46606347333007}
+Results for mostlong2dgood {'snr_avg': None} = {'Total avg error': 9.873703843277983}
+Results for vlong2d {'snr_avg': None} = {'Total avg error': 11.069914219673903}
+Results for good2d {'snr_avg': None} = {'Total avg error': 5.967472949988529}
+Results for possiblybestofall {'snr_avg': None} = {'Total avg error': 10.31896799424259}
+Results for absolutebest {'snr_avg': None} = {'Total avg error': 5.72454784799433}
+Results for besty51.52d {'snr_avg': None} = {'Total avg error': 8.35054243815542}
+Results for ultragood51.5 {'snr_avg': None} = {'Total avg error': 15.132617517639606}
+Total avg error: 9.498053683429523
+Results for perfect2d {} = {'Total avg error': 11.10739185085514}
+Results for best2dincrediblygoodyas {} = {'Total avg error': 6.6819819849504105}
+Results for caidaconex {} = {'Total avg error': 17.795542167596725}
+Results for perfect2dtoo {} = {'Total avg error': 4.776214829990805}
+Results for longestgood {} = {'Total avg error': 14.06163289451624}
+Results for mostlong2dgood {} = {'Total avg error': 11.76643272492487}
+Results for vlong2d {} = {'Total avg error': 15.503183804080946}
+Results for good2d {} = {'Total avg error': 14.286474031267385}
+Results for possiblybestofall {} = {'Total avg error': 11.737469242901545}
+Results for absolutebest {} = {'Total avg error': 7.998665821519103}
+Results for besty51.52d {} = {'Total avg error': 7.958625238739135}
+Results for ultragood51.5 {} = {'Total avg error': 21.25904457099152}
+Total avg error: 12.077721596861153
+Results for perfect2d {'constant_dt': None} = {'Total avg error': 9.068984263069897}
+Results for best2dincrediblygoodyas {'constant_dt': None} = {'Total avg error': 7.240823894255256}
+Results for caidaconex {'constant_dt': None} = {'Total avg error': 7.964677165068031}
+Results for perfect2dtoo {'constant_dt': None} = {'Total avg error': 6.381567384700512}
+Results for longestgood {'constant_dt': None} = {'Total avg error': 13.662976914267508}
+Results for mostlong2dgood {'constant_dt': None} = {'Total avg error': 12.168707973369461}
+Results for vlong2d {'constant_dt': None} = {'Total avg error': 18.728660449492896}
+Results for good2d {'constant_dt': None} = {'Total avg error': 14.905034466807058}
+Results for possiblybestofall {'constant_dt': None} = {'Total avg error': 14.252299210949511}
+Results for absolutebest {'constant_dt': None} = {'Total avg error': 10.218812368477018}
+Results for besty51.52d {'constant_dt': None} = {'Total avg error': 13.450640363780975}
+Results for ultragood51.5 {'constant_dt': None} = {'Total avg error': 23.922259479776578}
+Total avg error: 12.663786994501224

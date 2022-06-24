@@ -1,0 +1,160 @@
+Results for 2dgood {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.0383495396769025}
+Total avg error: 5.0383495396769025
+Results for 2dgood {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.0383495396769025}
+Total avg error: 5.0383495396769025
+Results for 2dgood {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.148974981965063}
+Total avg error: 5.148974981965063
+Results for 2dgood {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.148974981965063}
+Total avg error: 5.148974981965063
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.3017189217864304}
+Total avg error: 5.3017189217864304
+Results for 2dgood {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.3017189217864304}
+Total avg error: 5.3017189217864304
+Results for 2dgood {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.311257918874765}
+Total avg error: 5.311257918874765
+Results for 2dgood {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.311257918874765}
+Total avg error: 5.311257918874765
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.424324594504935}
+Total avg error: 5.424324594504935
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.424324594504935}
+Total avg error: 5.424324594504935
+Results for 2dgood {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.484428129687938}
+Total avg error: 5.484428129687938
+Results for 2dgood {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.484428129687938}
+Total avg error: 5.484428129687938
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.574913534370365}
+Total avg error: 5.574913534370365
+Results for 2dgood {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.574913534370365}
+Total avg error: 5.574913534370365
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.754070140026951}
+Total avg error: 5.754070140026951
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.754070140026951}
+Total avg error: 5.754070140026951
+Results for 2dgood {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.092357514482176}
+Total avg error: 6.092357514482176
+Results for 2dgood {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.092357514482176}
+Total avg error: 6.092357514482176
+Results for 2dgood {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.155289785122066}
+Total avg error: 6.155289785122066
+Results for 2dgood {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.155289785122066}
+Total avg error: 6.155289785122066
+Results for 2dgood {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.2709309839423915}
+Total avg error: 6.2709309839423915
+Results for 2dgood {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.2709309839423915}
+Total avg error: 6.2709309839423915
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.286542224733735}
+Total avg error: 6.286542224733735
+Results for 2dgood {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.286542224733735}
+Total avg error: 6.286542224733735
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.356845095081749}
+Total avg error: 6.356845095081749
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.356845095081749}
+Total avg error: 6.356845095081749
+Results for 2dgood {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.4085042287811085}
+Total avg error: 6.4085042287811085
+Results for 2dgood {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.4085042287811085}
+Total avg error: 6.4085042287811085
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.500914232550078}
+Total avg error: 6.500914232550078
+Results for 2dgood {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.500914232550078}
+Total avg error: 6.500914232550078
+Results for 2dgood {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.5936503644897995}
+Total avg error: 6.5936503644897995
+Results for 2dgood {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.5936503644897995}
+Total avg error: 6.5936503644897995
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.63959722818208}
+Total avg error: 6.63959722818208
+Results for 2dgood {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.63959722818208}
+Total avg error: 6.63959722818208
+Results for 2dgood {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.764748601766028}
+Total avg error: 6.764748601766028
+Results for 2dgood {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.764748601766028}
+Total avg error: 6.764748601766028
+Results for 2dgood {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.791073108817914}
+Total avg error: 6.791073108817914
+Results for 2dgood {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.791073108817914}
+Total avg error: 6.791073108817914
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.82081288744497}
+Total avg error: 6.82081288744497
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.82081288744497}
+Total avg error: 6.82081288744497
+Results for 2dgood {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 6.942994977194457}
+Total avg error: 6.942994977194457
+Results for 2dgood {'snr_avg': None} = {'Total avg error': 6.942994977194457}
+Total avg error: 6.942994977194457
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.9674025120943455}
+Total avg error: 6.9674025120943455
+Results for 2dgood {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.9674025120943455}
+Total avg error: 6.9674025120943455
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 7.01251903448683}
+Total avg error: 7.01251903448683
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 7.01251903448683}
+Total avg error: 7.01251903448683
+Results for 2dgood {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 7.028504855814672}
+Total avg error: 7.028504855814672
+Results for 2dgood {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 7.028504855814672}
+Total avg error: 7.028504855814672
+Results for 2dgood {'constant_dt': None} = {'Total avg error': 7.131199918210843}
+Total avg error: 7.131199918210843
+Results for 2dgood {} = {'Total avg error': 7.131199918210843}
+Total avg error: 7.131199918210843
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None} = {'Total avg error': 7.146496508586335}
+Total avg error: 7.146496508586335
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None} = {'Total avg error': 7.146496508586335}
+Total avg error: 7.146496508586335
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 7.244310588379422}
+Total avg error: 7.244310588379422
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 7.244310588379422}
+Total avg error: 7.244310588379422
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 7.3365307826891115}
+Total avg error: 7.3365307826891115
+Results for 2dgood {'kalman_filter': None} = {'Total avg error': 7.3365307826891115}
+Total avg error: 7.3365307826891115
+Results for 2dgood {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 7.519048536620977}
+Total avg error: 7.519048536620977
+Results for 2dgood {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 7.519048536620977}
+Total avg error: 7.519048536620977
+Results for 2dgood {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 7.519048536620977}
+Total avg error: 7.519048536620977
+Results for 2dgood {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 7.519048536620977}
+Total avg error: 7.519048536620977
+Results for 2dgood {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 7.519048536620977}
+Total avg error: 7.519048536620977
+Results for 2dgood {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 7.519048536620977}
+Total avg error: 7.519048536620977
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 7.814764154318015}
+Total avg error: 7.814764154318015
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 7.814764154318015}
+Total avg error: 7.814764154318015
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 7.814764154318015}
+Total avg error: 7.814764154318015
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 7.814764154318015}
+Total avg error: 7.814764154318015
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 7.814764154318015}
+Total avg error: 7.814764154318015
+Results for 2dgood {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 7.814764154318015}
+Total avg error: 7.814764154318015
+Results for 2dgood {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 7.84761528223661}
+Total avg error: 7.84761528223661
+Results for 2dgood {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 7.84761528223661}
+Total avg error: 7.84761528223661
+Results for 2dgood {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 7.84761528223661}
+Total avg error: 7.84761528223661
+Results for 2dgood {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 7.84761528223661}
+Total avg error: 7.84761528223661
+Results for 2dgood {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 7.84761528223661}
+Total avg error: 7.84761528223661
+Results for 2dgood {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 7.84761528223661}
+Total avg error: 7.84761528223661
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 8.125645180458042}
+Total avg error: 8.125645180458042
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 8.125645180458042}
+Total avg error: 8.125645180458042
+Results for 2dgood {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 8.125645180458042}
+Total avg error: 8.125645180458042
+Results for 2dgood {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 8.125645180458042}
+Total avg error: 8.125645180458042
+Results for 2dgood {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 8.125645180458042}
+Total avg error: 8.125645180458042
+Results for 2dgood {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 8.125645180458042}
+Total avg error: 8.125645180458042

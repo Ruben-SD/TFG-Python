@@ -27,7 +27,7 @@ class SpeakerDistanceFinder:
         self.dts.append(dt)
         self.distances += np.abs(displacements)
 
-        self.all_speeds.append(displacements)
+        self.all_speeds.append(displacements * dt)
 
         if len(self.all_speeds) > 100:
             
@@ -37,16 +37,44 @@ class SpeakerDistanceFinder:
             zero_crossings_r = np.where(np.diff(np.signbit(r)))[0][1:]
             self.plotter.add_data('zcross_l', zero_crossings_l)
             self.plotter.add_data('zcross_r', zero_crossings_r)
-  
-            inner_left_crosses = []
-            for zcross in zero_crossings_l:
-                if (l[zcross - 10: zcross] > 0).sum() >= 7: # se estaba acercando? (en el medio)
-                  inner_left_crosses.append(zcross)            
 
-            inner_right_crosses = []
-            for zcross in zero_crossings_r:
-                if (r[zcross - 10: zcross] > 0).sum() >= 7: # se estaba acercando? (en el medio)
-                  inner_right_crosses.append(zcross)
+            #cogemos el corte más tardío (ver cual es de los dos altavoces)
+            latest_zcross_index = -1
+            for i in range(min(len(zero_crossings_l), len(zero_crossings_r))):
+                zero_crosses = (zero_crossings_l[i], zero_crossings_r[i])
+                if abs(zero_crosses[0] - zero_crosses[1]) < 5:
+                    continue
+                latest_zcross_index = np.argmax(zero_crosses)
+                latest_zcross = zero_crosses[latest_zcross_index]
+                prev_zcross = zero_crossings_r[zero_crossings_r < latest_zcross].max() if latest_zcross_index == 0 else zero_crossings_l[zero_crossings_l < latest_zcross].max() 
+                distance = (abs(np.sum(l[prev_zcross:latest_zcross])) + abs(np.sum(r[prev_zcross:latest_zcross])))/2
+                # from scipy import integrate
+                # distance2 = (abs(np.trapz(l[prev_zcross:latest_zcross])) + abs(np.trapz(r[prev_zcross:latest_zcross])))/2
+                # print(distance2)
+                print(f"Distance of interval {self.print_times([prev_zcross, latest_zcross])} = {distance}")
+            return
+            
+
+
+            #repetir con siguiente corte, pero en el otro altavoz
+            #cogemos el ultimo del otro altavoz anterior a ese
+            #calcular distancia
+            
+            #repetir
+            
+
+
+            #distancia a los altavoces irrelevante
+  
+            # inner_left_crosses = []
+            # for zcross in zero_crossings_l:
+            #     if (l[zcross - 10: zcross] > 0).sum() >= 7: # se estaba acercando? (en el medio)
+            #       inner_left_crosses.append(zcross)            
+
+            # inner_right_crosses = []
+            # for zcross in zero_crossings_r:
+            #     if (r[zcross - 10: zcross] > 0).sum() >= 7: # se estaba acercando? (en el medio)
+            #       inner_right_crosses.append(zcross)
 
             self.print_times(inner_left_crosses)
             self.print_times(inner_right_crosses)

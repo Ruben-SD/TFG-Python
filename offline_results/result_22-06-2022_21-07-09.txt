@@ -1,0 +1,88 @@
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 3.225535688931315, 'Avg error x': 3.3016150356580454, 'Avg error y': 3.1494563422045845}
+Total avg error: 3.225535688931315
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.254401435696422, 'Avg error x': 3.3989404554328875, 'Avg error y': 3.109862415959957}
+Total avg error: 3.254401435696422
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.307196331439426, 'Avg error x': 3.2555346661653948, 'Avg error y': 3.358857996713457}
+Total avg error: 3.307196331439426
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.307196331439426, 'Avg error x': 3.2555346661653948, 'Avg error y': 3.358857996713457}
+Total avg error: 3.307196331439426
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.3761458946866134, 'Avg error x': 3.4934209867132875, 'Avg error y': 3.2588708026599393}
+Total avg error: 3.3761458946866134
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 3.390967856996084, 'Avg error x': 3.7086191914279563, 'Avg error y': 3.073316522564212}
+Total avg error: 3.390967856996084
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.508605420159241, 'Avg error x': 3.957703103682213, 'Avg error y': 3.0595077366362684}
+Total avg error: 3.508605420159241
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.508605420159241, 'Avg error x': 3.957703103682213, 'Avg error y': 3.0595077366362684}
+Total avg error: 3.508605420159241
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 3.5370881375347913, 'Avg error x': 4.1428181252573895, 'Avg error y': 2.9313581498121937}
+Total avg error: 3.5370881375347913
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.5499103657870377, 'Avg error x': 4.214681762080603, 'Avg error y': 2.8851389694934726}
+Total avg error: 3.5499103657870377
+Results for best2dincrediblygoodyas {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 3.573119898201326, 'Avg error x': 3.8030640069239423, 'Avg error y': 3.343175789478709}
+Total avg error: 3.573119898201326
+Results for best2dincrediblygoodyas {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.5987075089399334, 'Avg error x': 3.8736091784305273, 'Avg error y': 3.3238058394493395}
+Total avg error: 3.5987075089399334
+Results for best2dincrediblygoodyas {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.602887519859638, 'Avg error x': 3.7564917602767514, 'Avg error y': 3.449283279442525}
+Total avg error: 3.602887519859638
+Results for best2dincrediblygoodyas {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.602887519859638, 'Avg error x': 3.7564917602767514, 'Avg error y': 3.449283279442525}
+Total avg error: 3.602887519859638
+Results for best2dincrediblygoodyas {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.639675559692793, 'Avg error x': 3.818267262192252, 'Avg error y': 3.4610838571933336}
+Total avg error: 3.639675559692793
+Results for best2dincrediblygoodyas {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 3.6576804538923633, 'Avg error x': 3.993674454237438, 'Avg error y': 3.3216864535472888}
+Total avg error: 3.6576804538923633
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 3.7074490725781524, 'Avg error x': 4.56347163272346, 'Avg error y': 2.8514265124328446}
+Total avg error: 3.7074490725781524
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.7499818725525684, 'Avg error x': 4.442585155864118, 'Avg error y': 3.0573785892410186}
+Total avg error: 3.7499818725525684
+Results for best2dincrediblygoodyas {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.767139958669021, 'Avg error x': 4.453226262045023, 'Avg error y': 3.0810536552930192}
+Total avg error: 3.767139958669021
+Results for best2dincrediblygoodyas {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.767139958669021, 'Avg error x': 4.453226262045023, 'Avg error y': 3.0810536552930192}
+Total avg error: 3.767139958669021
+Results for best2dincrediblygoodyas {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 3.8056868199041247, 'Avg error x': 4.523899854089274, 'Avg error y': 3.0874737857189753}
+Total avg error: 3.8056868199041247
+Results for best2dincrediblygoodyas {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.8269688946374516, 'Avg error x': 4.590046420606671, 'Avg error y': 3.063891368668232}
+Total avg error: 3.8269688946374516
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.860778959896782, 'Avg error x': 3.175244763573059, 'Avg error y': 4.546313156220505}
+Total avg error: 3.860778959896782
+Results for best2dincrediblygoodyas {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 3.888554530037256, 'Avg error x': 4.725672582925123, 'Avg error y': 3.0514364771493896}
+Total avg error: 3.888554530037256
+Results for best2dincrediblygoodyas {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.907230224782867, 'Avg error x': 4.6084522366103435, 'Avg error y': 3.2060082129553904}
+Total avg error: 3.907230224782867
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 3.9493154191410405, 'Avg error x': 3.501359288726404, 'Avg error y': 4.397271549555677}
+Total avg error: 3.9493154191410405
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 3.9493154191410405, 'Avg error x': 3.501359288726404, 'Avg error y': 4.397271549555677}
+Total avg error: 3.9493154191410405
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.9493154191410405, 'Avg error x': 3.501359288726404, 'Avg error y': 4.397271549555677}
+Total avg error: 3.9493154191410405
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 3.9493154191410405, 'Avg error x': 3.501359288726404, 'Avg error y': 4.397271549555677}
+Total avg error: 3.9493154191410405
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.228344824308277, 'Avg error x': 2.9822212899551115, 'Avg error y': 5.474468358661443}
+Total avg error: 4.228344824308277
+Results for best2dincrediblygoodyas {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.245134471322945, 'Avg error x': 3.9100675586781946, 'Avg error y': 4.580201383967696}
+Total avg error: 4.245134471322945
+Results for best2dincrediblygoodyas {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.318147420525543, 'Avg error x': 4.164760977026898, 'Avg error y': 4.471533864024189}
+Total avg error: 4.318147420525543
+Results for best2dincrediblygoodyas {} = {'Total avg error': 4.318147420525543, 'Avg error x': 4.164760977026898, 'Avg error y': 4.471533864024189}
+Total avg error: 4.318147420525543
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.340658627804536, 'Avg error x': 3.2704425156054406, 'Avg error y': 5.410874740003631}
+Total avg error: 4.340658627804536
+Results for best2dincrediblygoodyas {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.402174843958397, 'Avg error x': 4.202622170777323, 'Avg error y': 4.601727517139471}
+Total avg error: 4.402174843958397
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 4.451354662203446, 'Avg error x': 3.5587857774032, 'Avg error y': 5.343923547003693}
+Total avg error: 4.451354662203446
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 4.451354662203446, 'Avg error x': 3.5587857774032, 'Avg error y': 5.343923547003693}
+Total avg error: 4.451354662203446
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.451354662203446, 'Avg error x': 3.5587857774032, 'Avg error y': 5.343923547003693}
+Total avg error: 4.451354662203446
+Results for best2dincrediblygoodyas {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 4.451354662203446, 'Avg error x': 3.5587857774032, 'Avg error y': 5.343923547003693}
+Total avg error: 4.451354662203446
+Results for best2dincrediblygoodyas {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.738929607347865, 'Avg error x': 3.974330926708414, 'Avg error y': 5.503528287987315}
+Total avg error: 4.738929607347865
+Results for best2dincrediblygoodyas {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.769467149323317, 'Avg error x': 4.1356190625418705, 'Avg error y': 5.403315236104763}
+Total avg error: 4.769467149323317
+Results for best2dincrediblygoodyas {'constant_dt': None} = {'Total avg error': 4.769467149323317, 'Avg error x': 4.1356190625418705, 'Avg error y': 5.403315236104763}
+Total avg error: 4.769467149323317
+Results for best2dincrediblygoodyas {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.963578932902021, 'Avg error x': 5.27845184720237, 'Avg error y': 4.64870601860167}
+Total avg error: 4.963578932902021
+Results for best2dincrediblygoodyas {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.153884996455734, 'Avg error x': 4.876725201361361, 'Avg error y': 5.431044791550107}
+Total avg error: 5.153884996455734

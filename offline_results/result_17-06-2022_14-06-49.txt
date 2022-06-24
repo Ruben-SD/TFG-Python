@@ -1,0 +1,88 @@
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.677498476183374}
+Total avg error: 3.677498476183374
+Results for 1d_18_20hz {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 3.677498476183374}
+Total avg error: 3.677498476183374
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 3.7841868187339496}
+Total avg error: 3.7841868187339496
+Results for 1d_18_20hz {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 3.7841868187339496}
+Total avg error: 3.7841868187339496
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.034549546747393}
+Total avg error: 4.034549546747393
+Results for 1d_18_20hz {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.034549546747393}
+Total avg error: 4.034549546747393
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.084471458802239}
+Total avg error: 4.084471458802239
+Results for 1d_18_20hz {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.084471458802239}
+Total avg error: 4.084471458802239
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.132907403537093}
+Total avg error: 4.132907403537093
+Results for 1d_18_20hz {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 4.132907403537093}
+Total avg error: 4.132907403537093
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 4.155007408986108}
+Total avg error: 4.155007408986108
+Results for 1d_18_20hz {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Avg error': 4.155007408986108}
+Total avg error: 4.155007408986108
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.300856323088935}
+Total avg error: 4.300856323088935
+Results for 1d_18_20hz {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Avg error': 4.300856323088935}
+Total avg error: 4.300856323088935
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.359829794827181}
+Total avg error: 4.359829794827181
+Results for 1d_18_20hz {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 4.359829794827181}
+Total avg error: 4.359829794827181
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.589172341770937}
+Total avg error: 4.589172341770937
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.589172341770937}
+Total avg error: 4.589172341770937
+Results for 1d_18_20hz {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.589172341770937}
+Total avg error: 4.589172341770937
+Results for 1d_18_20hz {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.589172341770937}
+Total avg error: 4.589172341770937
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.73818405713495}
+Total avg error: 4.73818405713495
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.73818405713495}
+Total avg error: 4.73818405713495
+Results for 1d_18_20hz {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 4.73818405713495}
+Total avg error: 4.73818405713495
+Results for 1d_18_20hz {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Avg error': 4.73818405713495}
+Total avg error: 4.73818405713495
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 8.222840180087292}
+Total avg error: 8.222840180087292
+Results for 1d_18_20hz {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 8.222840180087292}
+Total avg error: 8.222840180087292
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 8.309565979109705}
+Total avg error: 8.309565979109705
+Results for 1d_18_20hz {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Avg error': 8.309565979109705}
+Total avg error: 8.309565979109705
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 8.856949615276564}
+Total avg error: 8.856949615276564
+Results for 1d_18_20hz {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 8.856949615276564}
+Total avg error: 8.856949615276564
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 9.24679331417524}
+Total avg error: 9.24679331417524
+Results for 1d_18_20hz {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Avg error': 9.24679331417524}
+Total avg error: 9.24679331417524
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 11.273466024858466}
+Total avg error: 11.273466024858466
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 11.273466024858466}
+Total avg error: 11.273466024858466
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 11.273466024858466}
+Total avg error: 11.273466024858466
+Results for 1d_18_20hz {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 11.273466024858466}
+Total avg error: 11.273466024858466
+Results for 1d_18_20hz {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 11.273466024858466}
+Total avg error: 11.273466024858466
+Results for 1d_18_20hz {} = {'Avg error': 11.273466024858466}
+Total avg error: 11.273466024858466
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Avg error': 11.474693898836685}
+Total avg error: 11.474693898836685
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Avg error': 11.474693898836685}
+Total avg error: 11.474693898836685
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 11.474693898836685}
+Total avg error: 11.474693898836685
+Results for 1d_18_20hz {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Avg error': 11.474693898836685}
+Total avg error: 11.474693898836685
+Results for 1d_18_20hz {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Avg error': 11.474693898836685}
+Total avg error: 11.474693898836685
+Results for 1d_18_20hz {'kalman_filter': None} = {'Avg error': 11.474693898836685}
+Total avg error: 11.474693898836685
