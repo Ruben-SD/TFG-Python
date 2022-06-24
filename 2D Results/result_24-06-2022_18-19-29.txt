@@ -1,0 +1,352 @@
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.5730598309136767}
+Total avg error: 3.5730598309136767
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.630138335003816}
+Total avg error: 3.630138335003816
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 3.6370363937357695}
+Total avg error: 3.6370363937357695
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 3.6370363937357695}
+Total avg error: 3.6370363937357695
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.6370363937357695}
+Total avg error: 3.6370363937357695
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 3.6370363937357695}
+Total avg error: 3.6370363937357695
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.6632910345385348}
+Total avg error: 3.6632910345385348
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 3.711854505153511}
+Total avg error: 3.711854505153511
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 3.711854505153511}
+Total avg error: 3.711854505153511
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.711854505153511}
+Total avg error: 3.711854505153511
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 3.711854505153511}
+Total avg error: 3.711854505153511
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.7434076553611644}
+Total avg error: 3.7434076553611644
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.7795744433220344}
+Total avg error: 3.7795744433220344
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.7795744433220344}
+Total avg error: 3.7795744433220344
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.8036867514799266}
+Total avg error: 3.8036867514799266
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.8036867514799266}
+Total avg error: 3.8036867514799266
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.0779637309638135}
+Total avg error: 4.0779637309638135
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.096668671744494}
+Total avg error: 4.096668671744494
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.138102144900878}
+Total avg error: 4.138102144900878
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.1405328715050596}
+Total avg error: 4.1405328715050596
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.150972027595276}
+Total avg error: 4.150972027595276
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.154935232975582}
+Total avg error: 4.154935232975582
+Results for this5vlow {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.156760277217181}
+Total avg error: 4.156760277217181
+Results for this5vlow {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.166731031160839}
+Total avg error: 4.166731031160839
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.209995935093927}
+Total avg error: 4.209995935093927
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.209995935093927}
+Total avg error: 4.209995935093927
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.242204407234402}
+Total avg error: 4.242204407234402
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.242204407234402}
+Total avg error: 4.242204407234402
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.248217701860205}
+Total avg error: 4.248217701860205
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.254450047606362}
+Total avg error: 4.254450047606362
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 4.304493397247514}
+Total avg error: 4.304493397247514
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 4.304493397247514}
+Total avg error: 4.304493397247514
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.304493397247514}
+Total avg error: 4.304493397247514
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 4.304493397247514}
+Total avg error: 4.304493397247514
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 4.3255807204576655}
+Total avg error: 4.3255807204576655
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 4.3255807204576655}
+Total avg error: 4.3255807204576655
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.3255807204576655}
+Total avg error: 4.3255807204576655
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 4.3255807204576655}
+Total avg error: 4.3255807204576655
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.331002315263834}
+Total avg error: 4.331002315263834
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.357221433875327}
+Total avg error: 4.357221433875327
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.364971378792195}
+Total avg error: 4.364971378792195
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.374922948461881}
+Total avg error: 4.374922948461881
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.386494092240668}
+Total avg error: 4.386494092240668
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.408348576833908}
+Total avg error: 4.408348576833908
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 4.428136521434412}
+Total avg error: 4.428136521434412
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 4.428136521434412}
+Total avg error: 4.428136521434412
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.428136521434412}
+Total avg error: 4.428136521434412
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 4.428136521434412}
+Total avg error: 4.428136521434412
+Results for this5vlow {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.434959944352035}
+Total avg error: 4.434959944352035
+Results for this5vlow {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.434959944352035}
+Total avg error: 4.434959944352035
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.457448488539656}
+Total avg error: 4.457448488539656
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.462153966998819}
+Total avg error: 4.462153966998819
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.468010982947232}
+Total avg error: 4.468010982947232
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 4.468294523740477}
+Total avg error: 4.468294523740477
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 4.468294523740477}
+Total avg error: 4.468294523740477
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.468294523740477}
+Total avg error: 4.468294523740477
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 4.468294523740477}
+Total avg error: 4.468294523740477
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.4820287043289495}
+Total avg error: 4.4820287043289495
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.483725377458362}
+Total avg error: 4.483725377458362
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.497293076866471}
+Total avg error: 4.497293076866471
+Results for this5vlow {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.509377794705641}
+Total avg error: 4.509377794705641
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.509838451148508}
+Total avg error: 4.509838451148508
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.547702264327885}
+Total avg error: 4.547702264327885
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.547702264327885}
+Total avg error: 4.547702264327885
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.554196856064705}
+Total avg error: 4.554196856064705
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.554196856064705}
+Total avg error: 4.554196856064705
+Results for this5vlow {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.562732408746506}
+Total avg error: 4.562732408746506
+Results for this5vlow {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.562732408746506}
+Total avg error: 4.562732408746506
+Results for this5vlow {'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.576859616672157}
+Total avg error: 4.576859616672157
+Results for this5vlow {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.585286275617126}
+Total avg error: 4.585286275617126
+Results for this5vlow {'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.619704079199075}
+Total avg error: 4.619704079199075
+Results for this5vlow {'snr_avg': None} = {'Total avg error': 4.619704079199075}
+Total avg error: 4.619704079199075
+Results for this5vlow {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.622743866713779}
+Total avg error: 4.622743866713779
+Results for this5vlow {'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.628999950757525}
+Total avg error: 4.628999950757525
+Results for this5vlow {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.634858366457862}
+Total avg error: 4.634858366457862
+Results for this5vlow {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.644245947691087}
+Total avg error: 4.644245947691087
+Results for this5vlow {} = {'Total avg error': 4.644245947691087}
+Total avg error: 4.644245947691087
+Results for this5vlow {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.64853301760085}
+Total avg error: 4.64853301760085
+Results for this5vlow {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.656912007102127}
+Total avg error: 4.656912007102127
+Results for this5vlow {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.659543549774496}
+Total avg error: 4.659543549774496
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.743058789068538}
+Total avg error: 4.743058789068538
+Results for this5vlow {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.753086843371217}
+Total avg error: 4.753086843371217
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.7685008171194125}
+Total avg error: 4.7685008171194125
+Results for this5vlow {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.775715855137981}
+Total avg error: 4.775715855137981
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.777157010002122}
+Total avg error: 4.777157010002122
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.7920774236170045}
+Total avg error: 4.7920774236170045
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.7920774236170045}
+Total avg error: 4.7920774236170045
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.796666288255789}
+Total avg error: 4.796666288255789
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.801736549002824}
+Total avg error: 4.801736549002824
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.803373246819834}
+Total avg error: 4.803373246819834
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.811876530919929}
+Total avg error: 4.811876530919929
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.814237508234762}
+Total avg error: 4.814237508234762
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.814237508234762}
+Total avg error: 4.814237508234762
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.817381114088237}
+Total avg error: 4.817381114088237
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.817421461183198}
+Total avg error: 4.817421461183198
+Results for this5vlow {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.833296493710561}
+Total avg error: 4.833296493710561
+Results for this5vlow {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.850952332394009}
+Total avg error: 4.850952332394009
+Results for this5vlow {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.850952332394009}
+Total avg error: 4.850952332394009
+Results for this5vlow {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.855879157139904}
+Total avg error: 4.855879157139904
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 4.861040957534522}
+Total avg error: 4.861040957534522
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 4.861040957534522}
+Total avg error: 4.861040957534522
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.861040957534522}
+Total avg error: 4.861040957534522
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 4.861040957534522}
+Total avg error: 4.861040957534522
+Results for this5vlow {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.874725434757146}
+Total avg error: 4.874725434757146
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 4.8889145584531395}
+Total avg error: 4.8889145584531395
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 4.8889145584531395}
+Total avg error: 4.8889145584531395
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.8889145584531395}
+Total avg error: 4.8889145584531395
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 4.8889145584531395}
+Total avg error: 4.8889145584531395
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.895038940548919}
+Total avg error: 4.895038940548919
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.929856699411827}
+Total avg error: 4.929856699411827
+Results for this5vlow {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.946736396621901}
+Total avg error: 4.946736396621901
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.954036899483841}
+Total avg error: 4.954036899483841
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.954036899483841}
+Total avg error: 4.954036899483841
+Results for this5vlow {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.955947071488428}
+Total avg error: 4.955947071488428
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.958831205898868}
+Total avg error: 4.958831205898868
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.987661933549308}
+Total avg error: 4.987661933549308
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.9903408742046205}
+Total avg error: 4.9903408742046205
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.994535563953609}
+Total avg error: 4.994535563953609
+Results for this5vlow {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.0239986490119035}
+Total avg error: 5.0239986490119035
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.030424676277517}
+Total avg error: 5.030424676277517
+Results for this5vlow {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.035841051788886}
+Total avg error: 5.035841051788886
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.040748883653251}
+Total avg error: 5.040748883653251
+Results for this5vlow {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.049401770377424}
+Total avg error: 5.049401770377424
+Results for this5vlow {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.049401770377424}
+Total avg error: 5.049401770377424
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.054984046131453}
+Total avg error: 5.054984046131453
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.055178258952011}
+Total avg error: 5.055178258952011
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.064928202714064}
+Total avg error: 5.064928202714064
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.074837295288284}
+Total avg error: 5.074837295288284
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.077876148426455}
+Total avg error: 5.077876148426455
+Results for this5vlow {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.078091290116846}
+Total avg error: 5.078091290116846
+Results for this5vlow {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.08863061996708}
+Total avg error: 5.08863061996708
+Results for this5vlow {'constant_dt': None} = {'Total avg error': 5.08863061996708}
+Total avg error: 5.08863061996708
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.089143473401432}
+Total avg error: 5.089143473401432
+Results for this5vlow {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.09137324237798}
+Total avg error: 5.09137324237798
+Results for this5vlow {'kalman_filter': None} = {'Total avg error': 5.09137324237798}
+Total avg error: 5.09137324237798
+Results for this5vlow {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.105579197082205}
+Total avg error: 5.105579197082205
+Results for this5vlow {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.10672350868254}
+Total avg error: 5.10672350868254
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.109228617559658}
+Total avg error: 5.109228617559658
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.109228617559658}
+Total avg error: 5.109228617559658
+Results for this5vlow {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.1148776997392575}
+Total avg error: 5.1148776997392575
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.116867687129446}
+Total avg error: 5.116867687129446
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None} = {'Total avg error': 5.116867687129446}
+Total avg error: 5.116867687129446
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.125771190083155}
+Total avg error: 5.125771190083155
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.125841356553291}
+Total avg error: 5.125841356553291
+Results for this5vlow {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.130066225479652}
+Total avg error: 5.130066225479652
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.134288831031499}
+Total avg error: 5.134288831031499
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.138703138718578}
+Total avg error: 5.138703138718578
+Results for this5vlow {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 5.138703138718578}
+Total avg error: 5.138703138718578
+Results for this5vlow {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.141169762502548}
+Total avg error: 5.141169762502548
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.146739179720018}
+Total avg error: 5.146739179720018
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.178444275299749}
+Total avg error: 5.178444275299749
+Results for this5vlow {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.208769215745936}
+Total avg error: 5.208769215745936
+Results for this5vlow {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.235606785688315}
+Total avg error: 5.235606785688315
+Results for this5vlow {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.264147259202313}
+Total avg error: 5.264147259202313
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.2927040498308}
+Total avg error: 5.2927040498308
+Results for this5vlow {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.315840968696955}
+Total avg error: 5.315840968696955
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.375329601895176}
+Total avg error: 5.375329601895176
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.375329601895176}
+Total avg error: 5.375329601895176
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.4577183840788015}
+Total avg error: 5.4577183840788015
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.467627557046833}
+Total avg error: 5.467627557046833
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.477109793622263}
+Total avg error: 5.477109793622263
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.477109793622263}
+Total avg error: 5.477109793622263
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.495304519769769}
+Total avg error: 5.495304519769769
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.502894571727692}
+Total avg error: 5.502894571727692
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.505115480559923}
+Total avg error: 5.505115480559923
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.566010974068527}
+Total avg error: 5.566010974068527
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 5.566010974068527}
+Total avg error: 5.566010974068527
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.575185131829189}
+Total avg error: 5.575185131829189
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.583767419008757}
+Total avg error: 5.583767419008757
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.587317268818946}
+Total avg error: 5.587317268818946
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.621747580044768}
+Total avg error: 5.621747580044768
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None} = {'Total avg error': 5.621747580044768}
+Total avg error: 5.621747580044768
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.622022348752927}
+Total avg error: 5.622022348752927
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.630628059252617}
+Total avg error: 5.630628059252617
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.677662388640215}
+Total avg error: 5.677662388640215
+Results for this5vlow {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.706080774864837}
+Total avg error: 5.706080774864837

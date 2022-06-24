@@ -35,11 +35,18 @@ class SpeakerDistanceFinder:
             
             l, r = map(np.array, zip(*self.all_speeds))
             
-            zero_crossings_l = np.where(np.diff(np.signbit(l[np.argmax(np.abs(l) > 5):])))[0][1:]
-            zero_crossings_r = np.where(np.diff(np.signbit(r[np.argmax(np.abs(r) > 5):])))[0][1:]
+            zero_crossings_l = np.where(np.diff(np.signbit(l)))[0]
+            zero_crossings_r = np.where(np.diff(np.signbit(r)))[0]
             self.plotter.add_data('zcross_l', zero_crossings_l)
             self.plotter.add_data('zcross_r', zero_crossings_r)
 
+            simultaneous = []
+            for i in range(min(len(zero_crossings_l), len(zero_crossings_r))):
+                zero_crosses = (zero_crossings_l[i], zero_crossings_r[i])
+                if abs(zero_crosses[0] - zero_crosses[1]) < 5:
+                    simultaneous.append(i)
+            self.print_times([zero_crossings_l[i] for i in simultaneous])
+            return
             #cogemos el corte más tardío (ver cual es de los dos altavoces)
             latest_zcross_index = -1
             for i in range(min(len(zero_crossings_l), len(zero_crossings_r))):
@@ -197,5 +204,5 @@ class OfflinePredictor(Positioner):
         speeds = np.array([doppler_analyzer.extract_speeds_from(sound_samples) for i, doppler_analyzer in enumerate(self.doppler_analyzers)])
         self.move_by(-speeds*dt)
         self.plotter.add_sample('audio_samples', sound_samples)
-        self.speakers_distance = self.speaker_distance_finder.update(dt, speeds)
+        #self.speakers_distance = self.speaker_distance_finder.update(dt, speeds)
         

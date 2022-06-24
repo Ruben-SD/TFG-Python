@@ -32,13 +32,13 @@ class DopplerAnalyzer:
         speed = self.extract_speed_from(Sxx, np.array(self.frequencies))
         
         
+        self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}', speed)
 
         self.kalman_filter.predict()
         self.kalman_filter.update(speed)
 
         # self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}_K', self.my_filter.x[1][0])
-        if True or self.options is not None and 'kalman_filter' in self.options:
-            self.plotter.add_sample(f'Doppler_deviation_filtered_{self.id}', self.kalman_filter.x[1][0])
+        if self.options is not None and 'kalman_filter' in self.options:
             return self.kalman_filter.x[1][0]
         
         return speed
@@ -108,7 +108,7 @@ class DopplerAnalyzer:
             snr = snr[not_outliers]
 
         if True or 'doppler_threshold' in self.options:
-            threshold = 1.5#self.options['doppler_threshold']['values'][self.options['doppler_threshold']['index']]
+            threshold = 1.25#self.options['doppler_threshold']['values'][self.options['doppler_threshold']['index']]
             thresholded_freqs = np.array(np.abs(frequency_displacements) <= threshold, dtype=bool)
             frequency_displacements = frequency_displacements[~thresholded_freqs]
             frequencies = frequencies[~thresholded_freqs]

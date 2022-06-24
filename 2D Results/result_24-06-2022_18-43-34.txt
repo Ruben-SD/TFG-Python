@@ -1,0 +1,352 @@
+Results for vvgood8 {'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 2.7843792734822888}
+Total avg error: 2.7843792734822888
+Results for vvgood8 {'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 2.8336263840460516}
+Total avg error: 2.8336263840460516
+Results for vvgood8 {'snr_avg': None} = {'Total avg error': 2.8336263840460516}
+Total avg error: 2.8336263840460516
+Results for vvgood8 {'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 2.880352098362923}
+Total avg error: 2.880352098362923
+Results for vvgood8 {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.223209414120419}
+Total avg error: 3.223209414120419
+Results for vvgood8 {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.223209414120419}
+Total avg error: 3.223209414120419
+Results for vvgood8 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.2539579916564083}
+Total avg error: 3.2539579916564083
+Results for vvgood8 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.2539579916564083}
+Total avg error: 3.2539579916564083
+Results for vvgood8 {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.268988194054019}
+Total avg error: 3.268988194054019
+Results for vvgood8 {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.289202273324541}
+Total avg error: 3.289202273324541
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.3165651040291277}
+Total avg error: 3.3165651040291277
+Results for vvgood8 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.3197310968447904}
+Total avg error: 3.3197310968447904
+Results for vvgood8 {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 3.394753106529954}
+Total avg error: 3.394753106529954
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 3.4383469203264165}
+Total avg error: 3.4383469203264165
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.442800003497284}
+Total avg error: 3.442800003497284
+Results for vvgood8 {'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 3.4434233104867022}
+Total avg error: 3.4434233104867022
+Results for vvgood8 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.451221491495406}
+Total avg error: 3.451221491495406
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.461333168651119}
+Total avg error: 3.461333168651119
+Results for vvgood8 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 3.475820248016033}
+Total avg error: 3.475820248016033
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.49668683704217}
+Total avg error: 3.49668683704217
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.49668683704217}
+Total avg error: 3.49668683704217
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 3.571047134759127}
+Total avg error: 3.571047134759127
+Results for vvgood8 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.5784426310081723}
+Total avg error: 3.5784426310081723
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 3.5942569181585773}
+Total avg error: 3.5942569181585773
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.6134420326405094}
+Total avg error: 3.6134420326405094
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 3.6134420326405094}
+Total avg error: 3.6134420326405094
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.637764926435984}
+Total avg error: 3.637764926435984
+Results for vvgood8 {'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 3.64018919525477}
+Total avg error: 3.64018919525477
+Results for vvgood8 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.7251897589904965}
+Total avg error: 3.7251897589904965
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 3.780538805632488}
+Total avg error: 3.780538805632488
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.838549596280838}
+Total avg error: 3.838549596280838
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.911292574640583}
+Total avg error: 3.911292574640583
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 3.9329507594908923}
+Total avg error: 3.9329507594908923
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 3.9567980987507205}
+Total avg error: 3.9567980987507205
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.974975156667625}
+Total avg error: 3.974975156667625
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None} = {'Total avg error': 3.974975156667625}
+Total avg error: 3.974975156667625
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 3.9760177588312504}
+Total avg error: 3.9760177588312504
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 3.9760177588312504}
+Total avg error: 3.9760177588312504
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 3.9760177588312504}
+Total avg error: 3.9760177588312504
+Results for vvgood8 {'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 3.9760177588312504}
+Total avg error: 3.9760177588312504
+Results for vvgood8 {'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.240583632475315}
+Total avg error: 4.240583632475315
+Results for vvgood8 {} = {'Total avg error': 4.240583632475315}
+Total avg error: 4.240583632475315
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.487141744016417}
+Total avg error: 4.487141744016417
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.487141744016417}
+Total avg error: 4.487141744016417
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.48976147982385}
+Total avg error: 4.48976147982385
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.5061683200119464}
+Total avg error: 4.5061683200119464
+Results for vvgood8 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.5425063658744405}
+Total avg error: 4.5425063658744405
+Results for vvgood8 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.5425063658744405}
+Total avg error: 4.5425063658744405
+Results for vvgood8 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.574293489573331}
+Total avg error: 4.574293489573331
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.589710757993167}
+Total avg error: 4.589710757993167
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.604749212632294}
+Total avg error: 4.604749212632294
+Results for vvgood8 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.619168718010802}
+Total avg error: 4.619168718010802
+Results for vvgood8 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.649779049105288}
+Total avg error: 4.649779049105288
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.653761560164121}
+Total avg error: 4.653761560164121
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.659928132538309}
+Total avg error: 4.659928132538309
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.7056148824817}
+Total avg error: 4.7056148824817
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.720307452386603}
+Total avg error: 4.720307452386603
+Results for vvgood8 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.721254157340598}
+Total avg error: 4.721254157340598
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.732051159595721}
+Total avg error: 4.732051159595721
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.7503326272684}
+Total avg error: 4.7503326272684
+Results for vvgood8 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.757300773094049}
+Total avg error: 4.757300773094049
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.7612982616367425}
+Total avg error: 4.7612982616367425
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 4.783383494982445}
+Total avg error: 4.783383494982445
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.825428074146613}
+Total avg error: 4.825428074146613
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.825428074146613}
+Total avg error: 4.825428074146613
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.831250811089479}
+Total avg error: 4.831250811089479
+Results for vvgood8 {'kalman_filter': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 4.860824465103197}
+Total avg error: 4.860824465103197
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 4.868063598809267}
+Total avg error: 4.868063598809267
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 4.897865599182119}
+Total avg error: 4.897865599182119
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 4.898818980318491}
+Total avg error: 4.898818980318491
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 4.898818980318491}
+Total avg error: 4.898818980318491
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.898818980318491}
+Total avg error: 4.898818980318491
+Results for vvgood8 {'kalman_filter': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 4.898818980318491}
+Total avg error: 4.898818980318491
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.903833056328197}
+Total avg error: 4.903833056328197
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.903833056328197}
+Total avg error: 4.903833056328197
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 4.9586653495844555}
+Total avg error: 4.9586653495844555
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 4.9586653495844555}
+Total avg error: 4.9586653495844555
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.032571559951263}
+Total avg error: 5.032571559951263
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.130400054685431}
+Total avg error: 5.130400054685431
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.148516482424291}
+Total avg error: 5.148516482424291
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.148516482424291}
+Total avg error: 5.148516482424291
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.225223291073698}
+Total avg error: 5.225223291073698
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.25366119733392}
+Total avg error: 5.25366119733392
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.255071507694434}
+Total avg error: 5.255071507694434
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.275038782016174}
+Total avg error: 5.275038782016174
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None} = {'Total avg error': 5.275038782016174}
+Total avg error: 5.275038782016174
+Results for vvgood8 {'kalman_filter': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.275951264546638}
+Total avg error: 5.275951264546638
+Results for vvgood8 {'kalman_filter': None} = {'Total avg error': 5.275951264546638}
+Total avg error: 5.275951264546638
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 5.293856881738898}
+Total avg error: 5.293856881738898
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 5.293856881738898}
+Total avg error: 5.293856881738898
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.293856881738898}
+Total avg error: 5.293856881738898
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 5.293856881738898}
+Total avg error: 5.293856881738898
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 5.302984723042449}
+Total avg error: 5.302984723042449
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 5.302984723042449}
+Total avg error: 5.302984723042449
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.302984723042449}
+Total avg error: 5.302984723042449
+Results for vvgood8 {'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 5.302984723042449}
+Total avg error: 5.302984723042449
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.306706926649609}
+Total avg error: 5.306706926649609
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.314787354486764}
+Total avg error: 5.314787354486764
+Results for vvgood8 {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.321737403218347}
+Total avg error: 5.321737403218347
+Results for vvgood8 {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.345300858662517}
+Total avg error: 5.345300858662517
+Results for vvgood8 {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.345300858662517}
+Total avg error: 5.345300858662517
+Results for vvgood8 {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.416131509931222}
+Total avg error: 5.416131509931222
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.451494447518592}
+Total avg error: 5.451494447518592
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.460621358893564}
+Total avg error: 5.460621358893564
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.474635240000669}
+Total avg error: 5.474635240000669
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.474635240000669}
+Total avg error: 5.474635240000669
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.497091851620265}
+Total avg error: 5.497091851620265
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.502426393492875}
+Total avg error: 5.502426393492875
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.59207866800851}
+Total avg error: 5.59207866800851
+Results for vvgood8 {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.594371494847817}
+Total avg error: 5.594371494847817
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.596344522717208}
+Total avg error: 5.596344522717208
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.604446770356369}
+Total avg error: 5.604446770356369
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.604446770356369}
+Total avg error: 5.604446770356369
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.615970144481428}
+Total avg error: 5.615970144481428
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.628308452424105}
+Total avg error: 5.628308452424105
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.64806295338714}
+Total avg error: 5.64806295338714
+Results for vvgood8 {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.651357348714132}
+Total avg error: 5.651357348714132
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.675299096147626}
+Total avg error: 5.675299096147626
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.710229173877163}
+Total avg error: 5.710229173877163
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.710229173877163}
+Total avg error: 5.710229173877163
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.722835914001215}
+Total avg error: 5.722835914001215
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 5.775423707236772}
+Total avg error: 5.775423707236772
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 5.775423707236772}
+Total avg error: 5.775423707236772
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.775423707236772}
+Total avg error: 5.775423707236772
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 5.775423707236772}
+Total avg error: 5.775423707236772
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.7870083466573226}
+Total avg error: 5.7870083466573226
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.790171786263191}
+Total avg error: 5.790171786263191
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.794664205999904}
+Total avg error: 5.794664205999904
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.8080764356209675}
+Total avg error: 5.8080764356209675
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None} = {'Total avg error': 5.8080764356209675}
+Total avg error: 5.8080764356209675
+Results for vvgood8 {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.8298308399432095}
+Total avg error: 5.8298308399432095
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.830884212401102}
+Total avg error: 5.830884212401102
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.841843439441244}
+Total avg error: 5.841843439441244
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.845127478263445}
+Total avg error: 5.845127478263445
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.856733522787541}
+Total avg error: 5.856733522787541
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.864252035156499}
+Total avg error: 5.864252035156499
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 5.864252035156499}
+Total avg error: 5.864252035156499
+Results for vvgood8 {'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 5.871944744757128}
+Total avg error: 5.871944744757128
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 5.898331479318091}
+Total avg error: 5.898331479318091
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.923652281900713}
+Total avg error: 5.923652281900713
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.969141925096627}
+Total avg error: 5.969141925096627
+Results for vvgood8 {'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 5.971805172382201}
+Total avg error: 5.971805172382201
+Results for vvgood8 {'constant_dt': None} = {'Total avg error': 5.971805172382201}
+Total avg error: 5.971805172382201
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 5.987299209581613}
+Total avg error: 5.987299209581613
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 5.9943092946377305}
+Total avg error: 5.9943092946377305
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.004154223201356}
+Total avg error: 6.004154223201356
+Results for vvgood8 {'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.008412637427445}
+Total avg error: 6.008412637427445
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.028712871769037}
+Total avg error: 6.028712871769037
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 6.072865486797819}
+Total avg error: 6.072865486797819
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 6.096429336209326}
+Total avg error: 6.096429336209326
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 6.10861328787416}
+Total avg error: 6.10861328787416
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 6.111909234412813}
+Total avg error: 6.111909234412813
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 2}} = {'Total avg error': 6.111909234412813}
+Total avg error: 6.111909234412813
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.125250175890587}
+Total avg error: 6.125250175890587
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.143511386105454}
+Total avg error: 6.143511386105454
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 6.209317374957591}
+Total avg error: 6.209317374957591
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 6.316455898649665}
+Total avg error: 6.316455898649665
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 6.319740686723378}
+Total avg error: 6.319740686723378
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 6.319740686723378}
+Total avg error: 6.319740686723378
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 6.319740686723378}
+Total avg error: 6.319740686723378
+Results for vvgood8 {'kalman_filter': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 6.319740686723378}
+Total avg error: 6.319740686723378
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 1}} = {'Total avg error': 6.348411816789315}
+Total avg error: 6.348411816789315
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.348669079964531}
+Total avg error: 6.348669079964531
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 1}} = {'Total avg error': 6.3829672080622295}
+Total avg error: 6.3829672080622295
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 6.411762213298147}
+Total avg error: 6.411762213298147
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None} = {'Total avg error': 6.411762213298147}
+Total avg error: 6.411762213298147
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 0}} = {'Total avg error': 6.472482334295896}
+Total avg error: 6.472482334295896
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'outlier_removal': {'values': [1.35, 1.5, 1.75], 'index': 0}} = {'Total avg error': 6.4867788593665585}
+Total avg error: 6.4867788593665585
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 6.58697362844225}
+Total avg error: 6.58697362844225
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 6.58697362844225}
+Total avg error: 6.58697362844225
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 6.58697362844225}
+Total avg error: 6.58697362844225
+Results for vvgood8 {'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 6.58697362844225}
+Total avg error: 6.58697362844225
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 0}} = {'Total avg error': 6.945676841998893}
+Total avg error: 6.945676841998893
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 1}} = {'Total avg error': 6.945676841998893}
+Total avg error: 6.945676841998893
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}, 'frequency_lookup_width': {'values': [50, 75, 100], 'index': 2}} = {'Total avg error': 6.945676841998893}
+Total avg error: 6.945676841998893
+Results for vvgood8 {'kalman_filter': None, 'constant_dt': None, 'doppler_threshold': {'values': [1, 1.35, 1.5], 'index': 2}} = {'Total avg error': 6.945676841998893}
+Total avg error: 6.945676841998893

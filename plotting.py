@@ -117,9 +117,9 @@ class Plotter:
             # el
             if 'Doppler_deviation_filtered_' in data_name:
                 if data_name.endswith('0'):
-                    plt.plot(time_data, data, '-D', label='Velocidad', markevery=self.data_dictionary['zcross_l'])
+                    plt.plot(time_data, data, label='Velocidad respecto al altavoz izquierdo')#, markevery=self.data_dictionary['zcross_l'])
                 else:
-                    plt.plot(time_data, data, '-D', label='Velocidad', markevery=self.data_dictionary['zcross_r'])
+                    plt.plot(time_data, data, label='Velocidad respecto al altavoz derecho')#, markevery=self.data_dictionary['zcross_r'])
         # left_speaker_crosses = np.array(self.data_dictionary['left_speaker_crosses']) + 1
         # right_speaker_crosses = np.array(self.data_dictionary['right_speaker_crosses']) + 1
         # time_data = self.data_dictionary['time']
@@ -226,7 +226,7 @@ class Plotter:
             elif 'Tracker_position' in data_name or data_name.startswith('Posición'):
                 tracked_pos.append(np.array(data))
         if len(tracked_pos) == 0:
-            return
+            return {'Total avg error': -1}
 
         if len(predicted_pos) == 1:
             error = abs(np.array(tracked_pos, dtype=np.float64) - np.array(predicted_pos, dtype=np.float64))
@@ -237,10 +237,22 @@ class Plotter:
                 metrics[f'Avg error {coord}'] = error
         else:
             error = np.linalg.norm(np.array(tracked_pos, dtype=np.float64) - np.array(predicted_pos, dtype=np.float64), axis=0)
-            avg_error = np.mean(error, dtype=np.float64) # Compute error for each coordinate
+            avg_error = np.mean(error, dtype=np.float64)
             metrics['Total avg error'] = avg_error
-        
+            metrics['Total max error'] = np.max(error)
+            metrics['Total std'] = np.std(error)
 
+            error = abs(np.array(tracked_pos, dtype=np.float64) - np.array(predicted_pos, dtype=np.float64))
+            avg_error = np.mean(error, axis=1, dtype=np.float64) # Compute error for each coordinate
+            max_error = np.max(error, axis=1) # Compute error for each coordinate
+            std_error = np.std(error, axis=1) # Compute error for each coordinate
+            coords_names = ['x', 'y', 'z']
+            for coord, error in zip(coords_names, avg_error):
+                metrics[f'Avg error {coord}'] = error
+            for coord, error in zip(coords_names, max_error):
+                metrics[f'Max error {coord}'] = error
+            for coord, error in zip(coords_names, std_error):
+                metrics[f'Std error {coord}'] = error
 
         # if 'predictor_position_y' in self.data_dictionary:
         #     tracker_position_y = np.array(self.data_dictionary['tracker_position_y'])
@@ -284,7 +296,7 @@ class Plotter:
 
     def run_saved(filename=None, folder=None):
         configs = Config.get_all_configs(folder=folder) if filename is None else [Config.read_config(filename=filename, offline=True)]
-        options = {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]}}#, 'frequency_lookup_width': { 'values': [50, 75, 100] } }
+        options = {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]}, 'frequency_lookup_width': { 'values': [50, 75, 100] } }
         all_configs = []
         print("Generating all configurations and options combinations...")
         for i in range(len(options) + 1):
@@ -295,7 +307,8 @@ class Plotter:
                 while expanded_values: # Ends when no values remain in no node
                     expanded_values = False
                     current_opts_copy = ujson.loads(ujson.dumps(current_opts))
-                    current_conf_copy = ujson.loads(ujson.dumps(current_conf))
+                    import copy
+                    current_conf_copy = copy.copy(current_conf)
                     skip = False
                     for key, val in saved_opts.items():  # For each option
                         if val is not None and 'values' in val: # Expand all first nodes with values and delete value, then repeat until none is expanded
@@ -312,7 +325,7 @@ class Plotter:
                                 expanded_values = True
                     #cuando todos son menos -1 se va a insertar el original, ignorarlo
                     if not skip:    
-                        current_conf_copy['options'] = current_opts_copy # When finished this iteration, insert config
+                        current_conf_copy['options'] = copy.deepcopy(current_opts_copy) # When finished this iteration, insert config
                         all_configs.append(current_conf_copy)
                         
             
@@ -326,19 +339,46 @@ class Plotter:
         results_info = []
         for key, results_group in grouped_results:
             avg_errors = []
+            max_errors = []
+            std_errors = []
+            avg_errors_x = []
+            std_errors_x = []
+            max_errors_x = []
+            avg_errors_y = []
+            std_errors_y = []
+            max_errors_y = []
             result_string = ''
             for i, result in enumerate(results_group):
                 metrics, description, options = result
                 result_string += "Results for " + description + ' ' + str(options) + " = " + str(metrics) + "\n"
                 avg_error = metrics['Total avg error']
+                max_error = metrics['Total max error']
+                std_error = metrics['Total std']
                 avg_errors.append(avg_error)
+                max_errors.append(max_error)
+                std_errors.append(std_error)
+                avg_errors_x.append(metrics['Avg error x'])
+                std_errors_x.append(metrics['Std error x'])
+                max_errors_x.append(metrics['Max error x'])
+                avg_errors_y.append(metrics['Avg error y'])
+                std_errors_y.append(metrics['Std error y'])
+                max_errors_y.append(metrics['Max error y'])
+
             total_avg_error = np.mean(avg_errors)
-            result_string += 'Total avg error: ' + str(total_avg_error) + '\n'
+            total_max_errors = str(np.mean(max_errors))
+            total_std_errors = str(np.mean(std_errors))
+            total_avg_errors_x = str(np.mean(avg_errors_x))
+            total_std_errors_x = str(np.mean(std_errors_x))
+            total_max_errors_x = str(np.mean(max_errors_x))
+            total_avg_errors_y = str(np.mean(avg_errors_y))
+            total_std_errors_y = str(np.mean(std_errors_y))
+            total_max_errors_y = str(np.mean(max_errors_y))
+            result_string += f'Avg error: {str(total_avg_error)} Max error: {total_max_errors} Std error: {total_std_errors} Avg error x: {total_avg_errors_x} Std error x: {total_std_errors_x} Max error x: {total_max_errors_x} Avg error y: {total_avg_errors_y} Std error y: {total_std_errors_y} Max error y: {total_max_errors_y}' +  '\n'
             results_info.append((total_avg_error, result_string))
         
         results_info.sort(key = lambda r: r[0])
 
-        results_filename = 'offline_results/result_' + time.strftime("%d-%m-%Y_%H-%M-%S") + '.txt'
+        results_filename = '2D Results/result_' + time.strftime("%d-%m-%Y_%H-%M-%S") + '.txt'
         with open(results_filename, 'w') as f:
             output_info_text = ''.join([res[1] for res in results_info])
             f.write(output_info_text)
