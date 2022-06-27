@@ -24,7 +24,7 @@ def main_loop(plotter, config):
         positioner.stop()
 
 if __name__=="__main__":
-    offline = False
+    offline = True
     if offline: # Run all files on folder in offline mode
         # filenames = [file for file in os.listdir('Memoria/2D/')]
         # for filename in filenames:
@@ -38,7 +38,7 @@ if __name__=="__main__":
             plotter.print_metrics()
             plotter.plot()
         else:
-            config = Config.read_config(offline=True)#bestis17-06-2022_17-50-18.json#filename='17-06-2022_13-13-15.json', offline=True) # Run positioning in real time (online) mode11
+            config = Config.read_config()#filename='23-06-2022_19-14-29.json', offline=False)#bestis17-06-2022_17-50-18.json#filename='17-06-2022_13-13-15.json', offline=True) # Run positioning in real time (online) mode11
             plotter.add_data('config', config)    
             main_loop(plotter, config)
             plotter.print_metrics()

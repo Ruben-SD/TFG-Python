@@ -1,0 +1,342 @@
+{
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "snr_avg": null
+}
+

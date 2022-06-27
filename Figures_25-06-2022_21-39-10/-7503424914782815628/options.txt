@@ -1,0 +1,198 @@
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+

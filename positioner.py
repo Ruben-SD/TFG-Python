@@ -41,9 +41,8 @@ class Positioner:
     @staticmethod
     def multilaterate(distances_to_stations, stations_coordinates, last_position):
         def error(guess, coords, distances):
-            return sum([(np.linalg.norm(guess - coords[i]) - distances[i]) ** 2 for i in range(len(coords))])# + [np.linalg.norm((guess - last_position))])
-
-        # optimize distance from signal origin to border of spheres
+            return sum([(np.linalg.norm(guess - coords[i]) - distances[i]) ** 2 for i in range(len(coords))])
+            
         return minimize(error, last_position, args=(stations_coordinates, distances_to_stations), method='Nelder-Mead').x
 
     def stop(self):

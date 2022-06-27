@@ -10,6 +10,7 @@ import multiprocessing
 import itertools
 import ujson
 from main import main_loop
+matplotlib.use('Agg')
 plt.rcParams["figure.figsize"] = [16, 9]
 plt.rcParams["figure.dpi"] = 100
 #pos
@@ -296,7 +297,7 @@ class Plotter:
 
     def run_saved(filename=None, folder=None):
         configs = Config.get_all_configs(folder=folder) if filename is None else [Config.read_config(filename=filename, offline=True)]
-        options = {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75]}, 'frequency_lookup_width': { 'values': [50, 75, 100] } }
+        options = {'kalman_filter': None, 'constant_dt': None, 'snr_avg': None, 'doppler_threshold': { "values": [1, 1.35, 1.5] }, 'outlier_removal': { 'values': [1.35, 1.5, 1.75, 2]}, 'frequency_lookup_width': { 'values': [50, 75] } }
         all_configs = []
         print("Generating all configurations and options combinations...")
         for i in range(len(options) + 1):
@@ -335,7 +336,7 @@ class Plotter:
         all_results = pool.map(Plotter.offline_loop, all_configs)    
 
         grouped_results = itertools.groupby(sorted(all_results, key = lambda r: json.dumps(r[2], sort_keys=True)), key = lambda r: r[2])
-
+        time_str = time.strftime("%d-%m-%Y_%H-%M-%S")
         results_info = []
         for key, results_group in grouped_results:
             avg_errors = []
@@ -365,25 +366,85 @@ class Plotter:
                 max_errors_y.append(metrics['Max error y'])
 
             total_avg_error = np.mean(avg_errors)
-            total_max_errors = str(np.mean(max_errors))
-            total_std_errors = str(np.mean(std_errors))
-            total_avg_errors_x = str(np.mean(avg_errors_x))
-            total_std_errors_x = str(np.mean(std_errors_x))
-            total_max_errors_x = str(np.mean(max_errors_x))
-            total_avg_errors_y = str(np.mean(avg_errors_y))
-            total_std_errors_y = str(np.mean(std_errors_y))
-            total_max_errors_y = str(np.mean(max_errors_y))
-            result_string += f'Avg error: {str(total_avg_error)} Max error: {total_max_errors} Std error: {total_std_errors} Avg error x: {total_avg_errors_x} Std error x: {total_std_errors_x} Max error x: {total_max_errors_x} Avg error y: {total_avg_errors_y} Std error y: {total_std_errors_y} Max error y: {total_max_errors_y}' +  '\n'
+            total_max_errors = np.mean(max_errors)
+            total_std_errors = np.mean(std_errors)
+            total_avg_errors_x = np.mean(avg_errors_x)
+            total_std_errors_x = np.mean(std_errors_x)
+            total_max_errors_x = np.mean(max_errors_x)
+            total_avg_errors_y = np.mean(avg_errors_y)
+            total_std_errors_y = np.mean(std_errors_y)
+            total_max_errors_y = np.mean(max_errors_y)
+            
+
+            original_avg_errors = np.array([3.5278580027815383, 4.790490049601273, 5.560448432995089, 3.6692583243264507, 6.317731869693616, 4.863624150387261,
+            4.358759331720689, 4.249078194808773, 5.628888598343067, 9.873530106852574] + [5.283966706151032])
+            original_max_errors = np.array([10.786126366927565, 13.33180988045995, 11.664472228572698, 10.382514760304803, 15.805127835445942, 12.747257820232589,
+            11.782980813555348, 16.30153743411097, 17.921600025970662, 15.628099567121568] + [13.635152673270209])
+            original_std_errors = np.array([2.8910836797250496,  3.204434180441297, 3.179669684866274, 2.1766703483377468, 3.754848070383608, 2.7174188823403846, 
+            2.7085495517554072, 2.86336930921281, 4.080949654179546, 2.6600334008670745] + [3.0237026762109194])
+            original_avg_errors_x = np.array([2.1076872124190675, 3.03364106506349, 1.9714553089749678, 2.739893832737707, 2.8710478384470486, 3.552404751977964,
+            2.745872500648192, 2.236138213863272, 2.8427915716670946, 3.961865101913661] + [2.8062797397712465])
+            original_std_errors_x = np.array([2.224685729249608, 2.483472201725879, 1.5251291737355592, 2.1547545331151103, 2.645463568866009, 2.5960225829468624,
+            2.08001051559044, 1.9831032829529573, 2.947460031408139, 2.614300528833436] + [2.3254402148424])
+            original_max_errors_x = np.array([8.843813083405017, 8.947908973117727, 7.5980981283296245, 10.33824093767214, 10.67125038137398, 11.143023847681924,
+            9.04768027562561, 13.028809802715237, 13.072543711421744, 11.753911248474623] + [10.444528038981762])
+            original_avg_errors_y = np.array([2.588846143414582, 2.9314015409781065, 4.944438442609387, 1.9283091052124939, 5.318773755183007, 2.7221709180489144,
+            2.8972611234027195, 3.3618095445288043, 4.535595594351837, 8.700938112904778] + [3.992954428063463])
+            original_std_errors_y = np.array([2.170357251092087, 3.041951026771428, 3.220055828124211, 1.5274125631511837, 3.2375720170111433, 2.0664167000421974,
+            2.4646788906900334, 2.453318803274013, 3.3163119546132886, 2.514976755207402] + [2.601305178997699])
+            original_max_errors_y = np.array([8.000598638112898, 13.323682831185991, 11.3186686412635, 6.571306302352667, 12.100591875709028, 7.623575911823892,
+            8.42655555984578, 11.47421293545515, 12.278353879914363, 13.434061438973004] + [10.455160801463627])
+
+            Plotter.save_fig('avg_error', time_str, key, np.array(avg_errors + [total_avg_error]), original_avg_errors, 'Error medio (cm)')
+            Plotter.save_fig('max_error', time_str, key, np.array(max_errors + [total_max_errors]), original_max_errors, 'Error máximo (cm)')
+            Plotter.save_fig('std_error', time_str, key, np.array(std_errors + [total_std_errors]), original_std_errors, 'Desviación típica (cm)')
+            Plotter.save_fig('avg_error_x', time_str, key, np.array(avg_errors_x + [total_avg_errors_x]), original_avg_errors_x, 'Error medio en el eje X (cm)')
+            Plotter.save_fig('std_error_x', time_str, key, np.array(std_errors_x + [total_std_errors_x]), original_std_errors_x, u'\u03C3' + ' en el eje X (cm)')
+            Plotter.save_fig('max_error_x', time_str, key, np.array(max_errors_x + [total_max_errors_x]), original_max_errors_x, 'Error máximo en el eje X (cm)')
+            Plotter.save_fig('avg_error_y', time_str, key, np.array(avg_errors_y + [total_avg_errors_y]), original_avg_errors_y, 'Error medio en el eje Y (cm)')
+            Plotter.save_fig('std_error_y', time_str, key, np.array(std_errors_y + [total_std_errors_y]), original_std_errors_y, u'\u03C3' + ' en el eje Y (cm)')
+            Plotter.save_fig('max_error_y', time_str, key, np.array(max_errors_y + [total_max_errors_y]), original_max_errors_y, 'Error máximo en el eje Y (cm)')
+
+
+            result_string += f'Avg error: {total_avg_error} Max error: {total_max_errors} Std error: {total_std_errors} Avg error x: {total_avg_errors_x} Std error x: {total_std_errors_x} Max error x: {total_max_errors_x} Avg error y: {total_avg_errors_y} Std error y: {total_std_errors_y} Max error y: {total_max_errors_y}' +  '\n'
             results_info.append((total_avg_error, result_string))
         
         results_info.sort(key = lambda r: r[0])
 
-        results_filename = '2D Results/result_' + time.strftime("%d-%m-%Y_%H-%M-%S") + '.txt'
+        results_filename = '2D Results/result_' + time_str + '.txt'
         with open(results_filename, 'w') as f:
             output_info_text = ''.join([res[1] for res in results_info])
             f.write(output_info_text)
         
         print(f"\nFinished, results written to file {results_filename}")
+
+    @staticmethod
+    def save_fig(name, time_str, options, data, original, ylabel):
+
+        options_hash = hash(tuple(options))
+
+        x = np.arange(len(data))
+        fig, ax = plt.subplots()
+        ax.bar(x - 0.2, original, width=0.4, label = 'Original')
+        ax.bar(x + 0.2, data, width=0.4, label = 'Con filtros')
+        #splt.xticks(distances, distances)
+        ax.set_xlabel('Número de prueba')  # Número de prueba
+        ax.set_ylabel(ylabel)
+        #ax.set_yticks(np.arange(0, max(max(data), max(original_avg_errors)), 1))
+        ax.legend()
+        ax.set_xticks(x, [i for i in range(len(x) - 1)] + [u'\u0078\u0304'])
+        ax.set_title('Error del posicionamiento en cada prueba')
+        ax.grid()
+        from pathlib import Path
+        folder = f'Figures_{time_str}/{options_hash}/'
+        Path(folder).mkdir(parents=True, exist_ok=True)
+        filename = f'{folder}{name}.pdf'
+        fig.savefig(filename, bbox_inches='tight')
+        f = open(f'Figures_{time_str}/{options_hash}/options.txt', "a")
+        f.write(json.dumps(options, indent=4, sort_keys=True, default=str) + '\n\n')
+        f.close()
+        plt.close(fig)
+
 
 if __name__ == '__main__':
     plotter = Plotter()

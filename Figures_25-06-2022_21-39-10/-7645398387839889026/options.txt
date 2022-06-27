@@ -1,0 +1,198 @@
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null
+}
+

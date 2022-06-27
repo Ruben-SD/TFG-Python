@@ -1,0 +1,45 @@
+{
+    "constant_dt": null,
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "snr_avg": null
+}
+

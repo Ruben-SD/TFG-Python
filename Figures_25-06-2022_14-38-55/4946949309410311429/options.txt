@@ -1,0 +1,540 @@
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 2,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 2,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 2,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 2,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 2,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 2,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 2,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 2,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 2,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 3,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 3,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 3,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 3,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 3,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 3,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 3,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 3,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+
+{
+    "constant_dt": null,
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 3,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    },
+    "snr_avg": null
+}
+

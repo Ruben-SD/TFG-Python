@@ -1,0 +1,36 @@
+{
+    "snr_avg": null
+}
+
+{
+    "snr_avg": null
+}
+
+{
+    "snr_avg": null
+}
+
+{
+    "snr_avg": null
+}
+
+{
+    "snr_avg": null
+}
+
+{
+    "snr_avg": null
+}
+
+{
+    "snr_avg": null
+}
+
+{
+    "snr_avg": null
+}
+
+{
+    "snr_avg": null
+}
+

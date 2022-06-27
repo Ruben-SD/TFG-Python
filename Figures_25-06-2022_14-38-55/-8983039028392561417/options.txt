@@ -1,0 +1,522 @@
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 0,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    },
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    },
+    "kalman_filter": null,
+    "outlier_removal": {
+        "index": 1,
+        "values": [
+            1.35,
+            1.5,
+            1.75,
+            2
+        ]
+    }
+}
+

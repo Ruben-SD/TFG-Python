@@ -1,0 +1,276 @@
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 0,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 1,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 2,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 2,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 2,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 2,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+
+{
+    "constant_dt": null,
+    "doppler_threshold": {
+        "index": 2,
+        "values": [
+            1,
+            1.35,
+            1.5
+        ]
+    }
+}
+

@@ -1,0 +1,180 @@
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 0,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
+{
+    "frequency_lookup_width": {
+        "index": 1,
+        "values": [
+            50,
+            75
+        ]
+    }
+}
+
